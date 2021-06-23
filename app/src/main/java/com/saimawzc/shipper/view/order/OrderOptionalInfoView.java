@@ -35,6 +35,7 @@ public interface OrderOptionalInfoView extends BaseView {
     String checkUserList();
     String driverAge();
     String carAge();
+    String relationCom();
     void getOrderDelation(OrderDelationDto dto);
     boolean getIschoose();
     void getConsuteDealtion(ConsuteDelationDto dto);

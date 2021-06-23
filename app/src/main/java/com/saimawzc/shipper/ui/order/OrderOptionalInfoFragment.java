@@ -8,22 +8,20 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
 import com.saimawzc.shipper.dto.order.consute.ConsuteDelationDto;
+import com.saimawzc.shipper.dto.order.creatorder.AuthorityDtoSerializ;
 import com.saimawzc.shipper.dto.order.creatorder.OrderDelationDto;
-import com.saimawzc.shipper.presenter.order.OrderBasicinfoEditPresenter;
 import com.saimawzc.shipper.presenter.order.OrderOpintalnfoEditPresenter;
+import com.saimawzc.shipper.ui.order.creatorder.RelationCompanyActivity;
 import com.saimawzc.shipper.ui.order.creatorder.richtext.RichPublishActivity;
-import com.saimawzc.shipper.ui.order.creatorder.richtext.ShowArtActivity;
 import com.saimawzc.shipper.view.order.OrderOptionalInfoView;
 import com.saimawzc.shipper.weight.SwitchButton;
 import com.saimawzc.shipper.weight.TimeChooseDialogUtil;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.listen.TimeChooseListener;
-import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 
 import java.util.ArrayList;
@@ -32,6 +30,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.CHOOSE_COMPANY;
+
 
 /***
  * 选填信息
@@ -71,6 +71,8 @@ public class OrderOptionalInfoFragment extends BaseFragment
     public final static int CHOOSE_RECEIVE_OBJ=12345;
     public final static int CHOOSE_CAR_TYPE=12346;
     public final static int ANQUANTIP=12347;
+    public final static int CHOOSE_COMPANY=12348;
+
     @BindView(R.id.rlyh) RelativeLayout rlYh;
 
     /****启用车型**/
@@ -80,6 +82,7 @@ public class OrderOptionalInfoFragment extends BaseFragment
     private String carModerId;
     @BindView(R.id.eddriverage)EditText edDriverAge;
     @BindView(R.id.edcarage)EditText edCarAge;
+    @BindView(R.id.tvrelationCom)TextView tvRelaCom;//关联公司
 
     private UserInfoDto userInfoDto;
     private String id;
@@ -88,16 +91,22 @@ public class OrderOptionalInfoFragment extends BaseFragment
     private OrderOpintalnfoEditPresenter presenter;
     private String htmlContext;
 
+
+
     @Override
     public int initContentView() {
         return R.layout.tab_order_optional;
     }
 
     @OnClick({R.id.tvmakeTime,R.id.tvreceiveObj,R.id.tvhzlist,
-            R.id.tvexaminelist,R.id.tvanquan,R.id.tvcarmodel})
+            R.id.tvexaminelist,R.id.tvanquan,R.id.tvcarmodel,R.id.tvrelationCom,R.id.deleterelacom})
     public void click(View view){
         Bundle bundle;
         switch (view.getId()){
+            case R.id.deleterelacom:
+                tvRelaCom.setText("");
+                relationConId="";
+                break;
             case R.id.tvcarmodel://车型列表
                 bundle=new Bundle();
                 bundle.putString("from","choosecartype");
@@ -142,6 +151,9 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 bundle.putString("type",10+"");
                 bundle.putString("from","chooseHzList");
                 readyGoForResult(OrderMainActivity.class,CHOOSE_RECEIVE_OBJ,bundle);
+                break;
+            case R.id.tvrelationCom://关联公司
+                readyGoForResult(RelationCompanyActivity.class,CHOOSE_COMPANY);
                 break;
         }
     }
@@ -484,6 +496,11 @@ public class OrderOptionalInfoFragment extends BaseFragment
     }
 
     @Override
+    public String relationCom() {
+        return relationConId;
+    }
+
+    @Override
     public void getOrderDelation(OrderDelationDto dto) {
         if(dto!=null){
             OrderDelationDto.choosedata choosedata=dto.getChoose();
@@ -551,6 +568,8 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 }
                 edDriverAge.setText(dto.getChoose().getDrivingYears());
                 edCarAge.setText(dto.getChoose().getTravelYears());
+                tvRelaCom.setText(dto.getChoose().getRelationComName());
+                relationConId=dto.getChoose().getRelationCom();
 
             }
         }
@@ -596,10 +615,21 @@ public class OrderOptionalInfoFragment extends BaseFragment
     private String receivObjId="";//接收对象ID
     private String hzlistId="";
     private String examinelistId="";//验货人ID
+    private String relationConId="";//关联公司ID
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==ANQUANTIP&& resultCode == RESULT_OK){
+
+        if(requestCode==CHOOSE_COMPANY&& resultCode == RESULT_OK){
+            AuthorityDtoSerializ  authorityDto = (AuthorityDtoSerializ) data.getSerializableExtra("data");
+            if(authorityDto!=null){
+                if(!tvRelaCom.getText().toString().contains(authorityDto.getCompanyName())){
+                    tvRelaCom.setText(tvRelaCom.getText().toString()+authorityDto.getCompanyName()+",");
+                    relationConId=relationConId+authorityDto.getId()+",";
+                }
+            }
+        } else if(requestCode==ANQUANTIP&& resultCode == RESULT_OK){
             htmlContext=data.getStringExtra("data");
             tvAnquan.setText("点击查看");
         }else if(requestCode==CHOOSE_CAR_TYPE&& resultCode == RESULT_OK){

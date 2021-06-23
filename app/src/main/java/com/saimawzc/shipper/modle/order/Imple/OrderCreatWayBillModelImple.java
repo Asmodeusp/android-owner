@@ -121,6 +121,7 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("context",optionalInfoFragment.context());
             choose.put("drivingYears",optionalInfoFragment.driverAge());
             choose.put("travelYears",optionalInfoFragment.carAge());
+            choose.put("relationCom",optionalInfoFragment.relationCom());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){
@@ -253,6 +254,7 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("context",optionalInfoFragment.context());
             choose.put("drivingYears",optionalInfoFragment.driverAge());
             choose.put("travelYears",optionalInfoFragment.carAge());
+            choose.put("relationCom",optionalInfoFragment.relationCom());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){

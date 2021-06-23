@@ -272,6 +272,7 @@ public class RichPublishActivity extends BaseActivity {
 
     }
     private GalleryFinal galleryFinal;
+    FunctionConfig functionConfig;
     private CameraDialogUtil cameraDialogUtil;
     @OnClick({R.id.txt_finish,R.id.txt_publish,R.id.button_rich_do,
             R.id.button_rich_undo,R.id.button_bold,R.id.button_underline
@@ -323,12 +324,8 @@ public class RichPublishActivity extends BaseActivity {
             case R.id.button_image:
                 if (!TextUtils.isEmpty(editor.getHtml())) {
                     ArrayList<String> arrayList = RichUtils.returnImageUrlsFromHtml(editor.getHtml());
-//                    if (arrayList != null && arrayList.size() >= 9) {
-//                        Toast.makeText(RichPublishActivity.this, "最多添加9张照片~", Toast.LENGTH_SHORT).show();
-//                        return;
-//                    }
                 }
-                FunctionConfig functionConfig= GalleryUtils.getFbdtFunction(1);
+                functionConfig = GalleryUtils.getFbdtFunction(1);
                 galleryFinal.openGalleryMuti(1001,
                         functionConfig, mOnHanlderResultCallback);
                 break;
@@ -426,5 +423,13 @@ public class RichPublishActivity extends BaseActivity {
         }
         return screenWidth;
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        galleryFinal=null;
+        functionConfig=null;
+        mOnHanlderResultCallback=null;
     }
 }

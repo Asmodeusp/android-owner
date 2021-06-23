@@ -116,6 +116,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("context",optionalInfoFragment.context());
             choose.put("drivingYears",optionalInfoFragment.driverAge());
             choose.put("travelYears",optionalInfoFragment.carAge());
+            choose.put("relationCom",optionalInfoFragment.relationCom());
 
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
@@ -255,7 +256,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("context",optionalInfoFragment.context());
             choose.put("drivingYears",optionalInfoFragment.driverAge());
             choose.put("travelYears",optionalInfoFragment.carAge());
-
+            choose.put("relationCom",optionalInfoFragment.relationCom());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
@@ -391,7 +392,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("context",optionalInfoFragment.context());
             choose.put("drivingYears",optionalInfoFragment.driverAge());
             choose.put("travelYears",optionalInfoFragment.carAge());
-
+            choose.put("relationCom",optionalInfoFragment.relationCom());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();

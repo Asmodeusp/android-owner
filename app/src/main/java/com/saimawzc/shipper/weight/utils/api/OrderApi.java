@@ -387,4 +387,9 @@ public interface OrderApi {
     @POST("oms/shr/wayBill/checkGoods")
     Call<JsonResult<EmptyDto> >examgoodsubmit(@Body RequestBody array);
 
+    //选择关联公司
+    @Headers("Content-Type: application/json")
+    @POST("oms/common/company/queryForTree")
+    Call<String> getrelationCom(@Body RequestBody array);
+
 }

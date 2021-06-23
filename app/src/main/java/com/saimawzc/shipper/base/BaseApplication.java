@@ -143,11 +143,8 @@ public class BaseApplication extends Application {
             SDKInitializer.initialize(this);
             mClient = new LBSTraceClient(this);
             mTrace = new Trace(serviceId, entityName);
-
-
             trackConf = getSharedPreferences("track_conf", MODE_PRIVATE);
             locRequest = new LocRequest(serviceId);
-
             mClient.setOnCustomAttributeListener(new OnCustomAttributeListener() {
                 @Override
                 public Map<String, String> onTrackAttributeCallback() {

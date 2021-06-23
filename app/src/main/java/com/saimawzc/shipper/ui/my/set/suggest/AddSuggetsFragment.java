@@ -166,13 +166,16 @@ public class AddSuggetsFragment extends BaseFragment implements AddSuggetsView {
             }
         }
     }
-
+    FunctionConfig functionConfig;
     @Override
     public void successful(int type) {
         if(type==0){
             showCameraAction();
         }else {
-            FunctionConfig functionConfig  = GalleryUtils.getFbdtFunction(9-mPicList.size());
+            if(functionConfig==null){
+                functionConfig = GalleryUtils.getFbdtFunction(9-mPicList.size());
+            }
+
             GalleryFinal.openGalleryMuti(1001,
                     functionConfig, mOnHanlderResultCallback);
         }
@@ -228,5 +231,13 @@ public class AddSuggetsFragment extends BaseFragment implements AddSuggetsView {
                 context.dismissLoadingDialog();
             }
         });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        functionConfig=null;
+        mOnHanlderResultCallback=null;
+
     }
 }

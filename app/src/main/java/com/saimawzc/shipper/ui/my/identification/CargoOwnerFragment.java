@@ -22,12 +22,10 @@ import com.saimawzc.shipper.dto.identification.CompanyDto;
 import com.saimawzc.shipper.dto.identification.OwnCrriverIdentificationDto;
 import com.saimawzc.shipper.dto.pic.PicDto;
 import com.saimawzc.shipper.presenter.mine.identification.CargoOwnerrPresenter;
-import com.saimawzc.shipper.ui.my.PersonCenterActivity;
 import com.saimawzc.shipper.view.mine.identificaion.CargoOwnerCarrierView;
 import com.saimawzc.shipper.weight.RepeatClickUtil;
 import com.saimawzc.shipper.weight.utils.AreaChooseDialog;
 import com.saimawzc.shipper.weight.utils.FileUtil;
-import com.saimawzc.shipper.weight.utils.GalleryUtils;
 import com.saimawzc.shipper.weight.utils.dialog.BounceTopEnter;
 import com.saimawzc.shipper.weight.utils.dialog.NormalDialog;
 import com.saimawzc.shipper.weight.utils.dialog.OnBtnClickL;
@@ -37,26 +35,20 @@ import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.listen.AreaListener;
 import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
-
 import java.io.File;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
-import cn.finalteam.galleryfinal.FunctionConfig;
-import cn.finalteam.galleryfinal.GalleryFinal;
-import cn.finalteam.galleryfinal.model.PhotoInfo;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 import static android.app.Activity.RESULT_OK;
 import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS;
-
 /**
  * Created by Administrator on 2020/8/1.
  * 货主认证
  */
-
 public class CargoOwnerFragment extends BaseFragment implements CargoOwnerCarrierView {
     @BindView(R.id.toolbar)Toolbar toolbar;
     @BindView(R.id.imgidpositive)ImageView imageIdPositive;

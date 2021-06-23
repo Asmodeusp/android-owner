@@ -12,11 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.CameraListener;
-
-import cn.finalteam.galleryfinal.FunctionConfig;
-import cn.finalteam.galleryfinal.GalleryFinal;
-
-/**
+/*
  * Created by Administrator on 2020/8/1.
  * 选择拍照、本地图册
  */

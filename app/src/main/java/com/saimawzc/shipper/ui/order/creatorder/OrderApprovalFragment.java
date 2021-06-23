@@ -86,6 +86,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.tvdriverage)TextView tvDriverAge;
     @BindView(R.id.tvcarage)TextView tvCarAge;
     @BindView(R.id.tvaqgz)TextView tvAqgz;
+    @BindView(R.id.tvrelacom)TextView tvRelaCom;
 
     @Override
     public int initContentView() {
@@ -201,6 +202,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
             tvcarmodel.setText(dto.getChoose().getCarTypeName());
             tvDriverAge.setText(dto.getChoose().getDrivingYears()+"年");
             tvCarAge.setText(dto.getChoose().getTravelYears()+"年");
+            tvRelaCom.setText(dto.getChoose().getRelationComName());
             if(TextUtils.isEmpty(dto.choose.getContext())){
                 tvAqgz.setText("暂无告知");
                 tvAqgz.setTextColor(mContext.getResources().getColor(R.color.color_black));

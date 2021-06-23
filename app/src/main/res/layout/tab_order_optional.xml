@@ -850,6 +850,46 @@
                 </TextView>
             </LinearLayout>
             <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关联公司:"
+                    android:textSize="@dimen/px30dp" />
+
+                <TextView
+                    android:maxEms="10"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:layout_weight="1"
+                    android:paddingRight="@dimen/px20dp"
+                    android:inputType="number"
+                    android:id="@+id/tvrelationCom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="请选择关联公司"
+                    android:textSize="@dimen/px30dp" />
+                <ImageView
+                    android:id="@+id/deleterelacom"
+                    android:layout_marginRight="@dimen/px40dp"
+                    android:src="@drawable/ico_delete"
+                    android:layout_width="@dimen/px40dp"
+                    android:layout_height="@dimen/px40dp">
+
+                </ImageView>
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
         </LinearLayout>
     </ScrollView>
 

@@ -19,7 +19,6 @@ import com.saimawzc.shipper.weight.CircleImageView;
 import com.saimawzc.shipper.weight.utils.GalleryUtils;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
-import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 import java.io.File;
 import java.util.List;
@@ -110,7 +109,7 @@ public class PersonCenerFragment extends BaseFragment implements PersonCenterVie
     public void Toast(String str) {
         context.showMessage(str);
     }
-
+    FunctionConfig functionConfig;
     @Override
     public void oncomplete() {
         context.finish();
@@ -120,7 +119,10 @@ public class PersonCenerFragment extends BaseFragment implements PersonCenterVie
         if(type==0){
            showCameraAction();
         }else if(type==1){
-            FunctionConfig functionConfig  = GalleryUtils.getFbdtFunction(1);
+            if(functionConfig==null){
+                functionConfig = GalleryUtils.getFbdtFunction(1);
+            }
+
             GalleryFinal.openGalleryMuti(1001,
                     functionConfig, mOnHanlderResultCallback);
         }
@@ -181,6 +183,12 @@ public class PersonCenerFragment extends BaseFragment implements PersonCenterVie
     @Override
     public void onResume() {
         super.onResume();
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        functionConfig=null;
+        mOnHanlderResultCallback=null;
     }
 }

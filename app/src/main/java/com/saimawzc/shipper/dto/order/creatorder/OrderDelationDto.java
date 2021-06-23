@@ -440,6 +440,24 @@ public class OrderDelationDto {
         private String context;
         private String drivingYears;
         private String travelYears;
+        private String relationComName;
+        private String relationCom;
+
+        public String getRelationComName() {
+            return relationComName;
+        }
+
+        public void setRelationComName(String relationComName) {
+            this.relationComName = relationComName;
+        }
+
+        public String getRelationCom() {
+            return relationCom;
+        }
+
+        public void setRelationCom(String relationCom) {
+            this.relationCom = relationCom;
+        }
 
         public String getDrivingYears() {
             return drivingYears;
