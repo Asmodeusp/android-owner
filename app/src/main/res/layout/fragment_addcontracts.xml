@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/bg"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/common_toolbar"></include>
+        <RelativeLayout
+            android:layout_marginTop="@dimen/px2dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px100dp">
+            <TextView
+                android:paddingLeft="@dimen/px20dp"
+                android:textSize="@dimen/px30dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/color_black"
+                android:text="联系人"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp"
+                    android:id="@+id/edcontractname"
+                    android:background="@null"
+                    android:text=""
+                    android:hint="输入联系人"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="@dimen/px2dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px100dp">
+            <TextView
+                android:paddingLeft="@dimen/px20dp"
+                android:textSize="@dimen/px30dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/color_black"
+                android:text="联系电话"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:inputType="phone"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp"
+                    android:hint="输入联系电话"
+                    android:id="@+id/edphone"
+                    android:background="@null"
+                    android:text=""
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="@dimen/px2dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px100dp">
+            <TextView
+                android:paddingLeft="@dimen/px20dp"
+                android:textSize="@dimen/px30dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/color_black"
+                android:text="邮箱"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp"
+                    android:hint="输入邮箱"
+                    android:id="@+id/edemail"
+                    android:background="@null"
+                    android:text=""
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/btnOrder"
+        android:textSize="@dimen/px30dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="确定"
+        android:layout_alignParentBottom="true"
+        android:background="@color/blue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px100dp">
+
+    </TextView>
+</RelativeLayout>

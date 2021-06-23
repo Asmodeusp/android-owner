@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/common_toolbar">
+
+        </include>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px80dp">
+            <TextView
+
+                android:layout_marginLeft="@dimen/px20dp"
+                android:textColor="@color/gray333"
+                android:text="运单号："
+                android:textSize="@dimen/px28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvOrderId"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:textColor="@color/color_black"
+                android:text=""
+                android:textSize="@dimen/px30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </LinearLayout>
+        <View
+            android:layout_marginLeft="@dimen/px20dp"
+            android:background="@color/divider_e5e5e5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px2dp">
+
+        </View>
+        <EditText
+            android:padding="@dimen/px30dp"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/px20dp"
+            android:id="@+id/edReason"
+            android:textColor="@color/gray999"
+            android:textSize="@dimen/px30dp"
+            android:gravity="left|top"
+            android:hint="请填写停运理由"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+        </EditText>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/tvSunmit"
+        android:textSize="@dimen/px30dp"
+        android:textColor="@color/white"
+        android:background="@color/blue"
+        android:gravity="center"
+        android:text="提交"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80dp">
+
+    </TextView>
+
+</RelativeLayout>

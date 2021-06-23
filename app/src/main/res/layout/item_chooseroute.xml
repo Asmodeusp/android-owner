@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/px24dp"
+   android:background="@drawable/shape_list_btn_no_bord"
+    android:layout_marginLeft="@dimen/px24dp"
+    android:layout_marginRight="@dimen/px24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:paddingBottom="@dimen/px10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_marginTop="@dimen/px36dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_toLeftOf="@+id/imgdelation"
+                    android:paddingLeft="@dimen/px28dp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/checkBox"
+                    android:gravity="center_vertical"
+                    android:id="@+id/tvroute"
+                    android:layout_margin="@dimen/px10dp"
+                    android:text=""
+                    android:textSize="@dimen/px34dp"
+                    android:textColor="@color/color_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <ImageView
+                    android:id="@+id/imgdelation"
+                    android:layout_marginRight="@dimen/px48dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ico_route_delation"
+                    android:layout_width="@dimen/px48dp"
+                    android:layout_height="@dimen/px48dp">
+
+                </ImageView>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/px40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="@dimen/px28dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ico_startadress"
+                    android:layout_width="@dimen/px32dp"
+                    android:layout_height="@dimen/px32dp">
+
+                </ImageView>
+                <TextView
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_toRightOf="@+id/checkBox"
+                    android:gravity="center_vertical"
+                    android:id="@+id/tvstartLocation"
+                    android:layout_margin="@dimen/px10dp"
+                    android:text=""
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+               android:layout_marginBottom="@dimen/px20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="@dimen/px28dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ico_enadress"
+                    android:layout_width="@dimen/px32dp"
+                    android:layout_height="@dimen/px32dp">
+
+                </ImageView>
+                <TextView
+                    android:layout_toRightOf="@+id/checkBox"
+                    android:gravity="center_vertical"
+                    android:id="@+id/tvendLocation"
+                    android:layout_margin="@dimen/px10dp"
+                    android:text=""
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <include layout="@layout/common_line"></include>
+
+
+
+
+
+
+
+</LinearLayout>

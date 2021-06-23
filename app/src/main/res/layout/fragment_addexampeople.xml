@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/common_toolbar"></include>
+    <RelativeLayout
+        android:paddingRight="@dimen/px30dp"
+        android:layout_marginTop="@dimen/px2dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px100dp">
+        <TextView
+            android:paddingLeft="@dimen/px20dp"
+            android:textSize="@dimen/px30dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_black"
+            android:text="真实姓名"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:gravity="right"
+                android:textSize="@dimen/px30dp"
+                android:id="@+id/tvreal_name"
+                android:background="@null"
+                android:text=""
+                android:hint="输入真实姓名"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+    <include layout="@layout/common_line"></include>
+    <RelativeLayout
+        android:paddingRight="@dimen/px30dp"
+        android:layout_marginTop="@dimen/px2dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px100dp">
+        <TextView
+            android:paddingLeft="@dimen/px20dp"
+            android:textSize="@dimen/px30dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_black"
+            android:text="手机号码"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:inputType="phone"
+                android:id="@+id/tvphone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="输入手机号码"
+                android:text=""
+                android:textSize="@dimen/px30dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+    <include layout="@layout/common_line"></include>
+    <TextView
+        android:id="@+id/submit"
+        android:textSize="@dimen/px30dp"
+        android:textColor="@color/white"
+        android:text="提交"
+        android:gravity="center"
+        android:layout_margin="@dimen/px80dp"
+        android:background="@drawable/shape_list_btn_blue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80dp">
+
+    </TextView>
+
+</LinearLayout>

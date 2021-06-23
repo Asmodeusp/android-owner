@@ -1,0 +1,130 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your eee theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+    <!--加载中对话框样式-->
+    <style name="selectorDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@color/transparent</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+    <!--toolbar样式-->
+    <style name="ToolbarTheme" parent="Theme.AppCompat.Light">
+        <!-- 设置 toolbar 溢出菜单的文字的颜色 -->
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+        <!-- 设置 显示在toobar上菜单文字的颜色 -->
+        <item name="actionMenuTextColor">@color/theme_color</item>
+        <!-- 设置toolbar 弹出菜单的字体大小-->
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="popup_anim_style">
+        <item name="android:windowEnterAnimation">@anim/animal_menushow</item>
+        <item name="android:windowExitAnimation">@anim/animal_menudiss</item>
+    </style>
+    <declare-styleable name="LeanTextView">
+        <attr name="degree" format="dimension"/>
+    </declare-styleable>
+    <style name="DefaultDialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="SplashAppTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_logo_welcome</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <!-- 更新update -->
+    <style name="BaseDialog" parent="android:Theme.Light">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+
+    <style name="mainfstyle">
+        <item name="android:windowEnterAnimation">@anim/animal_dialogeject</item>
+
+    </style>
+    <declare-styleable name="CaterpillarIndicator">
+        <attr name="slide_text_color" format="color|reference"/>
+        <attr name="slide_text_size_normal" format="dimension"/>
+        <attr name="slide_text_size_selected" format="dimension"/>
+        <attr name="slide_text_color_normal" format="color"/>
+        <attr name="slide_text_color_selected" format="color"/>
+        <attr name="slide_footer_line_height" format="dimension"/>
+        <attr name="slide_footer_color" format="color"/>
+        <attr name="slide_round" format="boolean"/>
+        <attr name="slide_item_width" format="dimension"/>
+        <attr name="slide_caterpillar" format="boolean"/>
+        <attr name="slide_count" format="integer"/>
+        <attr name="slide_padding_bottom" format="dimension"/>
+        <attr name="slide_text_center_flag">
+            <enum name="textCenter" value="0"/>
+            <enum name="lineCenter" value="1"/>
+        </attr>
+
+    </declare-styleable>
+    <style name="spinner_style">
+        <item name="android:background">@drawable/shape_order_btn</item>
+        <item name="android:paddingLeft">5dip</item>
+    </style>
+
+    <style name="PopBottomDialogStyle" parent="@android:style/Theme.Dialog">
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 浮于Activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- Dialog以外的区域模糊效果 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Dialog进入及退出动画 -->
+        <item name="android:windowAnimationStyle">@style/ActionSheetDialogAnimation</item>
+    </style>
+    <!-- ActionSheet进出动画 -->
+    <style name="ActionSheetDialogAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/popwindow_enter</item>
+        <item name="android:windowExitAnimation">@anim/popwindow_exit</item>
+    </style>
+
+    <style name="RadioBtnMyIcon" >
+        <item name="android:background">@drawable/ico_radio_choose</item>
+        <item name="android:button">@drawable/ico_radui_unchoose</item>
+    </style>
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/select_check</item>
+    </style>
+
+    <style name="pop_animation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/translate_pop_in</item>
+        <item name="android:windowExitAnimation">@anim/translate_pop_out</item>
+    </style>
+</resources>

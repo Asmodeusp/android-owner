@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/selector_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_margin="@dimen/px20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px20dp"
+            android:layout_toRightOf="@+id/image"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px96dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="竞价开始时间："
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px28dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:id="@+id/tvstart_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px26dp">
+
+                </TextView>
+
+            </LinearLayout>
+           <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px96dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="竞价结束时间："
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px28dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:id="@+id/tvend_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px26dp">
+
+                </TextView>
+
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px96dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任务开始时间："
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px28dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:id="@+id/tvstart_time_task"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px26dp">
+
+                </TextView>
+
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px96dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任务结束时间："
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px28dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:id="@+id/tvend_timetask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px26dp">
+
+                </TextView>
+
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px96dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="竞价重量："
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px28dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:id="@+id/tv_biddweight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px26dp">
+
+                </TextView>
+
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px96dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="竞价角色："
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px28dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:id="@+id/tv_biddrole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px26dp">
+
+                </TextView>
+
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px96dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="竞价状态："
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px28dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px26dp">
+
+                </TextView>
+
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/llsendByCar"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px96dp">
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="车辆类型："
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/px28dp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:id="@+id/tvCarType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/px26dp">
+
+                    </TextView>
+
+                </LinearLayout>
+                <include layout="@layout/common_line"></include>
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px96dp">
+                    <CheckBox
+                       android:clickable="false"
+                        android:text="北斗"
+                        android:visibility="visible"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/checkBeidou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </CheckBox>
+                    <CheckBox
+                        android:clickable="false"
+                        android:text="允许竞价多个派车单"
+                        android:visibility="visible"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/checkmoresend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </CheckBox>
+                </LinearLayout>
+                <include layout="@layout/common_line"></include>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_marginRight="@dimen/px20dp"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px96dp">
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingBottom="@dimen/px20dp"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvEndBidd"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:gravity="center"
+                        android:text="终止竞价"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px28dp"
+                        android:background="@drawable/shape_list_btn_blue"
+                        android:layout_width="@dimen/px160dp"
+                        android:layout_height="@dimen/px60dp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/tvEndMach"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:gravity="center"
+                        android:text="结束分配"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px28dp"
+                        android:background="@drawable/shape_list_btn_blue"
+                        android:layout_width="@dimen/px160dp"
+                        android:layout_height="@dimen/px60dp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/tvRank"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:gravity="center"
+                        android:text="竞价排名"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px28dp"
+                        android:background="@drawable/shape_list_btn_blue"
+                        android:layout_width="@dimen/px160dp"
+                        android:layout_height="@dimen/px60dp">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/tvMatch"
+                        android:layout_marginLeft="@dimen/px40dp"
+                        android:gravity="center"
+                        android:text="竞价分配"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px28dp"
+                        android:background="@drawable/shape_list_btn_blue"
+                        android:layout_width="@dimen/px160dp"
+                        android:layout_height="@dimen/px60dp">
+
+                    </TextView>
+                </LinearLayout>
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:src="@drawable/ico_right"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp">
+                </ImageView>
+            </RelativeLayout>
+        </LinearLayout>
+     <include
+         layout="@layout/common_line"></include>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

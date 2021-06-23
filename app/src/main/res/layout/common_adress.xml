@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:paddingTop="@dimen/px20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/px30dp"
+            android:id="@+id/adress_start"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ico_startadress"
+                android:layout_width="@dimen/px40dp"
+                android:layout_height="@dimen/px40dp">
+            </ImageView>
+
+            <TextView
+                android:layout_marginLeft="@dimen/px10dp"
+                android:textStyle="bold"
+                android:id="@+id/tvAdress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px28dp">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/px30dp"
+            android:layout_marginTop="@dimen/px10dp"
+            android:layout_below="@+id/adress_start"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ico_enadress"
+                android:layout_width="@dimen/px40dp"
+                android:layout_height="@dimen/px40dp">
+            </ImageView>
+            <TextView
+                android:layout_marginLeft="@dimen/px10dp"
+                android:textStyle="bold"
+                android:id="@+id/tvAdressTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px28dp">
+
+            </TextView>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/px30dp"
+        android:paddingTop="@dimen/px10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发货单位："
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px28dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="@dimen/px20dp"
+                android:id="@+id/from_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/gray999"
+                android:textSize="@dimen/px28dp"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/px10dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收货单位："
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px28dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="@dimen/px20dp"
+                android:id="@+id/to_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/gray999"
+                android:textSize="@dimen/px28dp"></TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

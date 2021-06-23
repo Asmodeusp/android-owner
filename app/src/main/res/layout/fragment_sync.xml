@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@color/bg"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/common_toolbar"></include>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:paddingRight="@dimen/px10dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px80dp"
+            android:paddingBottom="@dimen/px10dp"
+            android:layout_marginLeft="@dimen/px20dp"
+            android:paddingTop="@dimen/px20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginRight="@dimen/px20dp"
+                android:layout_toLeftOf="@+id/ico"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开始日期:"
+                    android:textSize="@dimen/px30dp" />
+                <TextView
+                    android:id="@+id/tvStartTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="请选择"
+                    android:textSize="@dimen/px30dp" />
+
+
+            </LinearLayout>
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/ico"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ico_right"
+                android:layout_width="@dimen/px20dp"
+                android:layout_height="@dimen/px20dp" />
+
+        </RelativeLayout>
+        <include layout="@layout/common_line"></include>
+        <RelativeLayout
+            android:paddingRight="@dimen/px10dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px80dp"
+            android:paddingBottom="@dimen/px10dp"
+            android:layout_marginLeft="@dimen/px20dp"
+            android:paddingTop="@dimen/px20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginRight="@dimen/px20dp"
+                android:layout_toLeftOf="@+id/ico1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="结束日期:"
+                    android:textSize="@dimen/px30dp" />
+                <TextView
+                    android:id="@+id/tvEndTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="请选择"
+                    android:textSize="@dimen/px30dp" />
+
+
+            </LinearLayout>
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/ico1"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ico_right"
+                android:layout_width="@dimen/px20dp"
+                android:layout_height="@dimen/px20dp" />
+
+        </RelativeLayout>
+
+        <include layout="@layout/common_line"></include>
+
+        <RelativeLayout
+            android:paddingRight="@dimen/px10dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px80dp"
+            android:paddingBottom="@dimen/px10dp"
+            android:layout_marginLeft="@dimen/px20dp"
+            android:paddingTop="@dimen/px20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginRight="@dimen/px20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="选择业务类型:"
+                    android:textSize="@dimen/px30dp" />
+                <TextView
+                    android:id="@+id/tvtype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="请选择"
+                    android:textSize="@dimen/px30dp" />
+
+
+            </LinearLayout>
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ico_right"
+                android:layout_width="@dimen/px20dp"
+                android:layout_height="@dimen/px20dp" />
+
+        </RelativeLayout>
+        <include layout="@layout/common_line"></include>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvsybc"
+        android:textSize="@dimen/px30dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="同步"
+        android:layout_marginRight="@dimen/px40dp"
+        android:layout_marginLeft="@dimen/px40dp"
+        android:layout_marginTop="@dimen/px80dp"
+        android:background="@drawable/shape_list_btn_blue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80dp">
+
+    </TextView>
+
+
+</LinearLayout>

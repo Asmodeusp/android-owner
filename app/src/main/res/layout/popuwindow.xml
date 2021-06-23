@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvqingdan"
+        android:padding="@dimen/px20dp"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/px30dp"
+        android:text="清单"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <View
+        android:background="@color/divider_e5e5e5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px2dp"></View>
+    <TextView
+        android:padding="@dimen/px20dp"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/px30dp"
+        android:text="删除"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content">
+
+    </TextView>
+</LinearLayout>

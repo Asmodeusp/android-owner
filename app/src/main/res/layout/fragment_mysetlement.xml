@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:background="@color/bg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/common_toolbar"></include>
+
+    <com.saimawzc.shipper.weight.CaterpillarIndicator2
+        android:id="@+id/pager_title"
+        android:background="@color/bg_17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="16dp"
+        app:slide_caterpillar="true"
+        app:slide_footer_color="@color/blue_side"
+        app:slide_footer_line_height="4dp"
+        app:slide_item_width="30dp"
+        app:slide_round="true"
+        app:slide_text_center_flag="textCenter"
+        app:slide_text_color_normal="@color/gray666"
+        app:slide_text_color_selected="@color/gray222"
+        app:slide_text_size_normal="16sp"
+        app:slide_text_size_selected="16sp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px60dp">
+
+        <TextView
+            android:layout_marginLeft="@dimen/px20dp"
+            android:id="@+id/tvCarriveName"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/px30dp"
+            android:layout_centerVertical="true"
+            android:text="承运商A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:id="@+id/biddhistory"
+            android:gravity="center"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/px30dp"
+            android:layout_marginRight="@dimen/px20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="竞价历史"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </TextView>
+
+    </RelativeLayout>
+    <View
+        android:layout_marginTop="@dimen/px20dp"
+        android:background="@color/bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px2dp">
+
+    </View>
+
+    <RelativeLayout
+        android:layout_margin="@dimen/px20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px30dp"
+            android:layout_toRightOf="@+id/image"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:padding="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最低报价"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/tvLowprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp">
+
+                </TextView>
+            </LinearLayout>
+          <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:padding="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="抢单量"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/tvrobNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp">
+
+                </TextView>
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:padding="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="竞价次数"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/tvBiddNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp">
+
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:id="@+id/view"
+            android:layout_marginTop="@dimen/px20dp"
+            android:layout_below="@+id/rl"
+            android:background="@color/bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px2dp"></View>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/px20dp"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:layout_below="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_margin="@dimen/px10dp"
+                android:gravity="center"
+                android:id="@+id/tvOrder"
+                android:background="@drawable/shape_list_btn_blue"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px28dp"
+                android:layout_centerVertical="true"
+                android:text="确定"
+                android:layout_width="@dimen/px120dp"
+                android:layout_height="@dimen/px60dp">
+            </TextView>
+
+
+
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

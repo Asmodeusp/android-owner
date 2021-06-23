@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/px24dp"
+        android:layout_marginRight="@dimen/px24dp"
+        android:id="@+id/rlplanbill"
+        android:background="@drawable/shape_bidd_btn_no_bord"
+        android:layout_marginTop="82dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px200dp">
+        <ImageView
+            android:layout_marginLeft="@dimen/px64dp"
+            android:id="@+id/big"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ico_big_dan"
+            android:layout_width="@dimen/px40dp"
+            android:layout_height="@dimen/px40dp">
+
+        </ImageView>
+        <TextView
+            android:textSize="@dimen/px36dp"
+            android:textColor="@color/gray333"
+            android:layout_toRightOf="@+id/big"
+            android:layout_marginLeft="@dimen/px60dp"
+            android:layout_centerVertical="true"
+            android:text="大单"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="22dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/px50dp"
+            android:src="@drawable/ico_right">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/px24dp"
+        android:layout_marginRight="@dimen/px24dp"
+        android:id="@+id/rlwaybill"
+        android:background="@drawable/shape_bidd_btn_no_bord"
+        android:layout_marginTop="@dimen/px40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px200dp">
+        <ImageView
+            android:layout_marginLeft="@dimen/px64dp"
+            android:id="@+id/small"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ico_small_dan"
+            android:layout_width="@dimen/px40dp"
+            android:layout_height="@dimen/px40dp">
+
+        </ImageView>
+        <TextView
+            android:textSize="@dimen/px36dp"
+            android:textColor="@color/gray333"
+            android:layout_toRightOf="@+id/small"
+            android:layout_marginLeft="@dimen/px60dp"
+            android:layout_centerVertical="true"
+            android:text="小单"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="22dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/px50dp"
+            android:src="@drawable/ico_right">
+
+        </ImageView>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/px24dp"
+        android:layout_marginRight="@dimen/px24dp"
+        android:id="@+id/rlmanagebill"
+        android:background="@drawable/shape_bidd_btn_no_bord"
+        android:layout_marginTop="@dimen/px40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px200dp">
+        <ImageView
+            android:layout_marginLeft="@dimen/px64dp"
+            android:id="@+id/hedan"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ico_he_dan"
+            android:layout_width="@dimen/px40dp"
+            android:layout_height="@dimen/px40dp">
+
+        </ImageView>
+        <TextView
+            android:textSize="@dimen/px36dp"
+            android:textColor="@color/gray333"
+            android:layout_toRightOf="@+id/hedan"
+            android:layout_marginLeft="@dimen/px60dp"
+            android:layout_centerVertical="true"
+            android:text="合单"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="22dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/px50dp"
+            android:src="@drawable/ico_right">
+
+        </ImageView>
+
+    </RelativeLayout>
+</LinearLayout>

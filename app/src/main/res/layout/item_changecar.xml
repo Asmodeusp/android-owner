@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/px20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80dp">
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/px30dp"
+            android:layout_centerVertical="true"
+            android:text="车辆更换"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+    </RelativeLayout>
+   <include layout="@layout/common_line"></include>
+
+    <RelativeLayout
+        android:layout_margin="@dimen/px20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px30dp"
+            android:layout_toRightOf="@+id/image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvdanhao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px30dp"></TextView>
+
+            <TextView
+                android:id="@+id/tvOldCar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px20dp"
+                android:text=""
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px30dp"></TextView>
+            <TextView
+                android:id="@+id/tvnewCar"
+                android:layout_marginTop="@dimen/px20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px30dp"></TextView>
+
+            <TextView
+                android:id="@+id/tvbeizhu"
+                android:layout_marginTop="@dimen/px20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px30dp"></TextView>
+
+            <TextView
+                android:id="@+id/tvcreatime"
+                android:layout_marginTop="@dimen/px20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px30dp"></TextView>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:background="@color/bg_17"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px20dp"></View>
+
+
+
+
+</LinearLayout>

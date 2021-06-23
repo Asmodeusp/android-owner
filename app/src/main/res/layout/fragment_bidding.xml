@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/common_toolbar"></include>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/rl_timestart"
+                android:layout_marginTop="@dimen/px2dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp">
+                <TextView
+                    android:paddingLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="竞价开始时间"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/linetime"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linetime">
+                    <TextView
+                        android:id="@+id/tvtimeStart"
+                        android:text=""
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:src="@drawable/ico_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <include layout="@layout/common_line"></include>
+            <RelativeLayout
+                android:id="@+id/rltimeend"
+                android:layout_marginTop="@dimen/px2dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="竞价结束时间"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvtimeEnd"
+                        android:text=""
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:src="@drawable/ico_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </RelativeLayout>
+            <include layout="@layout/common_line"></include>
+            <RelativeLayout
+                android:id="@+id/rl_timestart_task"
+                android:layout_marginTop="@dimen/px2dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp">
+                <TextView
+                    android:paddingLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="任务开始时间"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/linetime1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linetime1">
+                    <TextView
+                        android:id="@+id/tvtimeStart_task"
+                        android:text=""
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:src="@drawable/ico_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <include layout="@layout/common_line"></include>
+            <RelativeLayout
+                android:id="@+id/rltimeend_task"
+                android:layout_marginTop="@dimen/px2dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="任务结束时间"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvtimeEnd_task"
+                        android:text=""
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:src="@drawable/ico_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </RelativeLayout>
+            <include layout="@layout/common_line"></include>
+            <RelativeLayout
+                android:layout_marginTop="@dimen/px2dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="最多竞价次数"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:gravity="right"
+                        android:id="@+id/edNum"
+                        android:inputType="number"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/px30dp"
+                        android:background="@null"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:text=""
+                        android:hint="请输入最多竞价次数"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
+            <include layout="@layout/common_line"></include>
+            <RelativeLayout
+                android:visibility="visible"
+                android:layout_marginTop="@dimen/px2dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="底价"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:gravity="right"
+                        android:id="@+id/edbiddfloor"
+                        android:inputType="number"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/px30dp"
+                        android:background="@null"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:text=""
+                        android:hint="请输入竞价底价"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
+            <include layout="@layout/common_line"></include>
+            <RelativeLayout
+                android:id="@+id/rlHightWeight"
+                android:visibility="visible"
+                android:layout_marginTop="@dimen/px2dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="最高抢单量"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:gravity="right"
+                        android:id="@+id/edHightBidd"
+                        android:inputType="number"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/px30dp"
+                        android:background="@null"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:text=""
+                        android:hint="请输入最高抢单量"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
+            <include layout="@layout/common_line"></include>
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rlfudu"
+                android:layout_marginTop="@dimen/px2dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="降价幅度"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:gravity="right"
+                        android:id="@+id/edexcet"
+                        android:inputType="number"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/px30dp"
+                        android:background="@null"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:text=""
+                        android:hint="请输入降价幅度"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
+            <include layout="@layout/common_line"></include>
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rljjweight"
+                android:layout_marginTop="@dimen/px2dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="竞价重量"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:gravity="right"
+                        android:id="@+id/edweight"
+                        android:inputType="number"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/px30dp"
+                        android:background="@null"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:text=""
+                        android:hint="输入竞价重量"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:visibility="gone"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:src="@drawable/ico_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </RelativeLayout>
+            <LinearLayout
+                android:padding="@dimen/px20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioGroup
+                    android:id="@+id/group_bill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:textSize="@dimen/px28dp"
+                        android:paddingLeft="@dimen/px20dp"
+                        android:paddingRight="@dimen/px20dp"
+                        android:button="@drawable/bg_radiobutton"
+                        android:id="@+id/radioCys"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="承运商竞价" />
+
+                    <RadioButton
+                        android:textSize="@dimen/px28dp"
+                        android:paddingLeft="@dimen/px20dp"
+                        android:button="@drawable/bg_radiobutton"
+                        android:id="@+id/radiosiji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:layout_marginRight="@dimen/px30dp"
+                        android:text="司机竞价" />
+                    <RadioButton
+                        android:textSize="@dimen/px28dp"
+                        android:visibility="visible"
+                        android:paddingLeft="@dimen/px20dp"
+                        android:button="@drawable/bg_radiobutton"
+                        android:id="@+id/radicheci"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:layout_marginRight="@dimen/px30dp"
+                        android:text="车次竞价" />
+
+                </RadioGroup>
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px96dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="是否开启竞价排名:"
+                    android:textSize="@dimen/px30dp" />
+
+                <com.saimawzc.shipper.weight.SwitchButton
+                    app:sb_checked="false"
+                    app:sb_show_indicator="false"
+                    app:sb_checked_color="@color/blue"
+                    android:id="@+id/toggle_openrank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:background="@null" />
+            </LinearLayout>
+
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/llsendByCar"
+                android:layout_marginTop="@dimen/px20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px96dp">
+                    <CheckBox
+                        android:text="北斗"
+                        android:visibility="visible"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/checkBeidou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </CheckBox>
+                    <CheckBox
+                        android:text="允许竞价多个派车单"
+                        android:visibility="visible"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/checkmoresend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </CheckBox>
+                </LinearLayout>
+                <include layout="@layout/common_line"></include>
+                <RelativeLayout
+                    android:id="@+id/rlcar"
+                    android:layout_marginTop="@dimen/px2dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px100dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="@dimen/px20dp"
+                        android:textSize="@dimen/px30dp"
+                        android:textColor="@color/color_black"
+                        android:text="车辆类型"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+                    <LinearLayout
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tvCarType"
+                            android:text=""
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <ImageView
+                            android:layout_marginRight="@dimen/px20dp"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:src="@drawable/ico_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <include layout="@layout/common_line"></include>
+            </LinearLayout>
+
+
+
+            <View
+                android:background="@color/bg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px20dp">
+            </View>
+
+            <RelativeLayout
+                android:id="@+id/rlcarrivegroup"
+                android:layout_marginTop="@dimen/px2dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp">
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="承运商分组"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvcarriveGroupName"
+                        android:text=""
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:src="@drawable/ico_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </RelativeLayout>
+            <include layout="@layout/common_line"></include>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/cy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvOrder"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px40dp"
+        android:text="确定"
+        android:background="@color/blue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80dp"></TextView>
+</LinearLayout>

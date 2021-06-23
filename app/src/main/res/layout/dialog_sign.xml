@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_list_btn_8dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="center"
+        android:paddingTop="@dimen/px40dp"
+        android:paddingBottom="@dimen/px40dp"
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_list_btn_8dp"
+        android:orientation="vertical">
+        <TextView
+            android:gravity="center_horizontal"
+            android:id="@+id/tvAlreadySign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/px30dp"
+            android:textStyle="bold">
+
+        </TextView>
+        <TextView
+            android:gravity="center_horizontal"
+            android:id="@+id/tvType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/px40dp"
+            android:text="请输入签收量"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/px30dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <EditText
+            android:layout_marginBottom="@dimen/px40dp"
+            android:gravity="center_horizontal"
+            android:id="@+id/idnum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px40dp"
+            android:layout_marginTop="@dimen/px10dp"
+            android:layout_marginRight="@dimen/px40dp"
+            android:background="@null"
+            android:hint="输入签收量"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/px30dp">
+
+        </EditText>
+
+     <include layout="@layout/common_line"></include>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px80dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tvOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确定">
+
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

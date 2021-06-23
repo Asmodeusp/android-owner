@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_margin="@dimen/px10dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px160dp">
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_margin="@dimen/px20dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ico_empty"
+            android:layout_width="@dimen/px80dp"
+            android:layout_height="@dimen/px50dp" />
+
+        <ImageView
+
+            android:scaleType="centerCrop"
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:id="@+id/video_play"
+            android:layout_width="@dimen/px64dp"
+            android:layout_height="@dimen/px64dp"
+            android:layout_gravity="center"
+            android:background="@drawable/img_vidio"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/mark"
+        android:layout_marginTop="@dimen/px10dp"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

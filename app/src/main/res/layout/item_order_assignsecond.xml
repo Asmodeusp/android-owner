@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px120dp">
+            <TextView
+                android:layout_centerVertical="true"
+                android:id="@+id/tvName"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:textColor="@color/color_black"
+                android:text=""
+                android:gravity="center_vertical"
+                android:textSize="@dimen/px30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <TextView
+                android:layout_toRightOf="@+id/tvName"
+                android:layout_centerVertical="true"
+                android:id="@+id/tvphone"
+                android:layout_marginLeft="@dimen/px30dp"
+                android:textColor="@color/color_black"
+                android:text=""
+                android:gravity="center_vertical"
+                android:textSize="@dimen/px30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <TextView
+                android:gravity="right"
+                android:id="@+id/tvDelete"
+                android:text="删除"
+                android:layout_marginRight="@dimen/px30dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_width="@dimen/px200dp"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+       <include layout="@layout/common_line"></include>
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px120dp">
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:textColor="@color/color_black"
+                android:text="单价"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/px30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <EditText
+                android:id="@+id/edtrantPrice"
+                android:inputType="numberDecimal"
+                android:background="@null"
+                android:hint="请输入"
+                android:text=""
+                android:layout_marginRight="@dimen/px30dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+       <include layout="@layout/common_line"></include>
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px120dp">
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:textColor="@color/color_black"
+                android:text="分配量"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/px30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+           <EditText
+               android:id="@+id/edtrantNum"
+            android:inputType="numberDecimal"
+            android:background="@null"
+            android:hint="请输入"
+            android:text=""
+            android:layout_marginRight="@dimen/px30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
