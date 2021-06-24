@@ -40,6 +40,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
+import static com.saimawzc.shipper.constants.AppConfig.reshTrangts;
+import static com.saimawzc.shipper.constants.Constants.SHRCHANG_ROLE;
 import static com.saimawzc.shipper.constants.Constants.resSHr;
 
 /**
@@ -290,6 +292,7 @@ public class ConsigneeMainIndexFragment  extends BaseImmersionFragment
     private void initBroadCastReceiver() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(resSHr);
+        filter.addAction(SHRCHANG_ROLE);
         mReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -307,4 +310,6 @@ public class ConsigneeMainIndexFragment  extends BaseImmersionFragment
             context.unregisterReceiver(mReceiver);
         }
     }
+
+
 }
