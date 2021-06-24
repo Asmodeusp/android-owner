@@ -1,5 +1,9 @@
 package com.saimawzc.shipper.ui.sendcar;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -56,8 +60,6 @@ public class CompeleteCarFrament extends BaseFragment implements SendCarListView
     private int page=1;
     private LoadMoreListener loadMoreListener;
     private String status="7";//
-
-
     @BindView(R.id.edsearch)
     ClearTextEditText edSearch;
     @BindView(R.id.llSearch)
@@ -156,6 +158,7 @@ public class CompeleteCarFrament extends BaseFragment implements SendCarListView
     @Override
     public void initView() {
         mContext=getActivity();
+        initBroadCastReceiver();
         adapter=new SendCarAdapter(mDatas,mContext,"3");
         layoutManager=new LinearLayoutManager(mContext);
         rv.setLayoutManager(layoutManager);
@@ -349,4 +352,16 @@ public class CompeleteCarFrament extends BaseFragment implements SendCarListView
             }
         }
     };
+    private void initBroadCastReceiver() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("reshChange");
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                page=1;
+                presenter.getSendCarList(page,status,searchType,edSearch.getText().toString());
+            }
+        };
+        context.registerReceiver(mReceiver, filter);
+    }
 }

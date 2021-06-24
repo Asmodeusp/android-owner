@@ -1,5 +1,9 @@
 package com.saimawzc.shipper.ui.order.bidd;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -142,6 +146,7 @@ public class ManageBiddFragment extends BaseFragment  implements PlanBiddView {
     @Override
     public void initView() {
         mContext=getActivity();
+        initBroadCastReceiver();
         adapter=new PlanBiddAdapter(mDatas,mContext,type);
         layoutManager=new LinearLayoutManager(mContext);
         rv.setLayoutManager(layoutManager);
@@ -285,5 +290,17 @@ public class ManageBiddFragment extends BaseFragment  implements PlanBiddView {
 
     @Override
     public void oncomplete() {
+    }
+    private void initBroadCastReceiver() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("reshChange");
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                page=1;
+                presenter.getPlanBiddList(type,page,searchType,edSearch.getText().toString());
+            }
+        };
+        context.registerReceiver(mReceiver, filter);
     }
 }

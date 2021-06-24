@@ -15,6 +15,8 @@ import com.saimawzc.shipper.presenter.mine.change.ChangeRolePresenter;
 import com.saimawzc.shipper.ui.MainActivity;
 import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
 import com.saimawzc.shipper.view.mine.change.ChangeRoleView;
+import com.saimawzc.shipper.weight.utils.hawk.Hawk;
+import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -106,6 +108,7 @@ public class ChangeRoleActivity extends BaseActivity implements ChangeRoleView {
     @Override
     public void oncomplete() {
         //showMessage("更换成功");
+        Hawk.put(PreferenceKey.isChange_or_login,"true");
         if(currentRole==1){
             readyGo(ConsigneeMainActivity.class);
         }else {

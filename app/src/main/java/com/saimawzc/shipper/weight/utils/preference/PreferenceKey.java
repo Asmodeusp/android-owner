@@ -39,4 +39,8 @@ public class PreferenceKey {
 
     public static final String HZ_IS_RZ = "hz_is_rz";//货主是否认证  1为已经认证
 
+    public static final String isChange_or_login = "isChange_or_login_hz";//
+
+
+
 }

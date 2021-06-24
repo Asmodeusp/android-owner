@@ -1,9 +1,12 @@
 package com.saimawzc.shipper.ui.consignee;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 
 import com.saimawzc.shipper.R;
@@ -19,8 +22,12 @@ import com.jpeng.jptabbar.OnTabSelectListener;
 import com.jpeng.jptabbar.anno.NorIcons;
 import com.jpeng.jptabbar.anno.SeleIcons;
 import com.jpeng.jptabbar.anno.Titles;
+import com.saimawzc.shipper.weight.utils.hawk.Hawk;
+import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 
 import butterknife.BindView;
+
+import static com.saimawzc.shipper.constants.Constants.SHRCHANG_ROLE;
 
 /**
  * Created by Administrator on 2020/8/14.
@@ -129,5 +136,18 @@ public class ConsigneeMainActivity extends BaseActivity implements OnTabSelectLi
         ImmersionBar.with(this).statusBarDarkFont(true).
                 navigationBarColor(R.color.bg).
                 init();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(!TextUtils.isEmpty(Hawk.get(PreferenceKey.isChange_or_login, "")) &&
+                (Hawk.get(PreferenceKey.isChange_or_login, "").equals("true"))) {
+            Intent intent = new Intent();
+            Log.e("msg", "发送重新登录广播");
+            intent.setAction(SHRCHANG_ROLE);
+            this.sendBroadcast(intent);
+            Hawk.put(PreferenceKey.isChange_or_login, "false");
+        }
     }
 }

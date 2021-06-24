@@ -21,5 +21,5 @@ public class Constants {
     public static final String APK_SAVE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()
             + "/nxdriver/"+"huozhu.apk";
     public static final String resSHr = "resSHr";//收货人
-
+    public static final String SHRCHANG_ROLE = "resSHr_ROLE";//收货人
 }

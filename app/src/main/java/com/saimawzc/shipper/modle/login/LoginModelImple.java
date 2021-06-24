@@ -53,6 +53,7 @@ public class LoginModelImple extends BasEModeImple implements LoginModel {
             @Override
             public void success(UserInfoDto response) {
                 view.dissLoading();
+                Hawk.put(PreferenceKey.isChange_or_login,"true");
                 Hawk.put(PreferenceKey.USER_INFO,response);
                 Hawk.put(PreferenceKey.ID,response.getToken());
                 Hawk.put(PreferenceKey.IS_TUOYUN,response.getTrustFlag()+"");

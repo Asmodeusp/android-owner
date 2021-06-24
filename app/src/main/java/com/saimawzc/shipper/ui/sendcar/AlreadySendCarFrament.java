@@ -335,6 +335,7 @@ public class AlreadySendCarFrament extends BaseFragment implements SendCarListVi
     private void initBroadCastReceiver() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(reshTrangts);
+        filter.addAction("reshChange");
         mReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {

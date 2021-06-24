@@ -365,4 +365,16 @@ public class MainActivity extends BaseActivity
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(!TextUtils.isEmpty(Hawk.get(PreferenceKey.isChange_or_login, "")) &&
+                (Hawk.get(PreferenceKey.isChange_or_login, "").equals("true"))) {
+            Intent intent = new Intent();
+            Log.e("msg", "发送重新登录广播");
+            intent.setAction("reshChange");
+            this.sendBroadcast(intent);
+            Hawk.put(PreferenceKey.isChange_or_login, "false");
+        }
+    }
 }
