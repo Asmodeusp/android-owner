@@ -77,7 +77,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             jsonObject.put("toProName",basicInfoFragment.getReceiveAdress().getProName());
             jsonObject.put("toCityName",basicInfoFragment.getReceiveAdress().getCityName());
 
-             // if(!TextUtils.isEmpty(basicInfoFragment.yewuType())){
+
                   if(basicInfoFragment.yewuType().equals("总包")){
                       jsonObject.put("businessType",1);
                   }else if(basicInfoFragment.yewuType().equals("自营")){
@@ -85,7 +85,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
                   }else {
                       jsonObject.put("businessType",3);
                   }
-              ///}
+
 
             JSONObject choose=new JSONObject();
             choose.put("remark",optionalInfoFragment.mark());
@@ -238,7 +238,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("alarmHz",optionalInfoFragment.alarmHz());
             choose.put("offLineAlarm",optionalInfoFragment.offLineAlarm());
             choose.put("checkUserList",optionalInfoFragment.checkUserList());
-          //  if(!TextUtils.isEmpty(basicInfoFragment.yewuType())){
+
                 if(basicInfoFragment.yewuType().equals("总包")){
                     jsonObject.put("businessType",1);
                 }else if(basicInfoFragment.yewuType().equals("自营")){
@@ -247,7 +247,6 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
                     jsonObject.put("businessType",3);
                 }
 
-           // }
             choose.put("makerName",optionalInfoFragment.makePeople());
 
             choose.put("openCarType",optionalInfoFragment.openCarType());
@@ -373,7 +372,6 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("pushAlarmRole",optionalInfoFragment.pushAlarmRole());//
             choose.put("alarmHz",optionalInfoFragment.alarmHz());
             choose.put("offLineAlarm",optionalInfoFragment.offLineAlarm());
-           // if(!TextUtils.isEmpty(basicInfoFragment.yewuType())){
                 if(basicInfoFragment.yewuType().equals("总包")){
                     jsonObject.put("businessType",1);
                 }else if(basicInfoFragment.yewuType().equals("自营")){
@@ -382,7 +380,6 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
                     jsonObject.put("businessType",3);
                 }
 
-          //  }
             choose.put("makerName",optionalInfoFragment.makePeople());
             choose.put("checkUserList",optionalInfoFragment.checkUserList());
 
@@ -426,6 +423,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             @Override
             public void fail(String code, String message) {
                 view.dissLoading();
+                view.Toast(message);
 
             }
         });

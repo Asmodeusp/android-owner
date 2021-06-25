@@ -3,18 +3,19 @@ package com.saimawzc.shipper.base;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.Notification;
+import android.app.AppOpsManager;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.PixelFormat;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -25,17 +26,20 @@ import android.os.Looper;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RemoteViews;
@@ -53,11 +57,16 @@ import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.dto.login.AreaDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
 import com.saimawzc.shipper.ui.push.NotificationUtil;
+import com.saimawzc.shipper.weight.BottomDialogUtil;
+import com.saimawzc.shipper.weight.utils.LengthFilter;
 import com.saimawzc.shipper.weight.utils.api.OrderApi;
 import com.saimawzc.shipper.weight.utils.api.auto.AuthApi;
 import com.saimawzc.shipper.weight.utils.Md5Utils;
 import com.saimawzc.shipper.weight.utils.MyComparator;
 import com.saimawzc.shipper.weight.utils.SdCardUtil;
+import com.saimawzc.shipper.weight.utils.dialog.BounceTopEnter;
+import com.saimawzc.shipper.weight.utils.dialog.NormalDialog;
+import com.saimawzc.shipper.weight.utils.dialog.SlideBottomExit;
 import com.saimawzc.shipper.weight.utils.statusbar.StatusBarUtil;
 import com.saimawzc.shipper.weight.utils.api.mine.MineApi;
 import com.saimawzc.shipper.weight.utils.app.AppManager;
@@ -71,6 +80,9 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.nanchen.compresshelper.CompressHelper;
 import com.werb.permissionschecker.PermissionChecker;
 import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -122,8 +134,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         mContext=this;
         loading = new DialogLoading(this);
         AppManager.get().addActivity(this);
-        notificationUtil=new NotificationUtil();
-        notificationUtil.setNotification(this);
+//        notificationUtil=new NotificationUtil();
+//        notificationUtil.setNotification(this);
         //初始化沉浸式
         initImmersionBar();
         onGetBundle(getIntent().getExtras());
@@ -219,10 +231,15 @@ public abstract class BaseActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (context != null && !isFinishing()) {
-                    Toast toast = Toast.makeText(getApplicationContext(), message+"", Toast.LENGTH_LONG);
-                    // 重点是这个方法：显示的方位及距离的偏差
-                    toast.setGravity(Gravity.CENTER,0,0);
-                    toast.show();
+                    if(isNotificationEnabled(context)){//打开通知栏
+                        Toast toast = Toast.makeText(getApplicationContext(), message+"", Toast.LENGTH_LONG);
+                        // 重点是这个方法：显示的方位及距离的偏差
+                        toast.setGravity(Gravity.CENTER,0,0);
+                        toast.show();
+                    }else {
+                        myToast(message+"");
+                    }
+
                 }
             }
         });
@@ -969,8 +986,53 @@ public abstract class BaseActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 检查通知栏权限有没有开启
+     */
+    public static boolean isNotificationEnabled(Context context){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).areNotificationsEnabled();
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            AppOpsManager appOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+            ApplicationInfo appInfo = context.getApplicationInfo();
+            String pkg = context.getApplicationContext().getPackageName();
+            int uid = appInfo.uid;
 
+            try {
+                Class<?> appOpsClass = Class.forName(AppOpsManager.class.getName());
+                Method checkOpNoThrowMethod = appOpsClass.getMethod("checkOpNoThrow", Integer.TYPE, Integer.TYPE, String.class);
+                Field opPostNotificationValue = appOpsClass.getDeclaredField("OP_POST_NOTIFICATION");
+                int value = (Integer) opPostNotificationValue.get(Integer.class);
+                return (Integer) checkOpNoThrowMethod.invoke(appOps, value, uid, pkg) == 0;
+            } catch (NoSuchMethodException | NoSuchFieldException | InvocationTargetException | IllegalAccessException | RuntimeException | ClassNotFoundException ignored) {
+                return true;
+            }
+        } else {
+            return true;
+        }
+    }
+     BottomDialogUtil bottomDialogUtil;
+    private void myToast(String message) {
+        if(bottomDialogUtil==null){
+            bottomDialogUtil = new BottomDialogUtil.Builder()
+                    .setContext(context) //设置 context
+                    .setContentView(R.layout.toast) //设置布局文件
+                    .setOutSideCancel(false) //设置点击外部取消
+                    .builder()
+                    .show();
+        }
+        TextView tvtoast= (TextView) bottomDialogUtil.getItemView(R.id.tvtoast);
+        tvtoast.setText(message);
 
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                //显示dialog
+                bottomDialogUtil.dismiss();
+                bottomDialogUtil=null;
+            }
+        }, 2000);   //5秒
+
+    }
 }
 
 

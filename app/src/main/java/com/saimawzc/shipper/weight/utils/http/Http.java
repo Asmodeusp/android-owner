@@ -34,8 +34,6 @@ public class Http {
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new RequestLogInterceptor())
                 .addInterceptor(new RequestHeaderInterceptor())
-              //  .sslSocketFactory(createSSLSocketFactory())//信任证书
-              //  .hostnameVerifier(new TrustAllHostnameVerifier())//信任证书
                 .retryOnConnectionFailure(true)//重连
                 .build();
 

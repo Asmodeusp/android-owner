@@ -10,16 +10,17 @@ import com.saimawzc.shipper.weight.utils.dialog.BottomDialog;
 public class BottomDialogUtil {
 
     private BottomDialog bottomDialog;
+    Builder builder;
 
 
     private Context mContext;
     public BottomDialogUtil(Builder builder){
         mContext = builder.context;
+        this.builder=builder;
         bottomDialog =
                 new BottomDialog(mContext, R.style.BaseDialog,builder.contentviewid);
         bottomDialog.setCancelable(builder.outsidecancel);
         bottomDialog.setCanceledOnTouchOutside(builder.outsidecancel);
-
     }
     /**
      * popup 消失
@@ -79,6 +80,10 @@ public class BottomDialogUtil {
         public BottomDialogUtil builder(){
             return new BottomDialogUtil(this);
         }
+    }
+
+    public Builder getBulider(){
+        return builder;
     }
 
 }
