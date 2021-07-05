@@ -206,6 +206,9 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
     @Override
     public void oncomplete(int type) {
         if(type==100){
+            editCode.setText("");
+            editOrderPass.setText("");
+            editPass.setText("");
             presenter.login(editPass.getText().toString());
         }else {
             if(type==1){

@@ -106,7 +106,7 @@ public class ResisterModelImple implements  ResisterModel{
     }
 
     @Override
-    public void resiser(ResisterView view, final BaseListener listener) {
+    public void resiser(final ResisterView view, final BaseListener listener) {
         JSONObject jsonObject=new JSONObject();
         try {
             jsonObject.put("createSource","1");//1安卓
@@ -131,11 +131,14 @@ public class ResisterModelImple implements  ResisterModel{
         authApi.resister(body).enqueue(new CallBack<EmptyDto>() {
             @Override
             public void success(EmptyDto response) {
+                view.Toast("注册成功");
                 listener.successful(100);
+                view.dissLoading();
             }
             @Override
             public void fail(String code, String message) {
                 listener.onFail(message);
+                view.dissLoading();
             }
         });
     }

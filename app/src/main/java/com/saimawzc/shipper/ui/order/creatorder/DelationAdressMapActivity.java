@@ -73,7 +73,8 @@ import butterknife.BindView;
 /***
  * 地图选择详细地址
  * **/
-public class DelationAdressMapActivity extends BaseActivity implements OnGetDistricSearchResultListener {
+public class DelationAdressMapActivity extends BaseActivity
+        implements OnGetDistricSearchResultListener {
 
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.mapView) MapView mMapView;

@@ -40,16 +40,12 @@ import static com.saimawzc.shipper.constants.AppConfig.reshWayBillAdd;
  * **/
 public class ChooseContractsFragment extends BaseFragment {
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.rv)
-    RecyclerView rv;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.rv) RecyclerView rv;
     private ContractsAdapter adapter;
     List<ContarctsDto>mDatas=new ArrayList<>();
     @BindView(R.id.right_btn) TextView rightBtn;
-    @BindView(R.id.SwipeRefreshLayout)
-    SwipeRefreshLayout refreshLayout;
-
+    @BindView(R.id.SwipeRefreshLayout) SwipeRefreshLayout refreshLayout;
     @Override
     public int initContentView() {
         return R.layout.fragment_choosecontarcts;

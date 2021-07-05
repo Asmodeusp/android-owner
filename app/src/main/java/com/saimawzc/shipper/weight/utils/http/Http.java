@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
@@ -35,6 +37,9 @@ public class Http {
                 .addInterceptor(new RequestLogInterceptor())
                 .addInterceptor(new RequestHeaderInterceptor())
                 .retryOnConnectionFailure(true)//重连
+                .connectTimeout(2, TimeUnit.MINUTES)
+                .readTimeout(2, TimeUnit.MINUTES)
+                .writeTimeout(2, TimeUnit.MINUTES)
                 .build();
 
         mRetrofit = new Retrofit.Builder()

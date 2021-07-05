@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -44,6 +43,11 @@ import com.saimawzc.shipper.ui.baidu.utils.CommonUtil;
 import com.saimawzc.shipper.ui.baidu.utils.MapUtil;
 import com.saimawzc.shipper.view.travel.TravelView;
 import com.saimawzc.shipper.weight.utils.TraceUtils;
+import com.saimawzc.shipper.weight.utils.dialog.BounceTopEnter;
+import com.saimawzc.shipper.weight.utils.dialog.NormalDialog;
+import com.saimawzc.shipper.weight.utils.dialog.OnBtnClickL;
+import com.saimawzc.shipper.weight.utils.dialog.SlideBottomExit;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
@@ -54,8 +58,7 @@ import butterknife.OnClick;
 public class TracingActivity extends BaseActivity implements
         View.OnClickListener, TravelView , CompoundButton.OnCheckedChangeListener{
     private BaseApplication trackApp = null;
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    @BindView(R.id.toolbar) Toolbar toolbar;
     private OnTrackListener trackListener = null;
     //请求标识
     int tag = 1;
@@ -96,19 +99,18 @@ public class TracingActivity extends BaseActivity implements
     @BindView(R.id.check_ys_gj) CheckBox check_Yushe;
     @BindView(R.id.check_bd_gj)CheckBox check_bd;
     @BindView(R.id.check_yy_gj)CheckBox check_yingyan;
+
     @Override
     protected void init() {
         setToolbar(toolbar,"轨迹追踪");
         trackApp = (BaseApplication) getApplicationContext();
         serviceId=trackApp.serviceId;
         entityName= getIntent().getStringExtra("id");
-        Log.e("msg","当前ID"+entityName+"serviceId"+serviceId);
         type=getIntent().getStringExtra("type");
         presenter=new TravelPresenter(this,mContext);
         try {
             travelId=getIntent().getStringExtra("travelId");
         }catch (Exception e){
-
         }
         if(!TextUtils.isEmpty(type)){
             if(type.equals("guiji")){
@@ -142,8 +144,9 @@ public class TracingActivity extends BaseActivity implements
         historyTrackRequest.setProcessOption(processOption);
        // 设置里程填充方式为驾车
         historyTrackRequest.setSupplementMode(SupplementMode.driving);
-        presenter.getBeiDou(travelId);
-        presenter.getSuptravel(travelId);
+
+
+
         check_Yushe.setOnCheckedChangeListener(this);
         check_bd.setOnCheckedChangeListener(this);
         check_yingyan.setOnCheckedChangeListener(this);
@@ -160,7 +163,8 @@ public class TracingActivity extends BaseActivity implements
             public void onHistoryTrackCallback(HistoryTrackResponse response) {
                 super.onHistoryTrackCallback(response);
                 int total = response.getTotal();
-                StringBuffer sb = new StringBuffer(256);
+                presenter.getBeiDou(travelId);
+                presenter.getSuptravel(travelId);
                 if (StatusCodes.SUCCESS != response.getStatus()) {
                 } else if (0 == total) {
                     queryHistroy();
@@ -203,7 +207,6 @@ public class TracingActivity extends BaseActivity implements
             public void onLatestPointCallback(LatestPointResponse response) {
             }
         };
-
 
         List<String>list=new ArrayList<>();
         list.add(entityName);
@@ -363,6 +366,8 @@ public class TracingActivity extends BaseActivity implements
         }
     }
 
+
+    private NormalDialog dialog;
     @Override
     public void getBeiDouTravel(BeidouTravelDto dto) {
         if(dto!=null){
@@ -373,18 +378,37 @@ public class TracingActivity extends BaseActivity implements
             }
 
             if(allPointList.size()>=2){
-
                 MapStatus.Builder builder = new MapStatus.Builder();
                 builder.target(allPointList.get(0)).zoom(18.0f);
                 baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
-
                 OverlayOptions mOverlayOptions1 = new PolylineOptions()
                         .width(10)
                         .color(Color.RED)
                         .points(allPointList);
                  overbeidou = baiduMap.addOverlay(mOverlayOptions1);
             }
+        }
+        if(overbeidou==null&&overlayList.size()==0){
 
+            if(dialog==null){
+                dialog = new NormalDialog(mContext).isTitleShow(true)
+                        .title("提示")
+                        .content("未获取到轨迹信息，请检查设备是否正常")
+                        .showAnim(new BounceTopEnter()).dismissAnim(new SlideBottomExit())
+                        .btnNum(1).btnText("确定");
+                dialog.setOnBtnClickL(
+                        new OnBtnClickL() {
+                            @Override
+                            public void onBtnClick() {
+                                if(!context.isFinishing()){
+                                    dialog.dismiss();
+                                }
+                            }
+                        });
+                if(dialog!=null){
+                    dialog.show();
+                }
+            }
 
         }
     }
@@ -407,7 +431,6 @@ public class TracingActivity extends BaseActivity implements
                         .width(10)
                         .color(Color.BLUE)
                         .points(allPointList);
-
                  overyushe = baiduMap.addOverlay(mOverlayOptions);
             }
         }
