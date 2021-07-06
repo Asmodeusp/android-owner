@@ -87,6 +87,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.tvcarage)TextView tvCarAge;
     @BindView(R.id.tvaqgz)TextView tvAqgz;
     @BindView(R.id.tvrelacom)TextView tvRelaCom;
+    @BindView(R.id.imgwl)ImageView imgsignWl;
 
     @Override
     public int initContentView() {
@@ -286,6 +287,11 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgCarModel);
             }else {
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgCarModel);
+            }
+            if(dto.getChoose().getFenceClock()==1){
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgsignWl);
+            }else {
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgsignWl);
             }
         }
 

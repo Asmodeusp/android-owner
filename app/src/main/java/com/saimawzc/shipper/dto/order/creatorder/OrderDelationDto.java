@@ -442,6 +442,15 @@ public class OrderDelationDto {
         private String travelYears;
         private String relationComName;
         private String relationCom;
+        private int fenceClock;
+
+        public int getFenceClock() {
+            return fenceClock;
+        }
+
+        public void setFenceClock(int fenceClock) {
+            this.fenceClock = fenceClock;
+        }
 
         public String getRelationComName() {
             return relationComName;

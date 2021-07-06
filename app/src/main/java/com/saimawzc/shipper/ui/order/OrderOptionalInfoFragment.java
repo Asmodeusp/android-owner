@@ -84,6 +84,8 @@ public class OrderOptionalInfoFragment extends BaseFragment
     @BindView(R.id.edcarage)EditText edCarAge;
     @BindView(R.id.tvrelationCom)TextView tvRelaCom;//关联公司
 
+    @BindView(R.id.toggleIsWeilansign)SwitchButton isWeiLanSign;
+
     private UserInfoDto userInfoDto;
     private String id;
     private String orderCode;
@@ -312,6 +314,12 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 isChoose=isChecked;
             }
         });
+        isWeiLanSign.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                isChoose=isChecked;
+            }
+        });
 
     }
     @Override
@@ -519,6 +527,9 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 if(dto.getChoose().getProvideLoad()==1){////提供发货
                     switchZc.setChecked(true);
                 }
+                if(dto.getChoose().getFenceClock()==1){
+                    isWeiLanSign.setChecked(true);
+                }
                 if(dto.getChoose().getCheck()==1){//验货
                     toggleYh.setChecked(true);
                     rlYh.setVisibility(View.VISIBLE);
@@ -585,6 +596,15 @@ public class OrderOptionalInfoFragment extends BaseFragment
         if(dto!=null){
             edksNum.setText(dto.getThirdPartyNo());
             tvMakePeople.setText(dto.getMakerName());
+        }
+    }
+
+    @Override
+    public int fenceClock() {
+        if(isWeiLanSign.isChecked()){
+            return 1;
+        }else {
+            return 2;
         }
     }
 

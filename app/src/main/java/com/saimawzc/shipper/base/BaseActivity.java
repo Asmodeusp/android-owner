@@ -1026,11 +1026,19 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         new Handler().postDelayed(new Runnable(){
             public void run() {
-                //显示dialog
-                if(bottomDialogUtil!=null){
-                    bottomDialogUtil.dismiss();
+
+                try {
+                    //显示dialog
+                    if(bottomDialogUtil!=null){
+                        bottomDialogUtil.dismiss();
+                        bottomDialogUtil=null;
+                    }
+                }catch (Exception e){
+
+                }finally {
                     bottomDialogUtil=null;
                 }
+
             }
         }, 1000);   //5秒
 

@@ -91,6 +91,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.tvaqgz)TextView tvAqgz;
     @BindView(R.id.imgcarmodel)ImageView imgCarModel;
     @BindView(R.id.tvrelacom)TextView tvRelaCom;
+    @BindView(R.id.imgwl)ImageView imgsignWl;
     @Override
     public int initContentView() {
         return R.layout.fragment_waybill_sh;
@@ -295,6 +296,11 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgCarModel);
             }else {
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgCarModel);
+            }
+            if(dto.getChoose().getFenceClock()==1){
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgsignWl);
+            }else {
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgsignWl);
             }
         }
 

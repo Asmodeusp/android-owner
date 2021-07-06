@@ -39,4 +39,5 @@ public interface OrderOptionalInfoView extends BaseView {
     void getOrderDelation(OrderDelationDto dto);
     boolean getIschoose();
     void getConsuteDealtion(ConsuteDelationDto dto);
+    int fenceClock();
 }

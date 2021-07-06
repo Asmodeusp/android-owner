@@ -170,7 +170,7 @@ public class MainActivity extends BaseActivity
             }
         }
 
-        }
+    }
     private boolean isBreak = false;
     @Override
     public void onBackPressed() {

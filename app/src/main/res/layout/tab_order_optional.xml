@@ -631,6 +631,33 @@
                     android:background="@null"/>
             </LinearLayout>
             <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="围栏内签收:"
+                    android:textSize="@dimen/px30dp" />
+
+                <com.saimawzc.shipper.weight.SwitchButton
+                    app:sb_checked_color="@color/blue"
+                    android:id="@+id/toggleIsWeilansign"
+                    app:sb_show_indicator="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:background="@null"/>
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
             <RelativeLayout
                 android:paddingRight="@dimen/px10dp"
                 android:layout_width="match_parent"

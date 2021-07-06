@@ -139,7 +139,7 @@ public class TracingActivity extends BaseActivity implements
         // 设置精度过滤值(定位精度大于100米的过滤掉)
         processOption.setRadiusThreshold(10);
         // 设置交通方式为驾车
-        processOption.setTransportMode(TransportMode.driving);
+       processOption.setTransportMode(TransportMode.driving);
         // 设置纠偏选项
         historyTrackRequest.setProcessOption(processOption);
        // 设置里程填充方式为驾车
@@ -170,6 +170,7 @@ public class TracingActivity extends BaseActivity implements
                     queryHistroy();
                 } else {
                     List<TrackPoint> points = response.getTrackPoints();
+
                     if (null != points) {
                         for (TrackPoint trackPoint : points) {
                             if (!CommonUtil.isZeroPoint(trackPoint.getLocation().getLatitude(),
@@ -325,6 +326,7 @@ public class TracingActivity extends BaseActivity implements
                 }
             }
         }
+
     }
 
 
@@ -334,7 +336,6 @@ public class TracingActivity extends BaseActivity implements
             countTime((long) getIntent().getDoubleExtra("startTime",0)/1000,
                     (long) getIntent().getDoubleExtra("endTime",0)/1000,
                     page);
-
             historyTrackRequest = new HistoryTrackRequest(tag, serviceId, entityName);
             // 设置开始时间
             historyTrackRequest.setStartTime(startTime);

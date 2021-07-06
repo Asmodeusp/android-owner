@@ -845,7 +845,29 @@
 
                 </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp">
+                <ImageView
+                    android:id="@+id/imgwl"
+                    android:layout_width="@dimen/px30dp"
+                    android:layout_height="@dimen/px30dp">
 
+                </ImageView>
+                <TextView
+                    android:layout_marginLeft="@dimen/px10dp"
+                    android:textSize="@dimen/px30dp"
+                    android:textColor="@color/color_black"
+                    android:text="围栏内签收"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </LinearLayout>
             <include layout="@layout/common_line"></include>
             <LinearLayout
                 android:paddingTop="@dimen/px24dp"
