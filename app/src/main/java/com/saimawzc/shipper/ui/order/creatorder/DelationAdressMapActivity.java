@@ -124,7 +124,7 @@ public class DelationAdressMapActivity extends BaseActivity
                 }
                 mSuggestionSearch.requestSuggestion(new SuggestionSearchOption()
                         .city(city)
-                        .citylimit(false)
+                        .citylimit(true)
                         .keyword(cs.toString()));
             }
         });
