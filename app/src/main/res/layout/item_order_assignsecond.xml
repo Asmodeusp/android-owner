@@ -34,6 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <TextView
+                android:textSize="@dimen/px30dp"
                 android:gravity="right"
                 android:id="@+id/tvDelete"
                 android:text="删除"
@@ -59,6 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <EditText
+                android:textSize="@dimen/px28dp"
                 android:id="@+id/edtrantPrice"
                 android:inputType="numberDecimal"
                 android:background="@null"
@@ -87,6 +89,7 @@
                 android:layout_height="match_parent" />
 
            <EditText
+               android:textSize="@dimen/px28dp"
                android:id="@+id/edtrantNum"
             android:inputType="numberDecimal"
             android:background="@null"

@@ -433,6 +433,30 @@ public class TracingActivity extends BaseActivity implements
                         .color(Color.BLUE)
                         .points(allPointList);
                  overyushe = baiduMap.addOverlay(mOverlayOptions);
+                try{
+                    LatLng tempPoint = new LatLng(allPointList.get(0).latitude, allPointList.get(0).longitude);
+                    BitmapDescriptor bitmap = BitmapDescriptorFactory
+                            .fromResource(R.drawable.icon_end);
+                    OverlayOptions option = new MarkerOptions()
+                            .position(tempPoint)
+                            .icon(bitmap);
+                    baiduMap.addOverlay(option);
+                }catch (Exception e){
+
+                }
+                try{
+                    LatLng tempPoint1 = new LatLng(allPointList.get(allPointList.size()-1).latitude, allPointList.get(allPointList.size()-1).longitude);
+                    BitmapDescriptor bitmap = BitmapDescriptorFactory
+                            .fromResource(R.drawable.ico_map_start);
+                    //构 建MarkerOption，用于在地图上添加Marker
+                    OverlayOptions option = new MarkerOptions()
+                            .position(tempPoint1)
+                            .icon(bitmap);
+                    //在                   地图上添加Marker，并显示
+                    baiduMap.addOverlay(option);
+                }catch (Exception w){
+
+                }
             }
         }
     }
