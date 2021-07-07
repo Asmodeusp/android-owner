@@ -197,6 +197,7 @@ public class DelationAdressMapActivity extends BaseActivity
         mSuggestionSearch.destroy();
         mBaiduMap.clear();
         mBaiduMap=null;
+        mMapView=null;
 
     }
 
@@ -266,6 +267,9 @@ public class DelationAdressMapActivity extends BaseActivity
         });
     }
 
-
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mMapView.onPause();
+    }
 }

@@ -294,6 +294,7 @@ public class TracingActivity extends BaseActivity implements
     @Override
     protected void onPause() {
         super.onPause();
+        mapView.onPause();
 
     }
     @Override
@@ -309,6 +310,7 @@ public class TracingActivity extends BaseActivity implements
         if(mapView!=null){
             mapView.onDestroy();
         }
+        mapView=null;
     }
 
     int totlDays;
@@ -517,4 +519,6 @@ public class TracingActivity extends BaseActivity implements
             }
         }
     }
+
+
 }
