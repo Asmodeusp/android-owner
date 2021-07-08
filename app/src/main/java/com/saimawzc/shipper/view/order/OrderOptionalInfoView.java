@@ -40,4 +40,8 @@ public interface OrderOptionalInfoView extends BaseView {
     boolean getIschoose();
     void getConsuteDealtion(ConsuteDelationDto dto);
     int fenceClock();
+
+    int openTransport();
+    int openFactorySignIn();
+    int openArrival();
 }

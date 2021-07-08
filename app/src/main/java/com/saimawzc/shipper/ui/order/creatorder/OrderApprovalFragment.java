@@ -89,6 +89,10 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.tvrelacom)TextView tvRelaCom;
     @BindView(R.id.imgwl)ImageView imgsignWl;
 
+    @BindView(R.id.imgtrantorder)ImageView imgTrantOrder;
+    @BindView(R.id.imgintosign)ImageView imgIntosign;
+    @BindView(R.id.imgopenArrival)ImageView imgopenArrival;
+
     @Override
     public int initContentView() {
         return R.layout.fragment_order_sh;
@@ -292,6 +296,22 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgsignWl);
             }else {
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgsignWl);
+            }
+
+            if(dto.getChoose().getOpenTransport()==1){
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgTrantOrder);
+            }else {
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgTrantOrder);
+            }
+            if(dto.getChoose().getOpenFactorySignIn()==1){
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgIntosign);
+            }else {
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgIntosign);
+            }
+            if(dto.getChoose().getOpenArrival()==1){
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgopenArrival);
+            }else {
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgopenArrival);
             }
         }
 

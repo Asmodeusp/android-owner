@@ -443,6 +443,33 @@ public class OrderDelationDto {
         private String relationComName;
         private String relationCom;
         private int fenceClock;
+        private  int openTransport;
+        private  int openFactorySignIn;
+        private  int openArrival;
+
+        public int getOpenTransport() {
+            return openTransport;
+        }
+
+        public void setOpenTransport(int openTransport) {
+            this.openTransport = openTransport;
+        }
+
+        public int getOpenFactorySignIn() {
+            return openFactorySignIn;
+        }
+
+        public void setOpenFactorySignIn(int openFactorySignIn) {
+            this.openFactorySignIn = openFactorySignIn;
+        }
+
+        public int getOpenArrival() {
+            return openArrival;
+        }
+
+        public void setOpenArrival(int openArrival) {
+            this.openArrival = openArrival;
+        }
 
         public int getFenceClock() {
             return fenceClock;

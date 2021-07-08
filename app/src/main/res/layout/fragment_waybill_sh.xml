@@ -846,6 +846,84 @@
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp">
+                    <ImageView
+                        android:id="@+id/imgtrantorder"
+                        android:layout_width="@dimen/px30dp"
+                        android:layout_height="@dimen/px30dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_marginLeft="@dimen/px10dp"
+                        android:textSize="@dimen/px30dp"
+                        android:textColor="@color/color_black"
+                        android:text="运输确认"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp">
+                    <ImageView
+                        android:id="@+id/imgintosign"
+                        android:layout_width="@dimen/px30dp"
+                        android:layout_height="@dimen/px30dp">
+
+                    </ImageView>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/px10dp"
+                        android:textSize="@dimen/px30dp"
+                        android:textColor="@color/color_black"
+                        android:text="入场签到"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="visible"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp">
+                    <ImageView
+                        android:id="@+id/imgopenArrival"
+                        android:layout_width="@dimen/px30dp"
+                        android:layout_height="@dimen/px30dp">
+
+                    </ImageView>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/px10dp"
+                        android:textSize="@dimen/px30dp"
+                        android:textColor="@color/color_black"
+                        android:text="到货确认"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
                 android:gravity="center_vertical"
                 android:layout_weight="1"
                 android:orientation="horizontal"

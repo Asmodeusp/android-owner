@@ -123,6 +123,9 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("travelYears",optionalInfoFragment.carAge());
             choose.put("relationCom",optionalInfoFragment.relationCom());
             choose.put("fenceClock",optionalInfoFragment.fenceClock());
+            choose.put("openTransport",optionalInfoFragment.openTransport());
+            choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
+            choose.put("openArrival",optionalInfoFragment.openArrival());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){
@@ -257,6 +260,9 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("travelYears",optionalInfoFragment.carAge());
             choose.put("relationCom",optionalInfoFragment.relationCom());
             choose.put("fenceClock",optionalInfoFragment.fenceClock());
+            choose.put("openTransport",optionalInfoFragment.openTransport());
+            choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
+            choose.put("openArrival",optionalInfoFragment.openArrival());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){

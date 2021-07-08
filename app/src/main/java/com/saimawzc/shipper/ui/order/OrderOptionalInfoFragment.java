@@ -93,6 +93,13 @@ public class OrderOptionalInfoFragment extends BaseFragment
     private OrderOpintalnfoEditPresenter presenter;
     private String htmlContext;
 
+    /**运输确认**/
+    @BindView(R.id.toggletrantorder)SwitchButton toggletrantorder;
+    /**入场签到**/
+    @BindView(R.id.toggleopenFactorySignIn)SwitchButton toggleopenFactorySignIn;
+    /**到货通知**/
+    @BindView(R.id.toggleopenArrival)SwitchButton toggleopenArrival;
+
 
 
     @Override
@@ -562,6 +569,17 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 if(dto.getChoose().getAlarmTime()!=0){
                     edStayTime.setText(dto.getChoose().getAlarmTime()+"");
                 }
+
+                if(dto.getChoose().getOpenTransport()==2){
+                    toggletrantorder.setChecked(false);
+                }
+                if(dto.getChoose().getOpenFactorySignIn()==2){
+                    toggleopenFactorySignIn.setChecked(false);
+                }
+                if(dto.getChoose().getOpenArrival()==2){
+                    toggleopenArrival.setChecked(false);
+                }
+
                 tvHzList.setText(dto.getChoose().getAlarmHzName());
                 hzlistId=dto.getChoose().getAlarmHz();
                 tvReceiveObj.setText(dto.getChoose().getPushAlarmRoleName());
@@ -602,6 +620,33 @@ public class OrderOptionalInfoFragment extends BaseFragment
     @Override
     public int fenceClock() {
         if(isWeiLanSign.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
+    public int openTransport() {
+        if(toggletrantorder.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
+    public int openFactorySignIn() {
+        if(toggleopenFactorySignIn.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
+    public int openArrival() {
+        if(toggleopenArrival.isChecked()){
             return 1;
         }else {
             return 2;

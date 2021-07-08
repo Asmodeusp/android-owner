@@ -30,7 +30,12 @@ public class GlideImageLoader implements cn.finalteam.galleryfinal.ImageLoader {
                 .into(new ImageViewTarget<GlideDrawable>(imageView) {
                     @Override
                     protected void setResource(GlideDrawable resource) {
-                        imageView.setImageDrawable(resource);
+                        try {
+                            imageView.setImageDrawable(resource);
+                        }catch (Exception w){
+
+                        }
+
                     }
 
 

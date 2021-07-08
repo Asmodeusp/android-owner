@@ -23,7 +23,6 @@ import android.view.Surface;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.baidu.idcardquality.IDcardQualityProcess;
 import com.baidu.ocr.ui.camera.CameraNativeHelper;
 import com.baidu.ocr.ui.camera.CameraThreadPool;
@@ -33,11 +32,10 @@ import com.baidu.ocr.ui.camera.OCRCameraLayout;
 import com.baidu.ocr.ui.camera.PermissionCallback;
 import com.baidu.ocr.ui.crop.CropView;
 import com.baidu.ocr.ui.crop.FrameOverlayView;
-
+import com.saimawzc.shipper.R;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 public class CameraActivity extends Activity {
 
     public static final String KEY_OUTPUT_FILE_PATH = "outputFilePath";
@@ -93,7 +91,7 @@ public class CameraActivity extends Activity {
         takePictureContainer = (OCRCameraLayout) findViewById(com.baidu.ocr.ui.R.id.take_picture_container);
         confirmResultContainer = (OCRCameraLayout) findViewById(com.baidu.ocr.ui.R.id.confirm_result_container);
 
-        cameraView = (CameraView) findViewById(com.baidu.ocr.ui.R.id.camera_view);
+        cameraView = (CameraView) findViewById(R.id.camera_view);
         cameraView.getCameraControl().setPermissionCallback(permissionCallback);
         lightButton = (ImageView) findViewById(com.baidu.ocr.ui.R.id.light_button);
         lightButton.setOnClickListener(lightButtonOnClickListener);

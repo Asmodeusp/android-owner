@@ -117,8 +117,12 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("drivingYears",optionalInfoFragment.driverAge());
             choose.put("travelYears",optionalInfoFragment.carAge());
             choose.put("relationCom",optionalInfoFragment.relationCom());
-
             choose.put("fenceClock",optionalInfoFragment.fenceClock());
+
+            choose.put("openTransport",optionalInfoFragment.openTransport());
+            choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
+            choose.put("openArrival",optionalInfoFragment.openArrival());
+
 
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
@@ -259,6 +263,10 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("travelYears",optionalInfoFragment.carAge());
             choose.put("relationCom",optionalInfoFragment.relationCom());
             choose.put("fenceClock",optionalInfoFragment.fenceClock());
+
+            choose.put("openTransport",optionalInfoFragment.openTransport());
+            choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
+            choose.put("openArrival",optionalInfoFragment.openArrival());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
@@ -394,6 +402,10 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("travelYears",optionalInfoFragment.carAge());
             choose.put("relationCom",optionalInfoFragment.relationCom());
             choose.put("fenceClock",optionalInfoFragment.fenceClock());
+
+            choose.put("openTransport",optionalInfoFragment.openTransport());
+            choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
+            choose.put("openArrival",optionalInfoFragment.openArrival());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
