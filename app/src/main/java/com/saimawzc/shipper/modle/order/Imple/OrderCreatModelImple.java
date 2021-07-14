@@ -123,6 +123,8 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
             choose.put("openArrival",optionalInfoFragment.openArrival());
 
+            choose.put("autoTransport",optionalInfoFragment.autoTransport());
+
 
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
@@ -267,6 +269,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("openTransport",optionalInfoFragment.openTransport());
             choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
             choose.put("openArrival",optionalInfoFragment.openArrival());
+            choose.put("autoTransport",optionalInfoFragment.autoTransport());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
@@ -406,6 +409,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("openTransport",optionalInfoFragment.openTransport());
             choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
             choose.put("openArrival",optionalInfoFragment.openArrival());
+            choose.put("autoTransport",optionalInfoFragment.autoTransport());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();

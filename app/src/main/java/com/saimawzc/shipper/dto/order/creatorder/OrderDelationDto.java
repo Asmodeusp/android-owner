@@ -446,6 +446,15 @@ public class OrderDelationDto {
         private  int openTransport;
         private  int openFactorySignIn;
         private  int openArrival;
+        private int autoTransport;
+
+        public int getAutoTransport() {
+            return autoTransport;
+        }
+
+        public void setAutoTransport(int autoTransport) {
+            this.autoTransport = autoTransport;
+        }
 
         public int getOpenTransport() {
             return openTransport;

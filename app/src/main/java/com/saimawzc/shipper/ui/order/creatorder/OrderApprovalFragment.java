@@ -92,6 +92,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.imgtrantorder)ImageView imgTrantOrder;
     @BindView(R.id.imgintosign)ImageView imgIntosign;
     @BindView(R.id.imgopenArrival)ImageView imgopenArrival;
+    @BindView(R.id.imgautotrant)ImageView imgAutoTrant;
 
     @Override
     public int initContentView() {
@@ -312,6 +313,12 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgopenArrival);
             }else {
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgopenArrival);
+            }
+
+            if(dto.getChoose().getAutoTransport()==1){
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgAutoTrant);
+            }else {
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgAutoTrant);
             }
         }
 

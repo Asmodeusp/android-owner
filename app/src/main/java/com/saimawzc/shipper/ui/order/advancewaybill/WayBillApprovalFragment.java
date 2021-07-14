@@ -96,6 +96,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.imgtrantorder)ImageView imgTrantOrder;
     @BindView(R.id.imgintosign)ImageView imgIntosign;
     @BindView(R.id.imgopenArrival)ImageView imgopenArrival;
+    @BindView(R.id.imgautotrant)ImageView imgAutoTrant;
     @Override
     public int initContentView() {
         return R.layout.fragment_waybill_sh;
@@ -320,6 +321,11 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgopenArrival);
             }else {
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgopenArrival);
+            }
+            if(dto.getChoose().getAutoTransport()==1){
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgAutoTrant);
+            }else {
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgAutoTrant);
             }
         }
 

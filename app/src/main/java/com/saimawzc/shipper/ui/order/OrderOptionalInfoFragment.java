@@ -99,6 +99,8 @@ public class OrderOptionalInfoFragment extends BaseFragment
     @BindView(R.id.toggleopenFactorySignIn)SwitchButton toggleopenFactorySignIn;
     /**到货通知**/
     @BindView(R.id.toggleopenArrival)SwitchButton toggleopenArrival;
+    /**自动运输**/
+    @BindView(R.id.toggleutotrant)SwitchButton toggleAutoTrant;
 
 
 
@@ -322,6 +324,12 @@ public class OrderOptionalInfoFragment extends BaseFragment
             }
         });
         isWeiLanSign.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                isChoose=isChecked;
+            }
+        });
+        toggleAutoTrant.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(SwitchButton view, boolean isChecked) {
                 isChoose=isChecked;
@@ -566,6 +574,10 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 if(dto.getChoose().getOffLineAlarm()==1){
                     swOffline.setChecked(true);
                 }
+                if(dto.getChoose().getAutoTransport()==1){
+                    toggleAutoTrant.setChecked(true);
+                }
+
                 if(dto.getChoose().getAlarmTime()!=0){
                     edStayTime.setText(dto.getChoose().getAlarmTime()+"");
                 }
@@ -647,6 +659,15 @@ public class OrderOptionalInfoFragment extends BaseFragment
     @Override
     public int openArrival() {
         if(toggleopenArrival.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
+    public int autoTransport() {
+        if(toggleAutoTrant.isChecked()){
             return 1;
         }else {
             return 2;

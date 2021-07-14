@@ -125,9 +125,39 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="自动运输:"
+                    android:textSize="@dimen/px30dp" />
+
+                <com.saimawzc.shipper.weight.SwitchButton
+                    android:id="@+id/toggleutotrant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:background="@null"
+                    app:sb_checked="false"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
+            </LinearLayout>
+
+            <include layout="@layout/common_line"></include>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -139,15 +169,15 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked="true"
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggletrantorder"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked="true"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>

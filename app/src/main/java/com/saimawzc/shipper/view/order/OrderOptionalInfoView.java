@@ -44,4 +44,5 @@ public interface OrderOptionalInfoView extends BaseView {
     int openTransport();
     int openFactorySignIn();
     int openArrival();
+    int autoTransport();
 }
