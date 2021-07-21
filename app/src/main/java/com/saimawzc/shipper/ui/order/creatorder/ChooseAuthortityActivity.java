@@ -66,7 +66,7 @@ public class ChooseAuthortityActivity extends BaseActivity {
                 upfresh(mDatas.get(tag).getCurremtleve());
                 break;
             case R.id.tvOrder:
-                if(mDatas.size()<=tag){
+                if(mDatas.size()<=tag||mDatas.size()==0){
                     return;
                 }
                 Intent intent=new Intent();

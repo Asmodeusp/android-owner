@@ -380,6 +380,7 @@ public class UnCompeletePlanOrderFragment extends BaseFragment
     public void getOrderList(List<OrderListDto> orderListDtos) {
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         if(!context.isEmptyStr(edSearch)){
             llSearch.setVisibility(View.GONE);

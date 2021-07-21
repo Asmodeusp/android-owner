@@ -186,6 +186,7 @@ public class TransportPlanOrderFragment extends BaseFragment implements PlanOrde
         }
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         if(orderListDtos!=null){
             adapter.addMoreData(orderListDtos);

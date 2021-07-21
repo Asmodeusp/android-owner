@@ -125,6 +125,7 @@ public class AccountManageFragment extends BaseFragment implements AccountManage
     public void getData(AccountQueryPageDto dtos) {
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         if(dtos!=null){
             if(dtos.isLastPage()==false){

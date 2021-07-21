@@ -44,7 +44,6 @@ android {
             zipAlignEnabled false
             // 移除无用的resource文件
             //shrinkResources true
-
             signingConfig signingConfigs.debug
         }
 

@@ -165,6 +165,7 @@ public class SaleListQueryFragment extends BaseFragment implements ConsultView, 
     public void getConsult(List<ConsultDto.data> dtos) {
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         if(!context.isEmptyStr(edSearch)){
             llSearch.setVisibility(View.GONE);

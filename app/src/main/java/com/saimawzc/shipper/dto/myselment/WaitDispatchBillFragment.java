@@ -139,6 +139,7 @@ public class WaitDispatchBillFragment extends BaseFragment implements
         if(dto!=null){
             if(page==1){
                 mDatas.clear();
+                adpater.notifyDataSetChanged();
             }
             if(dto.isLastPage()==false){
                 loadMoreListener.isLoading = false;

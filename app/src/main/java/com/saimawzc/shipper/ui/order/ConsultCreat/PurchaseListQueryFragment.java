@@ -169,6 +169,7 @@ public class PurchaseListQueryFragment extends BaseFragment implements ConsultVi
     public void getConsult(List<ConsultDto.data> dtos) {
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         if(!context.isEmptyStr(edSearch)){
             llSearch.setVisibility(View.GONE);

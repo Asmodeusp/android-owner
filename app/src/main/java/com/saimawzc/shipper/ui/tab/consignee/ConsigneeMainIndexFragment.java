@@ -222,6 +222,7 @@ public class ConsigneeMainIndexFragment  extends BaseImmersionFragment
         llSearch.setVisibility(View.GONE);
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         adapter.addMoreData(dots);
         IS_RESH=false;

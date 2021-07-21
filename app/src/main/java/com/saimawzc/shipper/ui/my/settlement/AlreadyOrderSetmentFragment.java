@@ -90,6 +90,7 @@ public class AlreadyOrderSetmentFragment extends BaseFragment
     public void getMySetment(MySetmentPageQueryDto dtos) {
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
 
         if(dtos.isLastPage()==false){

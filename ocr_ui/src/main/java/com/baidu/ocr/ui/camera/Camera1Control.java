@@ -473,6 +473,9 @@ public class Camera1Control implements ICameraControl {
     };
 
     private void updateFlashMode(int flashMode) {
+        if(parameters==null){
+            parameters = camera.getParameters();
+        }
         switch (flashMode) {
             case FLASH_MODE_TORCH:
                 parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
@@ -486,6 +489,12 @@ public class Camera1Control implements ICameraControl {
             default:
                 parameters.setFlashMode(Camera.Parameters.FLASH_MODE_AUTO);
                 break;
+        }
+        if(parameters==null){
+            parameters = camera.getParameters();
+            if(parameters==null){
+                return;
+            }
         }
         camera.setParameters(parameters);
     }

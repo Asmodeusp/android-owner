@@ -172,6 +172,7 @@ public class WayBillAssignmentFragment extends BaseFragment
     public void getWayBillAssign(List<WayBillAssignDto.waybillData> dtos) {
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         adapter.addMoreData(dtos);
     }

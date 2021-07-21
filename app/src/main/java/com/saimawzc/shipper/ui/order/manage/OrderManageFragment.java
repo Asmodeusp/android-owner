@@ -236,6 +236,7 @@ public class OrderManageFragment extends BaseFragment implements OrderManageView
         llSearch.setVisibility(View.GONE);
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         if(dtos!=null){
             adapter.addMoreData(dtos);

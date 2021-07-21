@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/compresshelper/compresshelper.iml" filepath="$PROJECT_DIR$/compresshelper/compresshelper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jcvideoplayer-lib/jcvideoplayer-lib.iml" filepath="$PROJECT_DIR$/jcvideoplayer-lib/jcvideoplayer-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/nxDrivershipper.iml" filepath="$PROJECT_DIR$/nxDrivershipper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ocr_ui/ocr_ui.iml" filepath="$PROJECT_DIR$/ocr_ui/ocr_ui.iml" />
-      <module fileurl="file://$PROJECT_DIR$/zbarlibary/zbarlibary.iml" filepath="$PROJECT_DIR$/zbarlibary/zbarlibary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/nxDrivershipper.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/nxDrivershipper.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/compresshelper/nxDrivershipper.compresshelper.iml" filepath="$PROJECT_DIR$/.idea/modules/compresshelper/nxDrivershipper.compresshelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jcvideoplayer-lib/nxDrivershipper.jcvideoplayer-lib.iml" filepath="$PROJECT_DIR$/.idea/modules/jcvideoplayer-lib/nxDrivershipper.jcvideoplayer-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ocr_ui/nxDrivershipper.ocr_ui.iml" filepath="$PROJECT_DIR$/.idea/modules/ocr_ui/nxDrivershipper.ocr_ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zbarlibary/nxDrivershipper.zbarlibary.iml" filepath="$PROJECT_DIR$/.idea/modules/zbarlibary/nxDrivershipper.zbarlibary.iml" />
     </modules>
   </component>
 </project>

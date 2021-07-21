@@ -390,6 +390,7 @@ public class AdvanceWayBillListFragment extends BaseFragment
     public void getWayBillList(List<OrderWayBillDto.waybillData> dtos) {
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         llSearch.setVisibility(View.GONE);
         adapter.addMoreData(dtos);

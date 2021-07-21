@@ -250,6 +250,7 @@ public class WayBillBiddFragment extends BaseFragment
         llSearch.setVisibility(View.GONE);
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
             if(dtos==null||dtos.size()<=0){
                 noData.setVisibility(View.VISIBLE);
             }else {

@@ -90,6 +90,7 @@ public class AssignDelationFragment extends BaseFragment implements AssignDelati
     public void getCarriveList(List<AssignDelationDto.listdata> dtos) {
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         adapter.addMoreData(dtos);
     }

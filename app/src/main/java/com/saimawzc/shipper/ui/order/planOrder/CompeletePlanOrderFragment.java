@@ -155,6 +155,7 @@ public class CompeletePlanOrderFragment extends BaseFragment implements PlanOrde
         }
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         adapter.addMoreData(orderListDtos);
         IS_RESH=false;

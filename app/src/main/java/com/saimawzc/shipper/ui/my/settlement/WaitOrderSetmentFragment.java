@@ -133,6 +133,7 @@ public class WaitOrderSetmentFragment extends BaseFragment implements MySetmentV
     public void getMySetment(MySetmentPageQueryDto dtos) {
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
         }
         if(dtos!=null){
             if(dtos.isLastPage()==false){

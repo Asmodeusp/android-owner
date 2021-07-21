@@ -244,6 +244,7 @@ public class TrantingCarFrament extends BaseFragment implements SendCarListView 
     public void getSendCarList(List<SendCarDto.SendCarData> dtos) {
         if(page==1){
             mDatas.clear();
+            adapter.notifyDataSetChanged();
             if(dtos==null||dtos.size()<=0){
                 noData.setVisibility(View.VISIBLE);
             }else {
