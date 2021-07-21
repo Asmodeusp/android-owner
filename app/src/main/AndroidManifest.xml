@@ -94,7 +94,7 @@
 
         </activity>
 
-        <activity android:name=".weight.utils.ocr.CameraActivity"></activity>
+<!--        <activity android:name=".weight.utils.ocr.CameraActivity"></activity>-->
         <activity
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait"

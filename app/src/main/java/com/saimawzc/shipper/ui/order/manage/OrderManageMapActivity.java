@@ -183,9 +183,12 @@ public class OrderManageMapActivity extends BaseActivity
 
     @Override
     protected void onGetBundle(Bundle bundle) {
-        id=bundle.getString("id");
-        presenter=new OrderManageMapPresenter(this,mContext);
-        presenter.getcarrive(id);
+        if(bundle!=null){
+            id=bundle.getString("id");
+            presenter=new OrderManageMapPresenter(this,mContext);
+            presenter.getcarrive(id);
+        }
+
     }
     private void setIndicator() {
         isLarge = new SparseBooleanArray();

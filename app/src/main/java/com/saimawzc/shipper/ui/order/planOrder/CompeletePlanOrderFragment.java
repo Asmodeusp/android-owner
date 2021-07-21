@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -12,40 +11,28 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.SectionedRecyclerViewAdapter;
 import com.saimawzc.shipper.adapter.order.CompleteOrderAdapter;
-import com.saimawzc.shipper.adapter.order.OrderListAdapter;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.order.OrderListDto;
-import com.saimawzc.shipper.dto.order.PlanOrderPageDto;
-import com.saimawzc.shipper.dto.order.creatorder.AdressDto;
 import com.saimawzc.shipper.presenter.order.PlanOrderPresenter;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
 import com.saimawzc.shipper.view.order.PlanOrderView;
 import com.saimawzc.shipper.weight.ClearTextEditText;
 import com.saimawzc.shipper.weight.utils.LoadMoreListener;
-import com.saimawzc.shipper.weight.utils.dialog.BounceTopEnter;
 import com.saimawzc.shipper.weight.utils.dialog.NormalDialog;
-import com.saimawzc.shipper.weight.utils.dialog.OnBtnClickL;
-import com.saimawzc.shipper.weight.utils.dialog.SlideBottomExit;
-import com.saimawzc.shipper.weight.utils.http.CallBack;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
 import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
-
 //订单列表
 public class CompeletePlanOrderFragment extends BaseFragment implements PlanOrderView {
 
@@ -59,8 +46,7 @@ public class CompeletePlanOrderFragment extends BaseFragment implements PlanOrde
     private PlanOrderPresenter presenter;
     private int type=3;//划订单类型,1-待处理,2-运输中,3-已完成
     private int status=100;//1.未审核 2.未分配 3.审核失败 4.竞价中 5.已分配
-    @BindView(R.id.imgSelect)
-    ImageView imgSelete;
+    @BindView(R.id.imgSelect) ImageView imgSelete;
     @BindView(R.id.edsearch) ClearTextEditText edSearch;
     @BindView(R.id.llSearch) LinearLayout llSearch;
     @BindView(R.id.tvSearch) TextView tvSearch;

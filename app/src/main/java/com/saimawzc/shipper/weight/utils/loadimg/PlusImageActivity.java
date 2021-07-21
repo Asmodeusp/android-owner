@@ -34,6 +34,9 @@ public class PlusImageActivity extends BaseActivity
     @Override
     protected void init() {
         imgList = getIntent().getStringArrayListExtra("imglist");
+        if(imgList.size()<=0){
+            return;
+        }
         mPosition = getIntent().getIntExtra("currentpos", 0);
         initView();
         try {

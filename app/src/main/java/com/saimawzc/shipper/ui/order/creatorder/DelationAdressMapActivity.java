@@ -100,11 +100,13 @@ public class DelationAdressMapActivity extends BaseActivity
         mBaiduMap.setMyLocationEnabled(true);
         area=getIntent().getStringExtra("area");
         city=getIntent().getStringExtra("city");
-        Log.e("msg","选择"+area+"城市"+city);
-        //显示城市轮廓
-        mDistrictSearch = DistrictSearch.newInstance();
-        mDistrictSearch.setOnDistrictSearchListener(this);
-        mDistrictSearch.searchDistrict(new DistrictSearchOption().cityName(area));
+
+        if(!TextUtils.isEmpty(area)){
+            //显示城市轮廓
+            mDistrictSearch = DistrictSearch.newInstance();
+            mDistrictSearch.setOnDistrictSearchListener(this);
+            mDistrictSearch.searchDistrict(new DistrictSearchOption().cityName(area));
+        }
 
         mSuggestionSearch=SuggestionSearch.newInstance();
         mSuggestionSearch.setOnGetSuggestionResultListener(listener);
