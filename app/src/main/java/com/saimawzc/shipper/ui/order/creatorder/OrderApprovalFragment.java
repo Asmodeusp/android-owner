@@ -93,7 +93,8 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.imgintosign)ImageView imgIntosign;
     @BindView(R.id.imgopenArrival)ImageView imgopenArrival;
     @BindView(R.id.imgautotrant)ImageView imgAutoTrant;
-
+    @BindView(R.id.tvguobangnum)TextView tvGuoBangNum;
+    @BindView(R.id.tvsignnum)TextView tvSignNum;
     @Override
     public int initContentView() {
         return R.layout.fragment_order_sh;
@@ -180,7 +181,8 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
             tvOrderPeople.setText(dto.getConfirmorName());
             tvReceiveStrage.setText(dto.getConfirmorStacticsName()+"");
             tvSignStrage.setText(dto.getSingStacticsName());
-
+            tvGuoBangNum.setText(dto.getWeighing());
+            tvSignNum.setText(dto.getSjSignInWeight());
             if(dto.getAutoSign()==1){
                 tvIsAutoSign.setText("是");
             }else {

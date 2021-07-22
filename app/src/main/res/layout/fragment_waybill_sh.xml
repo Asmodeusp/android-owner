@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content">
             </TextView>
             <LinearLayout
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -48,7 +48,7 @@
 
             </LinearLayout>
             <LinearLayout
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -75,7 +75,7 @@
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/tvlineyewu"
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -101,7 +101,7 @@
             </LinearLayout>
             <LinearLayout
                 android:paddingBottom="@dimen/px24dp"
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -151,7 +151,7 @@
             </LinearLayout>
 
             <LinearLayout
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -175,7 +175,7 @@
 
             </LinearLayout>
             <LinearLayout
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -223,7 +223,7 @@
 
             </LinearLayout>
             <LinearLayout
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -295,7 +295,7 @@
 
             </LinearLayout>
             <LinearLayout
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -343,7 +343,7 @@
 
             </LinearLayout>
             <LinearLayout
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -391,7 +391,7 @@
 
             </LinearLayout>
             <LinearLayout
-              android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content">
@@ -415,31 +415,82 @@
 
             </LinearLayout>
             <LinearLayout
-            android:paddingBottom="@dimen/px24dp"
-            android:paddingTop="@dimen/px24dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textColor="@color/color_black"
-                android:textSize="@dimen/px30dp"
-                android:text="到货时间："
-                android:layout_width="90dp"
+                android:paddingBottom="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp"
+                    android:text="到货时间："
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content">
 
-            </TextView>
+                </TextView>
 
-            <TextView
-                android:id="@+id/tvreceivetime"
-                android:layout_marginLeft="@dimen/px30dp"
-                android:textColor="@color/gray888"
-                android:textSize="@dimen/px30dp"
-                android:text=""
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></TextView>
+                <TextView
+                    android:id="@+id/tvreceivetime"
+                    android:layout_marginLeft="@dimen/px30dp"
+                    android:textColor="@color/gray888"
+                    android:textSize="@dimen/px30dp"
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
 
-        </LinearLayout>
-          <include layout="@layout/common_line"></include>
+            </LinearLayout>
+            <LinearLayout
+                android:paddingBottom="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp"
+                    android:text="过磅量："
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/tvguobangnum"
+                    android:layout_marginLeft="@dimen/px30dp"
+                    android:textColor="@color/gray888"
+                    android:textSize="@dimen/px30dp"
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingBottom="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp"
+                    android:text="签收量："
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/tvsignnum"
+                    android:layout_marginLeft="@dimen/px30dp"
+                    android:textColor="@color/gray888"
+                    android:textSize="@dimen/px30dp"
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
             <android.support.v7.widget.RecyclerView
                 android:layout_marginRight="@dimen/px20dp"
                 android:id="@+id/cy"
@@ -481,7 +532,7 @@
 
             </LinearLayout>
             <LinearLayout
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -505,33 +556,33 @@
 
             </LinearLayout>
             <LinearLayout
-           android:paddingTop="@dimen/px24dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textColor="@color/color_black"
-                android:textSize="@dimen/px30dp"
-                android:text="制单人："
-                android:layout_width="90dp"
+                android:paddingTop="@dimen/px24dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp"
+                    android:text="制单人："
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content">
 
-            </TextView>
+                </TextView>
 
-            <TextView
-                android:id="@+id/tvmakepeople"
-                android:layout_marginLeft="@dimen/px30dp"
-                android:textColor="@color/gray888"
-                android:textSize="@dimen/px30dp"
-                android:text=""
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></TextView>
+                <TextView
+                    android:id="@+id/tvmakepeople"
+                    android:layout_marginLeft="@dimen/px30dp"
+                    android:textColor="@color/gray888"
+                    android:textSize="@dimen/px30dp"
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
 
-        </LinearLayout>
-           <include layout="@layout/common_line"></include>
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
 
             <LinearLayout
-               android:paddingTop="@dimen/px24dp"
+                android:paddingTop="@dimen/px24dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -1270,7 +1321,7 @@
                     android:layout_height="wrap_content"></TextView>
 
             </LinearLayout>
-          <include layout="@layout/common_line"></include>
+            <include layout="@layout/common_line"></include>
 
 
             <LinearLayout

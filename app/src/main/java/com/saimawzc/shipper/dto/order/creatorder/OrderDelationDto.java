@@ -33,6 +33,24 @@ public class OrderDelationDto {
     private String tranTypeName;
     private String trackRouteId;
     private String routeName;
+    private String sjSignInWeight;
+    private String weighing;
+
+    public String getSjSignInWeight() {
+        return sjSignInWeight;
+    }
+
+    public void setSjSignInWeight(String sjSignInWeight) {
+        this.sjSignInWeight = sjSignInWeight;
+    }
+
+    public String getWeighing() {
+        return weighing;
+    }
+
+    public void setWeighing(String weighing) {
+        this.weighing = weighing;
+    }
 
     public String getTrackRouteId() {
         return trackRouteId;

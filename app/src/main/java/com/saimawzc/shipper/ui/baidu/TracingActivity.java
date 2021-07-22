@@ -393,7 +393,7 @@ public class TracingActivity extends BaseActivity implements
         }
         if(overbeidou==null&&overlayList.size()==0){
 
-            if(dialog==null){
+
                 dialog = new NormalDialog(mContext).isTitleShow(true)
                         .title("提示")
                         .content("未获取到轨迹信息，请检查设备是否正常")
@@ -411,7 +411,7 @@ public class TracingActivity extends BaseActivity implements
                 if(dialog!=null){
                     dialog.show();
                 }
-            }
+
 
         }
     }

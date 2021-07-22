@@ -97,6 +97,8 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.imgintosign)ImageView imgIntosign;
     @BindView(R.id.imgopenArrival)ImageView imgopenArrival;
     @BindView(R.id.imgautotrant)ImageView imgAutoTrant;
+    @BindView(R.id.tvguobangnum)TextView tvGuoBangNum;
+    @BindView(R.id.tvsignnum)TextView tvSignNum;
     @Override
     public int initContentView() {
         return R.layout.fragment_waybill_sh;
@@ -182,6 +184,8 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
             tvReceiveStrage.setText(dto.getConfirmorStacticsName()+"");
             tvSignStrage.setText(dto.getSingStacticsName());
             tvTrangWay.setText(dto.getTranTypeName());
+            tvGuoBangNum.setText(dto.getWeighing());
+            tvSignNum.setText(dto.getSjSignInWeight());
 
             for(int i=0;i<dto.getList().size();i++){
                 AddWayBillGoodsDto tempDto=new AddWayBillGoodsDto();
