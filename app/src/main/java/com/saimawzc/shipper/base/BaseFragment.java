@@ -163,7 +163,12 @@ public abstract class BaseFragment extends Fragment {
      * @param bundle
      */
     protected void readyGo(Class<?> clazz, Bundle bundle) {
-        Intent intent = new Intent(getActivity(), clazz);
+        Intent intent ;
+        if(getActivity()==null){
+            intent= new Intent(BaseApplication.getInstance(), clazz);
+        }else {
+            intent= new Intent(getActivity(), clazz);
+        }
         if (null != bundle) {
             intent.putExtras(bundle);
         }
@@ -175,7 +180,12 @@ public abstract class BaseFragment extends Fragment {
      * @param clazz
      */
     protected void readyGo(Class<?> clazz) {
-        Intent intent = new Intent(getActivity(), clazz);
+        Intent intent ;
+        if(getActivity()==null){
+            intent= new Intent(BaseApplication.getInstance(), clazz);
+        }else {
+            intent= new Intent(getActivity(), clazz);
+        }
         startActivity(intent);
     }
 
@@ -186,7 +196,12 @@ public abstract class BaseFragment extends Fragment {
      * @param requestCode
      */
     protected void readyGoForResult(Class<?> clazz, int requestCode) {
-        Intent intent = new Intent(getActivity(), clazz);
+        Intent intent ;
+        if(getActivity()==null){
+            intent= new Intent(BaseApplication.getInstance(), clazz);
+        }else {
+            intent= new Intent(getActivity(), clazz);
+        }
         startActivityForResult(intent, requestCode);
     }
     /**
@@ -198,7 +213,12 @@ public abstract class BaseFragment extends Fragment {
      */
     protected void readyGoForResult(Class<?> clazz, int requestCode, Bundle bundle) {
 
-        Intent intent = new Intent(getActivity(), clazz);
+        Intent intent ;
+        if(getActivity()==null){
+            intent= new Intent(BaseApplication.getInstance(), clazz);
+        }else {
+            intent= new Intent(getActivity(), clazz);
+        }
         if (null != bundle) {
 
             intent.putExtras(bundle);

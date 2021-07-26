@@ -450,6 +450,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         if(processhandler!=null){
             processhandler.removeCallbacksAndMessages(null);
         }
+        if(bottomDialogUtil!=null){
+            bottomDialogUtil.dismiss();
+        }
         super.onDestroy();
     }
 
@@ -1027,6 +1030,9 @@ public abstract class BaseActivity extends AppCompatActivity {
                 }catch (Exception e){
 
                 }finally {
+                    if(bottomDialogUtil!=null){
+                        bottomDialogUtil.dismiss();
+                    }
                     bottomDialogUtil=null;
                 }
 
