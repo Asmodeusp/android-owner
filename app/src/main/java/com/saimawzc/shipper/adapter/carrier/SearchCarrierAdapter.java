@@ -13,15 +13,11 @@ import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.FooterHolder;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.EmptyDto;
-import com.saimawzc.shipper.dto.carrier.MyCarrierGroupDto;
 import com.saimawzc.shipper.dto.carrier.MyCarriveDto;
-import com.saimawzc.shipper.dto.login.UserInfoDto;
 import com.saimawzc.shipper.weight.RepeatClickUtil;
 import com.saimawzc.shipper.weight.utils.api.mine.MineApi;
-import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.http.Http;
-import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 
 import org.json.JSONException;
 import org.json.JSONObject;

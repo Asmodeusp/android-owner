@@ -1,6 +1,7 @@
 package com.saimawzc.shipper.base;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
@@ -25,6 +26,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -41,6 +43,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
 import com.baidu.ocr.sdk.OCR;
@@ -52,7 +55,6 @@ import com.baidu.ocr.ui.camera.CameraView;
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.dto.login.AreaDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
-import com.saimawzc.shipper.ui.push.NotificationUtil;
 import com.saimawzc.shipper.weight.BottomDialogUtil;
 import com.saimawzc.shipper.weight.utils.api.OrderApi;
 import com.saimawzc.shipper.weight.utils.api.auto.AuthApi;
@@ -71,6 +73,7 @@ import com.saimawzc.shipper.weight.utils.update.InstallUtils;
 import com.gyf.immersionbar.ImmersionBar;
 import com.nanchen.compresshelper.CompressHelper;
 import com.werb.permissionschecker.PermissionChecker;
+
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -85,20 +88,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+
 import butterknife.ButterKnife;
+
 /**
  * Created by Administrator on 2018-03-21.
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
     protected BaseActivity context;
-    public  Context mContext;
+    public Context mContext;
     private DialogLoading loading;
     public static final String[] PERMISSIONS = new String[]{
             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -108,9 +114,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             Manifest.permission.CALL_PHONE
     };
     public PermissionChecker permissionChecker;
-    public AuthApi authApi= Http.http.createApi(AuthApi.class);
-    public MineApi mineApi= Http.http.createApi(MineApi.class);
-    public OrderApi orderApi= Http.http.createApi(OrderApi.class);
+    public AuthApi authApi = Http.http.createApi(AuthApi.class);
+    public MineApi mineApi = Http.http.createApi(MineApi.class);
+    public OrderApi orderApi = Http.http.createApi(OrderApi.class);
     public LinearLayoutManager layoutManager;
     public UserInfoDto userInfoDto;
     public InstallUtils.DownloadCallBack downloadCallBack;
@@ -122,7 +128,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getViewId());
         ButterKnife.bind(this);
         context = this;
-        mContext=this;
+        mContext = this;
         loading = new DialogLoading(this);
         AppManager.get().addActivity(this);
 //        notificationUtil=new NotificationUtil();
@@ -134,7 +140,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initListener();
     }
 
-    public void setStatusBar(boolean isUseBlackFontWithStatusBar,boolean isUseFullScreenMode,int color) {
+    public void setStatusBar(boolean isUseBlackFontWithStatusBar, boolean isUseFullScreenMode, int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (isUseFullScreenMode) {//是否设置成透明状态栏，即就是全屏模式
                 StatusBarUtil.transparencyBar(this);
@@ -147,6 +153,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }
     }
+
     /**
      * 初始化沉浸式
      * Init immersion bar.
@@ -162,52 +169,63 @@ public abstract class BaseActivity extends AppCompatActivity {
                 navigationBarColor(R.color.bg).
                 init();
     }
+
     public BaseActivity() {
     }
+
     protected abstract int getViewId();
+
     protected abstract void init();
+
     protected abstract void initListener();
+
     protected abstract void onGetBundle(Bundle bundle);
+
     @Override
     public void setContentView(View view, ViewGroup.LayoutParams params) {
         super.setContentView(view, params);
         ButterKnife.bind(this);
     }
+
     @Override
     public void setContentView(View view) {
         super.setContentView(view);
         ButterKnife.bind(this);
     }
+
     /**
      * 是否字符串为空
      * **/
-    public boolean isEmptyStr(String str){
-        if(TextUtils.isEmpty(str)){
+    public boolean isEmptyStr(String str) {
+        if (TextUtils.isEmpty(str)) {
             return true;
-        }else {
-            return  false;
+        } else {
+            return false;
         }
     }
+
     /**
      * 是否字符串为空
      * **/
-    public boolean isEmptyStr(TextView view){
-        if(TextUtils.isEmpty(view.getText().toString())){
+    public boolean isEmptyStr(TextView view) {
+        if (TextUtils.isEmpty(view.getText().toString())) {
             return true;
-        }else {
-            return  false;
+        } else {
+            return false;
         }
     }
+
     /**
      * 是否字符串为空
      * **/
-    public boolean isEmptyStr(EditText view){
-        if(TextUtils.isEmpty(view.getText().toString())){
+    public boolean isEmptyStr(EditText view) {
+        if (TextUtils.isEmpty(view.getText().toString())) {
             return true;
-        }else {
-            return  false;
+        } else {
+            return false;
         }
     }
+
     /**
      * 提示框
      * **/
@@ -217,29 +235,32 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         showToast(message);
     }
+
     private void showToast(final Object message) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if (context != null && !isFinishing()) {
-                    if(isNotificationEnabled(context)){//打开通知栏
-                        Toast toast = Toast.makeText(getApplicationContext(), message+"", Toast.LENGTH_LONG);
+                    if (isNotificationEnabled(context)) {//打开通知栏
+                        Toast toast = Toast.makeText(getApplicationContext(), message + "", Toast.LENGTH_LONG);
                         // 重点是这个方法：显示的方位及距离的偏差
-                        toast.setGravity(Gravity.CENTER,0,0);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
-                    }else {
-                        myToast(message+"");
+                    } else {
+                        myToast(message + "");
                     }
 
                 }
             }
         });
     }
+
     /**
      * 本地上传图片
      * **/
     public String tempImage;
-    public final int REQUEST_CODE_CAMERA=1000;
+    public final int REQUEST_CODE_CAMERA = 1000;
+
     public void showCameraAction() {
         tempImage = SdCardUtil.getCacheTempImage(context);
         openCamera(tempImage, REQUEST_CODE_CAMERA);
@@ -255,12 +276,13 @@ public abstract class BaseActivity extends AppCompatActivity {
                 Uri.parse("file:///" + path));
         startActivityForResult(intent, code);
     }
+
     public void setToolbar(Toolbar toolbar, String title) {
-       toolbar.setNavigationIcon(R.drawable.ico_menu_return);
+        toolbar.setNavigationIcon(R.drawable.ico_menu_return);
         TextView titleTv = (TextView) toolbar.findViewById(R.id.title);
         setSupportActionBar(toolbar);
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
         }
@@ -292,6 +314,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
     }
+
     /**
      * startActivityForResult
      * @param clazz
@@ -301,6 +324,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         Intent intent = new Intent(this, clazz);
         startActivityForResult(intent, requestCode);
     }
+
     /***
      * 获取签名
      * */
@@ -327,23 +351,23 @@ public abstract class BaseActivity extends AppCompatActivity {
     /***
      * 是否登录
      * ***/
-    public  boolean isLogin(){
-        if(TextUtils.isEmpty(Hawk.get(PreferenceKey.ID)+"")){
+    public boolean isLogin() {
+        if (TextUtils.isEmpty(Hawk.get(PreferenceKey.ID) + "")) {
             return false;
-        }else if((Hawk.get(PreferenceKey.ID)+"").equalsIgnoreCase("null")){
-            return  false;
-        }else {
-            return  true;
+        } else if ((Hawk.get(PreferenceKey.ID) + "").equalsIgnoreCase("null")) {
+            return false;
+        } else {
+            return true;
         }
     }
 
     /****
      * 判断转换结果是不是String
      * **/
-    public boolean changeOk (String key){
-        if(Hawk.get(key)instanceof String){
-            return  false;
-        }else {
+    public boolean changeOk(String key) {
+        if (Hawk.get(key) instanceof String) {
+            return false;
+        } else {
             return true;
         }
     }
@@ -351,11 +375,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     /****
      * 获取当前时间后一天
      * */
-    public  static String getLastTime(){
+    public static String getLastTime() {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, 1);
-        return    sf.format(c.getTime());
+        return sf.format(c.getTime());
 
     }
 
@@ -388,6 +412,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         startActivity(intent);
     }
+
     /**
      * 显示加载弹窗
      */
@@ -422,7 +447,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(loading!=null){
+                if (loading != null) {
                     loading.dismiss();
                 }
 
@@ -435,11 +460,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onResume();
 
     }
+
     @Override
     protected void onPause() {
         super.onPause();
-        if(loading!=null){
-           loading.dismiss();
+        if (loading != null) {
+            loading.dismiss();
         }
     }
 
@@ -447,31 +473,29 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         dismissLoadingDialog();
         AppManager.get().removeActivity(this);
-        if(processhandler!=null){
+        if (processhandler != null) {
             processhandler.removeCallbacksAndMessages(null);
         }
-        if(bottomDialogUtil!=null){
+        if (bottomDialogUtil != null) {
             bottomDialogUtil.dismiss();
         }
         super.onDestroy();
     }
 
 
-
-
-    public static void hideKeyBoard(Context context, EditText editText){
-        InputMethodManager imm = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(editText.getWindowToken(),0);
+    public static void hideKeyBoard(Context context, EditText editText) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 
 
     /****
      * 获取当前时间
      * ***/
-    public static String getCurrentTime(String timeformat){//"yyyy-MM-dd HH:mm"
+    public static String getCurrentTime(String timeformat) {//"yyyy-MM-dd HH:mm"
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(timeformat);// HH:mm:ss
         Date date = new Date(System.currentTimeMillis());
-        return simpleDateFormat.format(date)+"";
+        return simpleDateFormat.format(date) + "";
     }
 
     /*** 获取版本号 
@@ -479,22 +503,22 @@ public abstract class BaseActivity extends AppCompatActivity {
           * @param context 
           * @return 
           */
-    public static int getVersionCode(Context context){
-        int versionCode=0;
-        try{
-            versionCode= context.getPackageManager().getPackageInfo(context.getPackageName(),0).versionCode;
-        }catch (Exception e){
+    public static int getVersionCode(Context context) {
+        int versionCode = 0;
+        try {
+            versionCode = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+        } catch (Exception e) {
 
         }
         return versionCode;
 
     }
 
-    public static String getVersionName(Context context){
-        String versionCode="";
-        try{
-            versionCode= context.getPackageManager().getPackageInfo(context.getPackageName(),0).versionName;
-        }catch (Exception e){
+    public static String getVersionName(Context context) {
+        String versionCode = "";
+        try {
+            versionCode = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+        } catch (Exception e) {
 
         }
         return versionCode;
@@ -505,39 +529,39 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 是否有网络连接
      * ***/
     public static boolean isNetworkConnected(Context context) {
-            if (context != null) {
-                   ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getApplicationContext()
-                            .getSystemService(Context.CONNECTIVITY_SERVICE);
-                    NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
-                    if (mNetworkInfo != null) {
-                            return mNetworkInfo.isAvailable();
-                        }
-                 }
-             return false;
-         }
+        if (context != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getApplicationContext()
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+            if (mNetworkInfo != null) {
+                return mNetworkInfo.isAvailable();
+            }
+        }
+        return false;
+    }
 
 
     /**
      * 解密的过程与加密的过程大致相同
      * @param decryptString 密文
      * @param decryptKey 密钥
-     * @return  返回明文
+     * @return 返回明文
      */
-    public static String decryptDES(String decryptString, String decryptKey){
+    public static String decryptDES(String decryptString, String decryptKey) {
 
         try {
             //先使用Base64解密
-            byte[]byteMi= Base64.decode(decryptString,0);
+            byte[] byteMi = Base64.decode(decryptString, 0);
             //实例化IvParameterSpec对象使用指定的初始化向量
-            IvParameterSpec zeroIv=new IvParameterSpec("wujiangk".getBytes());
+            IvParameterSpec zeroIv = new IvParameterSpec("wujiangk".getBytes());
             //实例化SecretKeySpec，根据传入的密钥获得字节数组来构造SecretKeySpec,
-            SecretKeySpec key=new SecretKeySpec(decryptKey.getBytes(),"DES");
+            SecretKeySpec key = new SecretKeySpec(decryptKey.getBytes(), "DES");
             //创建密码器
-            Cipher cipher= Cipher.getInstance("DES/CBC/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
             //用密钥初始化Cipher对象,上面是加密，这是解密模式
-            cipher.init(Cipher.DECRYPT_MODE,key,zeroIv);
+            cipher.init(Cipher.DECRYPT_MODE, key, zeroIv);
             //获取解密后的数据
-            byte [] decryptedData=cipher.doFinal(byteMi);
+            byte[] decryptedData = cipher.doFinal(byteMi);
             return new String(decryptedData);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -555,12 +579,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         return null;
     }
 
-    private  final int MIN_DELAY_TIME= 100;  // 两次点击间隔不能少于1000ms
-    private  long lastClickTime;
+    private final int MIN_DELAY_TIME = 100;  // 两次点击间隔不能少于1000ms
+    private long lastClickTime;
+
     /****
      * 防止重复点击
      * */
-    public  boolean isFastClick() {
+    public boolean isFastClick() {
         boolean flag = true;
         long currentClickTime = System.currentTimeMillis();
         if ((currentClickTime - lastClickTime) >= MIN_DELAY_TIME) {
@@ -575,21 +600,22 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param context
      * @return
      */
-    public String  getTopActivity(Context context){
+    public String getTopActivity(Context context) {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> list = activityManager.getRunningTasks(1);
-        if (list != null){
+        if (list != null) {
             ComponentName componentName = list.get(0).topActivity;
             //包名
             String packName = componentName.getPackageName();//packName=com.dr.dr_testappmanager
             //包名+类名，这是是我们需要的
             String className = componentName.getClassName();//className=com.dr.dr_testappmanager.MainActivity
-            String nameStr  = componentName.toString();//ComponentInfo{com.dr.dr_testappmanager/com.dr.dr_testappmanager.MainActivity}
+            String nameStr = componentName.toString();//ComponentInfo{com.dr.dr_testappmanager/com.dr.dr_testappmanager.MainActivity}
             return className;
         }
         return null;
 
     }
+
     /**
      * 判断Activity是否Destroy
      * @param mActivity
@@ -609,16 +635,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     /***
      * 显示Log
      * ****/
-    public void showLog(String tag ,String contect){
-      Log.e(tag,contect);
+    public void showLog(String tag, String contect) {
+        Log.e(tag, contect);
     }
 
 
-    public void initPush(){
+    public void initPush() {
         PushManager.startWork(getApplicationContext(),
                 PushConstants.LOGIN_TYPE_API_KEY,
                 "kcKPgo9GQKZo7PvKOGjurEOTGPoPBtyr");
     }
+
     /**
      * 以license文件方式初始化
      */
@@ -628,7 +655,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             public void onResult(AccessToken accessToken) {
                 String token = accessToken.getAccessToken();
                 //hasGotToken = true;
-                Log.e("msg","百度云初始化"+token);
+                Log.e("msg", "百度云初始化" + token);
                 //  初始化本地质量控制模型,释放代码在onDestory中
                 //  调用身份证扫描必须加上 intent.putExtra(CameraActivity.KEY_NATIVE_MANUAL, true); 关闭自动初始化和释放本地模型
                 CameraNativeHelper.init(BaseActivity.this, OCR.getInstance(BaseActivity.this).getLicense(),
@@ -649,7 +676,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                                     default:
                                         msg = String.valueOf(errorCode);
                                 }
-                                Log.e("msg","本地质量控制初始化错误，错误原因： " + msg);
+                                Log.e("msg", "本地质量控制初始化错误，错误原因： " + msg);
                             }
                         });
 
@@ -658,11 +685,12 @@ public abstract class BaseActivity extends AppCompatActivity {
             @Override
             public void onError(OCRError error) {
                 error.printStackTrace();
-                Log.e("msg","licence方式获取token失败"+ error.getMessage());
+                Log.e("msg", "licence方式获取token失败" + error.getMessage());
                 initAccessTokenWithAkSk();
             }
         }, getApplicationContext());
     }
+
     /**
      * 用明文ak，sk初始化
      */
@@ -671,7 +699,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             @Override
             public void onResult(AccessToken result) {
                 String token = result.getAccessToken();
-                Log.e("msg","百度云初始化"+token);
+                Log.e("msg", "百度云初始化" + token);
                 //  初始化本地质量控制模型,释放代码在onDestory中
                 //  调用身份证扫描必须加上 intent.putExtra(CameraActivity.KEY_NATIVE_MANUAL, true); 关闭自动初始化和释放本地模型
                 CameraNativeHelper.init(BaseActivity.this, OCR.getInstance(BaseActivity.this).getLicense(),
@@ -692,17 +720,18 @@ public abstract class BaseActivity extends AppCompatActivity {
                                     default:
                                         msg = String.valueOf(errorCode);
                                 }
-                                Log.e("msg","本地质量控制初始化错误，错误原因： " + msg);
+                                Log.e("msg", "本地质量控制初始化错误，错误原因： " + msg);
                             }
                         });
 
             }
+
             @Override
             public void onError(OCRError error) {
                 error.printStackTrace();
-                Log.e("msg","AK，SK方式获取token失败"+error.getMessage());
+                Log.e("msg", "AK，SK方式获取token失败" + error.getMessage());
             }
-        }, getApplicationContext(),  "Om52FH0oEFxhASWTEaQSOUGf", "6RkLWRmCVOeaf5kxYn26oRLsDvd9Ry5R");
+        }, getApplicationContext(), "Om52FH0oEFxhASWTEaQSOUGf", "6RkLWRmCVOeaf5kxYn26oRLsDvd9Ry5R");
     }
 
     /**
@@ -721,9 +750,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         } else if ("K".equals(fileUnit.toUpperCase())) {
             fileSizeCom = (double) fileLen / 1024;
         } else if ("M".equals(fileUnit.toUpperCase())) {
-            fileSizeCom = (double) fileLen / (1024*1024);
+            fileSizeCom = (double) fileLen / (1024 * 1024);
         } else if ("G".equals(fileUnit.toUpperCase())) {
-            fileSizeCom = (double) fileLen / (1024*1024*1024);
+            fileSizeCom = (double) fileLen / (1024 * 1024 * 1024);
         }
         if (fileSizeCom > fileSize) {
             return false;
@@ -736,61 +765,66 @@ public abstract class BaseActivity extends AppCompatActivity {
     /****
      * 压缩
      * **/
-    public static  File compress(final Context context,final File file){
+    public static File compress(final Context context, final File file) {
 
-        File tempFile=null;
-        if(file==null){
+        File tempFile = null;
+        if (file == null) {
             return null;
         }
-        if(!checkFileSizeIsLimit(file.length(),600,"K")){//图片大于1m
-            tempFile= new CompressHelper.Builder(context)
+        if (!checkFileSizeIsLimit(file.length(), 600, "K")) {//图片大于1m
+            tempFile = new CompressHelper.Builder(context)
                     .setMaxWidth(720)   //默认最大宽度为720
                     .setMaxHeight(960)  //默认最大高度为960
                     .setQuality(80)     //默认压缩质量为80
                     .setCompressFormat(Bitmap.CompressFormat.PNG) //设置默认压缩为jpg格式
-                    .setFileName(System.currentTimeMillis()+"") //设置你的文件名
+                    .setFileName(System.currentTimeMillis() + "") //设置你的文件名
                     .build()
                     .compressToFile(file);
             return tempFile;
-        }else {
+        } else {
             return file;
         }
     }
+
     /****
      * 缓存地域
      * **/
-    public void cacheArae(){
+    public void cacheArae() {
         mineApi.getArea().enqueue(new CallBack<List<AreaDto>>() {
             @Override
             public void success(List<AreaDto> response) {
-                Hawk.put(PreferenceKey.CITY_INFO,response);
+                Hawk.put(PreferenceKey.CITY_INFO, response);
             }
+
             @Override
             public void fail(String code, String message) {
             }
         });
     }
+
     /***
      * 判断保存的是否是String
      * **/
-    public boolean ChangisString (String key){
-        if(Hawk.get(key)instanceof String){
-            return  true;
-        }else {
+    public boolean ChangisString(String key) {
+        if (Hawk.get(key) instanceof String) {
+            return true;
+        } else {
             return false;
         }
     }
-    public void initpermissionChecker(){
-        permissionChecker=new PermissionChecker(context);
+
+    public void initpermissionChecker() {
+        permissionChecker = new PermissionChecker(context);
         permissionChecker.setTitle(getString(R.string.check_info_title));
         permissionChecker.setMessage(getString(R.string.check_info_message));
     }
 
-    public void  stopSwipeRefreshLayout(SwipeRefreshLayout swipeRefreshLayout){
-        if(swipeRefreshLayout!=null){
+    public void stopSwipeRefreshLayout(SwipeRefreshLayout swipeRefreshLayout) {
+        if (swipeRefreshLayout != null) {
             swipeRefreshLayout.setRefreshing(false);
         }
     }
+
     /**
      * 检查包是否存在
      *
@@ -822,7 +856,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         // Push：解绑
         PushManager.stopWork(getApplicationContext());
     }
-    public void callPhone(String phoneNum){
+
+    @SuppressLint("MissingPermission")
+    public void callPhone(String phoneNum) {
         Intent intent = new Intent(Intent.ACTION_CALL);
         Uri data = Uri.parse("tel:" + phoneNum);
         intent.setData(data);

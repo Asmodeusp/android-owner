@@ -220,10 +220,8 @@ public abstract class BaseFragment extends Fragment {
             intent= new Intent(getActivity(), clazz);
         }
         if (null != bundle) {
-
             intent.putExtras(bundle);
         }
-
         startActivityForResult(intent, requestCode);
 
     }
@@ -232,7 +230,6 @@ public abstract class BaseFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         ((ViewGroup) view.getParent()).removeView(view);
-
     }
 
     @Override
