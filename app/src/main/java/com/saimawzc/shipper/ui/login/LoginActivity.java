@@ -17,6 +17,7 @@ import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.presenter.login.LoginPresenter;
 import com.saimawzc.shipper.ui.MainActivity;
+import com.saimawzc.shipper.ui.WebViewActivity;
 import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
 import com.saimawzc.shipper.view.login.LoginView;
 import com.saimawzc.shipper.weight.utils.dialog.BottomDialog;
@@ -40,6 +41,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @BindView(R.id.useAgreement)TextView useAgreement;
     @BindView(R.id.btnPrivacy)TextView btnPrivacy;
     @BindView(R.id.checkbox) CheckBox checkBox;
+    @BindView(R.id.checkPrivaty)CheckBox checkPrivaty;
     private LoginPresenter presenter;
 
     @Override
@@ -95,8 +97,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 chooseIdentity(1);
                 break;
             case R.id.useAgreement://用户协议
+                WebViewActivity.loadUrl(context, "用户协议","http://www.wzcwlw.com/userAgreement.html");
                 break;
             case R.id.btnPrivacy://隐私声明
+                WebViewActivity.loadUrl(context, "隐私声明","http://www.wzcwlw.com/privacyStatement.html");
                 break;
             case R.id.btn_Login:
                 if(TextUtils.isEmpty(editAccount.getText().toString())){
@@ -105,6 +109,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 }
                 if(TextUtils.isEmpty(editPassword.getText().toString())){
                     showMessage("请输入密码");
+                    return;
+                }
+                if(!checkPrivaty.isChecked()){
+                    showMessage("请先勾选同意后再进行登录");
                     return;
                 }
                 chooseIdentity(2);

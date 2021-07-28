@@ -2,9 +2,6 @@ package com.saimawzc.shipper.modle.mine.identification;
 
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.saimawzc.shipper.base.BaseListener;
-import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.identification.CompanyDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
 import com.saimawzc.shipper.modle.BasEModeImple;

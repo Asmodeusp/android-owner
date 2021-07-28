@@ -88,7 +88,10 @@ public class PersonCenerFragment extends BaseFragment implements PersonCenterVie
         presenter=new PersonCenterPresenter(this,mContext);
         userInfoDto= Hawk.get(PreferenceKey.USER_INFO);
         personCenterDto=Hawk.get(PreferenceKey.PERSON_CENTER);
-        tvPhone.setText(userInfoDto.getUserAccount());
+        if(userInfoDto!=null){
+            tvPhone.setText(userInfoDto.getUserAccount());
+        }
+
         if(personCenterDto!=null){
             Glide.with(mContext.getApplicationContext()).load(personCenterDto.getPicture()).error(R.drawable.ico_head_defalut)
                     .into(headIamge);

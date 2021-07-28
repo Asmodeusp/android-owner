@@ -219,25 +219,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="26dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/px10dp"
             android:layout_marginTop="@dimen/px20dp"
+            android:layout_marginBottom="@dimen/px10dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkbox"
+                android:id="@+id/checkPrivaty"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true" />
+                android:layout_height="wrap_content">
+
+            </CheckBox>
 
             <TextView
-                android:textColor="@color/gray666"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="我已同意并阅读"
-                android:textSize="@dimen/px26dp" />
+                android:text="已阅读并同意"
+                android:textSize="@dimen/px25dp" />
 
             <TextView
                 android:id="@+id/useAgreement"
@@ -245,9 +245,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/px10dp"
                 android:layout_marginRight="@dimen/px10dp"
-                android:text="《用户协议》"
-                android:textColor="@color/gray333"
-                android:textSize="@dimen/px26dp"></TextView>
+                android:text=""
+                android:textColor="@color/blue"
+                android:textSize="@dimen/px25dp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="和"
+                android:textSize="@dimen/px25dp"></TextView>
+
+            <TextView
+                android:id="@+id/btnPrivacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px10dp"
+                android:text=""
+                android:textColor="@color/blue"
+                android:textSize="@dimen/px25dp"></TextView>
         </LinearLayout>
         <TextView
             android:id="@+id/tvHaveCount"

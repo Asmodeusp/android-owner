@@ -235,6 +235,7 @@
         </FrameLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_marginTop="@dimen/px20dp"
             android:layout_marginBottom="@dimen/px20dp"
             android:gravity="center_horizontal"

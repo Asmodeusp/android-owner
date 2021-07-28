@@ -249,10 +249,15 @@
        android:orientation="horizontal"
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
+       <CheckBox
+           android:id="@+id/checkPrivaty"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
 
+       </CheckBox>
        <TextView
            android:textSize="@dimen/px25dp"
-           android:text="登录视为同意"
+           android:text="已阅读并同意"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content" />
        <TextView

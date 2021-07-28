@@ -42,9 +42,6 @@ public class WebViewActivity extends BaseActivity {
     private String mTitle = "", mUrl = "", mHtmlContent = "";
     private int mType = TYPE_LOAD_URL;
     @BindView(R.id.view)RelativeLayout view;
-
-
-
     private  String contectType="";//不为空为下载，为空不传展示
     @BindView(R.id.right_btn)TextView tvRightBtn;
 
@@ -101,8 +98,7 @@ public class WebViewActivity extends BaseActivity {
         mType = bundle.getInt("type", TYPE_LOAD_URL);
         mTitle = bundle.getString("title");
         contectType=bundle.getString("contectType");
-
-
+        setToolbar(toolbar,mTitle);
 
         if (mType == TYPE_LOAD_URL||mType==TYPE_LOAD_Word) {
             mUrl = bundle.getString("url");
@@ -180,6 +176,7 @@ public class WebViewActivity extends BaseActivity {
         } else {
             mSettings.setLoadsImagesAutomatically(false);
         }
+        mSettings.setTextSize(WebSettings.TextSize.LARGEST);
         mSettings.setNeedInitialFocus(true);
         // 设定编码格式
         mSettings.setDefaultTextEncodingName("UTF-8");

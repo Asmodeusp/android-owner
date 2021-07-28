@@ -36,6 +36,7 @@
                 </com.youth.banner.Banner>
 
                 <LinearLayout
+                    android:id="@+id/rlmessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/px40dp"
@@ -57,13 +58,14 @@
                             android:text="通知消息"
                             android:textSize="@dimen/px32dp" />
                         <TextView
+                            android:visibility="invisible"
                             android:layout_marginLeft="@dimen/px10dp"
                             android:layout_toRightOf="@+id/tvmessage"
                             android:layout_width="@dimen/px28dp"
                             android:layout_height="@dimen/px28dp"
                             android:background="@drawable/shape_circle"
                             android:gravity="center"
-                            android:text="3"
+                            android:text="1"
                             android:textColor="@color/white"
                             android:textSize="@dimen/px20dp" />
                         <TextView

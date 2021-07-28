@@ -275,6 +275,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/mn_update_file_provider" />
         </provider>
+        <activity android:name=".ui.WebViewActivity"></activity>
+        <activity android:name=".ui.CommonActivity"></activity>
     </application>
 
 </manifest>

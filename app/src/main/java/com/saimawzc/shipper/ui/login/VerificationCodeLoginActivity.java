@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,6 +18,7 @@ import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.presenter.login.VCodeLoginPresenter;
 import com.saimawzc.shipper.ui.MainActivity;
+import com.saimawzc.shipper.ui.WebViewActivity;
 import com.saimawzc.shipper.view.login.VCodeLoginView;
 import com.saimawzc.shipper.weight.RepeatClickUtil;
 import com.saimawzc.shipper.weight.utils.dialog.BottomDialog;
@@ -42,12 +44,15 @@ public class VerificationCodeLoginActivity extends BaseActivity implements VCode
     @BindView(R.id.btnPrivacy)TextView btnPrivacy;
     @BindView(R.id.btn_Login_mask) TextView mLoginMask;
     private VCodeLoginPresenter presenter;
+    @BindView(R.id.check)
+    CheckBox checkBox;
     @Override
     protected int getViewId() {
         return R.layout.activity_login_bycode;
     }
 
-    @OnClick({R.id.btn_Login,R.id.btn_getCode,R.id.btn_Resister,R.id.loginByPass,R.id.btn_acc_clear})
+    @OnClick({R.id.btn_Login,R.id.btn_getCode,R.id.btn_Resister,
+            R.id.loginByPass,R.id.btn_acc_clear,R.id.useAgreement,R.id.btnPrivacy})
     public  void click(View view){
         switch (view.getId()){
             case R.id.loginByPass://密码登录
@@ -64,6 +69,10 @@ public class VerificationCodeLoginActivity extends BaseActivity implements VCode
                 }
                 if(edAccount.getText().toString().length()!=11){
                     showMessage("手机号码有误");
+                    return;
+                }
+                if(!checkBox.isChecked()){
+                    showMessage("请先勾选同意后再进行登录");
                     return;
                 }
                 presenter.getCode();
@@ -83,6 +92,12 @@ public class VerificationCodeLoginActivity extends BaseActivity implements VCode
                 break;
             case R.id.btn_acc_clear:
                 edAccount.setText("");
+                break;
+            case R.id.useAgreement://用户协议
+                WebViewActivity.loadUrl(context, "用户协议","http://www.wzcwlw.com/userAgreement.html");
+                break;
+            case R.id.btnPrivacy://隐私声明
+                WebViewActivity.loadUrl(context, "隐私声明","http://www.wzcwlw.com/privacyStatement.html");
                 break;
         }
     }

@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewOutlineProvider;
+import android.widget.LinearLayout;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.main.MainIndexAdpater;
@@ -18,6 +20,7 @@ import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.main.MainIndexDto;
 import com.saimawzc.shipper.dto.pic.AdListDto;
 import com.saimawzc.shipper.presenter.mine.BannerPresenter;
+import com.saimawzc.shipper.ui.CommonActivity;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
 import com.saimawzc.shipper.view.mine.BannerView;
 import com.saimawzc.shipper.weight.utils.MyLoader;
@@ -53,6 +56,8 @@ public class MainIndexFragment extends BaseFragment
     ,"公司报表","物料报表"};
 
     private BannerPresenter presenter;
+    @BindView(R.id.rlmessage)
+    LinearLayout lMessage;
 
     @Override
     public int initContentView() {
@@ -93,16 +98,49 @@ public class MainIndexFragment extends BaseFragment
                         readyGo(OrderMainActivity.class,bundle);
                         break;
                     case 2:
+                        bundle=new Bundle();
+                        bundle.putString("title","发票管理");
+                        readyGo(CommonActivity.class,bundle);
                         break;
                     case 3:
+                        bundle=new Bundle();
+                        bundle.putString("title","扣款管理");
+                        readyGo(CommonActivity.class,bundle);
                         break;
                     case 4:
+                        bundle=new Bundle();
+                        bundle.putString("title","运单管理");
+                        readyGo(CommonActivity.class,bundle);
                         break;
+                    case 5:
+                        bundle=new Bundle();
+                        bundle.putString("title","预警信息");
+                        readyGo(CommonActivity.class,bundle);
+                        break;
+                    case 6:
+                        bundle=new Bundle();
+                        bundle.putString("title","公司报表");
+                        readyGo(CommonActivity.class,bundle);
+                        break;
+                    case 7:
+                        bundle=new Bundle();
+                        bundle.putString("title","物料报表");
+                        readyGo(CommonActivity.class,bundle);
+                        break;
+
                 }
             }
             @Override
             public void onItemLongClick(View view, int position) {
 
+            }
+        });
+        lMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("title","消息通知");
+                readyGo(CommonActivity.class,bundle);
             }
         });
     }

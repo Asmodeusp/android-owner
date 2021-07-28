@@ -17,6 +17,7 @@ import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.constants.Constants;
 import com.saimawzc.shipper.presenter.login.ResisterPresenter;
 import com.saimawzc.shipper.ui.MainActivity;
+import com.saimawzc.shipper.ui.WebViewActivity;
 import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
 import com.saimawzc.shipper.view.login.ResisterView;
 import com.saimawzc.shipper.weight.RepeatClickUtil;
@@ -34,15 +35,16 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
     @BindView(R.id.edit_yzm)EditText editCode;
     @BindView(R.id.pass)EditText editPass;
     @BindView(R.id.orderpass)EditText editOrderPass;
-    @BindView(R.id.useAgreement)TextView useAgreement;
-    @BindView(R.id.checkbox)CheckBox checkBox;
+
+
     @BindView(R.id.btn_acc_clear) ImageView mAccClear;
     @BindView(R.id.btn_Login_mask) TextView mLoginMask;
     @BindView(R.id.btnGetCode)TextView tvCode;
     private ResisterPresenter  presenter;
     String type;
-
-
+    @BindView(R.id.useAgreement)TextView useAgreement;
+    @BindView(R.id.btnPrivacy)TextView btnPrivacy;
+    @BindView(R.id.checkPrivaty)CheckBox checkPrivaty;
     @Override
     protected int getViewId() {
         return R.layout.activity_register;
@@ -52,6 +54,7 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
     protected void init() {
         setToolbar(toolbar,"注册");
         useAgreement.setText("<<用户协议>>");
+        btnPrivacy.setText("<<隐私声明>>");
         presenter=new ResisterPresenter(this,this);
     }
 
@@ -65,7 +68,7 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
     }
 
     @OnClick({R.id.btnGetCode,R.id.btn_Resister,
-            R.id.btn_acc_clear,R.id.tvHaveCount})
+            R.id.btn_acc_clear,R.id.tvHaveCount,R.id.useAgreement,R.id.btnPrivacy})
     public void click(View view){
         switch (view.getId()){
             case R.id.tvHaveCount:
@@ -74,9 +77,19 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
             case R.id.btnGetCode:
                 presenter.getCode();
                 break;
+            case R.id.useAgreement://用户协议
+                WebViewActivity.loadUrl(context, "用户协议","http://www.wzcwlw.com/userAgreement.html");
+                break;
+            case R.id.btnPrivacy://隐私声明
+                WebViewActivity.loadUrl(context, "隐私声明","http://www.wzcwlw.com/privacyStatement.html");
+                break;
             case R.id.btn_Resister:
                 if(!RepeatClickUtil.isFastClick()){
                     context.showMessage("您操作太频繁，请稍后再试");
+                    return;
+                }
+                if(!checkPrivaty.isChecked()){
+                    showMessage("请先勾选同意后再进行注册");
                     return;
                 }
                 if(TextUtils.isEmpty(editCode.getText().toString())){
@@ -99,10 +112,7 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
                     showMessage("两次输不一致入密码");
                     return;
                 }
-                if(!checkBox.isChecked()){
-                    showMessage("提示未勾选同意和阅读《用户协议");
-                    return;
-                }
+
                 presenter.resister();
                 break;
             case R.id.btn_acc_clear:
