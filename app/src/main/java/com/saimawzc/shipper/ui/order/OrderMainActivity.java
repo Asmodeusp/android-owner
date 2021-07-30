@@ -229,6 +229,13 @@ public class OrderMainActivity extends BaseActivity {
 
     @Override
     protected void onGetBundle(Bundle bundle) {
-        comeFrom=bundle.getString("from");
+        if(bundle!=null){
+            try{
+                comeFrom=bundle.getString("from");
+            }catch (Exception E){
+
+            }
+        }
+
     }
 }

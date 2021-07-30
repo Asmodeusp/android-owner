@@ -25,6 +25,7 @@ import com.saimawzc.shipper.dto.FrameDto;
 import com.saimawzc.shipper.dto.VersonDto;
 import com.saimawzc.shipper.dto.identification.PersonCenterDto;
 import com.saimawzc.shipper.ui.login.LoginActivity;
+import com.saimawzc.shipper.ui.login.SplashActivity;
 import com.saimawzc.shipper.ui.my.PersonCenterActivity;
 import com.saimawzc.shipper.ui.tab.SendCarIndexFragment;
 import com.saimawzc.shipper.ui.tab.BiddingListFragment;
@@ -69,6 +70,7 @@ public class MainActivity extends BaseActivity
 
     @NorIcons
     private static final int[] mNormalIcons = {R.drawable.ico_index_sygray, R.drawable.ico_indexyundan_gray, R.drawable.ico_indexjingjia_gray, R.drawable.ico_indexpaiche_gray, R.drawable.ico_indexmine_gray};
+
     @BindView(R.id.tabbar)JPTabBar mTabbar;
     private Fragment[] fragments;
     private MainIndexFragment mainIndexFragment;
@@ -80,10 +82,9 @@ public class MainActivity extends BaseActivity
     public  final String[] PERMISSIONSq = new String[]{
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.CAMERA,
-            Manifest.permission.READ_PHONE_STATE,
-            Manifest.permission.CALL_PHONE
+            Manifest.permission.CAMERA
     };
     @Override
     protected int getViewId() {
@@ -97,11 +98,12 @@ public class MainActivity extends BaseActivity
         initpermissionChecker();
         if(permissionChecker.isLackPermissions(PERMISSIONSq)){
             permissionChecker.requestPermissions();
-            Log.e("msg","缺少某种权限");
         }else {
         }
         try{
-            from=getIntent().getIntExtra("from",0);
+            if(getIntent()!=null){
+                from=getIntent().getIntExtra("from",0);
+            }
         }catch (Exception e){
         }
         userInfoDto=Hawk.get(PreferenceKey.USER_INFO);
@@ -134,6 +136,7 @@ public class MainActivity extends BaseActivity
         }
         initWithApiKey();
         getDialog();
+
     }
 
     @Override
@@ -300,7 +303,6 @@ public class MainActivity extends BaseActivity
                 navigationBarColor(R.color.bg).
                 init();
     }
-
     public void checkPermission(){
         boolean haveInstallPermission;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -372,10 +374,13 @@ public class MainActivity extends BaseActivity
         if(!TextUtils.isEmpty(Hawk.get(PreferenceKey.isChange_or_login, "")) &&
                 (Hawk.get(PreferenceKey.isChange_or_login, "").equals("true"))) {
             Intent intent = new Intent();
-            Log.e("msg", "发送重新登录广播");
             intent.setAction("reshChange");
             this.sendBroadcast(intent);
             Hawk.put(PreferenceKey.isChange_or_login, "false");
         }
     }
+
+
+
+
 }

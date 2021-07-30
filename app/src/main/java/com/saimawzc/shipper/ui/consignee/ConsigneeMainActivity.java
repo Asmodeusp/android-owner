@@ -1,5 +1,6 @@
 package com.saimawzc.shipper.ui.consignee;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +12,8 @@ import android.view.View;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
+import com.saimawzc.shipper.dto.VersonDto;
+import com.saimawzc.shipper.ui.MainActivity;
 import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.ui.tab.consignee.ConsigneeMainIndexFragment;
 import com.saimawzc.shipper.ui.tab.consignee.ConsigneeMineFragment;
@@ -22,10 +25,18 @@ import com.jpeng.jptabbar.OnTabSelectListener;
 import com.jpeng.jptabbar.anno.NorIcons;
 import com.jpeng.jptabbar.anno.SeleIcons;
 import com.jpeng.jptabbar.anno.Titles;
+import com.saimawzc.shipper.weight.utils.dialog.UpdateDialog;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
+import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
+import com.werb.permissionschecker.PermissionChecker;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
 import static com.saimawzc.shipper.constants.Constants.SHRCHANG_ROLE;
 
@@ -72,6 +83,7 @@ public class ConsigneeMainActivity extends BaseActivity implements OnTabSelectLi
         //设置Badge消失的代理
         mTabbar.setDismissListener(this);
         initWithApiKey();
+
     }
 
     @Override
@@ -144,7 +156,6 @@ public class ConsigneeMainActivity extends BaseActivity implements OnTabSelectLi
         if(!TextUtils.isEmpty(Hawk.get(PreferenceKey.isChange_or_login, "")) &&
                 (Hawk.get(PreferenceKey.isChange_or_login, "").equals("true"))) {
             Intent intent = new Intent();
-            Log.e("msg", "发送重新登录广播");
             intent.setAction(SHRCHANG_ROLE);
             this.sendBroadcast(intent);
             Hawk.put(PreferenceKey.isChange_or_login, "false");

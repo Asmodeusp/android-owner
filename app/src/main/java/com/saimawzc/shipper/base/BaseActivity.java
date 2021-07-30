@@ -111,7 +111,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.CAMERA,
-            Manifest.permission.CALL_PHONE
+            Manifest.permission.READ_EXTERNAL_STORAGE,
     };
     public PermissionChecker permissionChecker;
     public AuthApi authApi = Http.http.createApi(AuthApi.class);
@@ -857,11 +857,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         PushManager.stopWork(getApplicationContext());
     }
 
-    @SuppressLint("MissingPermission")
+
     public void callPhone(String phoneNum) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {
+            context.showMessage("未获取到电话权限");
+
+            return;
+        }
         Intent intent = new Intent(Intent.ACTION_CALL);
         Uri data = Uri.parse("tel:" + phoneNum);
         intent.setData(data);
+
         startActivity(intent);
     }
 
@@ -990,12 +997,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             @Override
             public void onFail(Exception e) {
                 Log.e("msg","失败"+e.toString());
-
             }
-
             @Override
             public void cancle() {
-
             }
         };
     }
@@ -1027,7 +1031,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             ApplicationInfo appInfo = context.getApplicationInfo();
             String pkg = context.getApplicationContext().getPackageName();
             int uid = appInfo.uid;
-
             try {
                 Class<?> appOpsClass = Class.forName(AppOpsManager.class.getName());
                 Method checkOpNoThrowMethod = appOpsClass.getMethod("checkOpNoThrow", Integer.TYPE, Integer.TYPE, String.class);

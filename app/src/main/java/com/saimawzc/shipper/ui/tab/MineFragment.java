@@ -151,6 +151,14 @@ public class MineFragment  extends BaseImmersionFragment {
                 dialog.show();
                 break;
             case R.id.imgKefu:
+                String[] PERMISSIONS = new String[]{
+                        Manifest.permission.CALL_PHONE
+                };
+                if(context.permissionChecker.isLackPermissions(PERMISSIONS)){
+                    context.permissionChecker.requestPermissions();
+                    context.showMessage("未获取到电话权限");
+                    return;
+                }
                 final BottomDialogUtil bottomDialogUtil = new BottomDialogUtil.Builder()
                         .setContext(context) //设置 context
                         .setContentView(R.layout.dialog_kefu) //设置布局文件
@@ -162,14 +170,7 @@ public class MineFragment  extends BaseImmersionFragment {
                 TextView tvdayPhone= (TextView) bottomDialogUtil.getItemView(R.id.tvDayPhone);
                 TextView tvNightPhone= (TextView) bottomDialogUtil.getItemView(R.id.tvNightPhone);
                 TextView tvtousuPhone=(TextView) bottomDialogUtil.getItemView(R.id.tvtousuPhone);
-                String[] PERMISSIONS = new String[]{
-                        Manifest.permission.CALL_PHONE
-                };
-                if(context.permissionChecker.isLackPermissions(PERMISSIONS)){
-                    context.permissionChecker.requestPermissions();
-                    context.showMessage("未获取到电话权限");
-                    return;
-                }
+
                 tvdayPhone.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

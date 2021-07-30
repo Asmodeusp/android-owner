@@ -124,7 +124,14 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
 
     @Override
     protected void onGetBundle(Bundle bundle) {
-        type=bundle.getString("type");
+        if(bundle!=null){
+            try{
+                type=bundle.getString("type");
+            }catch (Exception e){
+
+            }
+        }
+
     }
 
     private CountDownTimer mCountDownTimer = new CountDownTimer(60 * 1000, 1000) {//一分钟，间隔一秒

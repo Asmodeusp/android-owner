@@ -42,6 +42,9 @@ public class UpdateDialog {
          if(dto.getMandatoryUpdate()==1){
              tvNoUpdate.setVisibility(View.GONE);
          }
+         if(dto.getIsSHowNo()==1){
+             tvNoUpdate.setVisibility(View.VISIBLE);
+         }
 
         if(mContext.downloadCallBack!=null){
             if (InstallUtils.isDownloading()) {
@@ -51,6 +54,10 @@ public class UpdateDialog {
         tvNoUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(dto.getIsSHowNo()==1){
+                    dissmiss();
+                    return;
+                }
                 if(!TextUtils.isEmpty(Hawk.get(PreferenceKey.ID,""))){//已经登录
                     userInfoDto=Hawk.get(PreferenceKey.USER_INFO);
                     if(userInfoDto!=null){
@@ -74,7 +81,6 @@ public class UpdateDialog {
                         public void onClick(View v) {
                             dissmiss();
                             mContext.initCallBack();
-
                             InstallUtils.with(mContext)
                                     //必须-下载地址
                                     .setApkUrl(dto.getDownloadLink())
@@ -89,7 +95,6 @@ public class UpdateDialog {
          versionDialog.setCanceledOnTouchOutside(false);
          versionDialog.setCancelable(false);
          versionDialog.show();
-
 
     }
 

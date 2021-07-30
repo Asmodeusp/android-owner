@@ -10,6 +10,16 @@ public class VersonDto {
     private String updateContent;
     private String versionNum;
 
+    private int isSHowNo;
+
+    public int getIsSHowNo() {
+        return isSHowNo;
+    }
+
+    public void setIsSHowNo(int isSHowNo) {
+        this.isSHowNo = isSHowNo;
+    }
+
     public int getAppSource() {
         return appSource;
     }

@@ -438,7 +438,7 @@ public class TracingActivity extends BaseActivity implements
                 try{
                     LatLng tempPoint = new LatLng(allPointList.get(0).latitude, allPointList.get(0).longitude);
                     BitmapDescriptor bitmap = BitmapDescriptorFactory
-                            .fromResource(R.drawable.icon_end);
+                            .fromResource(R.drawable.ico_map_start);
                     OverlayOptions option = new MarkerOptions()
                             .position(tempPoint)
                             .icon(bitmap);
@@ -449,7 +449,7 @@ public class TracingActivity extends BaseActivity implements
                 try{
                     LatLng tempPoint1 = new LatLng(allPointList.get(allPointList.size()-1).latitude, allPointList.get(allPointList.size()-1).longitude);
                     BitmapDescriptor bitmap = BitmapDescriptorFactory
-                            .fromResource(R.drawable.ico_map_start);
+                            .fromResource(R.drawable.icon_end);
                     //构 建MarkerOption，用于在地图上添加Marker
                     OverlayOptions option = new MarkerOptions()
                             .position(tempPoint1)

@@ -35,8 +35,6 @@ import okhttp3.RequestBody;
 public class SplashActivity extends BaseActivity {
 
     private static final String TAG = SplashActivity.class.getSimpleName();
-
-
    private UserInfoDto userInfoDto;
     @Override
     protected int getViewId() {
@@ -54,7 +52,7 @@ public class SplashActivity extends BaseActivity {
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
         if(permissionChecker.isLackPermissions(PERMISSIONS)){
-            permissionChecker.requestPermissions();
+            turnToMain();
         }else {
             getVerson();
         }
@@ -180,7 +178,6 @@ public class SplashActivity extends BaseActivity {
                 } else {
                     // 权限拒绝后的提示
                     permissionChecker.showDialog();
-                    getVerson();
                 }
                 break;
         }
