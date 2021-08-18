@@ -87,27 +87,21 @@ public class CompleteOrderAdapter extends BaseAdapter{
             OrderListDto dto=mDatas.get(position);
             ImageLoadUtil.displayImage(mContext,dto.getCompanyLogo(),((ViewHolder) holder).imageView);
             ((ViewHolder) holder).tvName.setText(dto.getMaterialsName());
-
-            if(dto.getWeightUnit()==1){
-                ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+"吨");
-                ((ViewHolder) holder).tvoverWeight.setText(dto.getOverAllotWeight()+"吨");
-            }else {
-                ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+"方");
-                ((ViewHolder) holder).tvoverWeight.setText(dto.getOverAllotWeight()+"方");
-            }
-
+            ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+dto.getWeightUnitName());
+            ((ViewHolder) holder).tvoverWeight.setText(dto.getOverAllotWeight()+dto.getWeightUnitName());
             ((ViewHolder) holder).tvCreatTime.setText(dto.getCreateTime());
 
            ((ViewHolder) holder).tvAdress.setText(dto.getFromUserAddress());
            ((ViewHolder) holder).tvAdressTo.setText(dto.getToUserAddress());
            ((ViewHolder) holder).tvFromCompany.setText(dto.getFromName());
            ((ViewHolder) holder).tvToCompany.setText(dto.getToName());
-
-
+           ((ViewHolder) holder).tvZtNum.setText(dto.getUnderWay()+dto.getWeightUnitName());
+           ((ViewHolder) holder).tvConsultNum.setText(dto.getConsult()+dto.getWeightUnitName());
            ((ViewHolder) holder).viewTab1.setText("对账");
             ((ViewHolder) holder).viewTab2.setVisibility(View.GONE);
             ((ViewHolder) holder).viewTab3.setVisibility(View.GONE);
             ((ViewHolder) holder).tvStatus.setText("已完成");
+
 
 
             if(onTabClickListener!=null){
@@ -192,6 +186,8 @@ public class CompleteOrderAdapter extends BaseAdapter{
         @BindView(R.id.viewTab1)TextView viewTab1;
         @BindView(R.id.viewTab2)TextView viewTab2;
         @BindView(R.id.viewTab3)TextView viewTab3;
+        @BindView(R.id.tvztNum)TextView tvZtNum;
+        @BindView(R.id.tvconsultNum)TextView tvConsultNum;
 
     }
     @Override

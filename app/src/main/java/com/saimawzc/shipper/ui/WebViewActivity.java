@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,6 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -228,7 +230,10 @@ public class WebViewActivity extends BaseActivity {
                     mWebView.getSettings().setBlockNetworkImage(true);
 
                 }
-
+                @Override
+                public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error){
+                    handler.proceed();
+                }
                 @Override
                 public void onPageFinished(WebView view, String url) {
                     if (isFinishing()) {

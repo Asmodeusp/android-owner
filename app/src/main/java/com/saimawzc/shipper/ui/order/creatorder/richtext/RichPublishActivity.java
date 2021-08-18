@@ -2,6 +2,7 @@ package com.saimawzc.shipper.ui.order.creatorder.richtext;
 
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -73,7 +74,9 @@ public class RichPublishActivity extends BaseActivity {
     public static final int VIDEOS=12;
     public static final int LOCAL_VIDEOS=13;
 
-
+    public  final String[] PERMISSIONS = new String[]{
+            Manifest.permission.RECORD_AUDIO
+    };
 
     @Override
     protected int getViewId() {
@@ -90,6 +93,10 @@ public class RichPublishActivity extends BaseActivity {
         }
         if(!TextUtils.isEmpty(getIntent().getStringExtra("data"))){
             editor.setHtml(getIntent().getStringExtra("data"));
+        }
+        if(permissionChecker.isLackPermissions(PERMISSIONS)){
+            permissionChecker.requestPermissions();
+        }else {
         }
 
     }

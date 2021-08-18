@@ -235,11 +235,15 @@ public class BaseApplication extends Application {
         // 网络连接正常，开启服务及采集，则查询纠偏后实时位置；否则进行实时定位
 
         if(trackConf!=null){
+
             if (isNetworkAvailable(this)
                     && trackConf.contains("is_trace_started")
                     && trackConf.contains("is_gather_started")
                     && trackConf.getBoolean("is_trace_started", false)
                     && trackConf.getBoolean("is_gather_started", false)) {
+                if(mClient==null||trackListener==null){
+                   return;
+                }
                 LatestPointRequest request = new LatestPointRequest(getTag(), serviceId, entityName);
                 ProcessOption processOption = new ProcessOption();
                 processOption.setNeedDenoise(true);
@@ -247,6 +251,9 @@ public class BaseApplication extends Application {
                 request.setProcessOption(processOption);
                 mClient.queryLatestPoint(request, trackListener);
             } else {
+                if(mClient==null||entityListener==null){
+                    return;
+                }
                 mClient.queryRealTimeLoc(locRequest, entityListener);
             }
         }

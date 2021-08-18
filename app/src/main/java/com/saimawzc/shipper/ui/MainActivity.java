@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -54,6 +55,8 @@ import com.werb.permissionschecker.PermissionChecker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.File;
 
 import butterknife.BindView;
 import okhttp3.MediaType;
@@ -136,7 +139,11 @@ public class MainActivity extends BaseActivity
         }
         initWithApiKey();
         getDialog();
-
+        try{
+            File file=new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "nxshiper");
+            deleteFile(file);
+        }catch (Exception e){
+        }
     }
 
     @Override
@@ -381,6 +388,21 @@ public class MainActivity extends BaseActivity
     }
 
 
-
+    public void deleteFile(File file) {
+        if(file!=null){
+            if (file.isDirectory()) {
+                File[] files = file.listFiles();
+                for (int i = 0; i < files.length; i++) {
+                    File f = files[i];
+                    if(f!=null){
+                        deleteFile(f);
+                    }
+                }
+                //file.delete();//如要保留文件夹，只删除文件，请注释这行
+            } else if (file.exists()) {
+                file.delete();
+            }
+        }
+    }
 
 }

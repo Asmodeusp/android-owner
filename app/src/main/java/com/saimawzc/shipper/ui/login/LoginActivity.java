@@ -97,10 +97,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 chooseIdentity(1);
                 break;
             case R.id.useAgreement://用户协议
-                WebViewActivity.loadUrl(context, "用户协议","http://www.wzcwlw.com/userAgreement.html");
+                WebViewActivity.loadUrl(context, "用户协议","https://www.wzcwlw.com/userAgreement.html");
                 break;
             case R.id.btnPrivacy://隐私声明
-                WebViewActivity.loadUrl(context, "隐私声明","http://www.wzcwlw.com/privacyStatement.html");
+                WebViewActivity.loadUrl(context, "隐私声明","https://www.wzcwlw.com/privacyStatement.html");
                 break;
             case R.id.btn_Login:
                 if(TextUtils.isEmpty(editAccount.getText().toString())){

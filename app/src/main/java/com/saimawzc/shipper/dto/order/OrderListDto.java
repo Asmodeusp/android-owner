@@ -20,6 +20,33 @@ public class OrderListDto {
     private String companyLogo;
     private String thirdPartyNo;
     private int isBidd;//是1就显示竞价按钮
+    private String underWay;
+    private String consult;
+    private String weightUnitName;
+
+    public String getWeightUnitName() {
+        return weightUnitName;
+    }
+
+    public void setWeightUnitName(String weightUnitName) {
+        this.weightUnitName = weightUnitName;
+    }
+
+    public String getUnderWay() {
+        return underWay;
+    }
+
+    public void setUnderWay(String underWay) {
+        this.underWay = underWay;
+    }
+
+    public String getConsult() {
+        return consult;
+    }
+
+    public void setConsult(String consult) {
+        this.consult = consult;
+    }
 
     public int getIsBidd() {
         return isBidd;

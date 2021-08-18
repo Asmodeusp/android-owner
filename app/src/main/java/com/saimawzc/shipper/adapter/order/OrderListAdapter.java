@@ -13,15 +13,8 @@ import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.FooterHolder;
 import com.saimawzc.shipper.base.BaseActivity;
-import com.saimawzc.shipper.dto.EmptyDto;
-import com.saimawzc.shipper.dto.carrier.MyCarrierGroupDto;
 import com.saimawzc.shipper.dto.order.OrderListDto;
-import com.saimawzc.shipper.ui.order.OrderMainActivity;
-import com.saimawzc.shipper.weight.utils.api.mine.MineApi;
-import com.saimawzc.shipper.weight.utils.http.CallBack;
-import com.saimawzc.shipper.weight.utils.http.Http;
 import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -99,15 +92,11 @@ public class OrderListAdapter extends BaseAdapter{
             OrderListDto dto=mDatas.get(position);
             ImageLoadUtil.displayImage(mContext,dto.getCompanyLogo(),((ViewHolder) holder).imageView);
             ((ViewHolder) holder).tvName.setText(""+dto.getMaterialsName());
-            if(dto.getWeightUnit()==1){
-                ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+"吨");
-                ((ViewHolder) holder).tvoverWeight.setText(dto.getOverAllotWeight()+"吨");
-            }else {
-                ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+"方");
-                ((ViewHolder) holder).tvoverWeight.setText(dto.getOverAllotWeight()+"方");
-            }
+            ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+dto.getWeightUnitName());
+            ((ViewHolder) holder).tvoverWeight.setText(dto.getOverAllotWeight()+dto.getWeightUnitName());
             ((ViewHolder) holder).tvCreatTime.setText(""+dto.getCreateTime());
-
+            ((ViewHolder) holder).tvZtNum.setText(dto.getUnderWay()+dto.getWeightUnitName());
+            ((ViewHolder) holder).tvConsultNum.setText(dto.getConsult()+dto.getWeightUnitName());
            ((ViewHolder) holder).tvAdress.setText(dto.getFromUserAddress());
             ((ViewHolder) holder).tvAdressTo.setText(dto.getToUserAddress());
             ((ViewHolder) holder).tvFromCompany.setText(dto.getFromName());
@@ -275,7 +264,8 @@ public class OrderListAdapter extends BaseAdapter{
         @BindView(R.id.viewTab3)TextView viewTab3;
         @BindView(R.id.from_company)TextView tvFromCompany;
         @BindView(R.id.to_company)TextView tvToCompany;
-
+        @BindView(R.id.tvztNum)TextView tvZtNum;
+        @BindView(R.id.tvconsultNum)TextView tvConsultNum;
     }
     @Override
     public void changeMoreStatus(int status) {

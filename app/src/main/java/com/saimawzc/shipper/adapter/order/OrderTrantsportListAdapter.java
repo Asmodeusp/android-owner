@@ -91,19 +91,15 @@ public class OrderTrantsportListAdapter extends BaseAdapter{
             ImageLoadUtil.displayImage(mContext,dto.getCompanyLogo(),((ViewHolder) holder).imageView);
             ((ViewHolder) holder).llKedh.setVisibility(View.VISIBLE);
             ((ViewHolder) holder).tvName.setText(""+dto.getMaterialsName());
-            if(dto.getWeightUnit()==1){
-                ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+"吨");
-                ((ViewHolder) holder).tvoverWeight.setText(dto.getOverAllotWeight()+"吨");
-            }else {
-                ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+"方");
-                ((ViewHolder) holder).tvoverWeight.setText(dto.getOverAllotWeight()+"方");
-            }
+            ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+dto.getWeightUnitName());
+            ((ViewHolder) holder).tvoverWeight.setText(dto.getOverAllotWeight()+dto.getWeightUnitName());
             if(TextUtils.isEmpty(dto.getThirdPartyNo())){
                 ((ViewHolder) holder).tvThirdNo.setText("无");
             }else {
                 ((ViewHolder) holder).tvThirdNo.setText(dto.getThirdPartyNo());
             }
-
+            ((ViewHolder) holder).tvZtNum.setText(dto.getUnderWay()+dto.getWeightUnitName());
+            ((ViewHolder) holder).tvConsultNum.setText(dto.getConsult()+dto.getWeightUnitName());
             ((ViewHolder) holder).tvCreatTime.setText(""+dto.getCreateTime());
            ((ViewHolder) holder).tvAdress.setText(dto.getFromUserAddress());
            ((ViewHolder) holder).tvAdressTo.setText(dto.getToUserAddress());
@@ -203,7 +199,8 @@ public class OrderTrantsportListAdapter extends BaseAdapter{
         @BindView(R.id.viewTab2)TextView viewTab2;
         @BindView(R.id.viewTab3)TextView viewTab3;
         @BindView(R.id.tvoverWeight)TextView tvoverWeight;
-
+        @BindView(R.id.tvztNum)TextView tvZtNum;
+        @BindView(R.id.tvconsultNum)TextView tvConsultNum;
     }
     @Override
     public void changeMoreStatus(int status) {
