@@ -86,6 +86,7 @@ public class OrderAssiginSecondAdapter extends BaseAdapter{
     public void onBindViewHolder(final RecyclerView.ViewHolder holder,
                                  final int position) {
         if(holder instanceof ViewHolder){
+            holder.setIsRecyclable(false);
             final OrderAssignmentSecondDto dto=mDatas.get(position);
             ((ViewHolder) holder).tvName.setText(dto.getCysName());
             ((ViewHolder) holder).tvPhone.setText(dto.getCysPhone());

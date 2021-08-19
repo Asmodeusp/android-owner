@@ -138,6 +138,9 @@ public class WebViewActivity extends BaseActivity {
         mWebView.setVerticalFadingEdgeEnabled(false);
         mWebView.setVerticalScrollBarEnabled(false);
 
+        ///////7.0部分手机滑动卡顿，不加VIVO手机有问题
+        mWebView.setLayerType(View.LAYER_TYPE_HARDWARE,null);
+
         // 支持JS
         mSettings.setJavaScriptEnabled(true);
         mSettings.setJavaScriptCanOpenWindowsAutomatically(true);
