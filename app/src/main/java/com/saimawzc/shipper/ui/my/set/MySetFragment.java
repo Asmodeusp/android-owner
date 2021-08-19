@@ -4,12 +4,14 @@ import android.Manifest;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.base.BaseFragment;
+import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.VersonDto;
 import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
 import com.saimawzc.shipper.ui.login.ForgetPassActivity;
@@ -53,8 +55,8 @@ public class MySetFragment extends BaseFragment {
         initpermissionChecker();
 
     }
-
-    @OnClick({R.id.rlforgetword,R.id.rlsuggest,R.id.rlupdate})
+    private NormalDialog dialog;
+    @OnClick({R.id.rlforgetword,R.id.rlsuggest,R.id.rlupdate,R.id.rlzc})
     public void click(View view){
         Bundle bundle;
         switch (view.getId()){
@@ -77,6 +79,32 @@ public class MySetFragment extends BaseFragment {
                         }
                     });
                 }
+                break;
+            case R.id.rlzc:
+                dialog = new NormalDialog(mContext).isTitleShow(false)
+                        .content("确定注销账号吗?")
+                        .contentGravity(Gravity.CENTER)
+                        .showAnim(new BounceTopEnter()).dismissAnim(new SlideBottomExit())
+                        .btnNum(2).btnText("取消", "确定");
+                dialog.setOnBtnClickL(
+                        new OnBtnClickL() {
+                            @Override
+                            public void onBtnClick() {
+                                if(!context.isFinishing()){
+                                    dialog.dismiss();
+                                }
+                            }
+                        },
+                        new OnBtnClickL() {
+                            @Override
+                            public void onBtnClick() {
+                                if(!context.isFinishing()){
+                                    dialog.dismiss();
+                                }
+                                unRisister();
+                            }
+                        });
+                dialog.show();
                 break;
         }
 
@@ -147,5 +175,26 @@ public class MySetFragment extends BaseFragment {
                 }
                 break;
         }
+    }
+
+    private void unRisister(){
+
+        context.authApi.unResister().enqueue(new CallBack<EmptyDto>() {
+            @Override
+            public void success(final EmptyDto response) {
+                Hawk.put(PreferenceKey.ID,"");
+                Hawk.put(PreferenceKey.USER_INFO,null);
+                Hawk.put(PreferenceKey.HZ_IS_RZ,"");
+                Hawk.put(PreferenceKey.PERSON_CENTER,null);
+                readyGo(LoginActivity.class);
+                readyGo(LoginActivity.class);
+
+            }
+            @Override
+            public void fail(String code, String message) {
+                context.showMessage(message);
+
+            }
+        });
     }
 }

@@ -99,4 +99,12 @@ public interface AuthApi {
     @POST("admin/sysUser/manyUploadFile")
     Call<JsonResult<PicDto>> uploadMorepic
     ( @Part List<MultipartBody.Part> file);//@Body  RequestBody file
+
+    /***
+     * 注销
+     * **/
+    @Headers("Content-Type: application/json")
+    @POST("admin/sysUser/userRoleCancel")
+    Call<JsonResult<EmptyDto>> unResister();
+
 }
