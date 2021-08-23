@@ -18,6 +18,7 @@ import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.SectionedRecyclerViewAdapter;
 import com.saimawzc.shipper.adapter.order.creatorder.ConsultAdapter;
 import com.saimawzc.shipper.base.BaseFragment;
+import com.saimawzc.shipper.dto.identification.PersonCenterDto;
 import com.saimawzc.shipper.dto.order.ConsultDto;
 import com.saimawzc.shipper.presenter.ConsutePresenter;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
@@ -25,6 +26,8 @@ import com.saimawzc.shipper.view.order.ConsultView;
 import com.saimawzc.shipper.weight.ClearTextEditText;
 import com.saimawzc.shipper.weight.utils.LoadMoreListener;
 import com.saimawzc.shipper.weight.utils.dialog.PopupWindowUtil;
+import com.saimawzc.shipper.weight.utils.hawk.Hawk;
+import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +44,7 @@ public class SaleListQueryFragment extends BaseFragment implements ConsultView, 
     @BindView(R.id.llSearch) LinearLayout llSearch;
     @BindView(R.id.tvSearch) TextView tvSearch;
     private ConsutePresenter presenter;
+    @BindView(R.id.tvcasc)TextView tvRightBtn;
     private int page=1;
     private LoadMoreListener loadMoreListener;
     private ConsultAdapter adapter;
@@ -49,6 +53,7 @@ public class SaleListQueryFragment extends BaseFragment implements ConsultView, 
     private String searchType;
     @BindView(R.id.llpopuw)LinearLayout llpopuw;
     @BindView(R.id.tvpopuw)TextView tvPopuw;
+    private PersonCenterDto personCenterDto;
     @Override
     public int initContentView() {
         return R.layout.fragment_consul;
@@ -114,7 +119,21 @@ public class SaleListQueryFragment extends BaseFragment implements ConsultView, 
     public void initView() {
         presenter=new ConsutePresenter(this,mContext);
         mContext=getContext();
-        adapter = new ConsultAdapter(mDatas, mContext);
+        personCenterDto= Hawk.get(PreferenceKey.PERSON_CENTER);
+        if(personCenterDto!=null){
+            if(!TextUtils.isEmpty(personCenterDto.getCompanyId())){
+                if(personCenterDto.getCompanyId().equals("7997714062369648640")){
+                    tvRightBtn.setVisibility(View.VISIBLE);
+                    adapter = new ConsultAdapter(mDatas, mContext,1);
+                }else {
+                    adapter = new ConsultAdapter(mDatas, mContext);
+                }
+            }else {
+                adapter = new ConsultAdapter(mDatas, mContext);
+            }
+        }else {
+            adapter = new ConsultAdapter(mDatas, mContext);
+        }
         layoutManager = new LinearLayoutManager(mContext);
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(adapter);
@@ -135,7 +154,7 @@ public class SaleListQueryFragment extends BaseFragment implements ConsultView, 
         presenter.getConsute(type,page,searchType,edSearch.getText().toString());
         edSearch.addTextChangedListener(this);
     }
-
+    private ArrayList<String>idList=new ArrayList<>();
     @Override
     public void initData() {
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -157,6 +176,41 @@ public class SaleListQueryFragment extends BaseFragment implements ConsultView, 
                 bundle.putString("businessType",2+"");
                 bundle.putString("from","editOrder");
                 readyGo(OrderMainActivity.class,bundle);
+            }
+        });
+        tvRightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(idList==null||idList.size()<=0){
+                    context.showMessage("请选择参照的单子");
+                    return;
+                }
+                String nameString="";
+                for(int i=0;i<idList.size();i++){
+                    if(i==idList.size()-1){
+                        nameString+=idList.get(i);
+                    }else {
+                        nameString+=idList.get(i)+",";
+                    }
+                }
+                Bundle  bundle=new Bundle();
+                bundle.putString("orderCode",nameString);
+                bundle.putString("businessType",2+"");
+                bundle.putString("from","editOrder");
+                readyGo(OrderMainActivity.class,bundle);
+            }
+        });
+        adapter.setOnItemCheckListener(new ConsultAdapter.OnItemCheckListener() {
+            @Override
+            public void onItemClick(View view, int position, boolean isselect) {
+                if(mDatas.size()<=position){
+                    return;
+                }
+                if(isselect==true){
+                    idList.add(mDatas.get(position).getOrderCode());
+                }else {
+                    idList.remove(mDatas.get(position).getOrderCode());
+                }
             }
         });
     }

@@ -100,18 +100,31 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>
-
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px1dp">
-
     </View>
+
+    <TextView
+        android:layout_marginLeft="@dimen/px40dp"
+        android:layout_marginRight="@dimen/px40dp"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/px20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_list_btn_blue"
+        android:gravity="center"
+        android:layout_below="@+id/search"
+        android:id="@+id/tvcasc"
+        android:text="参照生产"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80dp">
+    </TextView>
 
 
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:layout_below="@+id/search"
+        android:layout_below="@+id/tvcasc"
         android:id="@+id/SwipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

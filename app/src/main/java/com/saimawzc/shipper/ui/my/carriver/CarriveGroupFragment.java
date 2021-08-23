@@ -71,7 +71,7 @@ public class CarriveGroupFragment extends BaseFragment implements CarriveGroupVi
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mDatas.clear();
+
                 presenter.getCarreListiv();
             }
         });
@@ -182,6 +182,10 @@ public class CarriveGroupFragment extends BaseFragment implements CarriveGroupVi
     }
     @Override
     public void getCarriveList(List<MyCarrierGroupDto> groupDtos) {
+
+        if(mDatas!=null){
+            mDatas.clear();
+        }
         adapter.addMoreData(groupDtos);
 
     }

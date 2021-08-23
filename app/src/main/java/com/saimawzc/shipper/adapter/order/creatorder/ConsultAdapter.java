@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.saimawzc.shipper.R;
@@ -13,6 +14,7 @@ import com.saimawzc.shipper.adapter.FooterHolder;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.order.ConsultDto;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -29,6 +31,16 @@ public class ConsultAdapter extends BaseAdapter{
     private Context mContext;
     private LayoutInflater mInflater;
 
+    public HashMap<Integer,Boolean> map=null;
+    int type=0;
+
+    public OnItemCheckListener onItemChckListener;
+    public void setOnItemCheckListener(OnItemCheckListener onItemClickListener) {
+        this.onItemChckListener = onItemClickListener;
+    }
+    public interface OnItemCheckListener {
+        void onItemClick(View view, int position, boolean isselect);
+    }
     public ConsultAdapter(List<ConsultDto.data> mDatas, Context mContext) {
         this.mDatas = mDatas;
         this.mContext = mContext;
@@ -36,6 +48,25 @@ public class ConsultAdapter extends BaseAdapter{
         activity=(BaseActivity) mContext;
     }
 
+    public ConsultAdapter(List<ConsultDto.data> mDatas, Context mContext,int type) {
+        this.mDatas = mDatas;
+        this.mContext = mContext;
+        mInflater = LayoutInflater.from(mContext);
+        activity=(BaseActivity) mContext;
+        this.type=type;
+        map = new HashMap<>();
+        init();
+    }
+
+    private void init() {
+        if (null == mDatas||mDatas.size()<=0) {
+            return;
+        }else{
+            for(int i=0;i<mDatas.size();i++){
+                map.put(i, false);
+            }
+        }
+    }
     public void setData(List<ConsultDto.data> mDatas ) {
         this.mDatas = mDatas;
         notifyDataSetChanged();
@@ -74,6 +105,17 @@ public class ConsultAdapter extends BaseAdapter{
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if(holder instanceof ViewHolder){
             ConsultDto.data dto=mDatas.get(position);
+
+
+            if (map!= null) {
+                if(map.get(position)!=null){
+                    ((ViewHolder) holder).checkBox.setChecked(map.get(position));
+                }else {
+                    ((ViewHolder) holder).checkBox.setChecked(false);
+                }
+            } else {
+                ((ViewHolder) holder).checkBox.setChecked(false);
+            }
             ((ViewHolder) holder).tvThreeNo.setText(dto.getOrderCode());
             ((ViewHolder) holder).tvGoodName.setText(dto.getMatericalName());
             ((ViewHolder) holder).tvoverWeight.setText(dto.getQuantity());
@@ -106,6 +148,27 @@ public class ConsultAdapter extends BaseAdapter{
                     }
                 });
             }
+            if(type==1){//销售订单
+                ((ViewHolder) holder).checkBox.setVisibility(View.VISIBLE);
+                if(onItemChckListener!=null){
+                    ((ViewHolder) holder).checkBox.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            boolean tag;
+                            if(((ViewHolder) holder).checkBox.isChecked()){
+                                map.put(position,true);
+                                tag=true;
+                            }else {
+                                map.put(position,false);
+                                tag=false;
+
+                            }
+                            onItemChckListener.onItemClick(holder.itemView, position,tag);
+                        }
+                    });
+                }
+            }
+
         }if (holder instanceof FooterHolder) {
             switch (load_more_status) {
                 case PULLUP_LOAD_MORE:
@@ -142,6 +205,8 @@ public class ConsultAdapter extends BaseAdapter{
         @BindView(R.id.tvReceiveCompany)TextView tvReceiveCompany;
         @BindView(R.id.tvSendAdress)TextView tvSendAdress;
         @BindView(R.id.viewTab3)TextView viewTab3;
+        @BindView(R.id.checkBox)
+        CheckBox checkBox;
 
 
     }
