@@ -13,7 +13,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 26
         multiDexEnabled true //Howard 2017-08-31 解决方法数超过65536的问题
-        versionCode 3
+        versionCode 4
         versionName "1.0.3"//1.1.7
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {

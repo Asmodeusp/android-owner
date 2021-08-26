@@ -899,7 +899,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                     progressDialog= new ProgressDialog(context);
                 }
                 progressDialog.setTitle("提示");
-                progressDialog.setMessage("我找车正在下载中");
+                progressDialog.setMessage("我找车货主正在下载中");
                 // 设置ProgressDialog 标题图标
                 progressDialog.setIcon(R.drawable.ico_app);
 

@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 >
    <!--  -->
-    <string name="app_name">我找车</string>
+    <string name="app_name">我找车货主</string>
 
     <string name="detect_face_in">把脸移入框内</string>
     <string name="detect_zoom_in">手机拿近一点</string>

@@ -169,7 +169,7 @@ public class ChooseGooodsCompanyFragment extends BaseFragment {
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mDatas.clear();
+
                 if(type.equals("3")){//运单类型
                     getBillType();
                 }else if(type.equals("4")){//签收策略
@@ -181,7 +181,9 @@ public class ChooseGooodsCompanyFragment extends BaseFragment {
                 }else if(type.equals("8")){
                     context.stopSwipeRefreshLayout(refreshLayout);
                     getReceiceObj();
-                }else {
+                }else if(type.equals("7")){
+                    getTrantWay();
+                } else {
                     getGoosCompany();
                 }
             }
@@ -203,6 +205,9 @@ public class ChooseGooodsCompanyFragment extends BaseFragment {
         context.orderApi.getGoodsCompanyList(body).enqueue(new CallBack<List<GoodsCompanyDto>>() {
             @Override
             public void success(List<GoodsCompanyDto> response) {
+                if(mDatas!=null){
+                    mDatas.clear();
+                }
                 adapter.addMoreData(response);
                 context.dismissLoadingDialog();
             }
@@ -229,6 +234,9 @@ public class ChooseGooodsCompanyFragment extends BaseFragment {
         context.orderApi.getBillType(body).enqueue(new CallBack<List<GoodsCompanyDto>>() {
             @Override
             public void success(List<GoodsCompanyDto> response) {
+                if(mDatas!=null){
+                    mDatas.clear();
+                }
                 context.dismissLoadingDialog();
                 adapter.addMoreData(response);
             }
@@ -256,6 +264,9 @@ public class ChooseGooodsCompanyFragment extends BaseFragment {
         context.orderApi.getsignStrageList(body).enqueue(new CallBack<List<GoodsCompanyDto>>() {
             @Override
             public void success(List<GoodsCompanyDto> response) {
+                if(mDatas!=null){
+                    mDatas.clear();
+                }
                 adapter.addMoreData(response);
                 context.dismissLoadingDialog();
             }
@@ -284,6 +295,9 @@ public class ChooseGooodsCompanyFragment extends BaseFragment {
         context.orderApi.getOrderPeopleList(body).enqueue(new CallBack<List<GoodsCompanyDto>>() {
             @Override
             public void success(List<GoodsCompanyDto> response) {
+                if(mDatas!=null){
+                    mDatas.clear();
+                }
                 adapter.addMoreData(response);
                 context.dismissLoadingDialog();
             }
@@ -299,6 +313,9 @@ public class ChooseGooodsCompanyFragment extends BaseFragment {
      * 获取接收对象
      * **/
     private void getReceiceObj(){
+        if(mDatas!=null){
+            mDatas.clear();
+        }
         GoodsCompanyDto companyDto1=new GoodsCompanyDto();
         companyDto1.setName("货主");
         companyDto1.setId("1");
@@ -332,6 +349,9 @@ public class ChooseGooodsCompanyFragment extends BaseFragment {
         context.orderApi.getGoodNameList(body).enqueue(new CallBack<List<GoodsCompanyDto>>() {
             @Override
             public void success(List<GoodsCompanyDto> response) {
+                if(mDatas!=null){
+                    mDatas.clear();
+                }
                 adapter.addMoreData(response);
                 llSearch.setVisibility(View.GONE);
                 context.dismissLoadingDialog();
@@ -402,6 +422,9 @@ public class ChooseGooodsCompanyFragment extends BaseFragment {
         context.orderApi.getTrantWay(body).enqueue(new CallBack<List<GoodsCompanyDto>>() {
             @Override
             public void success(List<GoodsCompanyDto> response) {
+                if(mDatas!=null){
+                    mDatas.clear();
+                }
                 context.dismissLoadingDialog();
                 adapter.addMoreData(response);
             }
@@ -440,7 +463,6 @@ public class ChooseGooodsCompanyFragment extends BaseFragment {
     public void click(View view){
         switch (view.getId()){
             case R.id.llSearch:
-                mDatas.clear();
                 getGoodList();
                 break;
         }

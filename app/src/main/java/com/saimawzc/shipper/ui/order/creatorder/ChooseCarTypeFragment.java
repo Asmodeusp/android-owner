@@ -115,6 +115,12 @@ public class ChooseCarTypeFragment extends BaseFragment {
                 context. finish();
             }
         });
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getCarType();
+            }
+        });
     }
     private void getCarType(){
         context.showLoadingDialog();
@@ -129,6 +135,9 @@ public class ChooseCarTypeFragment extends BaseFragment {
         context.authApi.getCarType(body).enqueue(new CallBack<List<CarTypeDo>>() {
             @Override
             public void success(List<CarTypeDo> response) {
+                if(mDatas!=null){
+                    mDatas.clear();
+                }
                 context.dismissLoadingDialog();
                 adapter.addMoreData(response);
             }

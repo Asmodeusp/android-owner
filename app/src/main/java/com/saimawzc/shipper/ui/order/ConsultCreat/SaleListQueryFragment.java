@@ -37,7 +37,8 @@ import butterknife.OnClick;
 
 import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
 
-public class SaleListQueryFragment extends BaseFragment implements ConsultView, TextWatcher {
+public class SaleListQueryFragment extends
+        BaseFragment implements ConsultView, TextWatcher {
     @BindView(R.id.cycle) RecyclerView rv;
     @BindView(R.id.SwipeRefreshLayout) SwipeRefreshLayout refreshLayout;
     @BindView(R.id.edsearch) ClearTextEditText edSearch;
