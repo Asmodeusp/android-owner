@@ -124,15 +124,17 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("openArrival",optionalInfoFragment.openArrival());
 
             choose.put("autoTransport",optionalInfoFragment.autoTransport());
-
+            choose.put("roadLoss",optionalInfoFragment.roadLoss());
 
             jsonObject.put("choose",choose);
+
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
             arrObj.put("materialsName",basicInfoFragment.getGoodName().getName());
 
             arrObj.put("materialsId",basicInfoFragment.getGoodName().getId());
             arrObj.put("price",basicInfoFragment.getPrice());
+            arrObj.put("goodsPrice",basicInfoFragment.getGoodPrice());
             if(TextUtils.isEmpty(basicInfoFragment.getWeightUtil())){
                 arrObj.put("unit",1+"");//1吨 2 方
             }else {
@@ -270,6 +272,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
             choose.put("openArrival",optionalInfoFragment.openArrival());
             choose.put("autoTransport",optionalInfoFragment.autoTransport());
+            choose.put("roadLoss",optionalInfoFragment.roadLoss());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
@@ -277,6 +280,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
 
             arrObj.put("materialsId",basicInfoFragment.getGoodName().getId());
             arrObj.put("price",basicInfoFragment.getPrice());
+            arrObj.put("goodsPrice",basicInfoFragment.getGoodPrice());
             if(TextUtils.isEmpty(basicInfoFragment.getWeightUtil())){
                 arrObj.put("unit",1+"");//1吨 2 方
             }else {
@@ -386,6 +390,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("pushAlarmRole",optionalInfoFragment.pushAlarmRole());//
             choose.put("alarmHz",optionalInfoFragment.alarmHz());
             choose.put("offLineAlarm",optionalInfoFragment.offLineAlarm());
+            choose.put("roadLoss",optionalInfoFragment.roadLoss());
                 if(basicInfoFragment.yewuType().equals("总包")){
                     jsonObject.put("businessType",1);
                 }else if(basicInfoFragment.yewuType().equals("自营")){
@@ -417,6 +422,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
 
             arrObj.put("materialsId",basicInfoFragment.getGoodName().getId());
             arrObj.put("price",basicInfoFragment.getPrice());
+            arrObj.put("goodsPrice",basicInfoFragment.getGoodPrice());
             if(TextUtils.isEmpty(basicInfoFragment.getWeightUtil())){
                 arrObj.put("unit",1+"");//1吨 2 方
             }else {

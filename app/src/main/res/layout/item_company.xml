@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:textColor="@color/color_black"
         android:layout_marginTop="@dimen/px10dp"
         android:background="@color/white"
         android:id="@+id/tvCompanyName"

@@ -99,6 +99,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.imgautotrant)ImageView imgAutoTrant;
     @BindView(R.id.tvguobangnum)TextView tvGuoBangNum;
     @BindView(R.id.tvsignnum)TextView tvSignNum;
+    @BindView(R.id.tvroadless)TextView tvRoadLess;
     @Override
     public int initContentView() {
         return R.layout.fragment_waybill_sh;
@@ -198,6 +199,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
                 tempDto.setGoodPrice(dto.getList().get(i).getPrice());
                 tempDto.setGoodNum(dto.getList().get(i).getWeight());
                 tempDto.setBussType(dto.getBusinessType());
+                tempDto.setGoodPrice_two(dto.getList().get(i).getGoodprice());
                 mDatas.add(tempDto);
             }
             adpater.notifyDataSetChanged();
@@ -221,6 +223,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
             tvDriverAge.setText(dto.getChoose().getDrivingYears()+"年");
             tvCarAge.setText(dto.getChoose().getTravelYears()+"年");
             tvRelaCom.setText(dto.getChoose().getRelationComName());
+            tvRoadLess.setText(dto.getChoose().getRoadLoss()+"%");
             if(TextUtils.isEmpty(dto.choose.getContext())){
                 tvAqgz.setText("暂无告知");
                 tvAqgz.setTextColor(mContext.getResources().getColor(R.color.color_black));

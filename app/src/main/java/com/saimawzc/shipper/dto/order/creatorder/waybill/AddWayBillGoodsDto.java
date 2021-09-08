@@ -11,9 +11,18 @@ public class AddWayBillGoodsDto {
     private GoodsCompanyDto goodsCompanyDto;
     private double goodNum;
     private  double goodPrice;
+    private double goodPrice_two;
     private String util;
     private String utilName;
     private int bussType;
+
+    public double getGoodPrice_two() {
+        return goodPrice_two;
+    }
+
+    public void setGoodPrice_two(double goodPrice_two) {
+        this.goodPrice_two = goodPrice_two;
+    }
 
     public int getBussType() {
         return bussType;

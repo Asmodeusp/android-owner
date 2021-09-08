@@ -116,7 +116,7 @@
         android:gravity="center"
         android:layout_below="@+id/search"
         android:id="@+id/tvcasc"
-        android:text="参照生产"
+        android:text="参照生成"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px80dp">
     </TextView>

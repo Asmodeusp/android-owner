@@ -97,6 +97,8 @@ public class WayBillGoodAdpater extends BaseAdapter {
                 if(dto.getGoodsCompanyDto()!=null){
                     ((ViewHolder) holder).tvGoodName.setText(dto.getGoodsCompanyDto().getName());
                 }
+
+
             }
             if(dto.getGoodNum()>0){
                 ((ViewHolder) holder).edTrantNum.setText(dto.getGoodNum()+"");
@@ -104,6 +106,9 @@ public class WayBillGoodAdpater extends BaseAdapter {
 
             if(dto.getGoodPrice()>0){
                 ((ViewHolder) holder).edprice.setText(dto.getGoodPrice()+"");
+            }
+            if(dto.getGoodPrice_two()>0){
+                ((ViewHolder) holder).edGoodPrice.setText(dto.getGoodPrice_two()+"");
             }
             ((ViewHolder) holder).tvWeightUtil.setText(dto.getUtilName());
             if(dto.getBussType()==2){
@@ -171,7 +176,32 @@ public class WayBillGoodAdpater extends BaseAdapter {
 
                 }
             });
+            ((ViewHolder) holder).edGoodPrice.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    try {
+                        if(!TextUtils.isEmpty(s.toString())){
+                            if(!s.toString().equals(".")){
+                                dto.setGoodPrice_two(Double.parseDouble(s.toString()));
+                            }
+                        }
+                    }catch (Exception e){
+                        dto.setGoodPrice_two(0);
+                    }
+
+
+                }
+            });
 
             if(onTabClickListener!=null){
                 ((ViewHolder) holder).rl_goodsname.setOnClickListener(new View.OnClickListener() {
@@ -232,6 +262,7 @@ public class WayBillGoodAdpater extends BaseAdapter {
         @BindView(R.id.rlprice)RelativeLayout rlprice;
         @BindView(R.id.imgright) ImageView imgRight;
         @BindView(R.id.imgdown)ImageView imgDown;
+        @BindView(R.id.edgoodprice)EditText edGoodPrice;
 
 
     }

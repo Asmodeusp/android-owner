@@ -1035,6 +1035,42 @@
                 </ImageView>
             </LinearLayout>
             <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="路损:"
+                    android:textSize="@dimen/px30dp" />
+
+                <EditText
+                    android:layout_weight="1"
+                    android:paddingRight="@dimen/px20dp"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/edroadLoss"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="请输入"
+                    android:textSize="@dimen/px30dp" />
+                <TextView
+                    android:layout_marginRight="@dimen/px40dp"
+                    android:text="%"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
         </LinearLayout>
     </ScrollView>
 

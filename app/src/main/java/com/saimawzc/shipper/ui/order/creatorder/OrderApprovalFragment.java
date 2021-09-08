@@ -50,6 +50,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.tvgoodname) TextView tvGoodName;
     @BindView(R.id.tvnum) TextView tvNum;
     @BindView(R.id.tvprice) TextView tvPrice;
+    @BindView(R.id.tvgoodprice)TextView tvGoodPrice;
     @BindView(R.id.tvkeshangnum) TextView tvKsNum;
     @BindView(R.id.tvmaketime) TextView tvMakeTime;
     @BindView(R.id.tvmakepeople) TextView tvMakePeople;
@@ -95,6 +96,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.imgautotrant)ImageView imgAutoTrant;
     @BindView(R.id.tvguobangnum)TextView tvGuoBangNum;
     @BindView(R.id.tvsignnum)TextView tvSignNum;
+    @BindView(R.id.tvroadless)TextView tvroadless;
     @Override
     public int initContentView() {
         return R.layout.fragment_order_sh;
@@ -171,6 +173,9 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
             }else {
                 tvBillType.setText(dto.getWayBillType());
             }
+            if(dto.choose==null||dto.getList()==null){
+                return;
+            }
             tvSendCompany.setText(dto.getFromName());
             tvTrantWay.setText(dto.getTranTypeName());
             tvSendAdress.setText(dto.getFromUserAddress());
@@ -196,6 +201,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
                 tvNum.setText(dto.getList().get(0).getWeight()+"吨");
             }
             tvPrice.setText(dto.getList().get(0).getPrice()+"元");
+            tvGoodPrice.setText(dto.getList().get(0).getGoodprice()+"元");
             tvKsNum.setText(dto.getChoose().getThirdPartyNo());
             tvMakeTime.setText(dto.getChoose().getMakerTime()+"");
             tvMakePeople.setText(dto.getChoose().getMakerName());
@@ -204,6 +210,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
 
             tvReceiveObj.setText(dto.getChoose().getPushAlarmRoleName());
             tvhZname.setText(dto.getChoose().getAlarmHzName());
+            tvroadless.setText(dto.getChoose().getRoadLoss()+"%");
             tvRoute.setText(dto.getRouteName());
             tvstayTime.setText(dto.getChoose().getAlarmTime()+"分钟");
             tvYhr.setText(dto.getChoose().getCheckUserListName());
@@ -226,6 +233,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
                     }
                 });
             }
+
             //提供发票
             if(dto.getChoose().getProvideInvoice()==1){
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgApplyfp);

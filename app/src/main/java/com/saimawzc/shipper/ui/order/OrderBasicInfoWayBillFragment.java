@@ -782,6 +782,7 @@ public class OrderBasicInfoWayBillFragment extends BaseFragment
                     tempDto.setUtilName(dto.getList().get(i).getUnitName());
                     tempDto.setGoodPrice(dto.getList().get(i).getPrice());
                     tempDto.setGoodNum(dto.getList().get(i).getWeight());
+                    tempDto.setGoodPrice_two(dto.getList().get(i).getGoodprice());
                     mDatas.add(tempDto);
                 }
                 adpater.notifyDataSetChanged();

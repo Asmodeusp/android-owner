@@ -127,6 +127,7 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
             choose.put("openArrival",optionalInfoFragment.openArrival());
             choose.put("autoTransport",optionalInfoFragment.autoTransport());
+            choose.put("roadLoss",optionalInfoFragment.roadLoss());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){
@@ -134,6 +135,7 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
                 arrObj.put("materialsName",basicInfoFragment.getGoodList().get(i).getGoodsCompanyDto().getName());
                 arrObj.put("materialsId",basicInfoFragment.getGoodList().get(i).getGoodsCompanyDto().getId());
                 arrObj.put("price",basicInfoFragment.getGoodList().get(i).getGoodPrice());
+                arrObj.put("goodsPrice",basicInfoFragment.getGoodList().get(i).getGoodPrice_two());
                 if(TextUtils.isEmpty(basicInfoFragment.getGoodList().get(i).getUtil())){
                     arrObj.put("unit",1+"");//1吨 2 方
                 }else {
@@ -265,6 +267,7 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
             choose.put("openArrival",optionalInfoFragment.openArrival());
             choose.put("autoTransport",optionalInfoFragment.autoTransport());
+            choose.put("roadLoss",optionalInfoFragment.roadLoss());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){
@@ -272,6 +275,7 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
                 arrObj.put("materialsName",basicInfoFragment.getGoodList().get(i).getGoodsCompanyDto().getName());
                 arrObj.put("materialsId",basicInfoFragment.getGoodList().get(i).getGoodsCompanyDto().getId());
                 arrObj.put("price",basicInfoFragment.getGoodList().get(i).getGoodPrice());
+                arrObj.put("goodsPrice",basicInfoFragment.getGoodList().get(i).getGoodPrice_two());
                 if(TextUtils.isEmpty(basicInfoFragment.getGoodList().get(i).getUtil())){
                     arrObj.put("unit",1+"");//1吨 2 方
                 }else {

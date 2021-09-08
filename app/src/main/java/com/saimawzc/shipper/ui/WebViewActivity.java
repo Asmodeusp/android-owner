@@ -181,7 +181,7 @@ public class WebViewActivity extends BaseActivity {
         } else {
             mSettings.setLoadsImagesAutomatically(false);
         }
-        mSettings.setTextSize(WebSettings.TextSize.LARGEST);
+        //mSettings.setTextSize(WebSettings.TextSize.LARGEST);
         mSettings.setNeedInitialFocus(true);
         // 设定编码格式
         mSettings.setDefaultTextEncodingName("UTF-8");

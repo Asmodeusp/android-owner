@@ -465,6 +465,15 @@ public class OrderDelationDto {
         private  int openFactorySignIn;
         private  int openArrival;
         private int autoTransport;
+        private String roadLoss;
+
+        public String getRoadLoss() {
+            return roadLoss;
+        }
+
+        public void setRoadLoss(String roadLoss) {
+            this.roadLoss = roadLoss;
+        }
 
         public int getAutoTransport() {
             return autoTransport;
@@ -768,8 +777,17 @@ public class OrderDelationDto {
         private String materialsName;
         private double price;
         private double weight;
+        private double goodsPrice;
         private int unit;
         private String unitName;
+
+        public double getGoodprice() {
+            return goodsPrice;
+        }
+
+        public void setGoodprice(double goodprice) {
+            this.goodsPrice = goodprice;
+        }
 
         public String getUnitName() {
             return unitName;

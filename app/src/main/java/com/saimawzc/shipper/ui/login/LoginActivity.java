@@ -100,7 +100,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 WebViewActivity.loadUrl(context, "用户协议","https://www.wzcwlw.com/userAgreement.html");
                 break;
             case R.id.btnPrivacy://隐私声明
-                WebViewActivity.loadUrl(context, "隐私声明","https://www.wzcwlw.com/privacyStatement.html");
+                WebViewActivity.loadUrl(context, "隐私声明","https://www.wzcwlw.com/privacyStatementHz.html");
                 break;
             case R.id.btn_Login:
                 if(TextUtils.isEmpty(editAccount.getText().toString())){

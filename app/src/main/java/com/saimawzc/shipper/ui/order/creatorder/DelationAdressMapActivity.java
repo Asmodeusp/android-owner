@@ -175,7 +175,7 @@ public class DelationAdressMapActivity extends BaseActivity
     public void onGetDistrictResult(DistrictResult districtResult) {
         if (districtResult.error == SearchResult.ERRORNO.NO_ERROR){
             List<List<LatLng>> polyLines = districtResult.getPolylines();
-            if (polyLines == null){
+            if (polyLines == null||mBaiduMap==null){
                 return;
             }
             LatLngBounds.Builder builder = new LatLngBounds.Builder();

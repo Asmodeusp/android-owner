@@ -106,6 +106,72 @@
         </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
+        android:layout_marginTop="@dimen/px2dp"
+        android:id="@+id/rlyinsi"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px100dp">
+        <TextView
+            android:layout_marginLeft="@dimen/px20dp"
+            android:textSize="@dimen/px30dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_black"
+            android:text="隐私声明"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_marginRight="@dimen/px20dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:src="@drawable/ico_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="@dimen/px2dp"
+        android:id="@+id/rlaboutus"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px100dp">
+        <TextView
+            android:layout_marginLeft="@dimen/px20dp"
+            android:textSize="@dimen/px30dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_black"
+            android:text="关于我们"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_marginRight="@dimen/px20dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:src="@drawable/ico_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
         android:id="@+id/rlzc"
         android:layout_marginTop="@dimen/px2dp"
         android:background="@color/white"

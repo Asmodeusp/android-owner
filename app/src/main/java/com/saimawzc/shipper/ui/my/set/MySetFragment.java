@@ -13,6 +13,7 @@ import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.VersonDto;
+import com.saimawzc.shipper.ui.WebViewActivity;
 import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
 import com.saimawzc.shipper.ui.login.ForgetPassActivity;
 import com.saimawzc.shipper.ui.login.LoginActivity;
@@ -56,7 +57,8 @@ public class MySetFragment extends BaseFragment {
 
     }
     private NormalDialog dialog;
-    @OnClick({R.id.rlforgetword,R.id.rlsuggest,R.id.rlupdate,R.id.rlzc})
+    @OnClick({R.id.rlforgetword,R.id.rlsuggest,
+            R.id.rlupdate,R.id.rlzc,R.id.rlyinsi,R.id.rlaboutus})
     public void click(View view){
         Bundle bundle;
         switch (view.getId()){
@@ -79,6 +81,12 @@ public class MySetFragment extends BaseFragment {
                         }
                     });
                 }
+                break;
+            case R.id.rlyinsi:
+                WebViewActivity.loadUrl(context, "隐私声明","https://www.wzcwlw.com/privacyStatementHz.html");
+                break;
+            case R.id.rlaboutus:
+                WebViewActivity.loadUrl(context, "关于我们","https://www.wzcwlw.com/about.html");
                 break;
             case R.id.rlzc:
                 dialog = new NormalDialog(mContext).isTitleShow(false)

@@ -38,6 +38,7 @@ public interface OrderBasicInfoView extends BaseView {
     String getOrderPeopleId();
 
     String getWeightUtil();
+    String getGoodPrice();
 
     void getOrderDelation(OrderDelationDto dto);
 

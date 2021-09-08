@@ -102,6 +102,8 @@ public class OrderOptionalInfoFragment extends BaseFragment
     /**自动运输**/
     @BindView(R.id.toggleutotrant)SwitchButton toggleAutoTrant;
 
+    @BindView(R.id.edroadLoss)EditText edRoadLoss;
+
 
 
     @Override
@@ -524,6 +526,11 @@ public class OrderOptionalInfoFragment extends BaseFragment
     }
 
     @Override
+    public String roadLoss() {
+        return edRoadLoss.getText().toString();
+    }
+
+    @Override
     public void getOrderDelation(OrderDelationDto dto) {
         if(dto!=null){
             OrderDelationDto.choosedata choosedata=dto.getChoose();
@@ -611,6 +618,7 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 edCarAge.setText(dto.getChoose().getTravelYears());
                 tvRelaCom.setText(dto.getChoose().getRelationComName());
                 relationConId=dto.getChoose().getRelationCom();
+                edRoadLoss.setText(dto.getChoose().getRoadLoss());
 
             }
         }

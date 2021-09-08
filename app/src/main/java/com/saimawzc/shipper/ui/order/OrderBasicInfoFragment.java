@@ -61,6 +61,7 @@ public class OrderBasicInfoFragment extends BaseFragment
     @BindView(R.id.tvarrivetime_start) TextView tvArriveTimeStart;
     @BindView(R.id.tvarrivetime_end) TextView tvArriveTimeEnd;
     @BindView(R.id.edprice) EditText edprice;
+    @BindView(R.id.edgoodprice)EditText edGoodPrice;
     @BindView(R.id.edTrantNum) EditText edTrantNum;
     @BindView(R.id.tvOrderpeople)TextView tvOrderpeople;//收货确认人
     @BindView(R.id.tvreceiveadress)TextView tvReceiveAdress;//收货地址
@@ -568,6 +569,11 @@ public class OrderBasicInfoFragment extends BaseFragment
 
     }
 
+    @Override
+    public String getGoodPrice() {
+        return edGoodPrice.getText().toString();
+    }
+
 
     @Override
     public void showLoading() {
@@ -698,6 +704,8 @@ public class OrderBasicInfoFragment extends BaseFragment
             goodNameDto.setId(dto.getList().get(0).getMaterialsId());
             tvGoodName.setText(dto.getList().get(0).getMaterialsName());
             edprice.setText(dto.getList().get(0).getPrice()+"");
+            edGoodPrice.setText(dto.getList().get(0).getGoodprice()+"");
+
             edTrantNum.setText(dto.getList().get(0).getWeight()+"");
             tvWeightUtil.setText(dto.getList().get(0).getUnitName());
             untilId=dto.getList().get(0).getUnit()+"";
@@ -760,6 +768,7 @@ public class OrderBasicInfoFragment extends BaseFragment
             if(!TextUtils.isEmpty(dto.getPrice())){
                 edprice.setText(dto.getPrice()+"");
             }
+
             edTrantNum.setText(dto.getWeight()+"");
             tvWeightUtil.setText("吨");
             untilId=1+"";
