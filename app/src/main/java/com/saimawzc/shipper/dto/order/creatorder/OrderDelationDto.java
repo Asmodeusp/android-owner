@@ -467,6 +467,52 @@ public class OrderDelationDto {
         private int autoTransport;
         private String roadLoss;
 
+        private  int inFactoryAlbum;
+        private int loadAlbum;
+        private  int unloadAlbum;
+        private int outFactoryAlbum;
+        private int arrivalAlbum;
+
+        public int getInFactoryAlbum() {
+            return inFactoryAlbum;
+        }
+
+        public void setInFactoryAlbum(int inFactoryAlbum) {
+            this.inFactoryAlbum = inFactoryAlbum;
+        }
+
+        public int getLoadAlbum() {
+            return loadAlbum;
+        }
+
+        public void setLoadAlbum(int loadAlbum) {
+            this.loadAlbum = loadAlbum;
+        }
+
+        public int getUnloadAlbum() {
+            return unloadAlbum;
+        }
+
+        public void setUnloadAlbum(int unloadAlbum) {
+            this.unloadAlbum = unloadAlbum;
+        }
+
+        public int getOutFactoryAlbum() {
+            return outFactoryAlbum;
+        }
+
+        public void setOutFactoryAlbum(int outFactoryAlbum) {
+            this.outFactoryAlbum = outFactoryAlbum;
+        }
+
+        public int getArrivalAlbum() {
+            return arrivalAlbum;
+        }
+
+        public void setArrivalAlbum(int arrivalAlbum) {
+            this.arrivalAlbum = arrivalAlbum;
+        }
+
         public String getRoadLoss() {
             return roadLoss;
         }

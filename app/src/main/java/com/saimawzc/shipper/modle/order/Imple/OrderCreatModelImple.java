@@ -126,6 +126,12 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("autoTransport",optionalInfoFragment.autoTransport());
             choose.put("roadLoss",optionalInfoFragment.roadLoss());
 
+            choose.put("inFactoryAlbum",optionalInfoFragment.inFactoryAlbum());
+            choose.put("loadAlbum",optionalInfoFragment.loadAlbum());
+            choose.put("unloadAlbum",optionalInfoFragment.unloadAlbum());
+            choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
+            choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
+
             jsonObject.put("choose",choose);
 
             JSONArray array=new JSONArray();
@@ -273,6 +279,11 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("openArrival",optionalInfoFragment.openArrival());
             choose.put("autoTransport",optionalInfoFragment.autoTransport());
             choose.put("roadLoss",optionalInfoFragment.roadLoss());
+            choose.put("inFactoryAlbum",optionalInfoFragment.inFactoryAlbum());
+            choose.put("loadAlbum",optionalInfoFragment.loadAlbum());
+            choose.put("unloadAlbum",optionalInfoFragment.unloadAlbum());
+            choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
+            choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
@@ -415,6 +426,12 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("openFactorySignIn",optionalInfoFragment.openFactorySignIn());
             choose.put("openArrival",optionalInfoFragment.openArrival());
             choose.put("autoTransport",optionalInfoFragment.autoTransport());
+            choose.put("inFactoryAlbum",optionalInfoFragment.inFactoryAlbum());
+            choose.put("loadAlbum",optionalInfoFragment.loadAlbum());
+            choose.put("unloadAlbum",optionalInfoFragment.unloadAlbum());
+            choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
+            choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
+
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();

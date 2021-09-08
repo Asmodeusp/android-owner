@@ -17,6 +17,13 @@ public interface OrderOptionalInfoView extends BaseView {
     int isApplyh();//1是 2不是
     int isApplzhpz();//1是 2不是
     int isApplxhpz();//1是 2不是
+
+    int inFactoryAlbum();//1是 2不是
+    int loadAlbum();//1是 2不是
+    int unloadAlbum();//1是 2不是
+    int outFactoryAlbum();//1是 2不是
+    int arrivalAlbum();//1是 2不是
+
     int bindSmartLock();
     int outFactoryPhotos();//出厂榜单
     int stopAlarm();

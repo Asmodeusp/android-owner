@@ -104,6 +104,17 @@ public class OrderOptionalInfoFragment extends BaseFragment
 
     @BindView(R.id.edroadLoss)EditText edRoadLoss;
 
+    /**入场签到允许访问相册**/
+    @BindView(R.id.toggleInFactoryAlbum)SwitchButton toggleInFactoryAlbum;
+
+    /**装货拍照是否允许访问相册**/
+    @BindView(R.id.toggleLoadAlbum)SwitchButton toggleLoadAlbum;
+    /**卸货拍照是否允许访问相册**/
+    @BindView(R.id.toggleUnloadAlbum)SwitchButton toggleUnloadAlbum;
+    /**出厂签到拍照是否允许访问相册**/
+    @BindView(R.id.toggleOutFactoryAlbum)SwitchButton toggleOutFactoryAlbum;
+    /**到货确认拍照是否允许访问相册**/
+    @BindView(R.id.toggleArrivalAlbum)SwitchButton toggleArrivalAlbum;
 
 
     @Override
@@ -408,6 +419,51 @@ public class OrderOptionalInfoFragment extends BaseFragment
     }
 
     @Override
+    public int inFactoryAlbum() {
+        if(toggleInFactoryAlbum.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
+    public int loadAlbum() {
+        if(toggleLoadAlbum.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
+    public int unloadAlbum() {
+        if(toggleUnloadAlbum.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
+    public int outFactoryAlbum() {
+        if(toggleOutFactoryAlbum.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
+    public int arrivalAlbum() {
+        if(toggleArrivalAlbum.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
     public int bindSmartLock() {
         if(swLock.isChecked()){
             return 1;
@@ -599,6 +655,21 @@ public class OrderOptionalInfoFragment extends BaseFragment
                     toggleopenArrival.setChecked(false);
                 }
 
+                if(dto.getChoose().getInFactoryAlbum()==1){
+                    toggleInFactoryAlbum.setChecked(true);
+                }
+                if(dto.getChoose().getLoadAlbum()==1){
+                    toggleLoadAlbum.setChecked(true);
+                }
+                if(dto.getChoose().getUnloadAlbum()==1){
+                    toggleUnloadAlbum.setChecked(true);
+                }
+                if(dto.getChoose().getOutFactoryAlbum()==1){
+                    toggleOutFactoryAlbum.setChecked(true);
+                }
+                if(dto.getChoose().getArrivalAlbum()==1){
+                    toggleArrivalAlbum.setChecked(true);
+                }
                 tvHzList.setText(dto.getChoose().getAlarmHzName());
                 hzlistId=dto.getChoose().getAlarmHz();
                 tvReceiveObj.setText(dto.getChoose().getPushAlarmRoleName());
