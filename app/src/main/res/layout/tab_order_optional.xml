@@ -181,62 +181,7 @@
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
-                android:layout_marginLeft="@dimen/px20dp"
-                android:layout_marginTop="@dimen/px20dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="入场签到:"
-                    android:textSize="@dimen/px30dp" />
-
-                <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked="true"
-                    app:sb_checked_color="@color/blue"
-                    android:id="@+id/toggleopenFactorySignIn"
-                    app:sb_show_indicator="false"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
-            </LinearLayout>
-
-            <include layout="@layout/common_line"></include>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
-                android:layout_marginLeft="@dimen/px20dp"
-                android:layout_marginTop="@dimen/px20dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="允许访问相册:"
-                    android:textSize="@dimen/px30dp" />
-
-                <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
-                    android:id="@+id/toggleInFactoryAlbum"
-                    app:sb_show_indicator="false"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
-            </LinearLayout>
-            <include layout="@layout/common_line"></include>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
@@ -266,33 +211,7 @@
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
-                android:layout_marginLeft="@dimen/px20dp"
-                android:layout_marginTop="@dimen/px20dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="允许访问相册:"
-                    android:textSize="@dimen/px30dp" />
-
-                <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
-                    android:id="@+id/toggleArrivalAlbum"
-                    app:sb_show_indicator="false"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
-            </LinearLayout>
-            <include layout="@layout/common_line"></include>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -605,33 +524,7 @@
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
-                android:layout_marginLeft="@dimen/px20dp"
-                android:layout_marginTop="@dimen/px20dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="允许访问相册:"
-                    android:textSize="@dimen/px30dp" />
-
-                <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
-                    android:id="@+id/toggleLoadAlbum"
-                    app:sb_show_indicator="false"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
-            </LinearLayout>
-            <include layout="@layout/common_line"></include>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
@@ -660,33 +553,7 @@
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
-                android:layout_marginLeft="@dimen/px20dp"
-                android:layout_marginTop="@dimen/px20dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="允许访问相册:"
-                    android:textSize="@dimen/px30dp" />
-
-                <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
-                    android:id="@+id/toggleUnloadAlbum"
-                    app:sb_show_indicator="false"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
-            </LinearLayout>
-            <include layout="@layout/common_line"></include>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
@@ -744,7 +611,62 @@
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="入场签到:"
+                    android:textSize="@dimen/px30dp" />
+
+                <com.saimawzc.shipper.weight.SwitchButton
+                    app:sb_checked="true"
+                    app:sb_checked_color="@color/blue"
+                    android:id="@+id/toggleopenFactorySignIn"
+                    app:sb_show_indicator="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:background="@null"/>
+            </LinearLayout>
+
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="允许访问相册:"
+                    android:textSize="@dimen/px30dp" />
+
+                <com.saimawzc.shipper.weight.SwitchButton
+                    app:sb_checked_color="@color/blue"
+                    android:id="@+id/toggleInFactoryAlbum"
+                    app:sb_show_indicator="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:background="@null"/>
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
@@ -772,6 +694,33 @@
                     android:background="@null"/>
             </LinearLayout>
 
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="允许访问相册:"
+                    android:textSize="@dimen/px30dp" />
+
+                <com.saimawzc.shipper.weight.SwitchButton
+                    app:sb_checked_color="@color/blue"
+                    android:id="@+id/toggleLoadAlbum"
+                    app:sb_show_indicator="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:background="@null"/>
+            </LinearLayout>
             <include layout="@layout/common_line"></include>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -814,12 +763,95 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:text="允许访问相册:"
+                    android:textSize="@dimen/px30dp" />
+
+                <com.saimawzc.shipper.weight.SwitchButton
+                    app:sb_checked_color="@color/blue"
+                    android:id="@+id/toggleUnloadAlbum"
+                    app:sb_show_indicator="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:background="@null"/>
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="出厂磅单:"
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
                     app:sb_checked_color="@color/blue"
                     android:id="@+id/togglebz"
+                    app:sb_show_indicator="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:background="@null"/>
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="允许访问相册:"
+                    android:textSize="@dimen/px30dp" />
+
+                <com.saimawzc.shipper.weight.SwitchButton
+                    app:sb_checked_color="@color/blue"
+                    android:id="@+id/toggleOutFactoryAlbum"
+                    app:sb_show_indicator="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:background="@null"/>
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="到货确认:"
+                    android:textSize="@dimen/px30dp" />
+
+                <com.saimawzc.shipper.weight.SwitchButton
+                    android:visibility="invisible"
+                    app:sb_checked_color="@color/blue"
                     app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -846,7 +878,7 @@
 
                 <com.saimawzc.shipper.weight.SwitchButton
                     app:sb_checked_color="@color/blue"
-                    android:id="@+id/toggleOutFactoryAlbum"
+                    android:id="@+id/toggleArrivalAlbum"
                     app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
