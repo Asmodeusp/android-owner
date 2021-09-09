@@ -886,7 +886,11 @@ public abstract class BaseActivity extends AppCompatActivity {
                 if(progressDialog!=null){
                     progressDialog.setProgress(msg.what);
                 }
-
+            }else {
+                if(progressDialog!=null){
+                    progressDialog.setMessage("由于网络原因，当前下载失败，请稍后再试");
+                    progressDialog.dismiss();
+                }
             }
         }
     };
@@ -996,7 +1000,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
             @Override
             public void onFail(Exception e) {
-                Log.e("msg","失败"+e.toString());
+                showMessage("由于网络原因，当前下载失败，请稍后再试");
+                if(progressDialog!=null){
+                    Message message=new Message();
+                    message.what=1001;
+                    processhandler.sendMessage(message);
+                }
             }
             @Override
             public void cancle() {

@@ -10,8 +10,8 @@ import java.nio.charset.Charset;
  */
 public class Constants {
 
-    public static final String Baseurl = "http://106.12.165.54:8005/";
-    //public static final String Baseurl = "https://app.api.wzcwlw.com/";
+    //public static final String Baseurl = "http://106.12.165.54:8005/";
+    public static final String Baseurl = "https://app.api.wzcwlw.com/";
     public static int DEVICE_FIRM = -1;
     public static final String PW_PATTERN = "^(?![A-Za-z0-9]+$)(?![a-z0-9\\W]+$)(?![A-Za-z\\W]+$)(?![A-Z0-9\\W]+$)[a-zA-Z0-9\\W]{8,}$";
     public static final String reshAccount_confirm = "reshAccount";//更新结算单

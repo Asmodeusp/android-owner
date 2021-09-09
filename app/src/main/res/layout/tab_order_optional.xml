@@ -653,7 +653,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="允许访问相册:"
+                    android:text="    允许访问相册:"
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
@@ -708,7 +708,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="允许访问相册:"
+                    android:text="    允许访问相册:"
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
@@ -763,7 +763,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="允许访问相册:"
+                    android:text="    允许访问相册:"
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
@@ -819,7 +819,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="允许访问相册:"
+                    android:text="    允许访问相册:"
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
@@ -873,7 +873,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="允许访问相册:"
+                    android:text="    允许访问相册:"
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
