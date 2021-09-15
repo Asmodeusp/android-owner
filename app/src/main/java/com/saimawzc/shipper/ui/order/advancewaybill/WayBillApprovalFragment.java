@@ -100,6 +100,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.tvguobangnum)TextView tvGuoBangNum;
     @BindView(R.id.tvsignnum)TextView tvSignNum;
     @BindView(R.id.tvroadless)TextView tvRoadLess;
+    @BindView(R.id.imgbangdan)ImageView imgBangdan;
     @Override
     public int initContentView() {
         return R.layout.fragment_waybill_sh;
@@ -334,6 +335,12 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
             }else {
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgAutoTrant);
             }
+            if(dto.getChoose().getPoundAlarm()==1){
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgBangdan);
+            }else {
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgBangdan);
+            }
+
         }
 
     }

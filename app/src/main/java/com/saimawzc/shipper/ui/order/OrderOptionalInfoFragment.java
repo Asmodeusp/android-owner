@@ -115,6 +115,9 @@ public class OrderOptionalInfoFragment extends BaseFragment
     @BindView(R.id.toggleOutFactoryAlbum)SwitchButton toggleOutFactoryAlbum;
     /**到货确认拍照是否允许访问相册**/
     @BindView(R.id.toggleArrivalAlbum)SwitchButton toggleArrivalAlbum;
+    /**榜单预警**/
+    @BindView(R.id.togglebangdan)SwitchButton togglebangdan;
+
 
 
     @Override
@@ -464,6 +467,15 @@ public class OrderOptionalInfoFragment extends BaseFragment
     }
 
     @Override
+    public int poundAlarm() {
+        if(togglebangdan.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
     public int bindSmartLock() {
         if(swLock.isChecked()){
             return 1;
@@ -607,6 +619,10 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 }
                 if(dto.getChoose().getFenceClock()==1){
                     isWeiLanSign.setChecked(true);
+                }
+
+                if(dto.getChoose().getPoundAlarm()==1){
+                    togglebangdan.setChecked(true);
                 }
                 if(dto.getChoose().getCheck()==1){//验货
                     toggleYh.setChecked(true);

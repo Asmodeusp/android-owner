@@ -55,6 +55,9 @@ import com.baidu.ocr.ui.camera.CameraView;
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.dto.login.AreaDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
+import com.saimawzc.shipper.ui.MainActivity;
+import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
+import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.weight.BottomDialogUtil;
 import com.saimawzc.shipper.weight.utils.api.OrderApi;
 import com.saimawzc.shipper.weight.utils.api.auto.AuthApi;
@@ -890,6 +893,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 if(progressDialog!=null){
                     progressDialog.setMessage("由于网络原因，当前下载失败，请稍后再试");
                     progressDialog.dismiss();
+                    turnToMain();
                 }
             }
         }
@@ -1087,6 +1091,26 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }, 1000);   //5秒
 
+    }
+
+    private void turnToMain() {
+        userInfoDto= Hawk.get(PreferenceKey.USER_INFO);
+        if(!TextUtils.isEmpty(Hawk.get(PreferenceKey.ID,""))){//已经登录
+            if(userInfoDto==null){
+                if(userInfoDto.getRole()==1){//货主
+                    Log.e("msg","跳转货主");
+                    readyGo(MainActivity.class);
+                }else if(userInfoDto.getRole()==4){//收货人
+                    readyGo(ConsigneeMainActivity.class);
+                }
+            }else {
+                readyGo(LoginActivity.class);
+            }
+
+        }else {
+            Log.e("msg","跳转登陆");
+            readyGo(LoginActivity.class);
+        }
     }
 }
 

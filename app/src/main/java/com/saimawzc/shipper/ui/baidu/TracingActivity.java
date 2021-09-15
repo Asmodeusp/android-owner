@@ -1,5 +1,6 @@
 package com.saimawzc.shipper.ui.baidu;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -7,6 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -102,6 +108,7 @@ public class TracingActivity extends BaseActivity implements
 
     @Override
     protected void init() {
+        getlocal();
         setToolbar(toolbar,"轨迹追踪");
         trackApp = (BaseApplication) getApplicationContext();
         serviceId=trackApp.serviceId;
@@ -519,6 +526,53 @@ public class TracingActivity extends BaseActivity implements
             }
         }
     }
+    /***
+     * 获取经纬度
+     * **/
+    public  void getlocal(){
 
+        mLocationClient = new LocationClient(mContext);
+        //声明LocationClient类
+        mLocationClient.registerLocationListener(myListener);
+        //注册监听函数
+        LocationClientOption option = new LocationClientOption();
+        option.setIsNeedAddress(true);
+        //可选，是否需要地址信息，默认为不需要，即参数为false
+        //如果开发者需要获得当前点的地址信息，此处必须为true
+        option.setNeedNewVersionRgc(true);
+        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+        option.setCoorType("bd09ll");
+        //可选，设置是否需要最新版本的地址信息。默认需要，即参数为true
+        mLocationClient.setLocOption(option);
+        mLocationClient.start();
+        if(Build.VERSION.SDK_INT >= 26){
+            if(!mLocationClient.isStarted()){
+                mLocationClient.restart();
+            }
+        }
+    }
+    public LocationClient mLocationClient = null;
+
+    private MyLocationListener myListener = new MyLocationListener();
+    public class MyLocationListener extends BDAbstractLocationListener {
+        @Override
+        public void onReceiveLocation(BDLocation location){
+            context.dismissLoadingDialog();
+            if (location == null) {
+                context.showMessage("定位失败");
+                return;
+            }else if(location.getLocType()==62){
+                context.showMessage("定位失败");
+                return;
+            }
+            LatLng tempPoint = new LatLng(location.getLatitude(), location.getLongitude());
+            MapStatus.Builder builder = new MapStatus.Builder();
+            builder.target(tempPoint).zoom(18.0f);
+            baiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+            if(mLocationClient!=null){
+                mLocationClient.stop();
+            }
+        }
+    }
 
 }

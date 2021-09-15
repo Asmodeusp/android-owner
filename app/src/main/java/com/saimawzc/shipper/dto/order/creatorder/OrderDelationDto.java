@@ -472,6 +472,15 @@ public class OrderDelationDto {
         private  int unloadAlbum;
         private int outFactoryAlbum;
         private int arrivalAlbum;
+        private int poundAlarm;
+
+        public int getPoundAlarm() {
+            return poundAlarm;
+        }
+
+        public void setPoundAlarm(int poundAlarm) {
+            this.poundAlarm = poundAlarm;
+        }
 
         public int getInFactoryAlbum() {
             return inFactoryAlbum;

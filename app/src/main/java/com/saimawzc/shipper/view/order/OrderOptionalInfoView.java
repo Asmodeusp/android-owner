@@ -23,6 +23,7 @@ public interface OrderOptionalInfoView extends BaseView {
     int unloadAlbum();//1是 2不是
     int outFactoryAlbum();//1是 2不是
     int arrivalAlbum();//1是 2不是
+    int poundAlarm();
 
     int bindSmartLock();
     int outFactoryPhotos();//出厂榜单

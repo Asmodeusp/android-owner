@@ -131,6 +131,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("unloadAlbum",optionalInfoFragment.unloadAlbum());
             choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
             choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
+            choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
 
             jsonObject.put("choose",choose);
 
@@ -284,6 +285,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("unloadAlbum",optionalInfoFragment.unloadAlbum());
             choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
             choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
+            choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
@@ -431,7 +433,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("unloadAlbum",optionalInfoFragment.unloadAlbum());
             choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
             choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
-
+            choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();

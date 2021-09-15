@@ -135,6 +135,7 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("unloadAlbum",optionalInfoFragment.unloadAlbum());
             choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
             choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());            jsonObject.put("choose",choose);
+            choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){
                 JSONObject arrObj=new JSONObject();
@@ -280,6 +281,7 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("unloadAlbum",optionalInfoFragment.unloadAlbum());
             choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
             choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
+            choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){

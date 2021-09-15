@@ -565,7 +565,7 @@
                     android:layout_marginLeft="@dimen/px30dp"
                     android:textColor="@color/gray888"
                     android:textSize="@dimen/px30dp"
-                    android:text="ddd"
+                    android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></TextView>
 
@@ -590,7 +590,7 @@
                     android:layout_marginLeft="@dimen/px30dp"
                     android:textColor="@color/gray888"
                     android:textSize="@dimen/px30dp"
-                    android:text="ddd"
+                    android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></TextView>
 
@@ -1137,7 +1137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/px80dp">
                     <ImageView
-
+                        android:id="@+id/imgbangdan"
                         android:layout_width="@dimen/px30dp"
                         android:layout_height="@dimen/px30dp">
 
@@ -1147,7 +1147,7 @@
                         android:layout_marginLeft="@dimen/px10dp"
                         android:textSize="@dimen/px30dp"
                         android:textColor="@color/color_black"
-                        android:text=""
+                        android:text="磅单预警"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
