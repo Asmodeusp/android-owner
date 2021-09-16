@@ -128,14 +128,15 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("openArrival",optionalInfoFragment.openArrival());
             choose.put("autoTransport",optionalInfoFragment.autoTransport());
             choose.put("roadLoss",optionalInfoFragment.roadLoss());
-
-
             choose.put("inFactoryAlbum",optionalInfoFragment.inFactoryAlbum());
             choose.put("loadAlbum",optionalInfoFragment.loadAlbum());
             choose.put("unloadAlbum",optionalInfoFragment.unloadAlbum());
             choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
-            choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());            jsonObject.put("choose",choose);
+            choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
             choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
+            choose.put("highEnclosureId",optionalInfoFragment.highEnclosureId());
+            choose.put("highEnclosureName",optionalInfoFragment.highEnclosureName());
+            jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){
                 JSONObject arrObj=new JSONObject();
@@ -282,6 +283,8 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
             choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
             choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
+            choose.put("highEnclosureId",optionalInfoFragment.highEnclosureId());
+            choose.put("highEnclosureName",optionalInfoFragment.highEnclosureName());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){

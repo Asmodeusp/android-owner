@@ -54,4 +54,6 @@ public interface OrderOptionalInfoView extends BaseView {
     int openFactorySignIn();
     int openArrival();
     int autoTransport();
+    String highEnclosureId();
+    String highEnclosureName();
 }

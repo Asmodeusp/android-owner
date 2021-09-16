@@ -107,12 +107,12 @@ public class WayBillGoodAdpater extends BaseAdapter {
             if(dto.getGoodPrice()>0){
                 ((ViewHolder) holder).edprice.setText(dto.getGoodPrice()+"");
             }else {
-                ((ViewHolder) holder).edprice.setHint("");
+                //((ViewHolder) holder).edprice.setHint("");
             }
             if(dto.getGoodPrice_two()>0){
                 ((ViewHolder) holder).edGoodPrice.setText(dto.getGoodPrice_two()+"");
             }else {
-                ((ViewHolder) holder).edGoodPrice.setHint("");
+               // ((ViewHolder) holder).edGoodPrice.setHint("");
             }
             ((ViewHolder) holder).tvWeightUtil.setText(dto.getUtilName());
             if(dto.getBussType()==2){

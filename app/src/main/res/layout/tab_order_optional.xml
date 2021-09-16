@@ -1269,6 +1269,34 @@
                 </TextView>
             </LinearLayout>
             <include layout="@layout/common_line"></include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginBottom="@dimen/px10dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="高危围栏:"
+                    android:textSize="@dimen/px30dp" />
+
+                <TextView
+                    android:layout_marginRight="@dimen/px30dp"
+                    android:paddingRight="@dimen/px20dp"
+                    android:id="@+id/tvdangerousfence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="选择高危围栏"
+                    android:textSize="@dimen/px30dp" />
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
         </LinearLayout>
     </ScrollView>
 

@@ -473,6 +473,24 @@ public class OrderDelationDto {
         private int outFactoryAlbum;
         private int arrivalAlbum;
         private int poundAlarm;
+        private String highEnclosureId;
+        private String highEnclosureName;
+
+        public String getHighEnclosureId() {
+            return highEnclosureId;
+        }
+
+        public void setHighEnclosureId(String highEnclosureId) {
+            this.highEnclosureId = highEnclosureId;
+        }
+
+        public String getHighEnclosureName() {
+            return highEnclosureName;
+        }
+
+        public void setHighEnclosureName(String highEnclosureName) {
+            this.highEnclosureName = highEnclosureName;
+        }
 
         public int getPoundAlarm() {
             return poundAlarm;

@@ -132,7 +132,8 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
             choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
             choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
-
+            choose.put("highEnclosureId",optionalInfoFragment.highEnclosureId());
+            choose.put("highEnclosureName",optionalInfoFragment.highEnclosureName());
             jsonObject.put("choose",choose);
 
             JSONArray array=new JSONArray();
@@ -286,6 +287,8 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
             choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
             choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
+            choose.put("highEnclosureId",optionalInfoFragment.highEnclosureId());
+            choose.put("highEnclosureName",optionalInfoFragment.highEnclosureName());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
@@ -434,6 +437,8 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("outFactoryAlbum",optionalInfoFragment.outFactoryAlbum());
             choose.put("arrivalAlbum",optionalInfoFragment.arrivalAlbum());
             choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
+            choose.put("highEnclosureId",optionalInfoFragment.highEnclosureId());
+            choose.put("highEnclosureName",optionalInfoFragment.highEnclosureName());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();

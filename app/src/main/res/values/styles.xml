@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@null</item>
+        <item name="android:textViewStyle">@style/myTextStyle</item>
     </style>
     <!--加载中对话框样式-->
     <style name="selectorDialog" parent="@android:style/Theme.Dialog">
@@ -18,6 +19,11 @@
         <item name="android:windowBackground">@color/transparent</item><!--背景透明-->
         <item name="android:backgroundDimEnabled">false</item><!--模糊-->
         <item name="android:backgroundDimAmount">0.6</item>
+
+    </style>
+    <style name="myTextStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/color_black</item>
+        
     </style>
     <!--toolbar样式-->
     <style name="ToolbarTheme" parent="Theme.AppCompat.Light">

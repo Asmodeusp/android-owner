@@ -101,6 +101,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.tvsignnum)TextView tvSignNum;
     @BindView(R.id.tvroadless)TextView tvRoadLess;
     @BindView(R.id.imgbangdan)ImageView imgBangdan;
+    @BindView(R.id.tvfence)TextView tvFence;
     @Override
     public int initContentView() {
         return R.layout.fragment_waybill_sh;
@@ -240,6 +241,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
                     }
                 });
             }
+            tvFence.setText(dto.getChoose().getHighEnclosureName());
             //提供发票
             if(dto.getChoose().getProvideInvoice()==1){
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgApplyfp);

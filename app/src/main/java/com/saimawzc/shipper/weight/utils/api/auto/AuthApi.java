@@ -4,6 +4,7 @@ import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.VersonDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
 import com.saimawzc.shipper.dto.order.bidd.CarTypeDo;
+import com.saimawzc.shipper.dto.order.creatorder.FencePageDto;
 import com.saimawzc.shipper.dto.pic.PicDto;
 import com.saimawzc.shipper.weight.utils.http.JsonResult;
 
@@ -106,5 +107,13 @@ public interface AuthApi {
     @Headers("Content-Type: application/json")
     @POST("admin/sysUser/userRoleCancel")
     Call<JsonResult<EmptyDto>> unResister();
+
+
+    /***
+     * 获取高危围栏列表
+     * **/
+    @Headers("Content-Type: application/json")
+    @POST("admin/highEnclosure/selectList")
+    Call<JsonResult<FencePageDto>> getFenceList(@Body RequestBody array);
 
 }

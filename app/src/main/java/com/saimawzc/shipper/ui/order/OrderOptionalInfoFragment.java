@@ -13,8 +13,10 @@ import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
 import com.saimawzc.shipper.dto.order.consute.ConsuteDelationDto;
 import com.saimawzc.shipper.dto.order.creatorder.AuthorityDtoSerializ;
+import com.saimawzc.shipper.dto.order.creatorder.DangerousFenceDto;
 import com.saimawzc.shipper.dto.order.creatorder.OrderDelationDto;
 import com.saimawzc.shipper.presenter.order.OrderOpintalnfoEditPresenter;
+import com.saimawzc.shipper.ui.order.creatorder.DangerousFenceActivity;
 import com.saimawzc.shipper.ui.order.creatorder.RelationCompanyActivity;
 import com.saimawzc.shipper.ui.order.creatorder.richtext.RichPublishActivity;
 import com.saimawzc.shipper.view.order.OrderOptionalInfoView;
@@ -72,6 +74,7 @@ public class OrderOptionalInfoFragment extends BaseFragment
     public final static int CHOOSE_CAR_TYPE=12346;
     public final static int ANQUANTIP=12347;
     public final static int CHOOSE_COMPANY=12348;
+    public final static int DANGEROUS_FENCE=12349;
 
     @BindView(R.id.rlyh) RelativeLayout rlYh;
 
@@ -117,6 +120,8 @@ public class OrderOptionalInfoFragment extends BaseFragment
     @BindView(R.id.toggleArrivalAlbum)SwitchButton toggleArrivalAlbum;
     /**榜单预警**/
     @BindView(R.id.togglebangdan)SwitchButton togglebangdan;
+    /**选择高危围栏**/
+    @BindView(R.id.tvdangerousfence)TextView tvDangerousFence;
 
 
 
@@ -126,7 +131,8 @@ public class OrderOptionalInfoFragment extends BaseFragment
     }
 
     @OnClick({R.id.tvmakeTime,R.id.tvreceiveObj,R.id.tvhzlist,
-            R.id.tvexaminelist,R.id.tvanquan,R.id.tvcarmodel,R.id.tvrelationCom,R.id.deleterelacom})
+            R.id.tvexaminelist,R.id.tvanquan,R.id.tvcarmodel,
+            R.id.tvrelationCom,R.id.deleterelacom,R.id.tvdangerousfence})
     public void click(View view){
         Bundle bundle;
         switch (view.getId()){
@@ -181,6 +187,9 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 break;
             case R.id.tvrelationCom://关联公司
                 readyGoForResult(RelationCompanyActivity.class,CHOOSE_COMPANY);
+                break;
+            case R.id.tvdangerousfence://高危围栏
+                readyGoForResult(DangerousFenceActivity.class,DANGEROUS_FENCE);
                 break;
         }
     }
@@ -706,6 +715,8 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 tvRelaCom.setText(dto.getChoose().getRelationComName());
                 relationConId=dto.getChoose().getRelationCom();
                 edRoadLoss.setText(dto.getChoose().getRoadLoss());
+                fenceId=dto.getChoose().getHighEnclosureId();
+                tvDangerousFence.setText(dto.getChoose().getHighEnclosureName());
 
             }
         }
@@ -769,6 +780,16 @@ public class OrderOptionalInfoFragment extends BaseFragment
         }
     }
 
+    @Override
+    public String highEnclosureId() {
+        return fenceId;
+    }
+
+    @Override
+    public String highEnclosureName() {
+        return tvDangerousFence.getText().toString();
+    }
+
 
     @Override
     public void showLoading() {
@@ -797,12 +818,21 @@ public class OrderOptionalInfoFragment extends BaseFragment
     private String hzlistId="";
     private String examinelistId="";//验货人ID
     private String relationConId="";//关联公司ID
+    private String fenceId="";//高危围栏Id
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==DANGEROUS_FENCE&& resultCode == RESULT_OK){
+            DangerousFenceDto fenceDto= (DangerousFenceDto) data.getSerializableExtra("data");
+            if(fenceDto!=null&&!TextUtils.isEmpty(fenceDto.getEnclosureName())){
+                if(!tvDangerousFence.getText().toString().contains(fenceDto.getEnclosureName())){
+                    tvDangerousFence.setText(tvDangerousFence.getText().toString()+fenceDto.getEnclosureName()+",");
+                    fenceId=fenceId+fenceDto.getId()+",";
+                }
+            }
 
-        if(requestCode==CHOOSE_COMPANY&& resultCode == RESULT_OK){
+        }else if(requestCode==CHOOSE_COMPANY&& resultCode == RESULT_OK){
             AuthorityDtoSerializ  authorityDto = (AuthorityDtoSerializ) data.getSerializableExtra("data");
             if(authorityDto!=null){
                 if(!tvRelaCom.getText().toString().contains(authorityDto.getCompanyName())){

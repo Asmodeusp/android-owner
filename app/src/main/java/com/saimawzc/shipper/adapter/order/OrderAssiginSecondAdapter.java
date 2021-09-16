@@ -119,7 +119,9 @@ public class OrderAssiginSecondAdapter extends BaseAdapter{
                 @Override
                 public void afterTextChanged(Editable s) {
                     if(!TextUtils.isEmpty(s.toString())){
-                        dto.setTrantPrice(Double.parseDouble(s.toString()));
+                        if(!s.toString().equals(".")){
+                            dto.setTrantPrice(Double.parseDouble(s.toString()));
+                        }
                     }
 
                 }

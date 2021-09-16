@@ -75,6 +75,8 @@ public class PersonCenterActivity extends BaseActivity {
     }
     @Override
     protected void onGetBundle(Bundle bundle) {
-        comeFrom=bundle.getString("from");
+        if(bundle!=null){
+            comeFrom=bundle.getString("from");
+        }
     }
 }

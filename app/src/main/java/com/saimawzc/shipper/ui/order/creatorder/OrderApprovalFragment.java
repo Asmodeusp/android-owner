@@ -98,6 +98,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.tvsignnum)TextView tvSignNum;
     @BindView(R.id.tvroadless)TextView tvroadless;
     @BindView(R.id.imgbangdan)ImageView imgBangdan;
+    @BindView(R.id.tvfence)TextView tvFence;
     @Override
     public int initContentView() {
         return R.layout.fragment_order_sh;
@@ -234,7 +235,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
                     }
                 });
             }
-
+            tvFence.setText(dto.getChoose().getHighEnclosureName());
             //提供发票
             if(dto.getChoose().getProvideInvoice()==1){
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgApplyfp);

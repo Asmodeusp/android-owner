@@ -19,6 +19,8 @@ import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 
+import java.lang.ref.WeakReference;
+
 
 public abstract class BaseDialog<T extends BaseDialog<T>> extends Dialog {
     /** mTag(日志) */
@@ -63,6 +65,15 @@ public abstract class BaseDialog<T extends BaseDialog<T>> extends Dialog {
      * show:constrouctor---show---oncreate---onStart---onAttachToWindow
      * dismiss:dismiss---onDetachedFromWindow---onStop
      */
+    WeakReference<Activity> weakReference ;
+//    public BaseDialog(Context context) {
+//        super(context);
+//        setDialogTheme();
+//        mContext = context;
+//        mTag = getClass().getSimpleName();
+//        setCanceledOnTouchOutside(true);
+//        Log.d(mTag, "constructor");
+//    }
     public BaseDialog(Context context) {
         super(context);
         setDialogTheme();
@@ -70,8 +81,9 @@ public abstract class BaseDialog<T extends BaseDialog<T>> extends Dialog {
         mTag = getClass().getSimpleName();
         setCanceledOnTouchOutside(true);
         Log.d(mTag, "constructor");
+        weakReference = new WeakReference<Activity>(
+                (Activity) mContext);
     }
-
     public BaseDialog(Context context, boolean isPopupStyle) {
         this(context);
         mIsPopupStyle = isPopupStyle;
@@ -211,7 +223,13 @@ public abstract class BaseDialog<T extends BaseDialog<T>> extends Dialog {
     @Override
     public void show() {
         Log.d(mTag, "show");
-        super.show();
+        if(weakReference!=null){
+            if(weakReference.get()!=null){
+                if(!weakReference.get().isFinishing()){
+                    super.show();
+                }
+            }
+        }
     }
 
 
@@ -267,7 +285,14 @@ public abstract class BaseDialog<T extends BaseDialog<T>> extends Dialog {
     /** dismiss without anim(无动画dismiss) */
     public void superDismiss() {
         //得到dialog的OwnerActivity
-            super.dismiss();
+            //super.dismiss();
+        if(weakReference!=null){
+            if(isShowing()&&weakReference.get()!=null){
+                if(!weakReference.get().isFinishing()){
+                    super.dismiss();
+                }
+            }
+        }
     }
 
     /** dialog anim by styles(动画弹出对话框,style动画资源) */
