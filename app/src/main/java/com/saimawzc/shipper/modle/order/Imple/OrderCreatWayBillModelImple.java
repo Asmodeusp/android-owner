@@ -136,6 +136,9 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
             choose.put("highEnclosureId",optionalInfoFragment.highEnclosureId());
             choose.put("highEnclosureName",optionalInfoFragment.highEnclosureName());
+            choose.put("beiDouStatus",optionalInfoFragment.beiDouStatus());
+            choose.put("sjSignIn",optionalInfoFragment.sjSignIn());
+            choose.put("beiDouOffTime",optionalInfoFragment.beiDouOffTime());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){
@@ -285,6 +288,9 @@ public class OrderCreatWayBillModelImple extends BasEModeImple implements CreatO
             choose.put("poundAlarm",optionalInfoFragment.poundAlarm());
             choose.put("highEnclosureId",optionalInfoFragment.highEnclosureId());
             choose.put("highEnclosureName",optionalInfoFragment.highEnclosureName());
+            choose.put("beiDouStatus",optionalInfoFragment.beiDouStatus());
+            choose.put("sjSignIn",optionalInfoFragment.sjSignIn());
+            choose.put("beiDouOffTime",optionalInfoFragment.beiDouOffTime());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             for(int i=0;i<basicInfoFragment.getGoodList().size();i++){

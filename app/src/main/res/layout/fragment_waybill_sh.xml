@@ -1053,6 +1053,83 @@
                 </LinearLayout>
 
             </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp">
+                    <ImageView
+                        android:id="@+id/imgautoarrive"
+                        android:layout_width="@dimen/px30dp"
+                        android:layout_height="@dimen/px30dp">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px10dp"
+                        android:text="自动到货确认"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/px30dp">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp">
+                    <ImageView
+                        android:layout_width="@dimen/px30dp"
+                        android:layout_height="@dimen/px30dp">
+
+                    </ImageView>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/px10dp"
+                        android:textSize="@dimen/px30dp"
+                        android:textColor="@color/color_black"
+                        android:text=""
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="visible"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp">
+                    <ImageView
+                        android:layout_width="@dimen/px30dp"
+                        android:layout_height="@dimen/px30dp">
+
+                    </ImageView>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/px10dp"
+                        android:textSize="@dimen/px30dp"
+                        android:textColor="@color/color_black"
+                        android:text=""
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
             <include layout="@layout/common_line"></include>
             <LinearLayout
                 android:paddingTop="@dimen/px24dp"
@@ -1319,7 +1396,6 @@
                     android:layout_height="wrap_content"></TextView>
 
             </LinearLayout>
-            <include layout="@layout/common_line"></include>
             <LinearLayout
                 android:paddingBottom="@dimen/px24dp"
                 android:paddingTop="@dimen/px24dp"
@@ -1345,7 +1421,6 @@
                     android:layout_height="wrap_content"></TextView>
 
             </LinearLayout>
-            <include layout="@layout/common_line"></include>
 
             <LinearLayout
                 android:paddingBottom="@dimen/px24dp"
@@ -1371,9 +1446,40 @@
                     android:layout_height="wrap_content"></TextView>
 
             </LinearLayout>
+
+
+            <LinearLayout
+                android:paddingBottom="@dimen/px24dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp"
+                    android:text="北斗状态："
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/tvbeidoustatus"
+                    android:layout_marginLeft="@dimen/px30dp"
+                    android:textColor="@color/gray888"
+                    android:textSize="@dimen/px30dp"
+                    android:text="无"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+                <TextView
+                    android:id="@+id/tvofftime"
+                    android:layout_marginLeft="@dimen/px30dp"
+                    android:textColor="@color/gray888"
+                    android:textSize="@dimen/px30dp"
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
             <include layout="@layout/common_line"></include>
-
-
             <LinearLayout
                 android:id="@+id/llBtn"
                 android:layout_margin="@dimen/px30dp"

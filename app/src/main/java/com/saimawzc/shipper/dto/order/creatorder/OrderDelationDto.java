@@ -475,6 +475,33 @@ public class OrderDelationDto {
         private int poundAlarm;
         private String highEnclosureId;
         private String highEnclosureName;
+        private int beiDouStatus;
+        private int sjSignIn;
+        private String beiDouOffTime;
+
+        public String getBeiDouOffTime() {
+            return beiDouOffTime;
+        }
+
+        public void setBeiDouOffTime(String beiDouOffTime) {
+            this.beiDouOffTime = beiDouOffTime;
+        }
+
+        public int getSjSignIn() {
+            return sjSignIn;
+        }
+
+        public void setSjSignIn(int sjSignIn) {
+            this.sjSignIn = sjSignIn;
+        }
+
+        public int getBeiDouStatus() {
+            return beiDouStatus;
+        }
+
+        public void setBeiDouStatus(int beiDouStatus) {
+            this.beiDouStatus = beiDouStatus;
+        }
 
         public String getHighEnclosureId() {
             return highEnclosureId;

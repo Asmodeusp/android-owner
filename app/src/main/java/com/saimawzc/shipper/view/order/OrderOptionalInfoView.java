@@ -31,6 +31,7 @@ public interface OrderOptionalInfoView extends BaseView {
     int offLineAlarm();
     int deviationAlarm();
     int openCarType();
+    int sjSignIn();
     String carTypeId();
     String carTypeName();
     String context();
@@ -56,4 +57,6 @@ public interface OrderOptionalInfoView extends BaseView {
     int autoTransport();
     String highEnclosureId();
     String highEnclosureName();
+    int beiDouStatus();
+    String beiDouOffTime();
 }

@@ -102,6 +102,9 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.tvroadless)TextView tvRoadLess;
     @BindView(R.id.imgbangdan)ImageView imgBangdan;
     @BindView(R.id.tvfence)TextView tvFence;
+    @BindView(R.id.tvbeidoustatus)TextView tvbeidoustatus;
+    @BindView(R.id.imgautoarrive)ImageView imgAutoArriver;
+    @BindView(R.id.tvofftime)TextView tvOffTime;
     @Override
     public int initContentView() {
         return R.layout.fragment_waybill_sh;
@@ -242,6 +245,14 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
                 });
             }
             tvFence.setText(dto.getChoose().getHighEnclosureName());
+            if(dto.getChoose().getBeiDouStatus()==1){
+                tvbeidoustatus.setText("强制");
+            }else if(dto.getChoose().getBeiDouStatus()==2){
+                tvbeidoustatus.setText("提醒");
+            }else {
+                tvbeidoustatus.setText("无");
+            }
+            tvOffTime.setText(dto.getChoose().getBeiDouOffTime()+"小时认为北斗离线");
             //提供发票
             if(dto.getChoose().getProvideInvoice()==1){
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgApplyfp);
@@ -341,6 +352,11 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgBangdan);
             }else {
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgBangdan);
+            }
+            if(dto.getChoose().getSjSignIn()==1){
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgAutoArriver);
+            }else {
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgAutoArriver);
             }
 
         }

@@ -1,11 +1,15 @@
 package com.saimawzc.shipper.ui.order;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.saimawzc.shipper.R;
@@ -122,9 +126,16 @@ public class OrderOptionalInfoFragment extends BaseFragment
     @BindView(R.id.togglebangdan)SwitchButton togglebangdan;
     /**选择高危围栏**/
     @BindView(R.id.tvdangerousfence)TextView tvDangerousFence;
-
-
-
+    @BindView(R.id.groupbeidou) RadioGroup groupBeiDou;
+    /***是否强制北斗***/
+    private int beiDouStatus=3;
+    @BindView(R.id.radiomust) RadioButton radiomust;
+    @BindView(R.id.radiotips)RadioButton radiotips;
+    @BindView(R.id.radiono)RadioButton radiono;
+    /***自动到货确认***/
+    @BindView(R.id.llautoarrive) LinearLayout llArriver;
+    @BindView(R.id.toggleautiarrive)SwitchButton toggleAutoArrive;
+    @BindView(R.id.edbeiDouOffTime)EditText edBeiDouOffTime;
     @Override
     public int initContentView() {
         return R.layout.tab_order_optional;
@@ -223,6 +234,23 @@ public class OrderOptionalInfoFragment extends BaseFragment
     }
     @Override
     public void initData() {
+
+        groupBeiDou.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                switch (checkedId){
+                    case R.id.radiomust:
+                        beiDouStatus=1;
+                        break;
+                    case R.id.radiotips:
+                        beiDouStatus=2;
+                        break;
+                    case R.id.radiono:
+                        beiDouStatus=3;
+                        break;
+                }
+            }
+        });
         edksNum.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -358,6 +386,12 @@ public class OrderOptionalInfoFragment extends BaseFragment
             @Override
             public void onCheckedChanged(SwitchButton view, boolean isChecked) {
                 isChoose=isChecked;
+                if(isChecked){
+                    llArriver.setVisibility(View.VISIBLE);
+                }else {
+                    llArriver.setVisibility(View.GONE);
+                    toggleAutoArrive.setChecked(false);
+                }
             }
         });
 
@@ -543,6 +577,15 @@ public class OrderOptionalInfoFragment extends BaseFragment
     }
 
     @Override
+    public int sjSignIn() {
+        if(toggleAutoArrive.isChecked()){
+            return 1;
+        }else {
+            return 2;
+        }
+    }
+
+    @Override
     public String carTypeId() {
         return carModerId;
     }
@@ -656,6 +699,10 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 if(dto.getChoose().getBindSmartLock()==1){
                     swLock.setChecked(true);
                 }
+                if(dto.getChoose().getSjSignIn()==1){
+                    toggleAutoArrive.setChecked(true);
+                }
+
                 if(dto.getChoose().getDeviationAlarm()==1){
                     swDeviate.setChecked(true);
                 }
@@ -717,7 +764,15 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 edRoadLoss.setText(dto.getChoose().getRoadLoss());
                 fenceId=dto.getChoose().getHighEnclosureId();
                 tvDangerousFence.setText(dto.getChoose().getHighEnclosureName());
-
+                beiDouStatus=dto.getChoose().getBeiDouStatus();
+                edBeiDouOffTime.setText(dto.getChoose().getBeiDouOffTime());
+                if(beiDouStatus==1){//
+                    radiomust.setChecked(true);
+                }else if(beiDouStatus==2){
+                    radiotips.setChecked(true);
+                }else {
+                    radiono.setChecked(true);
+                }
             }
         }
     }
@@ -788,6 +843,16 @@ public class OrderOptionalInfoFragment extends BaseFragment
     @Override
     public String highEnclosureName() {
         return tvDangerousFence.getText().toString();
+    }
+
+    @Override
+    public int beiDouStatus() {
+        return beiDouStatus;
+    }
+
+    @Override
+    public String beiDouOffTime() {
+        return edBeiDouOffTime.getText().toString();
     }
 
 

@@ -99,6 +99,9 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.tvroadless)TextView tvroadless;
     @BindView(R.id.imgbangdan)ImageView imgBangdan;
     @BindView(R.id.tvfence)TextView tvFence;
+    @BindView(R.id.tvbeidoustatus)TextView tvbeidoustatus;
+    @BindView(R.id.imgautoarrive)ImageView imgAutoArriver;
+    @BindView(R.id.tvofftime)TextView tvOffTime;
     @Override
     public int initContentView() {
         return R.layout.fragment_order_sh;
@@ -220,6 +223,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
             tvDriverAge.setText(dto.getChoose().getDrivingYears()+"年");
             tvCarAge.setText(dto.getChoose().getTravelYears()+"年");
             tvRelaCom.setText(dto.getChoose().getRelationComName());
+            tvOffTime.setText(dto.getChoose().getBeiDouOffTime()+"小时认为北斗离线");
             if(TextUtils.isEmpty(dto.choose.getContext())){
                 tvAqgz.setText("暂无告知");
                 tvAqgz.setTextColor(mContext.getResources().getColor(R.color.color_black));
@@ -236,6 +240,13 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
                 });
             }
             tvFence.setText(dto.getChoose().getHighEnclosureName());
+            if(dto.getChoose().getBeiDouStatus()==1){
+                tvbeidoustatus.setText("强制");
+            }else if(dto.getChoose().getBeiDouStatus()==2){
+                tvbeidoustatus.setText("提醒");
+            }else {
+                tvbeidoustatus.setText("无");
+            }
             //提供发票
             if(dto.getChoose().getProvideInvoice()==1){
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgApplyfp);
@@ -336,6 +347,11 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgBangdan);
             }else {
                 ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgBangdan);
+            }
+            if(dto.getChoose().getSjSignIn()==1){
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_choose,imgAutoArriver);
+            }else {
+                ImageLoadUtil.displayImage(mContext,R.drawable.ico_unchoose,imgAutoArriver);
             }
         }
 
