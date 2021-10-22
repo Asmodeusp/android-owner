@@ -140,7 +140,7 @@ public class MainActivity extends BaseActivity
         initWithApiKey();
         getDialog();
         try{
-            File file=new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "nxshiper");
+            File file=new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/nxshiper");
             deleteFile(file);
         }catch (Exception e){
         }
@@ -317,8 +317,8 @@ public class MainActivity extends BaseActivity
             if(!haveInstallPermission){
                 //没有权限让调到设置页面进行开启权限；
                 Uri packageURI = Uri.parse("package:" + getPackageName());
-                Intent intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, packageURI);
-                startActivityForResult(intent, 10086);
+//                Intent intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, packageURI);
+//                startActivityForResult(intent, 10086);
             }else{
                 Log.e("msg","有权限");
                 //有权限，执行自己的逻辑；

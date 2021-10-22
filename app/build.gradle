@@ -13,8 +13,8 @@ android {
         minSdkVersion 19
         targetSdkVersion 26
         multiDexEnabled true //Howard 2017-08-31 解决方法数超过65536的问题
-        versionCode 7
-        versionName "1.0.3"//1.2.0
+        versionCode 8
+        versionName "1.0.2"//1.2.2
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             // 设置支持的 SO 库构架，一般而言，取你所有的库支持的构架的`交集`。

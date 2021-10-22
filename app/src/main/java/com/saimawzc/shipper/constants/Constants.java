@@ -2,6 +2,8 @@ package com.saimawzc.shipper.constants;
 
 import android.os.Environment;
 
+import com.saimawzc.shipper.base.BaseActivity;
+
 import java.nio.charset.Charset;
 
 /**
@@ -17,7 +19,8 @@ public class Constants {
     public static final String reshAccount_confirm = "reshAccount";//更新结算单
     public static final String reshAccount_unconfirm = "reshAccountun_confirm";//更新结算单
     public static final String APK_SAVE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()
-            + "/nxdriver/"+"huozhu.apk";
+            + "/nxshiper/"+ BaseActivity.getCurrentTime("yyyy-MM-dd HH:mm")+"huozhu.apk";
+
     public static final String resSHr = "resSHr";//收货人
     public static final String SHRCHANG_ROLE = "resSHr_ROLE";//收货人
 }
