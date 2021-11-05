@@ -102,6 +102,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.tvbeidoustatus)TextView tvbeidoustatus;
     @BindView(R.id.imgautoarrive)ImageView imgAutoArriver;
     @BindView(R.id.tvofftime)TextView tvOffTime;
+    @BindView(R.id.tvspaceTime)TextView tvspaceTime;
     @Override
     public int initContentView() {
         return R.layout.fragment_order_sh;
@@ -224,6 +225,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
             tvCarAge.setText(dto.getChoose().getTravelYears()+"年");
             tvRelaCom.setText(dto.getChoose().getRelationComName());
             tvOffTime.setText(dto.getChoose().getBeiDouOffTime()+"小时认为北斗离线");
+            tvspaceTime.setText(dto.getChoose().getSpaceTime()+"分钟");
             if(TextUtils.isEmpty(dto.choose.getContext())){
                 tvAqgz.setText("暂无告知");
                 tvAqgz.setTextColor(mContext.getResources().getColor(R.color.color_black));

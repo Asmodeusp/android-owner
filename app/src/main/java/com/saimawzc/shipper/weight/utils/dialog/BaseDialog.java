@@ -289,7 +289,9 @@ public abstract class BaseDialog<T extends BaseDialog<T>> extends Dialog {
         if(weakReference!=null){
             if(isShowing()&&weakReference.get()!=null){
                 if(!weakReference.get().isFinishing()){
-                    super.dismiss();
+                    if(!weakReference.get().isDestroyed()){
+                        super.dismiss();
+                    }
                 }
             }
         }

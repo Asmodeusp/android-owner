@@ -105,6 +105,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.tvbeidoustatus)TextView tvbeidoustatus;
     @BindView(R.id.imgautoarrive)ImageView imgAutoArriver;
     @BindView(R.id.tvofftime)TextView tvOffTime;
+    @BindView(R.id.tvspaceTime)TextView tvspaceTime;
     @Override
     public int initContentView() {
         return R.layout.fragment_waybill_sh;
@@ -229,6 +230,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
             tvCarAge.setText(dto.getChoose().getTravelYears()+"年");
             tvRelaCom.setText(dto.getChoose().getRelationComName());
             tvRoadLess.setText(dto.getChoose().getRoadLoss()+"%");
+            tvspaceTime.setText(dto.getChoose().getSpaceTime()+"分钟");
             if(TextUtils.isEmpty(dto.choose.getContext())){
                 tvAqgz.setText("暂无告知");
                 tvAqgz.setTextColor(mContext.getResources().getColor(R.color.color_black));

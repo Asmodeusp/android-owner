@@ -137,6 +137,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("beiDouStatus",optionalInfoFragment.beiDouStatus());
             choose.put("sjSignIn",optionalInfoFragment.sjSignIn());
             choose.put("beiDouOffTime",optionalInfoFragment.beiDouOffTime());
+            choose.put("spaceTime",optionalInfoFragment.spaceTime());
             jsonObject.put("choose",choose);
 
             JSONArray array=new JSONArray();
@@ -295,6 +296,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("beiDouStatus",optionalInfoFragment.beiDouStatus());
             choose.put("sjSignIn",optionalInfoFragment.sjSignIn());
             choose.put("beiDouOffTime",optionalInfoFragment.beiDouOffTime());
+            choose.put("spaceTime",optionalInfoFragment.spaceTime());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
@@ -448,6 +450,7 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("beiDouStatus",optionalInfoFragment.beiDouStatus());
             choose.put("sjSignIn",optionalInfoFragment.sjSignIn());
             choose.put("beiDouOffTime",optionalInfoFragment.beiDouOffTime());
+            choose.put("spaceTime",optionalInfoFragment.spaceTime());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();

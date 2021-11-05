@@ -29,7 +29,7 @@ public class PreferenceKey {
     public static final String CITY_INFO = "city_info";
     public static final String IS_TUOYUN = "istuoyungognsi";
 
-
+    public static final String READ_PRIVACY = "privacy";//是否已经阅读隐私政策
     public static final String USER_ACCOUNT = "account";
     public static final String PASS_WORD = "pass_word";
     public static final String ISREMEMBER_PASS = "is_remember_pass";//1已经记住

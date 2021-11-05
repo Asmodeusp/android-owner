@@ -58,7 +58,7 @@ public class MySetFragment extends BaseFragment {
     }
     private NormalDialog dialog;
     @OnClick({R.id.rlforgetword,R.id.rlsuggest,
-            R.id.rlupdate,R.id.rlzc,R.id.rlyinsi,R.id.rlaboutus})
+            R.id.rlupdate,R.id.rlzc,R.id.rlyinsi,R.id.rlaboutus,R.id.rlxieyi})
     public void click(View view){
         Bundle bundle;
         switch (view.getId()){
@@ -73,6 +73,7 @@ public class MySetFragment extends BaseFragment {
             case R.id.rlupdate:
                 if(permissionChecker.isLackPermissions(PERMISSIONSq)){
                     permissionChecker.requestPermissions();
+                    context.showMessage("未获取到存储权限");
                 }else {
                     context.runOnUiThread(new Runnable() {
                         @Override
@@ -87,6 +88,9 @@ public class MySetFragment extends BaseFragment {
                 break;
             case R.id.rlaboutus:
                 WebViewActivity.loadUrl(context, "关于我们","https://www.wzcwlw.com/about.html");
+                break;
+            case R.id.rlxieyi:
+                WebViewActivity.loadUrl(context, "用户协议","https://www.wzcwlw.com/userAgreementHZ.html");
                 break;
             case R.id.rlzc:
                 dialog = new NormalDialog(mContext).isTitleShow(false)
@@ -156,10 +160,12 @@ public class MySetFragment extends BaseFragment {
                         updateDialog.tvMsg.setText(response.getUpdateContent());
                     }
                 }else {//和服务器版本相同
-                    updateDialog = new UpdateDialog();
-                    response.setIsSHowNo(1);
-                    updateDialog.customVersionDialogTwo(context,response);
-                    updateDialog.tvMsg.setText("当前版本和服务器版本一致，是否替换");
+                    context.showMessage("您当前已经是最新版本");
+                      return;
+//                    updateDialog = new UpdateDialog();
+//                    response.setIsSHowNo(1);
+//                    updateDialog.customVersionDialogTwo(context,response);
+//                    updateDialog.tvMsg.setText("当前版本和服务器版本一致，是否替换");
                 }
             }
             @Override

@@ -111,7 +111,6 @@ public class BaseApplication extends Application {
         if(userInfoDto!=null){
             entityName=userInfoDto.getId();
         }
-
         //接口请求初始化
         Http.initHttp(getApplicationContext());
         ImageLoadUtil.getInstance();
@@ -129,7 +128,7 @@ public class BaseApplication extends Application {
             initDebugTool();
         } else {
             /**
-             * bugly ，仅release版本才检测更新和上传错误日志
+             * bugly仅release版本才检测更新和上传错误日志
              * **/
             CrashReport.UserStrategy strategy=new CrashReport.UserStrategy(getApplicationContext());
             strategy.setAppChannel("myChannel");
@@ -137,8 +136,6 @@ public class BaseApplication extends Application {
             strategy.setAppPackageName("com.saimawzc.shipper");
             CrashReport.initCrashReport(getApplicationContext(), "d43a8d26a1", true,strategy);
         }
-
-
         try{
             SDKInitializer.initialize(this);
             mClient = new LBSTraceClient(this);

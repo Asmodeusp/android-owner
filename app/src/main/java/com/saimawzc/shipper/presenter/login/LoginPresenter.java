@@ -26,7 +26,8 @@ public class LoginPresenter implements BaseListener {
     }
 
     public void login(int role,boolean ischeck){//角色 1货主 2承运商 3司机 4收货人
-        model.login(view,this,role,ischeck);
+        model.login(view,
+                this,role,ischeck);
     }
 
     @Override

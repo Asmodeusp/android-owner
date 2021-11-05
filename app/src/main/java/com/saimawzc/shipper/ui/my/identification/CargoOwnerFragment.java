@@ -45,6 +45,8 @@ import okhttp3.RequestBody;
 
 import static android.app.Activity.RESULT_OK;
 import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS;
+import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS_CAMERA;
+
 /**
  * Created by Administrator on 2020/8/1.
  * 货主认证
@@ -206,16 +208,16 @@ public class CargoOwnerFragment extends BaseFragment implements CargoOwnerCarrie
                     readyGoForResult(ChooseCompanyActivity.class,CHOOSE_COMPANY);
                     break;
                 case R.id.imgidpositive://选择身份证正面
-                    if (permissionChecker.isLackPermissions(PERMISSIONS)) {
-                        context.showMessage("未获取到相应权限,请在设置中开启权限");
+                    if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                        context.showMessage("未获取到相机权限,请在设置中开启权限");
                         permissionChecker.requestPermissions();
                         return;
                     }
                     initCamera( CameraActivity.CONTENT_TYPE_ID_CARD_FRONT);
                     break;
                 case R.id.imgidotherside://选择身份证反面
-                    if (permissionChecker.isLackPermissions(PERMISSIONS)) {
-                        context.showMessage("未获取到相应权限，请在设置中开启权限");
+                    if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                        context.showMessage("未获取到相机权限，请在设置中开启权限");
                         permissionChecker.requestPermissions();
                         return;
                     }

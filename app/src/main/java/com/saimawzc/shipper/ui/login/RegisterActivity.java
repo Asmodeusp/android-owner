@@ -78,7 +78,7 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
                 presenter.getCode();
                 break;
             case R.id.useAgreement://用户协议
-                WebViewActivity.loadUrl(context, "用户协议","https://www.wzcwlw.com/userAgreement.html");
+                WebViewActivity.loadUrl(context, "用户协议","https://www.wzcwlw.com/userAgreementHZ.html");
                 break;
             case R.id.btnPrivacy://隐私声明
                 WebViewActivity.loadUrl(context, "隐私声明","https://www.wzcwlw.com/privacyStatementHz.html");
@@ -223,10 +223,10 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
     @Override
     public void oncomplete(int type) {
         if(type==100){
+            presenter.login(editPass.getText().toString());
             editCode.setText("");
             editOrderPass.setText("");
             editPass.setText("");
-            presenter.login(editPass.getText().toString());
         }else {
             if(type==1){
                 Intent intent = new Intent(mContext, MainActivity.class);

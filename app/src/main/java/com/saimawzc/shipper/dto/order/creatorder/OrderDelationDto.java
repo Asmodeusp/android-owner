@@ -478,6 +478,15 @@ public class OrderDelationDto {
         private int beiDouStatus;
         private int sjSignIn;
         private String beiDouOffTime;
+        private String spaceTime;
+
+        public String getSpaceTime() {
+            return spaceTime;
+        }
+
+        public void setSpaceTime(String spaceTime) {
+            this.spaceTime = spaceTime;
+        }
 
         public String getBeiDouOffTime() {
             return beiDouOffTime;

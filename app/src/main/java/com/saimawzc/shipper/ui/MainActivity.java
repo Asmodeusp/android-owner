@@ -82,13 +82,6 @@ public class MainActivity extends BaseActivity
     private SendCarIndexFragment sendCarIndexFragment;
     private MineFragment mineFragment;
     private int from=0;
-    public  final String[] PERMISSIONSq = new String[]{
-            Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.CAMERA
-    };
     @Override
     protected int getViewId() {
         return R.layout.activity_main;
@@ -99,10 +92,6 @@ public class MainActivity extends BaseActivity
             readyGo(LoginActivity.class);
         }
         initpermissionChecker();
-        if(permissionChecker.isLackPermissions(PERMISSIONSq)){
-            permissionChecker.requestPermissions();
-        }else {
-        }
         try{
             if(getIntent()!=null){
                 from=getIntent().getIntExtra("from",0);
@@ -128,7 +117,6 @@ public class MainActivity extends BaseActivity
             mTabbar.setSelectTab(from);
         }
         initAccessToken();//初始化b百度云读取身份证
-        checkPermission();
         try {
             getPersonterData();
         } catch (Exception e) {
@@ -149,36 +137,36 @@ public class MainActivity extends BaseActivity
     @Override
     protected void initListener() {
         if (Build.VERSION.SDK_INT >= 26) {
-            if(getPackageManager()==null){
-                return;
-            }
-            //来判断应用是否有权限安装apk
-            boolean installAllowed= getPackageManager().canRequestPackageInstalls();
-            //有权限
-            if (installAllowed) {
-            } else {
-                //无权限 申请权限
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.REQUEST_INSTALL_PACKAGES}, 1000);
-            }
-        } else {
-
-        }
-        if (Build.VERSION.SDK_INT >= 23) {
-            int REQUEST_CODE_CONTACT = 101;
-            String[] permissions = {
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE};
-            //验证是否许可权限
-            for (String str : permissions) {
-                if (MainActivity.this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
-                    //申请权限
-                    MainActivity.this.requestPermissions(permissions, REQUEST_CODE_CONTACT);
-                    return;
-                } else {
-                    //申请读
-                    Log.e("msg","申请读写权限");
-                    //这里就是权限打开之后自己要操作的逻辑
-                }
-            }
+//            if(getPackageManager()==null){
+//                return;
+//            }
+//            //来判断应用是否有权限安装apk
+//            boolean installAllowed= getPackageManager().canRequestPackageInstalls();
+//            //有权限
+//            if (installAllowed) {
+//            } else {
+//                //无权限 申请权限
+//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.REQUEST_INSTALL_PACKAGES}, 1000);
+//            }
+//        } else {
+//
+//        }
+//        if (Build.VERSION.SDK_INT >= 23) {
+//            int REQUEST_CODE_CONTACT = 101;
+//            String[] permissions = {
+//                    Manifest.permission.WRITE_EXTERNAL_STORAGE};
+//            //验证是否许可权限
+//            for (String str : permissions) {
+//                if (MainActivity.this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
+//                    //申请权限
+//                    MainActivity.this.requestPermissions(permissions, REQUEST_CODE_CONTACT);
+//                    return;
+//                } else {
+//                    //申请读
+//                    Log.e("msg","申请读写权限");
+//                    //这里就是权限打开之后自己要操作的逻辑
+//                }
+//            }
         }
 
     }

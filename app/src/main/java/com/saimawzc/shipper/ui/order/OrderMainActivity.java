@@ -45,9 +45,9 @@ import com.saimawzc.shipper.ui.order.manage.OrderManageFragment;
 import com.saimawzc.shipper.ui.order.manage.OrderManageAssignFragment;
 import com.saimawzc.shipper.ui.order.planOrder.PlanOrderFragment;
 import com.saimawzc.shipper.ui.sendcar.ChangeCarInfoFragment;
-import com.saimawzc.shipper.ui.sendcar.LogisticsInfoFragment;
 import com.saimawzc.shipper.ui.sendcar.MapTravelFragment;
 import com.saimawzc.shipper.ui.sendcar.SendCarDelationFragment;
+import com.saimawzc.shipper.ui.sendcar.YujingFragmeng;
 import com.saimawzc.shipper.ui.tab.consignee.ExamineGoodsFragment;
 
 /**
@@ -201,7 +201,7 @@ public class OrderMainActivity extends BaseActivity {
             mCurrentFragment=new WayBillAssignmentFragment();
         }
         if(comeFrom.equals("logistsc")){//物流信息
-            mCurrentFragment=new LogisticsInfoFragment();
+            mCurrentFragment=new YujingFragmeng();
         }
         if(comeFrom.equals("changeinfo")){//换车信息
 

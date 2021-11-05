@@ -59,4 +59,5 @@ public interface OrderOptionalInfoView extends BaseView {
     String highEnclosureName();
     int beiDouStatus();
     String beiDouOffTime();
+    String spaceTime();
 }

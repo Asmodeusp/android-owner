@@ -1,30 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@color/white"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <include
-        android:visibility="gone"
-        layout="@layout/common_toolbar"></include>
-
+    android:layout_height="wrap_content">
     <RelativeLayout
         android:id="@+id/rl_carrier"
-        android:layout_marginTop="@dimen/px20dp"
-
+        android:background="@color/white"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px100dp">
         <TextView
             android:id="@+id/tvdd"
             android:textStyle="bold"
-            android:paddingLeft="@dimen/px24dp"
+            android:paddingLeft="@dimen/px20dp"
             android:textSize="@dimen/px30dp"
             android:layout_centerVertical="true"
-            android:textColor="@color/gray333"
-            android:text="运单号："
+            android:textColor="@color/color_black"
+            android:text="预运单："
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <LinearLayout
@@ -49,29 +41,24 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
     </RelativeLayout>
-
-    <View
-        android:layout_marginLeft="@dimen/px20dp"
-        android:layout_marginRight="@dimen/px20dp"
-        android:background="@color/bg_17"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/px2dp"></View>
+    <include layout="@layout/common_line"></include>
 
     <RelativeLayout
-        android:layout_marginLeft="@dimen/px24dp"
-        android:layout_marginTop="@dimen/px30dp"
+        android:layout_margin="@dimen/px20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.saimawzc.shipper.weight.CircleImageView
+            android:visibility="visible"
             android:id="@+id/imgHead"
             android:src="@drawable/ico_app"
             android:layout_width="@dimen/px100dp"
             android:layout_height="@dimen/px100dp">
+
         </com.saimawzc.shipper.weight.CircleImageView>
 
         <LinearLayout
-            android:layout_marginLeft="@dimen/px2dp"
+            android:layout_marginLeft="@dimen/px50dp"
             android:orientation="vertical"
             android:layout_toRightOf="@+id/imgHead"
             android:layout_width="match_parent"
@@ -83,38 +70,38 @@
                 <TextView
                     android:padding="@dimen/px20dp"
                     android:gravity="center"
-                    android:textColor="@color/gray333"
-                    android:textSize="@dimen/px28dp"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp"
                     android:text=""
                     android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
-                </TextView>
 
+                </TextView>
                 <TextView
+                    android:visibility="gone"
                     android:padding="@dimen/px20dp"
-                    android:text="|"
+                    android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
-                </TextView>
 
+                </TextView>
                 <TextView
+                    android:gravity="center"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/px30dp"
+                    android:text=""
                     android:id="@+id/tvPhone"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="@color/gray333"
-                    android:textSize="@dimen/px30dp">
+                    android:layout_height="match_parent">
 
                 </TextView>
             </LinearLayout>
             <TextView
-                android:layout_marginBottom="@dimen/px20dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px10dp"
                 android:gravity="center"
-                android:textColor="@color/gray333"
+                android:textColor="@color/color_black"
                 android:textSize="@dimen/px30dp"
                 android:text=""
                 android:id="@+id/carNo"
@@ -125,19 +112,13 @@
 
         </LinearLayout>
     </RelativeLayout>
-    <View
-        android:background="@color/bg_17"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/px20dp">
-
-    </View>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cv"
         android:padding="@dimen/px10dp"
         android:layout_margin="@dimen/px20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
     </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

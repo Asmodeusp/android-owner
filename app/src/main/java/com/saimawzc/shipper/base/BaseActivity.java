@@ -110,11 +110,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     public Context mContext;
     private DialogLoading loading;
     public static final String[] PERMISSIONS = new String[]{
-            Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.CAMERA,
             Manifest.permission.READ_EXTERNAL_STORAGE,
+
+    };
+    public static final String[] PERMISSIONS_CAMERA = new String[]{
+            Manifest.permission.CAMERA,
+    };
+    public static final String[] PERMISSIONSS_LOCATION = new String[]{
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
     };
     public PermissionChecker permissionChecker;
     public AuthApi authApi = Http.http.createApi(AuthApi.class);

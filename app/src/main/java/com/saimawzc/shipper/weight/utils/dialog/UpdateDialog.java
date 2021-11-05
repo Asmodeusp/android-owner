@@ -3,6 +3,7 @@ package com.saimawzc.shipper.weight.utils.dialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -54,16 +55,14 @@ public class UpdateDialog {
         tvNoUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(dto.getIsSHowNo()==1){
-                    dissmiss();
-                    return;
-                }
+
                 if(!TextUtils.isEmpty(Hawk.get(PreferenceKey.ID,""))){//已经登录
                     userInfoDto=Hawk.get(PreferenceKey.USER_INFO);
+                    Log.e("msg","111");
                     if(userInfoDto!=null){
-                        if(userInfoDto.getRole()==2){
+                        if(userInfoDto.getRole()==1){
                             readyGo(MainActivity.class,mContext);
-                        } else if(userInfoDto.getRole()==3){
+                        } else if(userInfoDto.getRole()==4){
                             readyGo(ConsigneeMainActivity.class,mContext);
                         }
                     }else {

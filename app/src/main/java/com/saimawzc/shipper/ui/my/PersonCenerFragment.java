@@ -33,6 +33,7 @@ import okhttp3.RequestBody;
 
 import static android.app.Activity.RESULT_OK;
 import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS;
+import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS_CAMERA;
 
 /**
  * Created by Administrator on 2020/8/7.
@@ -60,9 +61,9 @@ public class PersonCenerFragment extends BaseFragment implements PersonCenterVie
     public void click(View view){
         switch (view.getId()){
             case R.id.rlhead:
-                if(permissionChecker.isLackPermissions(PERMISSIONS)){
+                if(permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)){
                     permissionChecker.requestPermissions();
-                    context.showMessage("未获取到存储或者相机权限");
+                    context.showMessage("未获取到者相机权限");
                 }else {
                     presenter.showCamera();
                 }

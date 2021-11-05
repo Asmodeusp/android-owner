@@ -1,10 +1,17 @@
 package com.saimawzc.shipper.ui.login;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -20,7 +27,13 @@ import com.saimawzc.shipper.ui.MainActivity;
 import com.saimawzc.shipper.ui.WebViewActivity;
 import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
 import com.saimawzc.shipper.view.login.LoginView;
+import com.saimawzc.shipper.weight.BottomDialogUtil;
+import com.saimawzc.shipper.weight.utils.app.AppManager;
 import com.saimawzc.shipper.weight.utils.dialog.BottomDialog;
+import com.saimawzc.shipper.weight.utils.dialog.BounceTopEnter;
+import com.saimawzc.shipper.weight.utils.dialog.NormalDialog;
+import com.saimawzc.shipper.weight.utils.dialog.OnBtnClickL;
+import com.saimawzc.shipper.weight.utils.dialog.SlideBottomExit;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.Http;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
@@ -31,7 +44,8 @@ import butterknife.OnClick;
 /**Created by Administrator on 2020/7/30.
  * 登录
  */
-public class LoginActivity extends BaseActivity implements LoginView {
+public class LoginActivity extends BaseActivity
+        implements LoginView {
 
     @BindView(R.id.edit_account)EditText editAccount;
     @BindView(R.id.edit_password)EditText editPassword;
@@ -64,7 +78,11 @@ public class LoginActivity extends BaseActivity implements LoginView {
         }
         if(Hawk.get(PreferenceKey.ISREMEMBER_PASS,"").equals("1")){
             checkBox.setChecked(true);
-
+        }
+        if(TextUtils.isEmpty(Hawk.get(PreferenceKey.READ_PRIVACY,""))){
+            showPrivacyDialog();
+        }else {
+            checkPrivaty.setChecked(true);
         }
     }
     @Override
@@ -97,7 +115,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 chooseIdentity(1);
                 break;
             case R.id.useAgreement://用户协议
-                WebViewActivity.loadUrl(context, "用户协议","https://www.wzcwlw.com/userAgreement.html");
+                WebViewActivity.loadUrl(context, "用户协议","https://www.wzcwlw.com/userAgreementHZ.html");
                 break;
             case R.id.btnPrivacy://隐私声明
                 WebViewActivity.loadUrl(context, "隐私声明","https://www.wzcwlw.com/privacyStatementHz.html");
@@ -261,5 +279,99 @@ public class LoginActivity extends BaseActivity implements LoginView {
         }
     }
 
+    private NormalDialog dialog;
+    private void showPrivacyDialog(){
+        final BottomDialogUtil bottomDialogUtil = new BottomDialogUtil.Builder()
+                .setContext(context) //设置 context
+                .setContentView(R.layout.dialog_privacy) //设置布局文件
+                .setOutSideCancel(false) //设置点击外部取消
+                .builder()
+                .show();
+        TextView tvtips= (TextView) bottomDialogUtil.getItemView(R.id.tvtips);
+        String tips="欢迎使用我找车货主，我们将通过《用户协议》和《隐私政策》帮助您了解我们为你提供的服务，以及收集处理个人信息的方式。";
+        CustomClickableSpan clickableSpan = new CustomClickableSpan(LoginActivity.this,15,21,"用户协议");
+        SpannableStringBuilder builder = new SpannableStringBuilder(tips);
+        builder.setSpan(clickableSpan, 15, 21, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        builder.setSpan(new ForegroundColorSpan(Color.parseColor("#4098FD")), 15, 21, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
 
+        CustomClickableSpan clickableSpan2 = new CustomClickableSpan(LoginActivity.this,22,28,"隐私政策");
+        builder.setSpan(clickableSpan2, 22, 28, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        builder.setSpan(new ForegroundColorSpan(Color.parseColor("#4098FD")), 22, 28, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        tvtips.setMovementMethod(LinkMovementMethod.getInstance());
+        tvtips.setText(builder);
+        TextView tvcancel=(TextView) bottomDialogUtil.getItemView(R.id.tvcancel);
+        TextView tvconfire=(TextView) bottomDialogUtil.getItemView(R.id.tvconfire);
+        tvcancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog = new NormalDialog(mContext).isTitleShow(false)
+                        .content("需同意《个人信息保护指引》我们才能够继续为您提供服务")
+                        .showAnim(new BounceTopEnter()).dismissAnim(new SlideBottomExit())
+                        .btnNum(2).btnText("放弃使用", "同意并继续");
+                dialog.setOnBtnClickL(
+                        new OnBtnClickL() {
+                            @Override
+                            public void onBtnClick() {
+                                if(!context.isFinishing()){
+                                    dialog.dismiss();
+                                }
+                                AppManager.get().finishAllActivity();
+                            }
+                        },
+                        new OnBtnClickL() {
+                            @Override
+                            public void onBtnClick() {
+                                if(!context.isFinishing()){
+                                    dialog.dismiss();
+                                }
+                                Hawk.put(PreferenceKey.READ_PRIVACY,"true");
+                                checkPrivaty.setChecked(true);
+
+                            }
+                        });
+                dialog.show();
+                if(bottomDialogUtil!=null){
+                    bottomDialogUtil.dismiss();
+                }
+            }
+        });
+        tvconfire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Hawk.put(PreferenceKey.READ_PRIVACY,"true");
+                checkPrivaty.setChecked(true);
+                if(bottomDialogUtil!=null){
+                    bottomDialogUtil.dismiss();
+                }
+            }
+        });
+    }
+
+
+    class  CustomClickableSpan extends ClickableSpan {
+        private Context mContext;
+        private String randTag;
+
+        public CustomClickableSpan(Context context, int start,int end,String tag) {
+            mContext = context;
+            this.randTag=tag;
+        }
+        @Override
+        public void onClick(View widget) {
+            if (widget instanceof TextView) {
+                if(randTag.equals("用户协议")){
+                    WebViewActivity.loadUrl(context, "用户协议","https://www.wzcwlw.com/userAgreementHZ.html");
+                }else if(randTag.equals("隐私政策")){
+                    WebViewActivity.loadUrl(context, "隐私声明","https://www.wzcwlw.com/privacyStatementHz.html");
+                }
+            }
+        }
+
+        @Override
+        public void updateDrawState(TextPaint ds) {
+            super.updateDrawState(ds);
+            ds.setUnderlineText(false);
+            ds.clearShadowLayer();
+        }
+    }
 }

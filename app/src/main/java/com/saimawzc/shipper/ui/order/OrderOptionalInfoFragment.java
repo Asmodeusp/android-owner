@@ -136,6 +136,9 @@ public class OrderOptionalInfoFragment extends BaseFragment
     @BindView(R.id.llautoarrive) LinearLayout llArriver;
     @BindView(R.id.toggleautiarrive)SwitchButton toggleAutoArrive;
     @BindView(R.id.edbeiDouOffTime)EditText edBeiDouOffTime;
+    /***停留间隔时间*/
+    @BindView(R.id.edspaceTime)EditText edSpaceTime;
+
     @Override
     public int initContentView() {
         return R.layout.tab_order_optional;
@@ -766,6 +769,7 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 tvDangerousFence.setText(dto.getChoose().getHighEnclosureName());
                 beiDouStatus=dto.getChoose().getBeiDouStatus();
                 edBeiDouOffTime.setText(dto.getChoose().getBeiDouOffTime());
+                edSpaceTime.setText( dto.getChoose().getSpaceTime());
                 if(beiDouStatus==1){//
                     radiomust.setChecked(true);
                 }else if(beiDouStatus==2){
@@ -853,6 +857,11 @@ public class OrderOptionalInfoFragment extends BaseFragment
     @Override
     public String beiDouOffTime() {
         return edBeiDouOffTime.getText().toString();
+    }
+
+    @Override
+    public String spaceTime() {
+        return edSpaceTime.getText().toString();
     }
 
 

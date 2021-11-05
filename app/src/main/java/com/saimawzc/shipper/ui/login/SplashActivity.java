@@ -9,13 +9,17 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.VersonDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
 import com.saimawzc.shipper.ui.MainActivity;
+import com.saimawzc.shipper.ui.WebViewActivity;
 import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
+import com.saimawzc.shipper.weight.BottomDialogUtil;
 import com.saimawzc.shipper.weight.utils.dialog.UpdateDialog;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
@@ -51,11 +55,13 @@ public class SplashActivity extends BaseActivity {
         initpermissionChecker();
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
-        if(permissionChecker.isLackPermissions(PERMISSIONS)){
+
+        if(!BaseActivity.isNetworkConnected(mContext)){
             turnToMain();
         }else {
             getVerson();
         }
+
 
     }
 
@@ -98,6 +104,7 @@ public class SplashActivity extends BaseActivity {
     /***
      * 获取版本更新接口
      * **/
+    private VersonDto tempVersonDto;
     private void getVerson(){
         JSONObject jsonObject=new JSONObject();
         try {
@@ -123,18 +130,56 @@ public class SplashActivity extends BaseActivity {
                             }
                         }
                     }.start();
+                    return;
                 }
+                tempVersonDto=response;
                 if(!response.getVersionNum().equals(BaseActivity.getVersionName(SplashActivity.this))){
-                    updateDialog = new UpdateDialog();
-                    updateDialog.customVersionDialogTwo(SplashActivity.this,response);
-                    if(response.getUpdateContent().contains("\\n")){
-                        updateDialog.tvMsg.setText(response.getUpdateContent().replace(
-                                "\\n"
-                                ,
-                                "\n"
-                        ));
+                    if(permissionChecker.isLackPermissions(PERMISSIONS)){
+                        final BottomDialogUtil bottomDialogUtil = new BottomDialogUtil.Builder()
+                                .setContext(context) //设置 context
+                                .setContentView(R.layout.dialog_savepermiss) //设置布局文件
+                                .setOutSideCancel(false) //设置点击外部取消
+                                .builder()
+                                .show();
+                        TextView btnPrivacy= (TextView) bottomDialogUtil.getItemView(R.id.btnPrivacy);
+                        final CheckBox checkBox= (CheckBox) bottomDialogUtil.getItemView(R.id.check);
+                        TextView tvcancel=(TextView) bottomDialogUtil.getItemView(R.id.tvcancel);
+                        TextView tvconfire=(TextView) bottomDialogUtil.getItemView(R.id.tvconfire);
+                        btnPrivacy.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                WebViewActivity.loadUrl(context, "隐私声明","https://www.wzcwlw.com/privacyStatementHz.html");
+                            }
+                        });
+                        tvcancel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                turnToMain();
+                            }
+                        });
+                        tvconfire.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if(!checkBox.isChecked()){
+                                    showMessage("请阅读并同意隐私权限");
+                                    return;
+                                }else {
+                                    permissionChecker.requestPermissions();
+                                }
+                            }
+                        });
                     }else {
-                        updateDialog.tvMsg.setText(response.getUpdateContent());
+                        updateDialog = new UpdateDialog();
+                        updateDialog.customVersionDialogTwo(SplashActivity.this,response);
+                        if(response.getUpdateContent().contains("\\n")){
+                            updateDialog.tvMsg.setText(response.getUpdateContent().replace(
+                                    "\\n"
+                                    ,
+                                    "\n"
+                            ));
+                        }else {
+                            updateDialog.tvMsg.setText(response.getUpdateContent());
+                        }
                     }
                 }else {
                     new Thread() {
@@ -173,13 +218,47 @@ public class SplashActivity extends BaseActivity {
         switch (requestCode) {
             case PermissionChecker.PERMISSION_REQUEST_CODE:
                 if (permissionChecker.hasAllPermissionsGranted(grantResults)) {
-                    // 执行你的相关操作
-                    getVerson();
+                    if(tempVersonDto==null){
+                        return;
+                    }
+                    if(!tempVersonDto.getVersionNum().equals(BaseActivity.getVersionName(SplashActivity.this))){
+                        updateDialog = new UpdateDialog();
+                        updateDialog.customVersionDialogTwo(SplashActivity.this,tempVersonDto);
+                        if(tempVersonDto.getUpdateContent().contains("\\n")){
+                            updateDialog.tvMsg.setText(tempVersonDto.getUpdateContent().replace(
+                                    "\\n"
+                                    ,
+                                    "\n"
+                            ));
+                        }else {
+                            updateDialog.tvMsg.setText(tempVersonDto.getUpdateContent());
+                        }
+                    }else {
+                        new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException e) {
+                                } finally {
+                                    turnToMain();
+                                }
+                            }
+                        }.start();
+                    }
                 } else {
                     // 权限拒绝后的提示
-                    permissionChecker.showDialog();
+                    turnToMain();
                 }
                 break;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(updateDialog!=null){
+            updateDialog.dissmiss();
         }
     }
 }

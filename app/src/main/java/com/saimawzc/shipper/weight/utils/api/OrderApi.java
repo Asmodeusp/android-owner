@@ -32,6 +32,7 @@ import com.saimawzc.shipper.dto.order.send.ChangeCarDto;
 import com.saimawzc.shipper.dto.order.send.LogistcsDto;
 import com.saimawzc.shipper.dto.order.send.RouteDto;
 import com.saimawzc.shipper.dto.order.send.SendCarDelationDto;
+import com.saimawzc.shipper.dto.order.send.WarnInfoDto;
 import com.saimawzc.shipper.dto.order.wallbill.OrderInventoryDto;
 import com.saimawzc.shipper.dto.order.wallbill.OrderWayBillDto;
 import com.saimawzc.shipper.dto.order.wallbill.WayBillAssignDto;
@@ -391,5 +392,10 @@ public interface OrderApi {
     @Headers("Content-Type: application/json")
     @POST("oms/common/company/queryForTree")
     Call<String> getrelationCom(@Body RequestBody array);
-
+    /**
+     *获取预警信息
+     */
+    @Headers("Content-Type: application/json")
+    @POST("oms/common/disPatchCar/selectWaybillWarnInfo")
+    Call<JsonResult<List<WarnInfoDto>>> getWarnInfo(@Body RequestBody array);
 }
