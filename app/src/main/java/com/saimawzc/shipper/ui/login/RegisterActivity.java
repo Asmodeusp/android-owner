@@ -223,7 +223,7 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
     @Override
     public void oncomplete(int type) {
         if(type==100){
-            presenter.login(editPass.getText().toString());
+            presenter.login(editPass.getText().toString(),editPhone.getText().toString());
             editCode.setText("");
             editOrderPass.setText("");
             editPass.setText("");
@@ -236,7 +236,6 @@ public class RegisterActivity extends BaseActivity implements ResisterView {
                 startActivity(intent);
             }
         }
-
     }
 
     @Override

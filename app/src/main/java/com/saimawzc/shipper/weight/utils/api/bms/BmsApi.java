@@ -3,6 +3,7 @@ package com.saimawzc.shipper.weight.utils.api.bms;
 
 
 import com.saimawzc.shipper.dto.EmptyDto;
+import com.saimawzc.shipper.dto.carleader.MsBankDto;
 import com.saimawzc.shipper.dto.myselment.AccountDelationDto;
 import com.saimawzc.shipper.dto.myselment.AccountQueryPageDto;
 import com.saimawzc.shipper.dto.myselment.AccountType;
@@ -79,4 +80,18 @@ public interface BmsApi {
     @Headers("Content-Type: application/json")
     @POST("bms/common/record/selectRecordStatus")
     Call<JsonResult<List<AccountType>>> getaccountType(@Body RequestBody array);
+
+    /**
+     * 获取大额行号
+     */
+    @Headers("Content-Type: application/json")
+    @POST("bms/bank/findOpenBranch")
+    Call<JsonResult<List<MsBankDto>>> getBigBank(@Body RequestBody array);
+
+    /**
+     * 卡bin
+     */
+    @Headers("Content-Type: application/json")
+    @POST("bms/bank/findCardBinInfo")
+    Call<JsonResult<MsBankDto>> cardBin(@Body RequestBody array);
 }

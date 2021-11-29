@@ -1,6 +1,7 @@
 package com.saimawzc.shipper.adapter.order;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -95,7 +96,7 @@ public class SendCarAdapter extends BaseAdapter {
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         if(holder instanceof ViewHolder){
             SendCarDto.SendCarData dto=mDatas.get(position);
              ImageLoadUtil.displayImage(mContext,dto.getCompanyLogo(),((ViewHolder) holder).imageView);
@@ -145,7 +146,7 @@ public class SendCarAdapter extends BaseAdapter {
                 ((ViewHolder) holder).viewTab3.setText("运输评价");
                 ((ViewHolder) holder).viewTab1.setVisibility(View.VISIBLE);
                 ((ViewHolder) holder).viewTab2.setVisibility(View.VISIBLE);
-                ((ViewHolder) holder).viewTab3.setVisibility(View.VISIBLE);
+                ((ViewHolder) holder).viewTab3.setVisibility(View.GONE);
             }
 
             ((ViewHolder) holder).imagePhone.setOnClickListener(new View.OnClickListener() {

@@ -90,7 +90,6 @@ public class CompleteOrderAdapter extends BaseAdapter{
             ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+dto.getWeightUnitName());
             ((ViewHolder) holder).tvoverWeight.setText(dto.getOverAllotWeight()+dto.getWeightUnitName());
             ((ViewHolder) holder).tvCreatTime.setText(dto.getCreateTime());
-
            ((ViewHolder) holder).tvAdress.setText(dto.getFromUserAddress());
            ((ViewHolder) holder).tvAdressTo.setText(dto.getToUserAddress());
            ((ViewHolder) holder).tvFromCompany.setText(dto.getFromName());
@@ -98,12 +97,10 @@ public class CompleteOrderAdapter extends BaseAdapter{
            ((ViewHolder) holder).tvZtNum.setText(dto.getUnderWay()+dto.getWeightUnitName());
            ((ViewHolder) holder).tvConsultNum.setText(dto.getConsult()+dto.getWeightUnitName());
            ((ViewHolder) holder).viewTab1.setText("对账");
+           ((ViewHolder) holder).viewTab1.setVisibility(View.GONE);
             ((ViewHolder) holder).viewTab2.setVisibility(View.GONE);
             ((ViewHolder) holder).viewTab3.setVisibility(View.GONE);
             ((ViewHolder) holder).tvStatus.setText("已完成");
-
-
-
             if(onTabClickListener!=null){
                 ((ViewHolder) holder).viewTab1.setOnClickListener(new View.OnClickListener() {
                     @Override

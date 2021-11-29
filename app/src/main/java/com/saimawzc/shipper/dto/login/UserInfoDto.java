@@ -10,6 +10,16 @@ public class UserInfoDto {
     private String userCode;
     private String userAccount;
     private int role;//1货主 2承运商 3司机 4收货人
+    private String roleId;
+
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
+
     private String name;
     private int authState;//0 未认证 1已认证 2 认证中 3 认证失败
     private int trustFlag;//是否为托运公司(1.是 2.否)

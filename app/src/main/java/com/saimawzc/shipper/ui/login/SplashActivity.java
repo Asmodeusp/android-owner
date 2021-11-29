@@ -55,7 +55,7 @@ public class SplashActivity extends BaseActivity {
         initpermissionChecker();
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
-
+        setURL();
         if(!BaseActivity.isNetworkConnected(mContext)){
             turnToMain();
         }else {
@@ -169,6 +169,9 @@ public class SplashActivity extends BaseActivity {
                             }
                         });
                     }else {
+                        if(TextUtils.isEmpty(apkURLQ)){
+                            setURL();
+                        }
                         updateDialog = new UpdateDialog();
                         updateDialog.customVersionDialogTwo(SplashActivity.this,response);
                         if(response.getUpdateContent().contains("\\n")){

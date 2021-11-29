@@ -11,7 +11,7 @@ import com.saimawzc.shipper.view.login.ResisterView;
 public interface ResisterModel {
 
     void getCode(String phone, final BaseListener listener);
-    void login(ResisterView view, String pass,BaseListener listener);
+    void login(ResisterView view, String pass,BaseListener listener,String phone);
 
     void resiser(ResisterView view, final BaseListener listener);
 }

@@ -20,6 +20,7 @@ import com.saimawzc.shipper.weight.utils.update.utils.MNUtils;
 import java.io.File;
 
 import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.base.BaseActivity.apkURLQ;
 
 /**
  * Created by maning on 16/8/15.
@@ -114,7 +115,12 @@ public class InstallUtils {
      * @return
      */
     public InstallUtils setApkPath(String apkPath) {
-        this.filePath = apkPath;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+            this.filePath=apkURLQ;
+        }else {
+            this.filePath = apkPath;
+        }
+
         return mInstance;
     }
 

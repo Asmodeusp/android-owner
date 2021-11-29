@@ -5,9 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/bg">
-
-
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -134,7 +132,7 @@
                     android:layout_marginRight="@dimen/px24dp"
                     android:background="@color/bg_line"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/px2dp">
+                    android:layout_height="@dimen/px1dp">
 
                 </View>
             </LinearLayout>
@@ -191,7 +189,7 @@
                     android:layout_marginRight="@dimen/px24dp"
                     android:background="@color/bg_line"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/px2dp">
+                    android:layout_height="@dimen/px1dp">
 
                 </View>
             </LinearLayout>
@@ -302,7 +300,63 @@
                     android:layout_marginRight="@dimen/px24dp"
                     android:background="@color/bg_line"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/px2dp">
+                    android:layout_height="@dimen/px1dp">
+
+                </View>
+            </LinearLayout>
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rlcarmanage"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px104dp">
+                <ImageView
+                    android:id="@+id/crrmanage"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ico_carmanage"
+                    android:layout_width="@dimen/px40dp"
+                    android:layout_height="@dimen/px40dp">
+
+                </ImageView>
+                <TextView
+                    android:layout_toRightOf="@+id/crrmanage"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:textSize="@dimen/px30dp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/color_black"
+                    android:text="车队长管理"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text=""
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:src="@drawable/ico_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </RelativeLayout>
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:layout_marginLeft="@dimen/px30dp"
+                    android:layout_marginRight="@dimen/px24dp"
+                    android:background="@color/bg_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px1dp">
 
                 </View>
             </LinearLayout>
@@ -358,7 +412,7 @@
                     android:layout_marginRight="@dimen/px24dp"
                     android:background="@color/bg_line"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/px2dp">
+                    android:layout_height="@dimen/px1dp">
 
                 </View>
             </LinearLayout>
@@ -439,7 +493,7 @@
             </RelativeLayout>
 
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 
 </RelativeLayout>

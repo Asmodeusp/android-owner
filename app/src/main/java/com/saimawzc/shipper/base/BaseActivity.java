@@ -50,6 +50,7 @@ import com.baidu.ocr.sdk.OCR;
 import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
+import com.baidu.ocr.ui.camera.CameraActivity;
 import com.baidu.ocr.ui.camera.CameraNativeHelper;
 import com.baidu.ocr.ui.camera.CameraView;
 import com.saimawzc.shipper.R;
@@ -59,6 +60,7 @@ import com.saimawzc.shipper.ui.MainActivity;
 import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
 import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.weight.BottomDialogUtil;
+import com.saimawzc.shipper.weight.utils.FileUtil;
 import com.saimawzc.shipper.weight.utils.api.OrderApi;
 import com.saimawzc.shipper.weight.utils.api.auto.AuthApi;
 import com.saimawzc.shipper.weight.utils.Md5Utils;
@@ -76,6 +78,8 @@ import com.saimawzc.shipper.weight.utils.update.InstallUtils;
 import com.gyf.immersionbar.ImmersionBar;
 import com.nanchen.compresshelper.CompressHelper;
 import com.werb.permissionschecker.PermissionChecker;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -101,6 +105,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 import butterknife.ButterKnife;
 
+import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.REQUEST_CODE_PIC;
+
 /**
  * Created by Administrator on 2018-03-21.
  */
@@ -114,6 +120,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             Manifest.permission.READ_EXTERNAL_STORAGE,
 
     };
+    public static String apkURLQ;
     public static final String[] PERMISSIONS_CAMERA = new String[]{
             Manifest.permission.CAMERA,
     };
@@ -128,7 +135,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public LinearLayoutManager layoutManager;
     public UserInfoDto userInfoDto;
     public InstallUtils.DownloadCallBack downloadCallBack;
-
+    private boolean mNeedOnBus;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,6 +153,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         onGetBundle(getIntent().getExtras());
         init();
         initListener();
+        if (mNeedOnBus) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    public void setURL(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+            apkURLQ=getExternalFilesDir("Caches").getAbsolutePath()+ "/nxshiper/"+ BaseActivity.getCurrentTime("yyyy-MM-dd HH:mm")+"huozhu.apk";
+        }
     }
 
     public void setStatusBar(boolean isUseBlackFontWithStatusBar, boolean isUseFullScreenMode, int color) {
@@ -161,7 +177,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }
     }
-
+    protected void setNeedOnBus(boolean needOnBus) {
+        mNeedOnBus = needOnBus;
+    }
     /**
      * 初始化沉浸式
      * Init immersion bar.
@@ -222,7 +240,22 @@ public abstract class BaseActivity extends AppCompatActivity {
             return false;
         }
     }
-
+    protected void initCamera(String type){
+        if(mContext==null){
+            return;
+        }
+        tempImage=System.currentTimeMillis()+"";
+        Intent intent = new Intent(mContext, CameraActivity.class);
+        intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,
+                FileUtil.getSaveFile(mContext,tempImage).getAbsolutePath());
+        intent.putExtra(CameraActivity.KEY_NATIVE_ENABLE,
+                true);
+        intent.putExtra(CameraActivity.KEY_NATIVE_MANUAL,
+                true);
+        intent.putExtra(CameraActivity.KEY_CONTENT_TYPE,
+                type);
+        startActivityForResult(intent, REQUEST_CODE_PIC);
+    }
     /**
      * 是否字符串为空
      * **/

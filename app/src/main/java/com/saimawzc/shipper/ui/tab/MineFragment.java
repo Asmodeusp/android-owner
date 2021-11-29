@@ -17,6 +17,7 @@ import com.saimawzc.shipper.dto.identification.PersonCenterDto;
 import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.ui.my.ChangeRoleActivity;
 import com.saimawzc.shipper.ui.my.PersonCenterActivity;
+import com.saimawzc.shipper.ui.my.carmanage.CarLearderListActivity;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
 import com.saimawzc.shipper.weight.BottomDialogUtil;
 import com.saimawzc.shipper.weight.CircleImageView;
@@ -65,7 +66,7 @@ public class MineFragment  extends BaseImmersionFragment {
     }
     @OnClick({R.id.rl_LogOut,R.id.rl_carrier,R.id.rl_useridentification,
             R.id.rlchangerole,R.id.mywalley,R.id.rlset,R.id.avatar_min,R.id.imgKefu
-            ,R.id.invitation})
+            ,R.id.invitation,R.id.rlcarmanage})
     public void click(View view){
         Bundle bundle=null;
         switch (view.getId()){
@@ -121,6 +122,10 @@ public class MineFragment  extends BaseImmersionFragment {
                 bundle.putString("from","huozhucarrier");
                 readyGo(PersonCenterActivity.class,bundle);
                 break;
+            case R.id.rlcarmanage:
+                readyGo(CarLearderListActivity.class);
+                break;
+
             case R.id.rl_LogOut://注销
                 dialog = new NormalDialog(mContext).isTitleShow(false)
                         .content("确定退出登录吗?")

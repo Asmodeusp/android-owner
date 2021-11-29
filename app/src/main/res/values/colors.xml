@@ -36,6 +36,10 @@
     <color name="blue_side">#1278FE</color>
     <color name="bg_17">#F7F7F7</color>
     <color name="bg_18">#C6C6C6</color>
-
+    <color name="text_10">#101010</color>
+    <color name="text_66666">#666666</color>
+    <color name="text_B7">#B7B7B7</color>
+    <color name="text_6C">#6C6C6C</color>
+    <color name="textBCBFBF">#BCBFBF</color>
     <color name="bg_line">#F6F6F6</color>
 </resources>

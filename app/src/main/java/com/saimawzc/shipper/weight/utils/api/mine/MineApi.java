@@ -2,6 +2,13 @@ package com.saimawzc.shipper.weight.utils.api.mine;
 
 import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.FrameDto;
+import com.saimawzc.shipper.dto.carleader.CarBrandDto;
+import com.saimawzc.shipper.dto.carleader.CarLeaderListDto;
+import com.saimawzc.shipper.dto.carleader.CarServiceSfInfoDto;
+import com.saimawzc.shipper.dto.carleader.FaceQueryDto;
+import com.saimawzc.shipper.dto.carleader.SearchTeamDto;
+import com.saimawzc.shipper.dto.carleader.TaxiAreaDto;
+import com.saimawzc.shipper.dto.carleader.TeamDelationDto;
 import com.saimawzc.shipper.dto.carrier.MyCarrierGroupDto;
 import com.saimawzc.shipper.dto.carrier.MyCarriveDto;
 import com.saimawzc.shipper.dto.carrier.MycarrierGroupSecondDto;
@@ -10,6 +17,7 @@ import com.saimawzc.shipper.dto.identification.OwnCrriverIdentificationDto;
 import com.saimawzc.shipper.dto.identification.PersonCenterDto;
 import com.saimawzc.shipper.dto.login.AreaDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
+import com.saimawzc.shipper.dto.order.bidd.CarTypeDo;
 import com.saimawzc.shipper.dto.pic.AdListDto;
 import com.saimawzc.shipper.dto.set.SuggestDto;
 import com.saimawzc.shipper.weight.utils.http.JsonResult;
@@ -168,4 +176,85 @@ public interface MineApi {
     @Headers("Content-Type: application/json")
     @POST("admin/userOpinion/selectById")
     Call<JsonResult<SuggestDto>> mySuggesDelarion(@Body RequestBody array);
+
+
+    /**
+     获取车队长列表
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/carCaptain/selectCarCaptainList")
+    Call<JsonResult<CarLeaderListDto>> getCarLeaderList(@Body RequestBody array);
+
+    /**
+     删除车队长
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/carCaptain/deleteCarCaptain")
+    Call<JsonResult<EmptyDto>> deleteCarTeam(@Body RequestBody array);
+
+
+    /**
+     车队长删除服务方
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/carCaptain/deleteFwf")
+    Call<JsonResult<EmptyDto>> teamLeaderdelService(@Body RequestBody array);
+
+    /**
+     查询车队长详情
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/carCaptain/selectCarCaptainInfo")
+    Call<JsonResult<TeamDelationDto>> getTeamDelation(@Body RequestBody array);
+
+    /**
+     车队长添加服务方搜索
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/carCaptain/searchFwf")
+    Call<JsonResult<SearchTeamDto>> getSearchTeam(@Body RequestBody array);
+
+    /**
+     车队长添加服务方
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/carCaptain/addFwf")
+    Call<JsonResult<EmptyDto>> addCarService(@Body RequestBody array);
+
+    /**
+     车队长添加服务方
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/carCaptain/joinFwf")
+    Call<JsonResult<CarServiceSfInfoDto>> getSFiNFO(@Body RequestBody array);
+    /**
+     *  车辆/类型    carType/selectAll
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/carType/selectAll")
+    Call<JsonResult<List<CarTypeDo>>> getCarType(@Body RequestBody array);
+    /**
+     *  车辆品牌 carBrand/selectAll
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/carBrand/selectAll")
+    Call<JsonResult<List<CarBrandDto>>> getCarBrand(@Body RequestBody array);
+
+    /**
+     车队长添加服务方
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/carCaptain/selectFwfById")
+    Call<JsonResult<FaceQueryDto.Facedata>> getFaceINfo(@Body RequestBody array);
+
+    @Headers("Content-Type: application/json")
+    @POST("admin/carCaptain/addCarCaptain")
+    Call<JsonResult<EmptyDto>> createam(@Body RequestBody array);
+
+    /**
+     *  获取区域
+     */
+    @Headers("Content-Type: application/json")
+    @POST("admin/sysRegion/findSysRegion")
+    Call<JsonResult<List<TaxiAreaDto>>> getAreaTaxi(@Body RequestBody array);
 }

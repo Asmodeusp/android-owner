@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 //apply plugin: 'android-apt'
 apply plugin: 'bugly'
 android {
-    compileSdkVersion 26
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
     dexOptions {
         javaMaxHeapSize "4g"
         jumboMode true
@@ -11,10 +11,10 @@ android {
     defaultConfig {
         applicationId "com.saimawzc.shipper"//com.smwl.wzc
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 29
         multiDexEnabled true //Howard 2017-08-31 解决方法数超过65536的问题
-        versionCode 10
-        versionName "1.2.2"//1.2.2
+        versionCode 13
+        versionName "1.0.3"//1.2.2
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             // 设置支持的 SO 库构架，一般而言，取你所有的库支持的构架的`交集`。
@@ -107,6 +107,7 @@ android {
     }
 }
 dependencies {
+    implementation 'org.greenrobot:eventbus:3.1.1'
     implementation files('libs/ocr-sdk.jar')
     implementation project(path: ':ocr_ui')
     implementation files('libs/BaiduLBS_Android.jar')

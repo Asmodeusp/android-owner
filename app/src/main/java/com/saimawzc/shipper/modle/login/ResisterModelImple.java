@@ -43,7 +43,7 @@ public class ResisterModelImple implements  ResisterModel{
         authApi.getCode(body).enqueue(new CallBack<EmptyDto>() {
             @Override
             public void success(EmptyDto response) {
-                listener.successful(1);
+                listener.successful(55);
             }
 
             @Override
@@ -56,13 +56,12 @@ public class ResisterModelImple implements  ResisterModel{
 
     @Override
     public void login(final ResisterView view, final String pass,
-                      final BaseListener listener) {
+                      final BaseListener listener,String phone) {
         view.showLoading();
         JSONObject jsonObject=new JSONObject();
         try {
             jsonObject.put("loginDevice","");
             jsonObject.put("loginSource","1");//安卓
-
             jsonObject.put("password", StringUtil.Md5(pass));
             if(view.resiserType().contains("货主")){
                 jsonObject.put("role",1);
@@ -70,7 +69,7 @@ public class ResisterModelImple implements  ResisterModel{
             if(view.resiserType().contains("收货人")){
                 jsonObject.put("role",4);
             }
-            jsonObject.put("userAccount",view.getPhone());
+            jsonObject.put("userAccount",phone);
 
 
         } catch (JSONException e) {
@@ -87,13 +86,7 @@ public class ResisterModelImple implements  ResisterModel{
                 Hawk.put(PreferenceKey.USER_INFO,response);
                 Hawk.put(PreferenceKey.ID,response.getToken());
                 Hawk.put(PreferenceKey.IS_TUOYUN,response.getTrustFlag()+"");
-                int role=0;
-                if(view.resiserType().contains("货主")){
-                    role=1;
-                }
-                if(view.resiserType().contains("收货人")){
-                    role=4;
-                }
+                int role=response.getRole();
                 listener.successful(role);
             }
 

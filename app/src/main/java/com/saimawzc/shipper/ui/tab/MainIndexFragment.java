@@ -52,9 +52,9 @@ public class MainIndexFragment extends BaseFragment
     @BindView(R.id.rv) RecyclerView rv;
     private MainIndexAdpater adpater;
     private List<MainIndexDto>mDatas=new ArrayList<>();
-    private String arr[]={"对账管理","结算管理","发票管理","扣款管理","运单管理","预警信息"
-    ,"公司报表","物料报表"};
-
+//    private String arr[]={"对账管理","结算管理","发票管理","扣款管理","运单管理","预警信息"
+//    ,"公司报表","物料报表"};
+    private String arr[]={"对账管理","结算管理"};
     private BannerPresenter presenter;
     @BindView(R.id.rlmessage)
     LinearLayout lMessage;

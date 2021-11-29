@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.view.View;
 
 
+import com.saimawzc.shipper.dto.carleader.CarBrandDto;
 import com.saimawzc.shipper.dto.myselment.AccountType;
 import com.saimawzc.shipper.dto.order.bidd.CarTypeDo;
 import com.saimawzc.shipper.dto.order.creatorder.UntilDto;
@@ -29,6 +30,9 @@ public class WheelDialog<T> {
         this.listDatas=datas;
         this.stringLists=strings;
     }
+    public WheelDialog(Context c){
+        this.context=c;
+    }
     public void Show(final WheelListener listener) {// 弹出条件选择器
 
         OptionsPickerView pvOptions = new OptionsPickerView.Builder(context,
@@ -51,8 +55,33 @@ public class WheelDialog<T> {
                             String name = ((UntilDto) listDatas.get(options1)).getUnit();
                             String id = ((UntilDto) listDatas.get(options1)).getId();
                             listener.callback(name,id);
+                        }else if(listDatas.get(options1)instanceof CarBrandDto){
+                            String name = ((CarBrandDto) listDatas.get(options1)).getBrandName();
+                            String id = ((CarBrandDto) listDatas.get(options1)).getId();
+                            listener.callback(name,id);
                         }
 
+                    }
+                })
+                .setDividerColor(Color.BLACK)
+                .setTextColorCenter(Color.BLACK) //设置选中项文字颜色
+                .setContentTextSize(20)//设置文字大小
+                .setOutSideCancelable(false)// default is true
+                .build();
+        pvOptions.setPicker(stringLists);//条件选择器
+
+        pvOptions.show();
+    }
+
+    public void Show(final WheelListener listener, final List<String> stringLists){
+        if(stringLists==null||stringLists.size()<=0){
+            return;
+        }
+        OptionsPickerView pvOptions = new OptionsPickerView.Builder(context,
+                new OptionsPickerView.OnOptionsSelectListener() {
+                    @Override
+                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                        listener.callback(stringLists.get(options1),"");
                     }
                 })
                 .setDividerColor(Color.BLACK)

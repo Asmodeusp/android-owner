@@ -137,36 +137,7 @@ public class MainActivity extends BaseActivity
     @Override
     protected void initListener() {
         if (Build.VERSION.SDK_INT >= 26) {
-//            if(getPackageManager()==null){
-//                return;
-//            }
-//            //来判断应用是否有权限安装apk
-//            boolean installAllowed= getPackageManager().canRequestPackageInstalls();
-//            //有权限
-//            if (installAllowed) {
-//            } else {
-//                //无权限 申请权限
-//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.REQUEST_INSTALL_PACKAGES}, 1000);
-//            }
-//        } else {
-//
-//        }
-//        if (Build.VERSION.SDK_INT >= 23) {
-//            int REQUEST_CODE_CONTACT = 101;
-//            String[] permissions = {
-//                    Manifest.permission.WRITE_EXTERNAL_STORAGE};
-//            //验证是否许可权限
-//            for (String str : permissions) {
-//                if (MainActivity.this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
-//                    //申请权限
-//                    MainActivity.this.requestPermissions(permissions, REQUEST_CODE_CONTACT);
-//                    return;
-//                } else {
-//                    //申请读
-//                    Log.e("msg","申请读写权限");
-//                    //这里就是权限打开之后自己要操作的逻辑
-//                }
-//            }
+
         }
 
     }

@@ -41,8 +41,8 @@ public class ResisterPresenter implements BaseListener {
         model.resiser(view,this);
     }
 
-    public void login(String pass){
-        model.login(view,pass,this);
+    public void login(String pass,String phone){
+        model.login(view,pass,this,phone);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ResisterPresenter implements BaseListener {
 
     @Override
     public void successful(int type) {
-        if(type==1){
+        if(type==55){
             view.changeStatus();
         }else {
             view.oncomplete(type);
