@@ -29,13 +29,11 @@ import com.saimawzc.shipper.weight.utils.loadimg.GlideImageLoader;
 import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
 import com.saimawzc.shipper.constants.AppConfig;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
-import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-import cat.ereza.customactivityoncrash.CustomActivityOnCrash;
 import cn.finalteam.galleryfinal.CoreConfig;
 import cn.finalteam.galleryfinal.FunctionConfig;
 import cn.finalteam.galleryfinal.GalleryFinal;
@@ -180,12 +178,7 @@ public class BaseApplication extends Application {
            // CustomActivityOnCrash.install(this);
         }
         /**初始化LeakCanary */
-        if (AppConfig.IS_DEBUG) {
-            if (LeakCanary.isInAnalyzerProcess(this)) {
-                return;
-            }
-            LeakCanary.install(this);
-        }
+
     }
 
 
@@ -232,7 +225,6 @@ public class BaseApplication extends Application {
         // 网络连接正常，开启服务及采集，则查询纠偏后实时位置；否则进行实时定位
 
         if(trackConf!=null){
-
             if (isNetworkAvailable(this)
                     && trackConf.contains("is_trace_started")
                     && trackConf.contains("is_gather_started")

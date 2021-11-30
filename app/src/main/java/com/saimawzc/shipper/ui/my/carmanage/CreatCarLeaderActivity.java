@@ -146,8 +146,6 @@ public class CreatCarLeaderActivity extends BaseActivity
         edAuthorJbrIdCard.addTextChangedListener(this);
         edAuthorPhone.addTextChangedListener(this);
         edauthorName.addTextChangedListener(this);
-
-
     }
     @Override
     protected void initListener() {

@@ -415,6 +415,7 @@
                 </RelativeLayout>
                 <include layout="@layout/common_line"></include>
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/rlpersonbank"
                     android:background="@color/white"
                     android:orientation="horizontal"
@@ -777,6 +778,7 @@
                 </RelativeLayout>
                 <include layout="@layout/common_line"></include>
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/rlauthoropenbank"
                     android:background="@color/white"
                     android:orientation="horizontal"

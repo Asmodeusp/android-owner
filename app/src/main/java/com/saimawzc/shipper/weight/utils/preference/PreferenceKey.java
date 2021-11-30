@@ -41,6 +41,6 @@ public class PreferenceKey {
 
     public static final String isChange_or_login = "isChange_or_login_hz";//
 
-
+    public static final String OLD_UPDATE_TIME = "oldupdatime";//上次更新时间
 
 }

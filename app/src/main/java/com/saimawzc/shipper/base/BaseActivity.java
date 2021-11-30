@@ -539,11 +539,22 @@ public abstract class BaseActivity extends AppCompatActivity {
         return simpleDateFormat.format(date) + "";
     }
 
-    /*** 获取版本号 
-          *  
-          * @param context 
-          * @return 
-          */
+
+    protected  int getGapMinutes(String startDate, String endDate) {
+        long start = 0;
+        long end = 0;
+        try {
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+            start = df.parse(startDate).getTime();
+
+            end = df.parse(endDate).getTime();
+
+        } catch (Exception e) {
+        }
+        int minutes = (int) ((end - start) / (1000 * 60));
+        return minutes;
+    }
     public static int getVersionCode(Context context) {
         int versionCode = 0;
         try {
@@ -963,6 +974,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             public void onComplete(String path) {
 
                 apkDownloadPath = path;
+                Hawk.put(PreferenceKey.OLD_UPDATE_TIME,apkDownloadPath);
                 if(progressDialog!=null){
                     progressDialog.dismiss();
                 }
@@ -1055,7 +1067,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         };
     }
 
-    private void installApk(String path) {
+    protected void installApk(String path) {
+        Hawk.put(PreferenceKey.OLD_UPDATE_TIME,"");
         InstallUtils.installAPK(context, path, new InstallUtils.InstallCallBack() {
             @Override
             public void onSuccess() {

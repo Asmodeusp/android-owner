@@ -351,6 +351,9 @@ public class MainActivity extends BaseActivity
         if(file!=null){
             if (file.isDirectory()) {
                 File[] files = file.listFiles();
+                if(files==null||files.length==0){
+                  return;
+                }
                 for (int i = 0; i < files.length; i++) {
                     File f = files[i];
                     if(f!=null){

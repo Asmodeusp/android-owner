@@ -31,7 +31,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:src="@drawable/ico_dianhua"
-            android:visibility="gone">
+            android:visibility="visible">
 
         </ImageView>
         <LinearLayout

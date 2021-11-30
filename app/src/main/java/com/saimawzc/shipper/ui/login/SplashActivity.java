@@ -20,15 +20,19 @@ import com.saimawzc.shipper.ui.MainActivity;
 import com.saimawzc.shipper.ui.WebViewActivity;
 import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
 import com.saimawzc.shipper.weight.BottomDialogUtil;
+import com.saimawzc.shipper.weight.DateUtils;
 import com.saimawzc.shipper.weight.utils.dialog.UpdateDialog;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 import com.gyf.immersionbar.ImmersionBar;
+import com.saimawzc.shipper.weight.utils.update.InstallUtils;
 import com.werb.permissionschecker.PermissionChecker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.File;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -262,6 +266,35 @@ public class SplashActivity extends BaseActivity {
         super.onDestroy();
         if(updateDialog!=null){
             updateDialog.dissmiss();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        final String oldTime=Hawk.get(PreferenceKey.OLD_UPDATE_TIME);
+        if(!TextUtils.isEmpty(oldTime)){
+            File file=new File(oldTime);
+            if(!file.exists()){
+                Hawk.put(PreferenceKey.OLD_UPDATE_TIME,"");
+                return;
+            }
+            try{
+                int jiange=getGapMinutes(DateUtils.getInstance().getDate(oldTime),getCurrentTime("yyyy-MM-dd HH:mm"));
+                if(jiange<=2){
+                    InstallUtils.checkInstallPermission(this, new InstallUtils.InstallPermissionCallBack() {
+                        @Override
+                        public void onGranted() {
+                            installApk(oldTime);
+                        }
+                        @Override
+                        public void onDenied() {
+                        }
+                    });
+                }
+            }catch (Exception e){
+
+            }
         }
     }
 }

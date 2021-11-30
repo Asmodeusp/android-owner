@@ -305,7 +305,7 @@
                 </View>
             </LinearLayout>
             <RelativeLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:id="@+id/rlcarmanage"
                 android:background="@color/white"
                 android:orientation="horizontal"
