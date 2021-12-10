@@ -32,7 +32,8 @@ import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
 /**
  * 车队长管理
  * ***/
-public class CarLearderListActivity extends BaseActivity implements CarLeaderListView {
+public class CarLearderListActivity extends BaseActivity
+        implements CarLeaderListView {
 
 
     @BindView(R.id.toolbar)

@@ -27,7 +27,24 @@ public class OrderDelationDto {
     private String toOperateTime;
     private String toLocation;
     private int businessType;
+    private String weightUnitName;
+    private String hzSignIn;
 
+    public String getHzSignIn() {
+        return hzSignIn;
+    }
+
+    public void setHzSignIn(String hzSignIn) {
+        this.hzSignIn = hzSignIn;
+    }
+
+    public String getWeightUnitName() {
+        return weightUnitName;
+    }
+
+    public void setWeightUnitName(String weightUnitName) {
+        this.weightUnitName = weightUnitName;
+    }
 
     private String tranType;
     private String tranTypeName;

@@ -76,11 +76,13 @@
     <!-- Push service 运行需要的权限 END -->
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:largeHeap="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
         tools:replace="icon,label,theme"
         android:name="com.saimawzc.shipper.base.BaseApplication"
         android:allowBackup="true"
+        android:networkSecurityConfig="@xml/https"
         android:icon="@drawable/ico_app_huozhu"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ico_app_huozhu"

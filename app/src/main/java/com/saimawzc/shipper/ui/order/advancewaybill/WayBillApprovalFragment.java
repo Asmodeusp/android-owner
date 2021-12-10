@@ -37,6 +37,7 @@ import static com.saimawzc.shipper.constants.AppConfig.reshWaybIllOrder;
  * **/
 
 public class WayBillApprovalFragment extends BaseFragment implements WaybillApprovalView {
+
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     private String id;
@@ -106,6 +107,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.imgautoarrive)ImageView imgAutoArriver;
     @BindView(R.id.tvofftime)TextView tvOffTime;
     @BindView(R.id.tvspaceTime)TextView tvspaceTime;
+    @BindView(R.id.tvhzsignnum)TextView tvHzSignNum;
     @Override
     public int initContentView() {
         return R.layout.fragment_waybill_sh;
@@ -193,6 +195,7 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
             tvTrangWay.setText(dto.getTranTypeName());
             tvGuoBangNum.setText(dto.getWeighing());
             tvSignNum.setText(dto.getSjSignInWeight());
+            tvHzSignNum.setText(dto.getHzSignIn());
 
             for(int i=0;i<dto.getList().size();i++){
                 AddWayBillGoodsDto tempDto=new AddWayBillGoodsDto();

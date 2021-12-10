@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -88,6 +90,8 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
     @BindView(R.id.tvcaradress)
     TextView tvCarAdress;
     @BindView(R.id.edcarLength)EditText edCarLength;
+    @BindView(R.id.edcarWith)EditText edcarWith;
+    @BindView(R.id.edcarHight)EditText edCarHight;
     @BindView(R.id.edcarWeight)EditText edCarWeight;
     @BindView(R.id.imgdependon)ImageView imgDepenDon;
     @BindView(R.id.imgCarPic)ImageView imgCarPic;
@@ -125,6 +129,11 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
     private String id;
     private int status=-1;
 
+    @BindView(R.id.llguakao)
+    LinearLayout llGuakao;
+    @BindView(R.id.tvguakao)
+    TextView tvGuakao;
+
 
 
     private String csName="";
@@ -135,22 +144,27 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
     public void click(View view){
         switch (view.getId()){
             case R.id.imgidpositive:
-                if (permissionChecker.isLackPermissions(PERMISSIONS)) {
-                    context.showMessage("未获取到相应权限,请在设置中开启权限");
+                if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                    context.showMessage("未获取到相机权限,请在设置中开启权限");
                     permissionChecker.requestPermissions();
                     return;
                 }
                 initCamera(CameraActivity.CONTENT_TYPE_ID_CARD_FRONT);
                 break;
             case R.id.imgidotherside:
-                if (permissionChecker.isLackPermissions(PERMISSIONS)) {
-                    context.showMessage("未获取到相应权限,请在设置中开启权限");
+                if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                    context.showMessage("未获取到相机权限,请在设置中开启权限");
                     permissionChecker.requestPermissions();
                     return;
                 }
                 initCamera(CameraActivity.CONTENT_TYPE_ID_CARD_BACK);
                 break;
             case R.id.bankscan:
+                if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                    context.showMessage("未获取到相机权限,请在设置中开启权限");
+                    permissionChecker.requestPermissions();
+                    return;
+                }
                 initCamera(CameraActivity.CONTENT_TYPE_BANK_CARD);
                 break;
             case R.id.llchoosecx:
@@ -171,21 +185,51 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
                 readyGoForResult(ChooseTaxiAdressActivity.class,100);
                 break;
             case R.id.imgdependon://挂靠图片
+                if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                    context.showMessage("未获取到相机权限,请在设置中开启权限");
+                    permissionChecker.requestPermissions();
+                    return;
+                }
                 presenter.showCamera(mContext,0);
                 break;
             case R.id.imgCarPic:
+                if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                    context.showMessage("未获取到相机权限,请在设置中开启权限");
+                    permissionChecker.requestPermissions();
+                    return;
+                }
                 presenter.showCamera(mContext,1);
                 break;
             case R.id.driverlicensefront:
+                if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                    context.showMessage("未获取到相机权限,请在设置中开启权限");
+                    permissionChecker.requestPermissions();
+                    return;
+                }
                 presenter.showCamera(mContext,2);
                 break;
             case R.id.driverlicenseback:
+                if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                    context.showMessage("未获取到相机权限,请在设置中开启权限");
+                    permissionChecker.requestPermissions();
+                    return;
+                }
                 presenter.showCamera(mContext,3);
                 break;
             case R.id.imgxszFront:
+                if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                    context.showMessage("未获取到相机权限,请在设置中开启权限");
+                    permissionChecker.requestPermissions();
+                    return;
+                }
                 presenter.showCamera(mContext,4);
                 break;
             case R.id.imgxszback:
+                if (permissionChecker.isLackPermissions(PERMISSIONS_CAMERA)) {
+                    context.showMessage("未获取到相机权限,请在设置中开启权限");
+                    permissionChecker.requestPermissions();
+                    return;
+                }
                 presenter.showCamera(mContext,5);
                 break;
             case R.id.tvorder:
@@ -249,15 +293,26 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
                     context.showMessage("请选择车辆长度");
                     return;
                 }
+                if(context.isEmptyStr(edcarWith)){
+                    context.showMessage("请选择车辆宽度");
+                    return;
+                }
+                if(context.isEmptyStr(edCarHight)){
+                    context.showMessage("请选择车辆高度");
+                    return;
+                }
                 if(context.isEmptyStr(edCarWeight)){
                     context.showMessage("请选择车辆载重");
                     return;
                 }
-                if(TextUtils.isEmpty(strinDepenDon)){
-                    context.showMessage("请选择挂靠协议照片");
-                    return;
+                if(!TextUtils.isEmpty(isGuakao)){
+                    if(isGuakao.equals("是")){
+                        if(TextUtils.isEmpty(strinDepenDon)){
+                            context.showMessage("请选择挂靠协议照片");
+                            return;
+                        }
+                    }
                 }
-
                 if(TextUtils.isEmpty(stringDriverLicenFront)){
                     context.showMessage("请选择驾驶证正面照片");
                     return;
@@ -343,7 +398,28 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
             tvCarBand.setText(facedata.getCypp());
             tvCarAdress.setText(facedata.getSsdqStr());
             csName=facedata.getSsdq();
-            edCarLength.setText(facedata.getCycc());
+            if(!TextUtils.isEmpty(facedata.getCycc())){
+                if(!facedata.getCycc().contains("*")){
+                    edCarLength.setText(facedata.getCycc());
+                }else {
+                    String[] carInfo=facedata.getCycc().split("\\*");
+                    if(carInfo==null||carInfo.length==0){
+                    }else {
+                        if(carInfo.length==1){
+                            edCarLength.setText(carInfo[0]);
+                        }else  if(carInfo.length==2){
+                            edCarLength.setText(carInfo[0]);
+                            edcarWith.setText(carInfo[1]);
+                        }else if(carInfo.length==3){
+                            edCarLength.setText(carInfo[0]);
+                            edcarWith.setText(carInfo[1]);
+                            edCarHight.setText(carInfo[2]);
+                        }
+
+                    }
+
+                }
+            }
             edCarWeight.setText(facedata.getCyzz());
             edreal_user.setText(facedata.getCycsjsyr());
             edRealUserPhone.setText(facedata.getCycsyrlxfs());
@@ -353,10 +429,14 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
                     isGuakao="是";
                     radioYes.setChecked(true);
                     strinDepenDon = facedata.getQysmgkfjBos();
+                    llGuakao.setVisibility(View.VISIBLE);
+                    tvGuakao.setVisibility(View.VISIBLE);
                 }else {
                     isGuakao="否";
                     radioYes.setChecked(false);
                     strinDepenDon = facedata.getCzsmgkfjBos();
+                    llGuakao.setVisibility(View.GONE);
+                    tvGuakao.setVisibility(View.GONE);
                 }
 
             }
@@ -397,7 +477,23 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
 
     @Override
     protected void initListener() {
-
+        groupBtn.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                switch (checkedId){
+                    case R.id.groupyes:
+                        isGuakao="是";
+                        llGuakao.setVisibility(View.VISIBLE);
+                        tvGuakao.setVisibility(View.VISIBLE);
+                        break;
+                    case R.id.groupno:
+                        isGuakao="否";
+                        llGuakao.setVisibility(View.GONE);
+                        tvGuakao.setVisibility(View.GONE);
+                        break;
+                }
+            }
+        });
     }
 
     @Override
@@ -435,7 +531,8 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
 
     @Override
     public String cycc() {
-        return edCarLength.getText().toString();
+        return edCarLength.getText().toString()+"*"+edcarWith.getText().toString()+"*"+
+                edCarHight.getText().toString();
     }
 
     @Override
@@ -675,10 +772,37 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
             edCarNo.setText(sfInfo.getCycph());
             tvModel.setText(sfInfo.getCycx());
             tvCarBand.setText(sfInfo.getCypp());
-            edCarLength.setText(sfInfo.getCycc());
+            edCarUserName.setText(sfInfo.getClsyr());
+            edreal_user.setText(sfInfo.getCycsjsyr());
+            edDriverNo.setText(sfInfo.getJszjhm());
+            edRealUserPhone.setText(sfInfo.getCycsyrlxfs());
+            if(!TextUtils.isEmpty(sfInfo.getCycc())){
+                if(!sfInfo.getCycc().contains("*")){
+                    edCarLength.setText(sfInfo.getCycc());
+                    Log.e("msg","不包含长度"+sfInfo.getCycc());
+                }else {
+                    String[] carInfo=sfInfo.getCycc().split("\\*");
+                    if(carInfo==null||carInfo.length==0){
+                        Log.e("msg","长度wei 0"+sfInfo.getCycc());
+                    }else {
+                        Log.e("msg","长度"+carInfo.length);
+                        if(carInfo.length==1){
+                            edCarLength.setText(carInfo[0]);
+                        }else  if(carInfo.length==2){
+                            edCarLength.setText(carInfo[0]);
+                            edcarWith.setText(carInfo[1]);
+                        }else if(carInfo.length==3){
+                            edCarLength.setText(carInfo[0]);
+                            edcarWith.setText(carInfo[1]);
+                            edCarHight.setText(carInfo[2]);
+                        }
+                    }
+                }
+            }
             edCarWeight.setText(sfInfo.getCyzz());
             if(!TextUtils.isEmpty(sfInfo.getCyczpfjBos())){
                 ImageLoadUtil.displayImage(mContext,sfInfo.getCyczpfjBos(),imgCarPic);
+                stringCarPic=sfInfo.getCyczpfjBos();
             }
             edDriverNo.setText(sfInfo.getJszjhm());
             if(!TextUtils.isEmpty(sfInfo.getCycxszfjBos())){
@@ -741,6 +865,7 @@ public class AddCarServiceInfo extends BaseActivity implements CarServiceView {
 
     @Override
     public void oncomplete() {
+        EventBus.getDefault().post(Constants.reshTeamDelation);
         finish();
 
     }

@@ -103,6 +103,8 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.imgautoarrive)ImageView imgAutoArriver;
     @BindView(R.id.tvofftime)TextView tvOffTime;
     @BindView(R.id.tvspaceTime)TextView tvspaceTime;
+    @BindView(R.id.tvhzsignnum)TextView tvHzSignNum;
+
     @Override
     public int initContentView() {
         return R.layout.fragment_order_sh;
@@ -194,6 +196,7 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
             tvSignStrage.setText(dto.getSingStacticsName());
             tvGuoBangNum.setText(dto.getWeighing());
             tvSignNum.setText(dto.getSjSignInWeight());
+            tvHzSignNum.setText(dto.getHzSignIn());
             if(dto.getAutoSign()==1){
                 tvIsAutoSign.setText("是");
             }else {
@@ -202,9 +205,9 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
             tvReceiveTime.setText(dto.getArrivalStartTime()+"~"+dto.getArrivalEndTime());
             tvGoodName.setText(dto.getList().get(0).getMaterialsName());
             if(dto.getList().get(0).getUnit()==2){
-                tvNum.setText(dto.getList().get(0).getWeight()+"方");
+                tvNum.setText(dto.getList().get(0).getWeight()+dto.getList().get(0).getUnitName());
             }else {
-                tvNum.setText(dto.getList().get(0).getWeight()+"吨");
+                tvNum.setText(dto.getList().get(0).getWeight()+dto.getList().get(0).getUnitName());
             }
             tvPrice.setText(dto.getList().get(0).getPrice()+"元");
             tvGoodPrice.setText(dto.getList().get(0).getGoodprice()+"元");

@@ -128,7 +128,13 @@ public class MainActivity extends BaseActivity
         initWithApiKey();
         getDialog();
         try{
-            File file=new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/nxshiper");
+            String path="";
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+                path= getExternalFilesDir("Caches").getAbsolutePath()+"/nxshiper/";
+            }else {
+                path= Environment.getExternalStorageDirectory().getAbsolutePath() + "/nxshiper";
+            }
+            File file=new File(path);
             deleteFile(file);
         }catch (Exception e){
         }
@@ -348,6 +354,9 @@ public class MainActivity extends BaseActivity
 
 
     public void deleteFile(File file) {
+        if(!file.exists()){
+            return;
+        }
         if(file!=null){
             if (file.isDirectory()) {
                 File[] files = file.listFiles();

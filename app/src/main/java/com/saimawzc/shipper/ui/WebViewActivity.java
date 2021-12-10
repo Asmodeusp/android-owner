@@ -303,12 +303,6 @@ public class WebViewActivity extends BaseActivity {
     }
 
 
-    String path = Environment.getExternalStorageDirectory().getAbsolutePath()+"/CheckWord";
-
-
-
-
-
     public String chageDate(String str){
         str=str.replace("/Date(","").replace(")/","");
         String time = str.substring(0,str.length()-5);

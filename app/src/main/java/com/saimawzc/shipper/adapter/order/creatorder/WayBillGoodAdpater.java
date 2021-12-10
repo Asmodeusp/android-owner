@@ -97,22 +97,15 @@ public class WayBillGoodAdpater extends BaseAdapter {
                 if(dto.getGoodsCompanyDto()!=null){
                     ((ViewHolder) holder).tvGoodName.setText(dto.getGoodsCompanyDto().getName());
                 }
-
-
             }
             if(dto.getGoodNum()>0){
                 ((ViewHolder) holder).edTrantNum.setText(dto.getGoodNum()+"");
             }
-
             if(dto.getGoodPrice()>0){
                 ((ViewHolder) holder).edprice.setText(dto.getGoodPrice()+"");
-            }else {
-                //((ViewHolder) holder).edprice.setHint("");
             }
             if(dto.getGoodPrice_two()>0){
                 ((ViewHolder) holder).edGoodPrice.setText(dto.getGoodPrice_two()+"");
-            }else {
-               // ((ViewHolder) holder).edGoodPrice.setHint("");
             }
             ((ViewHolder) holder).tvWeightUtil.setText(dto.getUtilName());
             if(dto.getBussType()==2){
@@ -124,7 +117,6 @@ public class WayBillGoodAdpater extends BaseAdapter {
                 ((ViewHolder) holder).imgDown.setVisibility(View.INVISIBLE);
                 ((ViewHolder) holder).imgRight.setVisibility(View.INVISIBLE);
                 ((ViewHolder) holder).rl_chooseUtil.setBackground(null);
-
             }
             ((ViewHolder) holder).edTrantNum.setFilters(new InputFilter[] {new LengthFilter(3)});
             ((ViewHolder) holder).edTrantNum.addTextChangedListener(new TextWatcher() {

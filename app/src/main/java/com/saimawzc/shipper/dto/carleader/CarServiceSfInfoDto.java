@@ -22,6 +22,33 @@ public class CarServiceSfInfoDto {
     private String sjId;
     private String skzh;
     private String yddh;
+    private String clsyr;
+    private String cycsjsyr;
+    private String cycsyrlxfs;
+
+    public String getCycsyrlxfs() {
+        return cycsyrlxfs;
+    }
+
+    public void setCycsyrlxfs(String cycsyrlxfs) {
+        this.cycsyrlxfs = cycsyrlxfs;
+    }
+
+    public String getClsyr() {
+        return clsyr;
+    }
+
+    public void setClsyr(String clsyr) {
+        this.clsyr = clsyr;
+    }
+
+    public String getCycsjsyr() {
+        return cycsjsyr;
+    }
+
+    public void setCycsjsyr(String cycsjsyr) {
+        this.cycsjsyr = cycsjsyr;
+    }
 
     public String getCarColor() {
         return carColor;

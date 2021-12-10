@@ -93,6 +93,7 @@ public class TeamGroupSearchActivity extends BaseActivity implements SearchTeamV
                 bundle.putString("teamId",id);
                 bundle.putSerializable("persondata",searchTeamDto);
                 readyGo(AddCarServiceInfo.class,bundle);
+                finish();
                 break;
         }
 
@@ -143,6 +144,7 @@ public class TeamGroupSearchActivity extends BaseActivity implements SearchTeamV
 
     @Override
     public void oncomplete() {
-        EventBus.getDefault().post(Constants.reshTeamDelation);
+
+
     }
 }

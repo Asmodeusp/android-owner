@@ -246,6 +246,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:maxLength="11"
                     android:inputType="phone"
                     android:layout_marginRight="@dimen/px30dp"
                     android:gravity="left"
@@ -400,6 +401,7 @@
                     android:layout_height="wrap_content"
                     android:text="所有人联系方式:" />
                 <EditText
+                    android:maxLength="11"
                     android:inputType="phone"
                     android:textSize="@dimen/px28dp"
                     android:textColor="@color/gray666"
@@ -588,18 +590,82 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <EditText
-                    android:inputType="numberDecimal"
-                    android:layout_marginRight="@dimen/px30dp"
-                    android:gravity="left"
-                    android:textColor="@color/gray666"
-                    android:id="@+id/edcarLength"
-                    android:textSize="@dimen/px28dp"
-                    android:layout_marginLeft="@dimen/px20dp"
-                    android:background="@null"
-                    android:hint="输入车长"
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:layout_weight="1"
+                        android:inputType="numberDecimal"
+                        android:layout_marginRight="@dimen/px30dp"
+                        android:gravity="center"
+                        android:textColor="@color/gray666"
+                        android:id="@+id/edcarLength"
+                        android:textSize="@dimen/px28dp"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:background="@null"
+                        android:hint="车长"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="*"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:layout_weight="1"
+                        android:inputType="numberDecimal"
+                        android:layout_marginRight="@dimen/px30dp"
+                        android:gravity="center"
+                        android:textColor="@color/gray666"
+                        android:id="@+id/edcarWith"
+                        android:textSize="@dimen/px28dp"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:background="@null"
+                        android:hint="车宽"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="*"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:layout_weight="1"
+                        android:inputType="numberDecimal"
+                        android:layout_marginRight="@dimen/px30dp"
+                        android:gravity="center"
+                        android:textColor="@color/gray666"
+                        android:id="@+id/edcarHight"
+                        android:textSize="@dimen/px28dp"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:background="@null"
+                        android:hint="车高"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
             </LinearLayout>
             <include layout="@layout/common_line"></include>
             <LinearLayout
@@ -684,6 +750,7 @@
             </LinearLayout>
             <include layout="@layout/common_line"></include>
             <LinearLayout
+                android:id="@+id/llguakao"
                 android:layout_marginRight="@dimen/px20dp"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -707,6 +774,7 @@
 
             </LinearLayout>
             <TextView
+                android:id="@+id/tvguakao"
                 android:textColor="@color/gray666"
                 android:text="车辆挂靠企业开具申明，车辆仅做挂靠处理时推送附件"
                 android:textSize="@dimen/px24dp"

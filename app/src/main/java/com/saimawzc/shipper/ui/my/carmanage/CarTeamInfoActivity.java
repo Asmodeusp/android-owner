@@ -78,6 +78,10 @@ public class CarTeamInfoActivity extends BaseActivity implements TeamDelationVie
         imgRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(mDatas!=null&&mDatas.size()>=5){
+                    showMessage("您已经添加了5个服务方了");
+                    return;
+                }
                 Bundle bundle=new Bundle();
                 bundle.putString("id",leaderDto.getId());
                 readyGo(TeamGroupSearchActivity.class,bundle);
@@ -103,11 +107,10 @@ public class CarTeamInfoActivity extends BaseActivity implements TeamDelationVie
                 adapter=new TeamDelationAdapter(mDatas,this);
             }
             mDatas.clear();
-            mDatas.addAll(delationDto.getList());
             LinearLayoutManager layoutManager=new LinearLayoutManager(mContext);
             rv.setLayoutManager(layoutManager);
             rv.setAdapter(adapter);
-
+            adapter.addMoreData(delationDto.getList());
             adapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
@@ -161,7 +164,6 @@ public class CarTeamInfoActivity extends BaseActivity implements TeamDelationVie
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void reshCarLeader(String str) {
         if(!TextUtils.isEmpty(str)){
-
             if(str.equals(Constants.reshTeamDelation)){
                 presenter.getDelation(leaderDto.getId());
             }

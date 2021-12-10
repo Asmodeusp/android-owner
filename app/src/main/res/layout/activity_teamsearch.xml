@@ -61,6 +61,8 @@
             </TextView>
 
             <EditText
+                android:maxLength="11"
+                android:inputType="phone"
                 android:id="@+id/edphone"
                 android:gravity="center_vertical"
                 android:minHeight="30dp"
