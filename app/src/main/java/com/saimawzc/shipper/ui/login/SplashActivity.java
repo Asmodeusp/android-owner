@@ -285,6 +285,7 @@ public class SplashActivity extends BaseActivity {
                     InstallUtils.checkInstallPermission(this, new InstallUtils.InstallPermissionCallBack() {
                         @Override
                         public void onGranted() {
+                            Hawk.put(PreferenceKey.OLD_UPDATE_TIME,"");
                             installApk(oldTime);
                         }
                         @Override
