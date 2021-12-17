@@ -102,6 +102,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         </RelativeLayout>
+
+        <include layout="@layout/common_line"></include>
+        <RelativeLayout
+            android:id="@+id/rltime"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px120dp">
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:textColor="@color/color_black"
+                android:text="生效时间"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/px30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:gravity="right"
+                android:textSize="@dimen/px28dp"
+                android:id="@+id/tvtime"
+                android:inputType="numberDecimal"
+                android:background="@null"
+                android:hint="请选择"
+                android:text=""
+                android:layout_marginRight="@dimen/px30dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <include layout="@layout/common_line"></include>
     </LinearLayout>
+
 
 </LinearLayout>

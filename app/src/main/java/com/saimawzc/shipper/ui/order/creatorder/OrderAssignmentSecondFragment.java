@@ -40,6 +40,7 @@ public class OrderAssignmentSecondFragment extends BaseFragment implements Order
     private OrderCarriveSecondPresenter presenter;
     private String id;
     private String orderId;
+    private int isAppointTime=2;
     @BindView(R.id.SwipeRefreshLayout) SwipeRefreshLayout refreshLayout;
 
     @Override
@@ -51,12 +52,18 @@ public class OrderAssignmentSecondFragment extends BaseFragment implements Order
     @Override
     public void initView() {
         mContext=getActivity();
+        try {
+            isAppointTime=getArguments().getInt("isAppointTime");
+        }catch (Exception e){
+
+        }
         orderId=getArguments().getString("orderId");
         context.setToolbar(toolbar,getArguments().getString("name"));
-        adapter = new OrderAssiginSecondAdapter(mDatas, mContext);
+        adapter = new OrderAssiginSecondAdapter(mDatas, mContext,isAppointTime);
         layoutManager = new LinearLayoutManager(mContext);
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(adapter);
+
         id=getArguments().getString("id");
         presenter=new OrderCarriveSecondPresenter(this,mContext);
         presenter.getcarrive(id);
@@ -90,7 +97,6 @@ public class OrderAssignmentSecondFragment extends BaseFragment implements Order
                     }
 
                 }
-                Log.e("msg",mDatas.size()+"临时"+tempDatas.size());
                presenter.orderZp(tempDatas,orderId);
                 break;
         }

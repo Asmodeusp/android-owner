@@ -252,6 +252,7 @@ public class UnCompeletePlanOrderFragment extends BaseFragment
                             bundle =new Bundle();
                             bundle.putString("from","orderzp");
                             bundle.putString("type","");
+                            bundle.putInt("isAppointTime",mDatas.get(position).getIsAppointTime());
                             bundle.putString("id",mDatas.get(position).getId());
                             readyGo(OrderMainActivity.class,bundle);
                         }
@@ -291,6 +292,7 @@ public class UnCompeletePlanOrderFragment extends BaseFragment
                                bundle =new Bundle();
                                bundle.putString("from","orderzp");
                                bundle.putString("type","");
+                               bundle.putInt("isAppointTime",mDatas.get(position).getIsAppointTime());
                                bundle.putString("id",mDatas.get(position).getId());
                                readyGo(OrderMainActivity.class,bundle);
                            }
@@ -305,6 +307,7 @@ public class UnCompeletePlanOrderFragment extends BaseFragment
                                 bundle =new Bundle();
                                 bundle.putString("from","orderzp");
                                 bundle.putString("type","");
+                                bundle.putInt("isAppointTime",mDatas.get(position).getIsAppointTime());
                                 bundle.putString("id",mDatas.get(position).getId());
                                 readyGo(OrderMainActivity.class,bundle);
                             }else if(type.equals("tab3")){//有余量继续竞价
@@ -325,6 +328,7 @@ public class UnCompeletePlanOrderFragment extends BaseFragment
                                 bundle =new Bundle();
                                 bundle.putString("from","orderzp");
                                 bundle.putString("type","");
+                                bundle.putInt("isAppointTime",mDatas.get(position).getIsAppointTime());
                                 bundle.putString("id",mDatas.get(position).getId());
                                 readyGo(OrderMainActivity.class,bundle);
                             }else if(type.equals("tab3")){//有余量继续竞价

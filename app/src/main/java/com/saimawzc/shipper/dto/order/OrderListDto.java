@@ -23,6 +23,15 @@ public class OrderListDto {
     private String underWay;
     private String consult;
     private String weightUnitName;
+    private int isAppointTime;
+
+    public int getIsAppointTime() {
+        return isAppointTime;
+    }
+
+    public void setIsAppointTime(int isAppointTime) {
+        this.isAppointTime = isAppointTime;
+    }
 
     public String getWeightUnitName() {
         return weightUnitName;

@@ -53,6 +53,7 @@ public class OrderAssignmentFragment extends BaseFragment
     @BindView(R.id.SwipeRefreshLayout)SwipeRefreshLayout swipeRefreshLayout;
     private String id;
     private String type="";
+    private int isAppointTime=2;
 
     @Override
     public int initContentView() {
@@ -67,6 +68,11 @@ public class OrderAssignmentFragment extends BaseFragment
         try{
             type=getArguments().getString("type");
         }catch (Exception e){
+        }
+        try {
+            isAppointTime=getArguments().getInt("isAppointTime");
+        }catch (Exception e){
+
         }
         if(TextUtils.isEmpty(type)){
             context.setToolbar(toolbar,"指派");
@@ -93,6 +99,7 @@ public class OrderAssignmentFragment extends BaseFragment
                     bundle.putString("from","ordergroupsecond");
                     bundle.putString("id",mDatas.get(position).getId());
                     bundle.putString("name",mDatas.get(position).getName());
+                    bundle.putInt("isAppointTime",isAppointTime);
                     bundle.putString("orderId",id);
                     readyGoForResult(OrderMainActivity.class,1005,bundle);
                 }else if(type.equals("bidd")){//竞价反回数据

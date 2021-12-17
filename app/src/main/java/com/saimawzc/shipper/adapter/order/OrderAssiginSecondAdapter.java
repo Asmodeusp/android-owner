@@ -1,14 +1,17 @@
 package com.saimawzc.shipper.adapter.order;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.saimawzc.shipper.R;
@@ -18,9 +21,12 @@ import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.carrier.MyCarrierGroupDto;
 import com.saimawzc.shipper.dto.order.OrderAssignmentSecondDto;
+import com.saimawzc.shipper.weight.RepeatClickUtil;
+import com.saimawzc.shipper.weight.TimeChooseDialogUtil;
 import com.saimawzc.shipper.weight.utils.api.mine.MineApi;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.http.Http;
+import com.saimawzc.shipper.weight.utils.listen.TimeChooseListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,12 +47,16 @@ public class OrderAssiginSecondAdapter extends BaseAdapter{
     private List<OrderAssignmentSecondDto> mDatas=new ArrayList<>();
     private Context mContext;
     private LayoutInflater mInflater;
+    private int isShowTime=2;
+     TimeChooseDialogUtil timeChooseDialogUtil;
     public OrderAssiginSecondAdapter(List<OrderAssignmentSecondDto> mDatas,
-                                     Context mContext) {
+                                     Context mContext,int isShowTime) {
         this.mDatas = mDatas;
         this.mContext = mContext;
         mInflater = LayoutInflater.from(mContext);
         activity=(BaseActivity) mContext;
+        this.isShowTime=isShowTime;
+        timeChooseDialogUtil=new TimeChooseDialogUtil(activity);
     }
 
     public void setData(List<OrderAssignmentSecondDto> mDatas ) {
@@ -84,7 +94,7 @@ public class OrderAssiginSecondAdapter extends BaseAdapter{
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder,
-                                 final int position) {
+                                 @SuppressLint("RecyclerView") final int position) {
         if(holder instanceof ViewHolder){
             holder.setIsRecyclable(false);
             final OrderAssignmentSecondDto dto=mDatas.get(position);
@@ -101,7 +111,11 @@ public class OrderAssiginSecondAdapter extends BaseAdapter{
             }else {
                 ((ViewHolder) holder).edtrantNum.setText(dto.getTrantNum()+"");
             }
-
+            if(isShowTime==1){
+                ((ViewHolder) holder).rlTime.setVisibility(View.VISIBLE);
+            }else {
+                ((ViewHolder) holder).rlTime.setVisibility(View.GONE);
+            }
             ((ViewHolder) holder).tvDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -109,6 +123,7 @@ public class OrderAssiginSecondAdapter extends BaseAdapter{
                     notifyDataSetChanged();
                 }
             });
+
             ((ViewHolder) holder).edTrangprice.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -123,7 +138,6 @@ public class OrderAssiginSecondAdapter extends BaseAdapter{
                             dto.setTrantPrice(Double.parseDouble(s.toString()));
                         }
                     }
-
                 }
             });
             ((ViewHolder) holder).edtrantNum.addTextChangedListener(new TextWatcher() {
@@ -138,6 +152,35 @@ public class OrderAssiginSecondAdapter extends BaseAdapter{
                     if(!TextUtils.isEmpty(s.toString())){
                         dto.setTrantNum(Double.parseDouble(s.toString()));
                     }
+                }
+            });
+            ((ViewHolder) holder).tvTime.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.e("msg","点击时间");
+                    if(!RepeatClickUtil.isFastClick()){
+                        activity.showMessage("您操作太频繁，请稍后再试");
+                        return;
+                    }
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(timeChooseDialogUtil==null){
+                                timeChooseDialogUtil=new TimeChooseDialogUtil(mContext);
+                            }
+                            timeChooseDialogUtil.showDialog(new TimeChooseListener() {
+                                @Override
+                                public void getTime(String result) {
+                                    ((ViewHolder) holder).tvTime.setText(result);
+                                    dto.setZpTime(result);
+                                }
+                                @Override
+                                public void cancel() {
+                                    timeChooseDialogUtil.dissDialog();
+                                }
+                            });
+                        }
+                    });
 
                 }
             });
@@ -192,6 +235,10 @@ public class OrderAssiginSecondAdapter extends BaseAdapter{
         @BindView(R.id.tvDelete)TextView tvDelete;
         @BindView(R.id.edtrantPrice) EditText edTrangprice;
         @BindView(R.id.edtrantNum)EditText edtrantNum;
+        @BindView(R.id.rltime)
+        RelativeLayout rlTime;
+        @BindView(R.id.tvtime)
+        TextView tvTime;
     }
     @Override
     public void changeMoreStatus(int status) {

@@ -9,6 +9,15 @@ public class OrderAssignmentSecondDto {
     private String cysCode;
     private String cysName;
     private String cysPhone;
+    private String zpTime;
+
+    public String getZpTime() {
+        return zpTime;
+    }
+
+    public void setZpTime(String zpTime) {
+        this.zpTime = zpTime;
+    }
 
     private double trantPrice;
 

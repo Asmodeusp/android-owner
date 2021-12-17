@@ -32,9 +32,9 @@ public class PlanOrderFragment extends BaseFragment {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.pager_title) CaterpillarIndicator pagerTitle;
     @BindView(R.id.viewpage) ViewPager viewPager;
-    private CompeletePlanOrderFragment compeletePlanOrderFragment;
-    private TransportPlanOrderFragment transportPlanOrderFragment;
     private UnCompeletePlanOrderFragment unCompeletePlanOrderFragment;
+    private TransportPlanOrderFragment transportPlanOrderFragment;
+    private CompeletePlanOrderFragment compeletePlanOrderFragment;
     private ArrayList<Fragment> list;
     private FragmentPagerAdapter mAdapter;
     @BindView(R.id.rightImgBtn) ImageView rightBtn;

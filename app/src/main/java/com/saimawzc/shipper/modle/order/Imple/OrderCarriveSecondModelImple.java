@@ -70,9 +70,9 @@ public class OrderCarriveSecondModelImple extends BasEModeImple implements Order
                     tempObj.put("cysPhone",dtos.get(i).getCysPhone());
                     tempObj.put("price",dtos.get(i).getTrantPrice());
                     tempObj.put("weight",dtos.get(i).getTrantNum());
+                    tempObj.put("zpTime",dtos.get(i).getZpTime());
                     array.put(tempObj);
                 }
-
             }
             jsonObject.put("list",array);
 
