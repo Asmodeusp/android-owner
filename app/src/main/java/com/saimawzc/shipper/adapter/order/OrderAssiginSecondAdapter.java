@@ -168,7 +168,7 @@ public class OrderAssiginSecondAdapter extends BaseAdapter{
                             if(timeChooseDialogUtil==null){
                                 timeChooseDialogUtil=new TimeChooseDialogUtil(mContext);
                             }
-                            timeChooseDialogUtil.showDialog(new TimeChooseListener() {
+                            timeChooseDialogUtil.showDialogSeconds(new TimeChooseListener() {
                                 @Override
                                 public void getTime(String result) {
                                     ((ViewHolder) holder).tvTime.setText(result);
