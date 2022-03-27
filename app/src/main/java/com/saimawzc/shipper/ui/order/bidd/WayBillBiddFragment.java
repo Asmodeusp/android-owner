@@ -1,13 +1,12 @@
 package com.saimawzc.shipper.ui.order.bidd;
 
+import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -17,14 +16,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.SectionedRecyclerViewAdapter;
 import com.saimawzc.shipper.adapter.order.bidd.PlanBiddAdapter;
-import com.saimawzc.shipper.adapter.order.bidd.WayBillBiddAdapter;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.order.bidd.PlanBiddDto;
-import com.saimawzc.shipper.dto.order.bidd.WayBillBiddDto;
 import com.saimawzc.shipper.presenter.bidd.PlanBiddPresenter;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
 import com.saimawzc.shipper.view.bidd.PlanBiddView;
@@ -41,15 +42,14 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
-
 /***
  * 预运单竞价
  * */
 public class WayBillBiddFragment extends BaseFragment
         implements PlanBiddView {
 
-    @BindView(R.id.cy) RecyclerView rv;
+    @BindView(R.id.cy)
+    RecyclerView rv;
     private PlanBiddAdapter adapter;
     private List<PlanBiddDto.planBiddData>mDatas=new ArrayList<>();
     @BindView(R.id.edsearch)

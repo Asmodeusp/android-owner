@@ -2,15 +2,12 @@ package com.saimawzc.shipper.adapter.order.waybill;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -19,9 +16,7 @@ import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.order.BiddingDelationDto;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
-import com.saimawzc.shipper.weight.utils.api.mine.MineApi;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
-import com.saimawzc.shipper.weight.utils.http.Http;
 
 import org.json.JSONException;
 import org.json.JSONObject;

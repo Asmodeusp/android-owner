@@ -1,24 +1,21 @@
 package com.saimawzc.shipper.ui.my.carmanage;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
-import com.saimawzc.shipper.constants.Constants;
 import com.saimawzc.shipper.dto.carleader.SearchTeamDto;
 import com.saimawzc.shipper.presenter.mine.carleader.SearchTeamPresenter;
 import com.saimawzc.shipper.view.mine.carleader.SearchTeamView;
 import com.saimawzc.shipper.weight.CircleImageView;
 import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.OnClick;

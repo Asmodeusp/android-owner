@@ -1,17 +1,12 @@
 package com.saimawzc.shipper.ui.push;
 
-import android.annotation.TargetApi;
-import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.app.NotificationManagerCompat;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import androidx.core.app.NotificationManagerCompat;
 
 public class NotificationUtil {
 

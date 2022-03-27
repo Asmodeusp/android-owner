@@ -1,8 +1,11 @@
 package com.saimawzc.shipper.ui.order.bidd;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
+import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.SectionedRecyclerViewAdapter;
@@ -18,15 +21,15 @@ import java.util.List;
 
 import butterknife.BindView;
 
-import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
-
 /***
  * 竞价排名
  * **/
 public class BiddRankFragment extends BaseFragment implements BiddRandView {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.cy) RecyclerView rv;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.cy)
+    RecyclerView rv;
     private OrderBiddRankAdapter adapter;
     BiddRankPresenter presenter;
     private List<RankPageDto.rankDto>mDatas=new ArrayList<>();

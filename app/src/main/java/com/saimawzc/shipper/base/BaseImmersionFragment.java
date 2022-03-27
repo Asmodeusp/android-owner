@@ -1,29 +1,31 @@
 package com.saimawzc.shipper.base;
 
+import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.REQUEST_CODE_PIC;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.baidu.ocr.ui.camera.CameraActivity;
+import com.gyf.immersionbar.components.SimpleImmersionFragment;
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.dto.identification.PersonCenterDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
 import com.saimawzc.shipper.weight.utils.FileUtil;
 import com.saimawzc.shipper.weight.utils.SdCardUtil;
-import com.gyf.immersionbar.components.SimpleImmersionFragment;
 import com.werb.permissionschecker.PermissionChecker;
 
 import butterknife.ButterKnife;
-
-import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.REQUEST_CODE_PIC;
 
 /**
  * 项目名称：TOPRACING

@@ -1,9 +1,10 @@
 package com.saimawzc.shipper.ui.my.car;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
@@ -20,9 +21,11 @@ import butterknife.BindView;
  */
 
 public class MyCarFragment extends BaseFragment{
-    @BindView(R.id.toolbar)Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.pager_title)CaterpillarIndicator pagerTitle;
-    @BindView(R.id.viewpage)ViewPager viewPager;
+    @BindView(R.id.viewpage)
+    ViewPager viewPager;
     private PassCarFragment passCarFragment;
     private UnPassCarFragment unPassCarFragment;
     private ArrayList<Fragment> list;

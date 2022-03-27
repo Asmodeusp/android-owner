@@ -1,20 +1,18 @@
 package com.saimawzc.shipper.ui.order.planOrder;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
-import com.saimawzc.shipper.ui.homeindex.examine.PlanOrderExampleFragment;
-import com.saimawzc.shipper.ui.homeindex.examine.WayBillExampleFragment;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
 import com.saimawzc.shipper.weight.CaterpillarIndicator;
 import com.saimawzc.shipper.weight.utils.dialog.PopupWindowUtil;
@@ -29,9 +27,11 @@ import butterknife.BindView;
  * ***/
 public class PlanOrderFragment extends BaseFragment {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.pager_title) CaterpillarIndicator pagerTitle;
-    @BindView(R.id.viewpage) ViewPager viewPager;
+    @BindView(R.id.viewpage)
+    ViewPager viewPager;
     private UnCompeletePlanOrderFragment unCompeletePlanOrderFragment;
     private TransportPlanOrderFragment transportPlanOrderFragment;
     private CompeletePlanOrderFragment compeletePlanOrderFragment;

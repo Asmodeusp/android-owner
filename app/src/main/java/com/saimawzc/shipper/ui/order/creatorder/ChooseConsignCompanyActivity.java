@@ -2,12 +2,14 @@ package com.saimawzc.shipper.ui.order.creatorder;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.gyf.immersionbar.ImmersionBar;
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.order.creatorder.ConsignCompanyAdapter;
@@ -15,16 +17,11 @@ import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.order.ConsignmentCompanyDto;
 import com.saimawzc.shipper.presenter.order.ConsignCompanyPresenter;
 import com.saimawzc.shipper.view.order.ConsignCompanyView;
-import com.saimawzc.shipper.weight.utils.http.CallBack;
-import com.gyf.immersionbar.ImmersionBar;
-
-import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-
 /**
  * Created by Administrator on 2020/8/6.
  *
@@ -34,7 +31,8 @@ import butterknife.BindView;
 public class ChooseConsignCompanyActivity extends BaseActivity
         implements ConsignCompanyView {
 
-    @BindView(R.id.rv) RecyclerView rv;
+    @BindView(R.id.rv)
+    RecyclerView rv;
     @BindView(R.id.toolbar) Toolbar toolbar;
     private ConsignCompanyAdapter companyAdapter;
     private List<ConsignmentCompanyDto>mDatas=new ArrayList<>();

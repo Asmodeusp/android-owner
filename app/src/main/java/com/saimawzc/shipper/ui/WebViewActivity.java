@@ -7,8 +7,6 @@ import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -20,9 +18,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
-
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,13 +1,15 @@
 package com.saimawzc.shipper.ui.my.settlement;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
@@ -24,14 +26,13 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static android.app.Activity.RESULT_OK;
-
 /***
  * 结算单查询
  * **/
 public class SetmentQueryFragment extends BaseFragment {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.tvStartTime) TextView tvStartTime;
     @BindView(R.id.tvEndTime)TextView tvEndTime;
     @BindView(R.id.tvaccountcompany)TextView tvAccountcompany;//对账公司

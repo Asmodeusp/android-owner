@@ -1,12 +1,14 @@
 package com.saimawzc.shipper.dto.order.creatorder;
 
+import android.text.TextUtils;
+
 import java.util.List;
 
 public class AssignDelationDto {
 
     private boolean isLastPage;
 
-    private List<listdata>list;
+    private List<listdata> list;
 
     public boolean isLastPage() {
         return isLastPage;
@@ -24,16 +26,31 @@ public class AssignDelationDto {
         this.list = list;
     }
 
-    public class listdata{
+    public class listdata {
         private String cysName;
         private String cysPhone;
         private String pointPrice;
         private String pointWeight;
+        private String endOption;
 
         private String id;
         private int endStatus;
 
         int status;
+
+        public String getEndOption() {
+            if (!TextUtils.isEmpty(endOption)) {
+                return endOption;
+            } else {
+                return "";
+            }
+
+        }
+
+        public void setEndOption(String endOption) {
+            this.endOption = endOption;
+        }
+
         public String getId() {
             return id;
         }
@@ -91,7 +108,6 @@ public class AssignDelationDto {
             this.status = status;
         }
     }
-
 
 
 }

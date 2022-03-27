@@ -1,52 +1,43 @@
 package com.saimawzc.shipper.ui.order;
 
+import static com.saimawzc.shipper.constants.AppConfig.reshPlanOrder;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
-import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.presenter.order.CreatOrderPresenter;
-import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.view.order.CreatOrderView;
 import com.saimawzc.shipper.weight.CaterpillarIndicator;
 import com.saimawzc.shipper.weight.RepeatClickUtil;
-import com.saimawzc.shipper.weight.utils.dialog.BounceTopEnter;
-import com.saimawzc.shipper.weight.utils.dialog.NormalDialog;
-import com.saimawzc.shipper.weight.utils.dialog.OnBtnClickL;
-import com.saimawzc.shipper.weight.utils.dialog.SlideBottomExit;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
-import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 
-import static com.saimawzc.shipper.constants.AppConfig.reshPlanOrder;
 /***
  * 新增计划订单
  * ***/
 
 public class CreatOrderFragment extends BaseFragment implements CreatOrderView {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.pager_title) CaterpillarIndicator pagerTitle;
-    @BindView(R.id.viewpage) ViewPager viewPager;
+    @BindView(R.id.viewpage)
+    ViewPager viewPager;
     private OrderBasicInfoFragment basicInfoFragment;
     private OrderOptionalInfoFragment optionalInfoFragment;
     private ArrayList<Fragment> list;

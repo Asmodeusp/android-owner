@@ -4,13 +4,14 @@ package com.saimawzc.shipper.ui.tab;
 import android.graphics.Outline;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.LinearLayout;
+
+import androidx.annotation.RequiresApi;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -30,13 +31,11 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
-import org.json.JSONException;
-import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 
 /**
  * Created by Administrator on 2020/7/31.
@@ -49,7 +48,8 @@ public class MainIndexFragment extends BaseFragment
     @BindView(R.id.babner) Banner banner;
     private ArrayList<String> list_path;
     private ArrayList<String> list_title;
-    @BindView(R.id.rv) RecyclerView rv;
+    @BindView(R.id.rv)
+    RecyclerView rv;
     private MainIndexAdpater adpater;
     private List<MainIndexDto>mDatas=new ArrayList<>();
     private String arr[]={"对账管理","结算管理","发票管理","扣款管理","运单管理","预警信息"

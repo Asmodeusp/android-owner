@@ -1,18 +1,23 @@
 package com.saimawzc.shipper.adapter.order.creatorder;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.FooterHolder;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.order.ConsultDto;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -102,10 +107,15 @@ public class ConsultAdapter extends BaseAdapter{
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         if(holder instanceof ViewHolder){
             ConsultDto.data dto=mDatas.get(position);
-
+            if (TextUtils.isEmpty(dto.getResTxt2())) {
+                ((ViewHolder) holder).resTxt2Linear.setVisibility(View.GONE);
+            }else {
+                ((ViewHolder) holder).resTxt2Linear.setVisibility(View.VISIBLE);
+                ((ViewHolder) holder).resTxt2Text.setText(dto.getResTxt2());
+            }
 
             if (map!= null) {
                 if(map.get(position)!=null){
@@ -207,6 +217,9 @@ public class ConsultAdapter extends BaseAdapter{
         @BindView(R.id.viewTab3)TextView viewTab3;
         @BindView(R.id.checkBox)
         CheckBox checkBox;
+        @BindView(R.id.resTxt2Text)TextView resTxt2Text;
+        @BindView(R.id.resTxt2Linear)
+        LinearLayout resTxt2Linear;
 
 
     }

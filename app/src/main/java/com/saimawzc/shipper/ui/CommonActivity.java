@@ -1,8 +1,8 @@
 package com.saimawzc.shipper.ui;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 
+import androidx.appcompat.widget.Toolbar;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
@@ -15,7 +15,8 @@ import butterknife.BindView;
 
 public class CommonActivity extends BaseActivity {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     String title="";
     @Override
     protected int getViewId() {

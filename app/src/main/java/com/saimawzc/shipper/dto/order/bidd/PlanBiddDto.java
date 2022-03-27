@@ -56,6 +56,15 @@ public class PlanBiddDto {
         private int weightUnit;
         private String fromName;
         private String toName;
+        private String resTxt2;
+
+        public String getResTxt2() {
+            return resTxt2;
+        }
+
+        public void setResTxt2(String resTxt2) {
+            this.resTxt2 = resTxt2;
+        }
 
         public String getFromName() {
             return fromName;

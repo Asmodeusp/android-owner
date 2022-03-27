@@ -7,8 +7,8 @@ import java.util.List;
  * */
 public class SendCarDto {
 
-    private  boolean isLastPage;
-    private List<SendCarData>list;
+    private boolean isLastPage;
+    private List<SendCarData> list;
 
     public boolean isLastPage() {
         return isLastPage;
@@ -26,7 +26,7 @@ public class SendCarDto {
         this.list = list;
     }
 
-    public class SendCarData{
+    public class SendCarData {
         private String id;
         private String toProName;
         private String toCityName;
@@ -40,12 +40,33 @@ public class SendCarDto {
         private String sjId;
         private double startTime;
         private double endTime;
-        private int  status;
+        private int status;
         private String cysPhone;
         private String fromName;
         private String toName;
         private String fromUserAddress;
         private String toUserAddress;
+        private Double outFactoryWeight;
+        private Double sjSignInWeight;
+        private Double hzSignInWeight;
+        private Integer transportStatus;
+        private String resTxt2;
+
+        public String getResTxt2() {
+            return resTxt2;
+        }
+
+        public void setResTxt2(String resTxt2) {
+            this.resTxt2 = resTxt2;
+        }
+
+        public Integer getTransportStatus() {
+            return transportStatus;
+        }
+
+        public void setTransportStatus(Integer transportStatus) {
+            this.transportStatus = transportStatus;
+        }
 
         public String getFromName() {
             return fromName;
@@ -197,6 +218,30 @@ public class SendCarDto {
 
         public void setMaterialsName(String materialsName) {
             this.materialsName = materialsName;
+        }
+
+        public Double getOutFactoryWeight() {
+            return outFactoryWeight;
+        }
+
+        public void setOutFactoryWeight(Double outFactoryWeight) {
+            this.outFactoryWeight = outFactoryWeight;
+        }
+
+        public Double getSjSignInWeight() {
+            return sjSignInWeight;
+        }
+
+        public void setSjSignInWeight(Double sjSignInWeight) {
+            this.sjSignInWeight = sjSignInWeight;
+        }
+
+        public Double getHzSignInWeight() {
+            return hzSignInWeight;
+        }
+
+        public void setHzSignInWeight(Double hzSignInWeight) {
+            this.hzSignInWeight = hzSignInWeight;
         }
     }
 }

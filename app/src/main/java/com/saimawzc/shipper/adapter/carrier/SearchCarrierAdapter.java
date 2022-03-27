@@ -1,12 +1,15 @@
 package com.saimawzc.shipper.adapter.carrier;
 
+import static com.saimawzc.shipper.constants.AppConfig.reshCarrive;
+
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -29,8 +32,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-
-import static com.saimawzc.shipper.constants.AppConfig.reshCarrive;
 
 /**
  * Created by Administrator on 2020/8/6.

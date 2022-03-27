@@ -4,7 +4,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.FooterHolder;
@@ -21,7 +22,6 @@ import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.order.SendCarDto;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
 import com.saimawzc.shipper.weight.utils.dialog.PopupWindowUtil;
-import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
 import com.werb.permissionschecker.PermissionChecker;
 
@@ -95,10 +95,17 @@ public class SendCarAdapter extends BaseAdapter {
         return null;
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         if(holder instanceof ViewHolder){
             SendCarDto.SendCarData dto=mDatas.get(position);
+            if (TextUtils.isEmpty(dto.getResTxt2())) {
+                ((ViewHolder) holder).resTxt2Linear.setVisibility(View.GONE);
+            }else {
+                ((ViewHolder) holder).resTxt2Linear.setVisibility(View.VISIBLE);
+                ((ViewHolder) holder).resTxt2Text.setText(dto.getResTxt2());
+            }
              ImageLoadUtil.displayImage(mContext,dto.getCompanyLogo(),((ViewHolder) holder).imageView);
              ((ViewHolder) holder).tvAdress.setText(dto.getFromUserAddress());
             ((ViewHolder) holder).tvAdressTo.setText(dto.getToUserAddress());
@@ -135,8 +142,35 @@ public class SendCarAdapter extends BaseAdapter {
                 ((ViewHolder) holder).viewTab2.setVisibility(View.VISIBLE);
                 ((ViewHolder) holder).viewTab3.setVisibility(View.GONE);
             }else if(type.equals("3")){//已经完成
+                if (dto.getOutFactoryWeight()!=null&&dto.getSjSignInWeight()!=null) {
+                    if (dto.getOutFactoryWeight()==0.0&&dto.getSjSignInWeight()==0.0) {
+                        if (dto.getHzSignInWeight()!=null&&dto.getTransportStatus()!=null) {
+                            if (dto.getHzSignInWeight()==0.0&&dto.getTransportStatus()==8) {
+                                ((ViewHolder) holder).viewTab2.setText("签收量存疑");
+                                ((ViewHolder) holder).viewTab2.setTextColor(mContext.getResources().getColor(R.color.white));
+                                ((ViewHolder) holder).viewTab2.setBackground(mContext.getResources().getDrawable(R.drawable.shape_list_btn_org));
+                            }else {
+                                ((ViewHolder) holder).viewTab2.setText("确认签收");
+                                ((ViewHolder) holder).viewTab2.setTextColor(mContext.getResources().getColor(R.color.gray333));
+                                ((ViewHolder) holder).viewTab2.setBackground(mContext.getResources().getDrawable(R.drawable.shape_list_btn));
+                            }
+                        }else {
+                            ((ViewHolder) holder).viewTab2.setText("确认签收");
+                            ((ViewHolder) holder).viewTab2.setTextColor(mContext.getResources().getColor(R.color.gray333));
+                            ((ViewHolder) holder).viewTab2.setBackground(mContext.getResources().getDrawable(R.drawable.shape_list_btn));
+                        }
+                    }else {
+                        ((ViewHolder) holder).viewTab2.setText("确认签收");
+                        ((ViewHolder) holder).viewTab2.setTextColor(mContext.getResources().getColor(R.color.gray333));
+                        ((ViewHolder) holder).viewTab2.setBackground(mContext.getResources().getDrawable(R.drawable.shape_list_btn));
+                    }
+                }else {
+                    ((ViewHolder) holder).viewTab2.setText("确认签收");
+                    ((ViewHolder) holder).viewTab2.setTextColor(mContext.getResources().getColor(R.color.gray333));
+                    ((ViewHolder) holder).viewTab2.setBackground(mContext.getResources().getDrawable(R.drawable.shape_list_btn));
+                }
+
                 ((ViewHolder) holder).viewTab1.setText("物流信息");
-                ((ViewHolder) holder).viewTab2.setText("确认签收");
                 ((ViewHolder) holder).viewTab1.setVisibility(View.VISIBLE);
                 ((ViewHolder) holder).viewTab2.setVisibility(View.VISIBLE);
                 ((ViewHolder) holder).viewTab3.setVisibility(View.GONE);
@@ -308,6 +342,8 @@ public class SendCarAdapter extends BaseAdapter {
         @BindView(R.id.to_company)TextView tvToCompany;
         @BindView(R.id.tvUitl1)TextView tvUitl1;
         @BindView(R.id.tvUitl2)TextView tvUitl2;
+        @BindView(R.id.resTxt2Linear)LinearLayout resTxt2Linear;
+        @BindView(R.id.resTxt2Text)TextView resTxt2Text;
     }
     @Override
     public void changeMoreStatus(int status) {

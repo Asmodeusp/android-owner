@@ -3,10 +3,13 @@ package com.saimawzc.shipper.modle.login;
 import android.app.Activity;
 import android.util.Log;
 
+import com.saimawzc.shipper.base.BaseApplication;
 import com.saimawzc.shipper.base.BaseListener;
+import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
 import com.saimawzc.shipper.modle.BasEModeImple;
 import com.saimawzc.shipper.view.login.LoginView;
+import com.saimawzc.shipper.weight.utils.SPUtils;
 import com.saimawzc.shipper.weight.utils.StringUtil;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
@@ -73,6 +76,8 @@ public class LoginModelImple extends BasEModeImple implements LoginModel {
                     }
                 });
                 listener.successful(role);
+                String  channelId = (String) SPUtils.get(BaseApplication.getInstance(), "channelId", "");
+                submitPushInfo(channelId);
             }
 
             @Override
@@ -83,6 +88,27 @@ public class LoginModelImple extends BasEModeImple implements LoginModel {
         });
 
     }
+    private void submitPushInfo(String channelId){
+        JSONObject jsonObject=new JSONObject();
+        try {
+            jsonObject.put("loginSource","1");//安卓
+            jsonObject.put("channelId",channelId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("msg",jsonObject.toString());
+        final MediaType JSON= MediaType.parse("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(JSON,jsonObject.toString());
+        authApi.updatePushInfo(body).enqueue(new CallBack<EmptyDto>() {
+            @Override
+            public void success(EmptyDto response) {
 
+            }
+            @Override
+            public void fail(String code, String message) {
+
+            }
+        });
+    }
 
 }

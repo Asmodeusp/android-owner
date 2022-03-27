@@ -1,17 +1,17 @@
 package com.saimawzc.shipper.ui.tab;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.gyf.immersionbar.ImmersionBar;
 import com.saimawzc.shipper.R;
-import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.base.BaseImmersionFragment;
 import com.saimawzc.shipper.ui.order.bidd.ManageBiddFragment;
 import com.saimawzc.shipper.ui.order.bidd.PlanBiddFragment;
 import com.saimawzc.shipper.ui.order.bidd.WayBillBiddFragment;
 import com.saimawzc.shipper.weight.CaterpillarIndicator;
-import com.gyf.immersionbar.ImmersionBar;
 
 import java.util.ArrayList;
 import java.util.List;

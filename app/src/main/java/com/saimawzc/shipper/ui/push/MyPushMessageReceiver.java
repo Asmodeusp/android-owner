@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.PushMessageReceiver;
+import com.saimawzc.shipper.base.BaseApplication;
 import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
 import com.saimawzc.shipper.ui.MainActivity;
 import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.ui.my.PersonCenterActivity;
+import com.saimawzc.shipper.weight.utils.SPUtils;
 import com.saimawzc.shipper.weight.utils.api.auto.AuthApi;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
@@ -62,7 +64,8 @@ public class MyPushMessageReceiver extends PushMessageReceiver {
         if (errorCode == 0) {
             // 绑定成功
             Log.d(TAG, "绑定成功");
-            submitPushInfo(channelId);
+            SPUtils.put(BaseApplication.getInstance(),"channelId",channelId);
+//            submitPushInfo(channelId);
         }
     }
 
@@ -254,28 +257,28 @@ public class MyPushMessageReceiver extends PushMessageReceiver {
 //
     }
 
-    private void submitPushInfo(String channelId){
-        JSONObject jsonObject=new JSONObject();
-        try {
-            jsonObject.put("loginSource","1");//安卓
-            jsonObject.put("channelId",channelId);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Log.e("msg",jsonObject.toString());
-        final MediaType JSON= MediaType.parse("application/json; charset=utf-8");
-        RequestBody body = RequestBody.create(JSON,jsonObject.toString());
-        authApi.updatePushInfo(body).enqueue(new CallBack<EmptyDto>() {
-            @Override
-            public void success(EmptyDto response) {
-
-            }
-            @Override
-            public void fail(String code, String message) {
-
-            }
-        });
-    }
+//    private void submitPushInfo(String channelId){
+//        JSONObject jsonObject=new JSONObject();
+//        try {
+//            jsonObject.put("loginSource","1");//安卓
+//            jsonObject.put("channelId",channelId);
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        Log.e("msg",jsonObject.toString());
+//        final MediaType JSON= MediaType.parse("application/json; charset=utf-8");
+//        RequestBody body = RequestBody.create(JSON,jsonObject.toString());
+//        authApi.updatePushInfo(body).enqueue(new CallBack<EmptyDto>() {
+//            @Override
+//            public void success(EmptyDto response) {
+//
+//            }
+//            @Override
+//            public void fail(String code, String message) {
+//
+//            }
+//        });
+//    }
     /**
      * 启动新的Activity
      * @param context 当前Activity

@@ -1,7 +1,8 @@
 package com.saimawzc.shipper.base;
 
+import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.REQUEST_CODE_PIC;
+
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
@@ -25,14 +26,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
-import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -44,6 +37,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
 import com.baidu.ocr.sdk.OCR;
@@ -53,6 +55,8 @@ import com.baidu.ocr.sdk.model.AccessToken;
 import com.baidu.ocr.ui.camera.CameraActivity;
 import com.baidu.ocr.ui.camera.CameraNativeHelper;
 import com.baidu.ocr.ui.camera.CameraView;
+import com.gyf.immersionbar.ImmersionBar;
+import com.nanchen.compresshelper.CompressHelper;
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.dto.login.AreaDto;
 import com.saimawzc.shipper.dto.login.UserInfoDto;
@@ -61,12 +65,11 @@ import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
 import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.weight.BottomDialogUtil;
 import com.saimawzc.shipper.weight.utils.FileUtil;
-import com.saimawzc.shipper.weight.utils.api.OrderApi;
-import com.saimawzc.shipper.weight.utils.api.auto.AuthApi;
 import com.saimawzc.shipper.weight.utils.Md5Utils;
 import com.saimawzc.shipper.weight.utils.MyComparator;
 import com.saimawzc.shipper.weight.utils.SdCardUtil;
-import com.saimawzc.shipper.weight.utils.statusbar.StatusBarUtil;
+import com.saimawzc.shipper.weight.utils.api.OrderApi;
+import com.saimawzc.shipper.weight.utils.api.auto.AuthApi;
 import com.saimawzc.shipper.weight.utils.api.mine.MineApi;
 import com.saimawzc.shipper.weight.utils.app.AppManager;
 import com.saimawzc.shipper.weight.utils.dialog.DialogLoading;
@@ -74,9 +77,8 @@ import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.http.Http;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
+import com.saimawzc.shipper.weight.utils.statusbar.StatusBarUtil;
 import com.saimawzc.shipper.weight.utils.update.InstallUtils;
-import com.gyf.immersionbar.ImmersionBar;
-import com.nanchen.compresshelper.CompressHelper;
 import com.werb.permissionschecker.PermissionChecker;
 
 import org.greenrobot.eventbus.EventBus;
@@ -104,8 +106,6 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import butterknife.ButterKnife;
-
-import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.REQUEST_CODE_PIC;
 
 /**
  * Created by Administrator on 2018-03-21.
@@ -322,7 +322,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ico_menu_return);
         TextView titleTv = (TextView) toolbar.findViewById(R.id.title);
         setSupportActionBar(toolbar);
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);

@@ -1,12 +1,14 @@
 package com.saimawzc.shipper.adapter.carrier;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -79,7 +81,7 @@ public class MyCarierGroupSecondAdapter extends BaseAdapter {
         return null;
     }
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         if(holder instanceof ViewHolder){
             final MycarrierGroupSecondDto myDriverDto=mDatas.get(position);
             ((ViewHolder) holder).tvName.setText(myDriverDto.getCysName());

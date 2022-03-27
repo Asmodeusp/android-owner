@@ -1,12 +1,13 @@
 package com.saimawzc.shipper.ui.my.set.suggest;
 
 import android.content.Intent;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -29,10 +30,12 @@ public class SuggestDealDelationFragment extends BaseFragment
         implements MySuggestDelationView {
 
     private SuggestDto suggestDto;
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.tvquestionContect) TextView tvQuesTion;
     @BindView(R.id.tvanstionContect)TextView tvAnstion;
-    @BindView(R.id.cy_question) RecyclerView cyQuestion;
+    @BindView(R.id.cy_question)
+    RecyclerView cyQuestion;
     @BindView(R.id.cy_anstion)RecyclerView rvAns;
     private ShowImageAdpater imgAdapterquestion;
     private ShowImageAdpater imgAdapterAns;

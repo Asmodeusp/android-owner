@@ -1,6 +1,5 @@
 package com.saimawzc.shipper.dto.myselment;
 
-import android.support.v4.view.PagerAdapter;
 
 /****
  * 我的结算

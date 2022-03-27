@@ -1,34 +1,29 @@
 package com.saimawzc.shipper.adapter.order.creatorder;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.FooterHolder;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.EmptyDto;
-import com.saimawzc.shipper.dto.order.OrderAssignmentSecondDto;
 import com.saimawzc.shipper.dto.order.creatorder.AssignDelationDto;
-import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.weight.utils.api.OrderApi;
 import com.saimawzc.shipper.weight.utils.dialog.BounceTopEnter;
 import com.saimawzc.shipper.weight.utils.dialog.NormalDialog;
 import com.saimawzc.shipper.weight.utils.dialog.OnBtnClickL;
 import com.saimawzc.shipper.weight.utils.dialog.SlideBottomExit;
-import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.http.Http;
-import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -102,6 +97,13 @@ public class AssiginDelationAdapter extends BaseAdapter{
             ((ViewHolder) holder).tvPhone.setText(dto.getCysPhone());
             ((ViewHolder) holder).edTrangprice.setText(dto.getPointPrice());
             ((ViewHolder) holder).edtrantNum.setText(dto.getPointWeight());
+            if (!TextUtils.isEmpty(dto.getEndOption())) {
+                ((ViewHolder) holder).suggestLinear.setVisibility(View.VISIBLE);
+                ((ViewHolder) holder).suggestText.setText(dto.getEndOption());
+            }else {
+                ((ViewHolder) holder).suggestLinear.setVisibility(View.GONE);
+            }
+
 
             if(dto.getEndStatus()==3){
                 ((ViewHolder) holder).lineAgreen.setVisibility(View.VISIBLE);
@@ -232,6 +234,8 @@ public class AssiginDelationAdapter extends BaseAdapter{
         LinearLayout lineAgreen;
         @BindView(R.id.tvAgreen)TextView tvArgeen;
         @BindView(R.id.tvRefuse)TextView tvRefuse;
+        @BindView(R.id.suggest_text)TextView suggestText;
+        @BindView(R.id.suggestLinear)LinearLayout suggestLinear;
     }
     @Override
     public void changeMoreStatus(int status) {

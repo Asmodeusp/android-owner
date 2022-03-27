@@ -1,13 +1,11 @@
 package com.saimawzc.shipper.ui.order.creatorder.richtext;
 
 
-
 import android.annotation.TargetApi;
 import android.content.pm.ActivityInfo;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,11 +16,16 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+
+import androidx.appcompat.widget.Toolbar;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.weight.utils.richtext.MyJavaScripteInterface;
 import com.saimawzc.shipper.weight.utils.richtext.utils.RichUtils;
+
 import java.util.ArrayList;
+
 import butterknife.BindView;
 
 /**

@@ -4,15 +4,13 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
@@ -30,7 +28,6 @@ import com.saimawzc.shipper.adapter.AdvertisementAdatper;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.order.manage.OrderManageRoleDto;
 import com.saimawzc.shipper.presenter.order.ordermange.OrderManageMapPresenter;
-import com.saimawzc.shipper.ui.baidu.utils.MapUtil;
 import com.saimawzc.shipper.view.order.manage.OrderManageMapView;
 
 import java.util.ArrayList;
@@ -43,7 +40,8 @@ public class OrderManageMapActivity extends BaseActivity
         implements OrderManageMapView {
 
     @BindView(R.id.mapview) MapView mapView;
-    @BindView(R.id.viewPager) ViewPager viewPager;
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
     @BindView(R.id.ll_dot) LinearLayout llDot;
     private List<OrderManageRoleDto.mapData>mdatas=new ArrayList<>();
     private int dotSize = 12;

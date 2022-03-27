@@ -2,7 +2,6 @@ package com.saimawzc.shipper.ui.login;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -10,6 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
@@ -33,7 +34,8 @@ public class ForgetPassActivity  extends BaseActivity implements ForgetPassView{
     @BindView(R.id.btn_Code)TextView btnCode;
     @BindView(R.id.ed_pass)EditText edPass;
     @BindView(R.id.ed_orderpass)EditText edOrderPass;
-    @BindView(R.id.toolbar)Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.btn_acc_clear) ImageView mAccClear;
     @BindView(R.id.btn_Login_mask) TextView mLoginMask;
     private ForgetPassresenter passresenter;

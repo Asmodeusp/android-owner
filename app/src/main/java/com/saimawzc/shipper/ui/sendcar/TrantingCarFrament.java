@@ -1,23 +1,24 @@
 package com.saimawzc.shipper.ui.sendcar;
 
+import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -31,7 +32,6 @@ import com.saimawzc.shipper.ui.baidu.TracingActivity;
 import com.saimawzc.shipper.ui.baidu.utils.BitmapUtil;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
 import com.saimawzc.shipper.view.order.SendCarListView;
-import com.saimawzc.shipper.weight.BottomDialogUtil;
 import com.saimawzc.shipper.weight.ClearTextEditText;
 import com.saimawzc.shipper.weight.NoData;
 import com.saimawzc.shipper.weight.utils.LoadMoreListener;
@@ -45,13 +45,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
-
 /***
  * 运输中
  * **/
 public class TrantingCarFrament extends BaseFragment implements SendCarListView {
-    @BindView(R.id.cy) RecyclerView rv;
+    @BindView(R.id.cy)
+    RecyclerView rv;
     private SendCarAdapter adapter;
     private List<SendCarDto.SendCarData>mDatas=new ArrayList<>();
     @BindView(R.id.SwipeRefreshLayout)
@@ -278,6 +277,13 @@ public class TrantingCarFrament extends BaseFragment implements SendCarListView 
     public void getSignWeight(SignWeightDto dto) {
 
     }
+
+    @Override
+    public void getDoubtSignIn(String dto) {
+
+    }
+
+
 
     @Override
     public void showLoading() {

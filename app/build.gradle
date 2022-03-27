@@ -8,13 +8,17 @@ android {
         javaMaxHeapSize "4g"
         jumboMode true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.saimawzc.shipper"//com.smwl.wzc
         minSdkVersion 19
         targetSdkVersion 29
         multiDexEnabled true //Howard 2017-08-31 解决方法数超过65536的问题
-        versionCode 13
-        versionName "1.0.3"//1.2.2
+        versionCode 30
+        versionName "3.3.4"//1.2.2
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             // 设置支持的 SO 库构架，一般而言，取你所有的库支持的构架的`交集`。
@@ -55,13 +59,13 @@ android {
     dependencies {
 
         implementation fileTree(include: ['*.jar'], dir: 'libs')
-        implementation'com.tencent.bugly:crashreport:latest.release'
-        implementation'com.tencent.bugly:nativecrashreport:latest.release'
+        implementation 'com.tencent.bugly:crashreport:latest.release'
+        implementation 'com.tencent.bugly:nativecrashreport:latest.release'
         //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
-        implementation'com.android.support:appcompat-v7:26.+'
-        implementation'com.android.support.constraint:constraint-layout:1.0.2'
-        implementation'com.android.support:design:26.0.0-alpha1'
-        testImplementation'junit:junit:4.12'
+        implementation 'com.android.support:appcompat-v7:26.+'
+        implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+        implementation 'com.android.support:design:26.0.0-alpha1'
+        testImplementation 'junit:junit:4.12'
         implementation project(':compresshelper')
         implementation 'com.google.code.gson:gson:2.7'
         /** 方法数量超过65536                                    */
@@ -70,8 +74,8 @@ android {
         implementation 'cat.ereza:customactivityoncrash:1.5.0'
         /**                                     */
         /** 注解                                    */
-        implementation 'com.jakewharton:butterknife:8.4.0'
-        annotationProcessor  'com.jakewharton:butterknife-compiler:8.4.0'
+        implementation 'com.jakewharton:butterknife:10.0.0'
+        annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
         implementation('com.squareup.retrofit2:converter-simplexml:2.0.1') {
             exclude group: 'xpp3', module: 'xpp3'
             exclude group: 'stax', module: 'stax-api'
@@ -80,7 +84,9 @@ android {
         /** 沉浸*/
         implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
         implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
-
+        /**Glide */
+        implementation 'com.github.bumptech.glide:glide:4.9.0'
+        annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
         /** Android 6.0权限*/
         implementation 'com.werb.permissionschecker:permissionschecker:0.0.1-beta2'
         /** 相册选择                                    */
@@ -91,7 +97,6 @@ android {
         implementation 'com.squareup.retrofit2:retrofit:2.3.0'
         implementation 'com.squareup.okio:okio:1.13.0'
         implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
-        implementation 'com.github.bumptech.glide:glide:3.7.0'
         implementation 'com.jpeng:JPTabBar:1.1.0'
         implementation 'com.youth.banner:banner:1.4.9'
         /** 滚轮                                */
@@ -102,6 +107,8 @@ android {
         implementation 'com.squareup.retrofit2:converter-scalars:2.0.0'
         implementation project(':zbarlibary')
         implementation files('libs/pushservice-7.0.0.27.jar')
+        //图片选择器
+        implementation 'io.github.lucksiege:pictureselector:v2.7.0-rc02'
     }
 }
 dependencies {

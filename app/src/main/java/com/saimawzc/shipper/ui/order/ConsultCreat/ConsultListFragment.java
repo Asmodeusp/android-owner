@@ -1,9 +1,10 @@
 package com.saimawzc.shipper.ui.order.ConsultCreat;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;

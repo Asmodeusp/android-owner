@@ -3,14 +3,6 @@
  */
 package com.baidu.ocr.ui.camera;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -19,10 +11,23 @@ import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
 import android.graphics.YuvImage;
 import android.hardware.Camera;
-import android.support.v4.app.ActivityCompat;
+import android.os.Build;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+
 
 /**
  * 5.0以下相机API的封装。
@@ -181,6 +186,7 @@ public class Camera1Control implements ICameraControl {
         setFlashMode(FLASH_MODE_OFF);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void resume() {
         takingPicture.set(false);
@@ -249,16 +255,19 @@ public class Camera1Control implements ICameraControl {
         this.permissionCallback = callback;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     public Camera1Control(Context context) {
         this.context = context;
         previewView = new PreviewView(context);
         openCamera();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private void openCamera() {
         setupDisplayView();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private void setupDisplayView() {
         final TextureView textureView = new TextureView(context);
         previewView.textureView = textureView;
@@ -525,6 +534,7 @@ public class Camera1Control implements ICameraControl {
 
         private float ratio = 0.75f;
 
+        @RequiresApi(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH)
         void setTextureView(TextureView textureView) {
             this.textureView = textureView;
             removeAllViews();

@@ -1,15 +1,18 @@
 package com.saimawzc.shipper.ui.order.advancewaybill;
 
+import static com.saimawzc.shipper.constants.AppConfig.reshWaybIllOrder;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.order.creatorder.WayBillGoodAdpater;
@@ -17,10 +20,8 @@ import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.order.creatorder.GoodsCompanyDto;
 import com.saimawzc.shipper.dto.order.creatorder.OrderDelationDto;
 import com.saimawzc.shipper.dto.order.creatorder.waybill.AddWayBillGoodsDto;
-import com.saimawzc.shipper.presenter.order.OrderApprovalPresenter;
 import com.saimawzc.shipper.presenter.order.waybill.WaybillApprovalPresenter;
 import com.saimawzc.shipper.ui.order.creatorder.richtext.ShowArtActivity;
-import com.saimawzc.shipper.view.order.OrderApprovalView;
 import com.saimawzc.shipper.view.order.waybill.WaybillApprovalView;
 import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
 
@@ -29,8 +30,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-
-import static com.saimawzc.shipper.constants.AppConfig.reshWaybIllOrder;
 
 /***
  * 预审核
@@ -66,7 +65,8 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.imgapplyfp) ImageView imgApplyfp;
     @BindView(R.id.imgapplyzhpz) ImageView imgApplyzhpz;
     @BindView(R.id.imgapplyxhpz) ImageView imgApplyxhpz;
-    @BindView(R.id.cy) RecyclerView rv;
+    @BindView(R.id.cy)
+    RecyclerView rv;
     private WaybillApprovalPresenter presenter;
     private String type="";
     @BindView(R.id.llBtn) LinearLayout llBtn;
@@ -108,6 +108,8 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @BindView(R.id.tvofftime)TextView tvOffTime;
     @BindView(R.id.tvspaceTime)TextView tvspaceTime;
     @BindView(R.id.tvhzsignnum)TextView tvHzSignNum;
+    @BindView(R.id.resTxt2Linear)LinearLayout resTxt2Linear;
+    @BindView(R.id.resTxt2Text)TextView resTxt2Text;
     @Override
     public int initContentView() {
         return R.layout.fragment_waybill_sh;
@@ -162,6 +164,12 @@ public class WayBillApprovalFragment extends BaseFragment implements WaybillAppr
     @Override
     public void getOrderDelation(final OrderDelationDto dto) {
         if(dto!=null){
+            if (TextUtils.isEmpty(dto.getChoose().getResTxt2())) {
+                resTxt2Linear.setVisibility(View.GONE);
+            }else {
+                resTxt2Linear.setVisibility(View.VISIBLE);
+                resTxt2Text.setText(dto.getChoose().getResTxt2());
+            }
             tvAuthority.setText(dto.getCompanyName());
             tvConsignCompany.setText(dto.getHandComName());
             if(dto.getBusinessType()==1){

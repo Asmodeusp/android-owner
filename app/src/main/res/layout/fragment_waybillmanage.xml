@@ -23,9 +23,9 @@
         app:slide_text_size_normal="15sp"
         app:slide_text_size_selected="15sp" />
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </android.support.v4.view.ViewPager>
+    </androidx.viewpager.widget.ViewPager>
 </LinearLayout>

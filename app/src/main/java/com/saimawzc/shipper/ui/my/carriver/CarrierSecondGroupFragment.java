@@ -1,23 +1,23 @@
 package com.saimawzc.shipper.ui.my.carriver;
 
+import static com.saimawzc.shipper.constants.AppConfig.reshCarrive;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
-import com.saimawzc.shipper.adapter.carrier.CarrierGroupAdapter;
 import com.saimawzc.shipper.adapter.carrier.MyCarierGroupSecondAdapter;
 import com.saimawzc.shipper.base.BaseFragment;
-import com.saimawzc.shipper.dto.carrier.MyCarrierGroupDto;
 import com.saimawzc.shipper.dto.carrier.MycarrierGroupSecondDto;
 import com.saimawzc.shipper.presenter.mine.carrive.CarriveSecondGroupPresenter;
 import com.saimawzc.shipper.ui.my.PersonCenterActivity;
@@ -29,8 +29,6 @@ import java.util.List;
 
 import butterknife.BindView;
 
-import static com.saimawzc.shipper.constants.AppConfig.reshCarrive;
-
 /**
  * Created by Administrator on 2020/8/11.
  * 承运商二级分组
@@ -38,9 +36,11 @@ import static com.saimawzc.shipper.constants.AppConfig.reshCarrive;
 public class CarrierSecondGroupFragment extends BaseFragment
         implements CarriveSecondView {
 
-    @BindView(R.id.toolbar)Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.rv)SlideRecyclerView rv;
-    @BindView(R.id.SwipeRefreshLayout) SwipeRefreshLayout refreshLayout;
+    @BindView(R.id.SwipeRefreshLayout)
+    SwipeRefreshLayout refreshLayout;
     private MyCarierGroupSecondAdapter adapter;
     private List<MycarrierGroupSecondDto>mDatas=new ArrayList<>();
     private CarriveSecondGroupPresenter  presenter;

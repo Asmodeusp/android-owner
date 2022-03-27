@@ -1,17 +1,19 @@
 package com.saimawzc.shipper.ui.sendcar;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import com.baidu.mapapi.map.MapView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.order.ChangeCarAdapter;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.order.send.ChangeCarDto;
 import com.saimawzc.shipper.presenter.order.sendcar.ChangeCarPresenter;
 import com.saimawzc.shipper.view.order.sendcar.ChangeCarView;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 
 /*****
@@ -20,8 +22,10 @@ import butterknife.BindView;
 public class ChangeCarInfoFragment extends BaseFragment implements ChangeCarView {
 
     private String id;
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.rv) RecyclerView rv;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.rv)
+    RecyclerView rv;
     private ChangeCarPresenter presenter;
     private ChangeCarAdapter adapter;
     private List<ChangeCarDto>mDatas=new ArrayList<>();

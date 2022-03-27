@@ -1,13 +1,14 @@
 package com.saimawzc.shipper.ui.my.carriver;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.carrier.SearchCarrierAdapter;
@@ -32,7 +33,8 @@ public class SearchCarriveFragment extends BaseFragment implements SearchCarrive
 
     @BindView(R.id.edsearch)
     ClearTextEditText edSearch;
-    @BindView(R.id.rv)RecyclerView rv;
+    @BindView(R.id.rv)
+    RecyclerView rv;
     @BindView(R.id.llSearch)LinearLayout llSearch;
     private SearchCarrierAdapter adapter;
     private List<MyCarriveDto> mDatas=new ArrayList<>();

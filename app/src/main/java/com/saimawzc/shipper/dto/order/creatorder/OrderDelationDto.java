@@ -14,7 +14,7 @@ public class OrderDelationDto {
     private String companyId;
     private String companyName;
     private String confirmor;
-    private String  confirmorStactics;
+    private String confirmorStactics;
     private String fromId;
     private String fromName;
     private String fromUserAddress;
@@ -29,6 +29,15 @@ public class OrderDelationDto {
     private int businessType;
     private String weightUnitName;
     private String hzSignIn;
+    private String resTxt2;
+
+    public String getResTxt2() {
+        return resTxt2;
+    }
+
+    public void setResTxt2(String resTxt2) {
+        this.resTxt2 = resTxt2;
+    }
 
     public String getHzSignIn() {
         return hzSignIn;
@@ -119,7 +128,7 @@ public class OrderDelationDto {
 
     private String confirmorName;
 
-    private String  fromLocation;
+    private String fromLocation;
     private String autoSignName;
 
     private String confirmorStacticsName;
@@ -202,7 +211,7 @@ public class OrderDelationDto {
         this.confirmorStacticsName = confirmorStacticsName;
     }
 
-    private List<listdata>  list;
+    private List<listdata> list;
 
     public List<listdata> getList() {
         return list;
@@ -225,9 +234,11 @@ public class OrderDelationDto {
     public String getToOperateTime() {
         return toOperateTime;
     }
+
     public void setToOperateTime(String toOperateTime) {
         this.toOperateTime = toOperateTime;
     }
+
     private String singStacticsName;
     private String toId;
     private String toName;
@@ -297,6 +308,7 @@ public class OrderDelationDto {
     public String getFromId() {
         return fromId;
     }
+
     public String getArrivalStartTime() {
         return arrivalStartTime;
     }
@@ -312,6 +324,7 @@ public class OrderDelationDto {
     public void setArrivalEndTime(String arrivalEndTime) {
         this.arrivalEndTime = arrivalEndTime;
     }
+
     public void setFromId(String fromId) {
         this.fromId = fromId;
     }
@@ -444,7 +457,7 @@ public class OrderDelationDto {
         this.wayBillType = wayBillType;
     }
 
-    public class choosedata{
+    public class choosedata {
         private int check;//是否验货
         private int loadPhotos;//是否拍照
         private int provideInvoice;//是否提供发票
@@ -457,7 +470,7 @@ public class OrderDelationDto {
         private String payProtocolName;
         private String remark;
         private String thirdPartyNo;
-        private  int outFactoryPhotos;
+        private int outFactoryPhotos;
         private int stopAlarm;
         private int alarmTime;
         private int bindSmartLock;
@@ -478,15 +491,16 @@ public class OrderDelationDto {
         private String relationComName;
         private String relationCom;
         private int fenceClock;
-        private  int openTransport;
-        private  int openFactorySignIn;
-        private  int openArrival;
+        private int openTransport;
+        private int openFactorySignIn;
+        private int openArrival;
         private int autoTransport;
         private String roadLoss;
+        private String resTxt2;
 
-        private  int inFactoryAlbum;
+        private int inFactoryAlbum;
         private int loadAlbum;
-        private  int unloadAlbum;
+        private int unloadAlbum;
         private int outFactoryAlbum;
         private int arrivalAlbum;
         private int poundAlarm;
@@ -496,6 +510,201 @@ public class OrderDelationDto {
         private int sjSignIn;
         private String beiDouOffTime;
         private String spaceTime;
+        /**
+         * 偏离预警短信对象
+         */
+        private String deviateShortMessage;
+        /**
+         * 偏离预警站内对象
+         */
+        private String deviateStation;
+        /**
+         * 偏离预警货主列表
+         */
+        private String deviateCargoOwner;
+        /**
+         * 离线预警短信对象
+         */
+        private String OfflineShortMessage;
+
+        /**
+         * 离线预警站内对象
+         */
+        private String OfflineStation;
+
+        /**
+         * 离线预警货主列表
+         */
+        private String OfflineCargoOwner;
+
+        /**
+         * 磅单预警短信对象
+         */
+        private String poundListShortMessage;
+
+        /**
+         * 磅单预警站内对象
+         */
+        private String poundListStation;
+
+        /**
+         * 磅单预警货主列表
+         */
+        private String poundListCargoOwner;
+
+        /**
+         * 停留预警短信对象
+         */
+        private String stopShortMessage;
+        /**
+         * 停留预警站内对象
+         */
+        private String stopStation;
+        /**
+         * 停留预警货主列表
+         */
+        private String stopCargoOwner;
+        /**
+         * 高危围栏短信接收人
+         */
+        private String HighRiskSms;
+
+        /**
+         * 高危围栏站内接收人
+         */
+        private String HighRiskStation;
+        /**
+         * 高危围栏货主列表
+         */
+        private String HighRiskCargo;
+
+        public String getDeviateShortMessage() {
+            return deviateShortMessage;
+        }
+
+        public void setDeviateShortMessage(String deviateShortMessage) {
+            this.deviateShortMessage = deviateShortMessage;
+        }
+
+        public String getDeviateStation() {
+            return deviateStation;
+        }
+
+        public void setDeviateStation(String deviateStation) {
+            this.deviateStation = deviateStation;
+        }
+
+        public String getDeviateCargoOwner() {
+            return deviateCargoOwner;
+        }
+
+        public void setDeviateCargoOwner(String deviateCargoOwner) {
+            this.deviateCargoOwner = deviateCargoOwner;
+        }
+
+        public String getOfflineShortMessage() {
+            return OfflineShortMessage;
+        }
+
+        public void setOfflineShortMessage(String offlineShortMessage) {
+            OfflineShortMessage = offlineShortMessage;
+        }
+
+        public String getOfflineStation() {
+            return OfflineStation;
+        }
+
+        public void setOfflineStation(String offlineStation) {
+            OfflineStation = offlineStation;
+        }
+
+        public String getOfflineCargoOwner() {
+            return OfflineCargoOwner;
+        }
+
+        public void setOfflineCargoOwner(String offlineCargoOwner) {
+            OfflineCargoOwner = offlineCargoOwner;
+        }
+
+        public String getPoundListShortMessage() {
+            return poundListShortMessage;
+        }
+
+        public void setPoundListShortMessage(String poundListShortMessage) {
+            this.poundListShortMessage = poundListShortMessage;
+        }
+
+        public String getPoundListStation() {
+            return poundListStation;
+        }
+
+        public void setPoundListStation(String poundListStation) {
+            this.poundListStation = poundListStation;
+        }
+
+        public String getPoundListCargoOwner() {
+            return poundListCargoOwner;
+        }
+
+        public void setPoundListCargoOwner(String poundListCargoOwner) {
+            this.poundListCargoOwner = poundListCargoOwner;
+        }
+
+        public String getStopShortMessage() {
+            return stopShortMessage;
+        }
+
+        public void setStopShortMessage(String stopShortMessage) {
+            this.stopShortMessage = stopShortMessage;
+        }
+
+        public String getStopStation() {
+            return stopStation;
+        }
+
+        public void setStopStation(String stopStation) {
+            this.stopStation = stopStation;
+        }
+
+        public String getStopCargoOwner() {
+            return stopCargoOwner;
+        }
+
+        public void setStopCargoOwner(String stopCargoOwner) {
+            this.stopCargoOwner = stopCargoOwner;
+        }
+
+        public String getHighRiskSms() {
+            return HighRiskSms;
+        }
+
+        public void setHighRiskSms(String highRiskSms) {
+            HighRiskSms = highRiskSms;
+        }
+
+        public String getHighRiskStation() {
+            return HighRiskStation;
+        }
+
+        public void setHighRiskStation(String highRiskStation) {
+            HighRiskStation = highRiskStation;
+        }
+
+        public String getHighRiskCargo() {
+            return HighRiskCargo;
+        }
+
+        public void setHighRiskCargo(String highRiskCargo) {
+            HighRiskCargo = highRiskCargo;
+        }
+
+        public String getResTxt2() {
+            return resTxt2;
+        }
+
+        public void setResTxt2(String resTxt2) {
+            this.resTxt2 = resTxt2;
+        }
 
         public String getSpaceTime() {
             return spaceTime;
@@ -720,6 +929,7 @@ public class OrderDelationDto {
         public void setCheckUserListName(String checkUserListName) {
             this.checkUserListName = checkUserListName;
         }
+
         public int getOffLineAlarm() {
             return offLineAlarm;
         }
@@ -897,7 +1107,7 @@ public class OrderDelationDto {
         }
     }
 
-    public class listdata{
+    public class listdata {
         private String id;
         private String materialsId;
         private String materialsName;

@@ -1,68 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="@color/bg"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/withe"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <RelativeLayout
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/px120dp">
-            <TextView
-                android:layout_centerVertical="true"
-                android:id="@+id/tvName"
-                android:layout_marginLeft="@dimen/px20dp"
-                android:textColor="@color/color_black"
-                android:text=""
-                android:gravity="center_vertical"
-                android:textSize="@dimen/px28dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-            <TextView
-                android:layout_toRightOf="@+id/tvName"
-                android:layout_centerVertical="true"
-                android:id="@+id/tvphone"
-                android:layout_marginLeft="@dimen/px30dp"
-                android:textColor="@color/color_black"
-                android:text=""
-                android:gravity="center_vertical"
-                android:textSize="@dimen/px28dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-            <TextView
-                android:gravity="right"
-                android:id="@+id/tvstatus"
-                android:text=""
-                android:layout_marginRight="@dimen/px30dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right"
-                android:layout_width="@dimen/px200dp"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
-       <include layout="@layout/common_line"></include>
-        <RelativeLayout
-            android:background="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/px120dp">
-            <TextView
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/px20dp"
-                android:textColor="@color/color_black"
-                android:text="总价："
-                android:gravity="center_vertical"
-                android:textSize="@dimen/px28dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+            android:layout_height="@dimen/px120dp"
+            android:background="@color/white">
 
             <TextView
-                android:textColor="@color/gray666"
-                android:textSize="@dimen/px26dp"
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px28dp" />
+
+            <TextView
+                android:id="@+id/tvphone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px30dp"
+                android:layout_toRightOf="@+id/tvName"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px28dp" />
+
+            <TextView
+                android:id="@+id/tvstatus"
+                android:layout_width="@dimen/px200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/px30dp"
+                android:gravity="right"
+                android:text="" />
+        </RelativeLayout>
+
+        <include layout="@layout/common_line"></include>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px120dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:text="总价："
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px28dp" />
+
+            <TextView
                 android:id="@+id/edtrantPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,120 +78,149 @@
                 android:background="@null"
                 android:hint=""
                 android:inputType="numberDecimal"
-                android:text="" />
+                android:text=""
+                android:textColor="@color/gray666"
+                android:textSize="@dimen/px26dp" />
 
             <TextView
-                android:layout_marginRight="@dimen/px30dp"
-                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:text="元"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginRight="@dimen/px30dp"
+                android:text="元">
 
             </TextView>
         </RelativeLayout>
-      <include layout="@layout/common_line"></include>
+
+        <include layout="@layout/common_line"></include>
+
         <RelativeLayout
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/px120dp">
+            android:layout_height="@dimen/px120dp"
+            android:background="@color/white">
+
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/px20dp"
-                android:textColor="@color/color_black"
-                android:text="分配量："
                 android:gravity="center_vertical"
-                android:textSize="@dimen/px28dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:text="分配量："
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/px28dp" />
 
-           <TextView
-               android:id="@+id/edtrantNum"
-            android:inputType="numberDecimal"
-            android:background="@null"
-            android:hint=""
-            android:text=""
-               android:textColor="@color/gray666"
-               android:textSize="@dimen/px26dp"
-            android:layout_marginRight="@dimen/px30dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/edtrantNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/px30dp"
+                android:background="@null"
+                android:hint=""
+                android:inputType="numberDecimal"
+                android:text=""
+                android:textColor="@color/gray666"
+                android:textSize="@dimen/px26dp" />
         </RelativeLayout>
 
         <LinearLayout
-            android:paddingLeft="@dimen/px20dp"
-            android:paddingBottom="@dimen/px20dp"
-            android:paddingTop="@dimen/px20dp"
-            android:background="@color/white"
             android:id="@+id/llBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:paddingLeft="@dimen/px20dp"
+            android:paddingTop="@dimen/px20dp"
+            android:paddingBottom="@dimen/px20dp">
+
             <TextView
-                android:textColor="@color/gray888"
-                android:textSize="@dimen/px28dp"
-                android:text="是否同意停运申请："
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:text="是否同意停运申请："
+                android:textColor="@color/gray888"
+                android:textSize="@dimen/px28dp">
 
             </TextView>
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/px20dp"
                 android:gravity="right|center_vertical"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:orientation="horizontal">
+
                 <TextView
-                    android:paddingTop="@dimen/px12dp"
-                    android:paddingBottom="@dimen/px12dp"
-                    android:paddingLeft="@dimen/px40dp"
-                    android:paddingRight="@dimen/px40dp"
-                    android:layout_marginLeft="@dimen/px20dp"
                     android:id="@+id/tvAgreen"
-                    android:gravity="center"
-                    android:background="@drawable/shape_list_btn"
-                    android:text="同意"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:background="@drawable/shape_list_btn"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/px40dp"
+                    android:paddingTop="@dimen/px12dp"
+                    android:paddingRight="@dimen/px40dp"
+                    android:paddingBottom="@dimen/px12dp"
+                    android:text="同意">
 
                 </TextView>
+
                 <TextView
-                    android:textColor="@color/white"
-                    android:paddingTop="@dimen/px12dp"
-                    android:paddingBottom="@dimen/px12dp"
-                    android:paddingLeft="@dimen/px40dp"
-                    android:paddingRight="@dimen/px40dp"
                     android:id="@+id/tvRefuse"
-                    android:layout_marginLeft="@dimen/px30dp"
-                    android:gravity="center"
-                    android:background="@drawable/shape_list_btn_blue"
-                    android:text="拒绝"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px30dp"
+                    android:background="@drawable/shape_list_btn_blue"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/px40dp"
+                    android:paddingTop="@dimen/px12dp"
+                    android:paddingRight="@dimen/px40dp"
+                    android:paddingBottom="@dimen/px12dp"
+                    android:text="拒绝"
+                    android:textColor="@color/white">
 
                 </TextView>
             </LinearLayout>
 
 
+        </LinearLayout>
+        <include layout="@layout/common_line"></include>
+        <LinearLayout
+            android:id="@+id/suggestLinear"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="停运理由："
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_height="wrap_content"></TextView>
+            <TextView
+                android:id="@+id/suggest_text"
+                android:padding="10dp"
+                android:text=""
+                android:layout_margin="@dimen/px20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+            </TextView>
         </LinearLayout>
 
 
+
     </LinearLayout>
+
     <View
-        android:background="@color/bg"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/px10dp">
+        android:layout_height="@dimen/px10dp"
+        android:background="@color/bg">
 
     </View>
-
-
 
 
 </LinearLayout>

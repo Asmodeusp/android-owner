@@ -8,7 +8,7 @@
     <include
         android:id="@+id/tool"
         layout="@layout/common_toolbar"></include>
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:padding="20dp"
         android:layout_below="@+id/tool"
         android:layout_above="@+id/tvSubmit"
@@ -916,7 +916,7 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvSubmit"

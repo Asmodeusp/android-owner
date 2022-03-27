@@ -1,13 +1,15 @@
 package com.saimawzc.shipper.ui.baidu;
+
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
@@ -56,15 +58,16 @@ import com.saimawzc.shipper.weight.utils.dialog.SlideBottomExit;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
-import butterknife.OnClick;
 /**
  * 百度鹰眼  追踪轨迹
  */
 public class TracingActivity extends BaseActivity implements
         View.OnClickListener, TravelView , CompoundButton.OnCheckedChangeListener{
     private BaseApplication trackApp = null;
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     private OnTrackListener trackListener = null;
     //请求标识
     int tag = 1;

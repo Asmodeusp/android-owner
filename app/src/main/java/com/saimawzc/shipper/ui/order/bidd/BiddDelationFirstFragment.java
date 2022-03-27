@@ -1,11 +1,10 @@
 package com.saimawzc.shipper.ui.order.bidd;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -13,15 +12,12 @@ import com.saimawzc.shipper.adapter.order.bidd.BiddFirstAdapter;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.order.bidd.BiddFirstDto;
 import com.saimawzc.shipper.presenter.bidd.BiddFirstPresenter;
-import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
 import com.saimawzc.shipper.view.bidd.BiddFirstView;
 import com.saimawzc.shipper.weight.utils.dialog.BounceTopEnter;
 import com.saimawzc.shipper.weight.utils.dialog.NormalDialog;
 import com.saimawzc.shipper.weight.utils.dialog.OnBtnClickL;
 import com.saimawzc.shipper.weight.utils.dialog.SlideBottomExit;
-import com.saimawzc.shipper.weight.utils.hawk.Hawk;
-import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +28,8 @@ public class BiddDelationFirstFragment extends BaseFragment
         implements BiddFirstView {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.cy) RecyclerView rv;
+    @BindView(R.id.cy)
+    RecyclerView rv;
     private BiddFirstPresenter presenter;
     private List<BiddFirstDto>mDatas=new ArrayList<>();
     private String id;

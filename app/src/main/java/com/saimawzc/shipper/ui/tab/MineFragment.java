@@ -148,6 +148,7 @@ public class MineFragment  extends BaseImmersionFragment {
                                 Hawk.put(PreferenceKey.HZ_IS_RZ,"");
                                 Hawk.put(PreferenceKey.PERSON_CENTER,null);
                                 readyGo(LoginActivity.class);
+
                                 if(!context.isFinishing()){
                                     dialog.dismiss();
                                 }

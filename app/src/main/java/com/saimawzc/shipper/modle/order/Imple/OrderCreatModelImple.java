@@ -109,6 +109,61 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("alarmHz",optionalInfoFragment.alarmHz());
             choose.put("offLineAlarm",optionalInfoFragment.offLineAlarm());
             choose.put("checkUserList",optionalInfoFragment.checkUserList());
+            /**
+             * 偏离预警短信对象
+             */
+            choose.put("deviateShortMessage",optionalInfoFragment.deviateShortMessage());
+            /**
+             * 偏离预警站内对象
+             */
+            choose.put("deviateStation",optionalInfoFragment.deviateStation());
+            /**
+             * 偏离预警货主列表
+             */
+            choose.put("deviateCargoOwner",optionalInfoFragment.deviateCargoOwner());
+            /**
+             * 离线预警短信对象
+             */
+            choose.put("OfflineShortMessage",optionalInfoFragment.OfflineShortMessage());
+
+            /**
+             * 离线预警站内对象
+             */
+            choose.put("OfflineStation",optionalInfoFragment.OfflineStation());
+
+            /**
+             * 离线预警货主列表
+             */
+            choose.put("OfflineCargoOwner",optionalInfoFragment.OfflineCargoOwner());
+
+            /**
+             * 磅单预警短信对象
+             */
+            choose.put("poundListShortMessage",optionalInfoFragment.poundListShortMessage());
+
+            /**
+             * 磅单预警站内对象
+             */
+            choose.put("poundListStation",optionalInfoFragment.poundListStation());
+
+            /**
+             * 磅单预警货主列表
+             */
+            choose.put("poundListCargoOwner",optionalInfoFragment.poundListCargoOwner());
+
+            /**
+             * 停留预警短信对象
+             */
+            choose.put("stopShortMessage",optionalInfoFragment.stopShortMessage());
+            /**
+             * 停留预警站内对象
+             */
+            choose.put("stopStation",optionalInfoFragment.stopStation());
+            /**
+             * 停留预警货主列表
+             */
+            choose.put("stopCargoOwner",optionalInfoFragment.stopCargoOwner());
+
 
             choose.put("openCarType",optionalInfoFragment.openCarType());
             choose.put("carTypeId",optionalInfoFragment.carTypeId());
@@ -138,6 +193,73 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("sjSignIn",optionalInfoFragment.sjSignIn());
             choose.put("beiDouOffTime",optionalInfoFragment.beiDouOffTime());
             choose.put("spaceTime",optionalInfoFragment.spaceTime());
+            /**
+             * 偏离预警短信对象
+             */
+            choose.put("deviateShortMessage",optionalInfoFragment.deviateShortMessage());
+            /**
+             * 偏离预警站内对象
+             */
+            choose.put("deviateStation",optionalInfoFragment.deviateStation());
+            /**
+             * 偏离预警货主列表
+             */
+            choose.put("deviateCargoOwner",optionalInfoFragment.deviateCargoOwner());
+            /**
+             * 离线预警短信对象
+             */
+            choose.put("OfflineShortMessage",optionalInfoFragment.OfflineShortMessage());
+
+            /**
+             * 离线预警站内对象
+             */
+            choose.put("OfflineStation",optionalInfoFragment.OfflineStation());
+
+            /**
+             * 离线预警货主列表
+             */
+            choose.put("OfflineCargoOwner",optionalInfoFragment.OfflineCargoOwner());
+
+            /**
+             * 磅单预警短信对象
+             */
+            choose.put("poundListShortMessage",optionalInfoFragment.poundListShortMessage());
+
+            /**
+             * 磅单预警站内对象
+             */
+            choose.put("poundListStation",optionalInfoFragment.poundListStation());
+
+            /**
+             * 磅单预警货主列表
+             */
+            choose.put("poundListCargoOwner",optionalInfoFragment.poundListCargoOwner());
+
+            /**
+             * 停留预警短信对象
+             */
+            choose.put("stopShortMessage",optionalInfoFragment.stopShortMessage());
+            /**
+             * 停留预警站内对象
+             */
+            choose.put("stopStation",optionalInfoFragment.stopStation());
+            /**
+             * 停留预警货主列表
+             */
+            choose.put("stopCargoOwner",optionalInfoFragment.stopCargoOwner());
+            /**
+             *  高危围栏短信接收人
+             */
+            choose.put("HighRiskSms",optionalInfoFragment.HighRiskSms());
+
+            /**
+             *  高危围栏站内接收人
+             */
+            choose.put("HighRiskStation",optionalInfoFragment.HighRiskStation());
+            /**
+             *  高危围栏货主列表
+             */
+            choose.put("HighRiskCargo",optionalInfoFragment.HighRiskCargo());
             jsonObject.put("choose",choose);
 
             JSONArray array=new JSONArray();
@@ -297,6 +419,73 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("sjSignIn",optionalInfoFragment.sjSignIn());
             choose.put("beiDouOffTime",optionalInfoFragment.beiDouOffTime());
             choose.put("spaceTime",optionalInfoFragment.spaceTime());
+            /**
+             * 偏离预警短信对象
+             */
+            choose.put("deviateShortMessage",optionalInfoFragment.deviateShortMessage());
+            /**
+             * 偏离预警站内对象
+             */
+            choose.put("deviateStation",optionalInfoFragment.deviateStation());
+            /**
+             * 偏离预警货主列表
+             */
+            choose.put("deviateCargoOwner",optionalInfoFragment.deviateCargoOwner());
+            /**
+             * 离线预警短信对象
+             */
+            choose.put("OfflineShortMessage",optionalInfoFragment.OfflineShortMessage());
+
+            /**
+             * 离线预警站内对象
+             */
+            choose.put("OfflineStation",optionalInfoFragment.OfflineStation());
+
+            /**
+             * 离线预警货主列表
+             */
+            choose.put("OfflineCargoOwner",optionalInfoFragment.OfflineCargoOwner());
+
+            /**
+             * 磅单预警短信对象
+             */
+            choose.put("poundListShortMessage",optionalInfoFragment.poundListShortMessage());
+
+            /**
+             * 磅单预警站内对象
+             */
+            choose.put("poundListStation",optionalInfoFragment.poundListStation());
+
+            /**
+             * 磅单预警货主列表
+             */
+            choose.put("poundListCargoOwner",optionalInfoFragment.poundListCargoOwner());
+
+            /**
+             * 停留预警短信对象
+             */
+            choose.put("stopShortMessage",optionalInfoFragment.stopShortMessage());
+            /**
+             * 停留预警站内对象
+             */
+            choose.put("stopStation",optionalInfoFragment.stopStation());
+            /**
+             * 停留预警货主列表
+             */
+            choose.put("stopCargoOwner",optionalInfoFragment.stopCargoOwner());
+            /**
+             *  高危围栏短信接收人
+             */
+            choose.put("HighRiskSms",optionalInfoFragment.HighRiskSms());
+
+            /**
+             *  高危围栏站内接收人
+             */
+            choose.put("HighRiskStation",optionalInfoFragment.HighRiskStation());
+            /**
+             *  高危围栏货主列表
+             */
+            choose.put("HighRiskCargo",optionalInfoFragment.HighRiskCargo());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();
@@ -451,6 +640,73 @@ public class OrderCreatModelImple extends BasEModeImple implements CreatOrderMod
             choose.put("sjSignIn",optionalInfoFragment.sjSignIn());
             choose.put("beiDouOffTime",optionalInfoFragment.beiDouOffTime());
             choose.put("spaceTime",optionalInfoFragment.spaceTime());
+            /**
+             * 偏离预警短信对象
+             */
+            choose.put("deviateShortMessage",optionalInfoFragment.deviateShortMessage());
+            /**
+             * 偏离预警站内对象
+             */
+            choose.put("deviateStation",optionalInfoFragment.deviateStation());
+            /**
+             * 偏离预警货主列表
+             */
+            choose.put("deviateCargoOwner",optionalInfoFragment.deviateCargoOwner());
+            /**
+             * 离线预警短信对象
+             */
+            choose.put("OfflineShortMessage",optionalInfoFragment.OfflineShortMessage());
+
+            /**
+             * 离线预警站内对象
+             */
+            choose.put("OfflineStation",optionalInfoFragment.OfflineStation());
+
+            /**
+             * 离线预警货主列表
+             */
+            choose.put("OfflineCargoOwner",optionalInfoFragment.OfflineCargoOwner());
+
+            /**
+             * 磅单预警短信对象
+             */
+            choose.put("poundListShortMessage",optionalInfoFragment.poundListShortMessage());
+
+            /**
+             * 磅单预警站内对象
+             */
+            choose.put("poundListStation",optionalInfoFragment.poundListStation());
+
+            /**
+             * 磅单预警货主列表
+             */
+            choose.put("poundListCargoOwner",optionalInfoFragment.poundListCargoOwner());
+
+            /**
+             * 停留预警短信对象
+             */
+            choose.put("stopShortMessage",optionalInfoFragment.stopShortMessage());
+            /**
+             * 停留预警站内对象
+             */
+            choose.put("stopStation",optionalInfoFragment.stopStation());
+            /**
+             * 停留预警货主列表
+             */
+            choose.put("stopCargoOwner",optionalInfoFragment.stopCargoOwner());
+            /**
+             *  高危围栏短信接收人
+             */
+            choose.put("HighRiskSms",optionalInfoFragment.HighRiskSms());
+
+            /**
+             *  高危围栏站内接收人
+             */
+            choose.put("HighRiskStation",optionalInfoFragment.HighRiskStation());
+            /**
+             *  高危围栏货主列表
+             */
+            choose.put("HighRiskCargo",optionalInfoFragment.HighRiskCargo());
             jsonObject.put("choose",choose);
             JSONArray array=new JSONArray();
             JSONObject arrObj=new JSONObject();

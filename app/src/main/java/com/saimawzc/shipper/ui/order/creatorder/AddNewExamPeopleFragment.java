@@ -1,19 +1,22 @@
 package com.saimawzc.shipper.ui.order.creatorder;
 
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.widget.Toolbar;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-
 /****
  * 新增验货人
  * **/

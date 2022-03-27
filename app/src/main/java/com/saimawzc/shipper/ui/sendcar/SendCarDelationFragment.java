@@ -1,7 +1,8 @@
 package com.saimawzc.shipper.ui.sendcar;
 
-import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;

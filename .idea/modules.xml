@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/nxDrivershipper.iml" filepath="$PROJECT_DIR$/nxDrivershipper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/nxDrivershipper.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/nxDrivershipper.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/compresshelper/nxDrivershipper.compresshelper.iml" filepath="$PROJECT_DIR$/.idea/modules/compresshelper/nxDrivershipper.compresshelper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jcvideoplayer-lib/nxDrivershipper.jcvideoplayer-lib.iml" filepath="$PROJECT_DIR$/.idea/modules/jcvideoplayer-lib/nxDrivershipper.jcvideoplayer-lib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ocr_ui/nxDrivershipper.ocr_ui.iml" filepath="$PROJECT_DIR$/.idea/modules/ocr_ui/nxDrivershipper.ocr_ui.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zbarlibary/nxDrivershipper.zbarlibary.iml" filepath="$PROJECT_DIR$/.idea/modules/zbarlibary/nxDrivershipper.zbarlibary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-owner.iml" filepath="$PROJECT_DIR$/.idea/modules/android-owner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android-owner.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android-owner.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/compresshelper/android-owner.compresshelper.iml" filepath="$PROJECT_DIR$/.idea/modules/compresshelper/android-owner.compresshelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jcvideoplayer-lib/android-owner.jcvideoplayer-lib.iml" filepath="$PROJECT_DIR$/.idea/modules/jcvideoplayer-lib/android-owner.jcvideoplayer-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ocr_ui/android-owner.ocr_ui.iml" filepath="$PROJECT_DIR$/.idea/modules/ocr_ui/android-owner.ocr_ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zbarlibary/android-owner.zbarlibary.iml" filepath="$PROJECT_DIR$/.idea/modules/zbarlibary/android-owner.zbarlibary.iml" />
     </modules>
   </component>
 </project>

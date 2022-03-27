@@ -1,11 +1,11 @@
 package com.saimawzc.shipper.ui.sendcar;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.order.LogistoicAdpater;
 import com.saimawzc.shipper.base.BaseFragment;
@@ -31,7 +31,8 @@ public class LogisticsInfoFragment extends BaseFragment
     @BindView(R.id.tvName)TextView tvName;
     @BindView(R.id.tvPhone)TextView tvPhone;
     @BindView(R.id.carNo)TextView tvcarNo;
-    @BindView(R.id.cv) RecyclerView  rv;
+    @BindView(R.id.cv)
+    RecyclerView rv;
     private LogistiscPresenter  presenter;
     private String id;
     private LogistoicAdpater adpater;

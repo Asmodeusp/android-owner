@@ -1,13 +1,15 @@
 package com.saimawzc.shipper.adapter.order;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -15,16 +17,12 @@ import com.saimawzc.shipper.adapter.FooterHolder;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.order.OrderListDto;
 import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 
 /**
  * Created by Administrator on 2020/8/6.
@@ -90,6 +88,12 @@ public class OrderListAdapter extends BaseAdapter{
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if(holder instanceof ViewHolder){
             OrderListDto dto=mDatas.get(position);
+            if (TextUtils.isEmpty(dto.getResTxt2())) {
+                ((ViewHolder) holder).resTxt2Linear.setVisibility(View.GONE);
+            }else {
+                ((ViewHolder) holder).resTxt2Linear.setVisibility(View.VISIBLE);
+                ((ViewHolder) holder).resTxt2Text.setText(dto.getResTxt2());
+            }
             ImageLoadUtil.displayImage(mContext,dto.getCompanyLogo(),((ViewHolder) holder).imageView);
             ((ViewHolder) holder).tvName.setText(""+dto.getMaterialsName());
             ((ViewHolder) holder).tvWeight.setText(dto.getTotalWeight()+dto.getWeightUnitName());
@@ -266,6 +270,9 @@ public class OrderListAdapter extends BaseAdapter{
         @BindView(R.id.to_company)TextView tvToCompany;
         @BindView(R.id.tvztNum)TextView tvZtNum;
         @BindView(R.id.tvconsultNum)TextView tvConsultNum;
+        @BindView(R.id.resTxt2Text)TextView resTxt2Text;
+        @BindView(R.id.resTxt2Linear)
+        LinearLayout resTxt2Linear;
     }
     @Override
     public void changeMoreStatus(int status) {

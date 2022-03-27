@@ -1,7 +1,6 @@
 package com.saimawzc.shipper.weight.utils.http;
 
 
-import android.support.annotation.Keep;
 import android.util.Log;
 
 import com.saimawzc.shipper.base.BaseActivity;

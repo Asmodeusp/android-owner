@@ -1,14 +1,17 @@
 package com.saimawzc.shipper.ui.my.set.suggest;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.GridViewAdapter;
@@ -36,8 +39,6 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-import static android.app.Activity.RESULT_OK;
-
 /*****
  * 新增意见
  * ***/
@@ -45,7 +46,8 @@ import static android.app.Activity.RESULT_OK;
 public class AddSuggetsFragment extends BaseFragment implements AddSuggetsView {
 
     @BindView(R.id.edssuggest) EditText edMiaoshu;
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     AddSuggestPresenter presenter;
     private GridViewAdapter mGridViewAddImgAdapter;
     private ArrayList<String> mPicList = new ArrayList<>();

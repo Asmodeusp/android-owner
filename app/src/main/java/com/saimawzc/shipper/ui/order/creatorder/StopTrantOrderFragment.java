@@ -1,31 +1,30 @@
 package com.saimawzc.shipper.ui.order.creatorder;
 
+import static com.saimawzc.shipper.constants.AppConfig.reshTrangts;
+
 import android.content.Intent;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.presenter.order.StopTrantOrderPresenter;
 import com.saimawzc.shipper.view.BaseView;
+
 import butterknife.BindView;
 import butterknife.OnClick;
-
-import static com.saimawzc.shipper.constants.AppConfig.reshPlanOrder;
-import static com.saimawzc.shipper.constants.AppConfig.reshTrangts;
 
 /****
  * 终止运输
  * */
 public class StopTrantOrderFragment extends BaseFragment implements BaseView {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.tvOrderId) TextView tvOrderId;
     @BindView(R.id.edReason) EditText edReason;
     private StopTrantOrderPresenter presenter;

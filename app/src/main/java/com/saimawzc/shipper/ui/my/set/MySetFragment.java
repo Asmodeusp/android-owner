@@ -2,11 +2,11 @@ package com.saimawzc.shipper.ui.my.set;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 
+import androidx.appcompat.widget.Toolbar;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
@@ -14,7 +14,6 @@ import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.VersonDto;
 import com.saimawzc.shipper.ui.WebViewActivity;
-import com.saimawzc.shipper.ui.consignee.ConsigneeMainActivity;
 import com.saimawzc.shipper.ui.login.ForgetPassActivity;
 import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.ui.my.PersonCenterActivity;
@@ -38,7 +37,8 @@ import okhttp3.RequestBody;
 
 public class MySetFragment extends BaseFragment {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     public  final String[] PERMISSIONSq = new String[]{
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -147,7 +147,7 @@ public class MySetFragment extends BaseFragment {
                 if(response==null|| TextUtils.isEmpty(response.getVersionNum())){
                     return;
                 }
-                if(!response.getVersionNum().equals(BaseActivity.getVersionName(context))){
+                if(checkNeedUpgrade(BaseActivity.getVersionName(context),response.getVersionNum())){
                     updateDialog = new UpdateDialog();
                     updateDialog.customVersionDialogTwo(context,response);
                     if(response.getUpdateContent().contains("\\n")){
@@ -210,5 +210,36 @@ public class MySetFragment extends BaseFragment {
 
             }
         });
+    }
+    public static boolean checkNeedUpgrade(String app_version, String latest_android_version) {// 检测是否需要更新。
+        if (app_version == null || app_version.length() == 0 || latest_android_version == null || latest_android_version.length() == 0) {
+            return false;
+        }
+
+        String[] oldAppVer = app_version.split("\\.");
+        String[] latestAppVer = latest_android_version.split("\\.");
+        int minSize = Math.min(oldAppVer.length, latestAppVer.length);
+        for (int j = 0; j < minSize; j++) {
+            if ((oldAppVer[j] != null && oldAppVer[j].length() > 0) && (latestAppVer[j] != null && latestAppVer[j].length() > 0)) {
+                int oldVal;
+                int latestVal;
+                try {
+                    oldVal = Integer.valueOf(oldAppVer[j]);
+                    latestVal = Integer.valueOf(latestAppVer[j]);
+                } catch (Exception e) {
+                    oldVal = -1;
+                    latestVal = -1;
+                }
+                if (latestVal > oldVal) {
+                    return true;
+                } else if (latestVal < oldVal) {
+                    return false;
+                }
+            }
+        }
+        if (latestAppVer.length > minSize) {
+            return true;
+        }
+        return false;
     }
 }

@@ -1,9 +1,10 @@
 package com.saimawzc.shipper.ui.my;
 
 import android.graphics.Bitmap;
-import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;

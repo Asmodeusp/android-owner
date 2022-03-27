@@ -25,7 +25,9 @@ public class SendCarLsitPresenter implements SendCarListListener {
     public void getSendCarList(int page,String status,String searchType,String searchValue){
         model.getSendCarLsit(view,this,page,status,searchType,searchValue);
     }
-
+    public void getDoubtSignIn(String id,String doubtPicture,String doubtPoundReMark,String hzSignInWeight){
+        model.getDoubtSignIn(view,this,id,doubtPicture,doubtPoundReMark,hzSignInWeight);
+    }
     /***
      * 获取签收量
      * **/

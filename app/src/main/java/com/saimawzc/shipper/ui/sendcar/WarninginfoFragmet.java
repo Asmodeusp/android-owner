@@ -2,12 +2,12 @@ package com.saimawzc.shipper.ui.sendcar;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.order.WarnInfoViewPageAdatper;

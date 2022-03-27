@@ -1,9 +1,10 @@
 package com.saimawzc.shipper.ui.order.creatorder;
 
 import android.graphics.Color;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
+
+import androidx.appcompat.widget.Toolbar;
+
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -30,7 +31,8 @@ public class RouteDelationFragment extends BaseFragment implements MapDealtionVi
     @BindView(R.id.Mapview) MapView mapView;
     private BaiduMap baiduMap;
     private MapDelationPresenter presenter;
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     public int initContentView() {

@@ -1,18 +1,21 @@
 package com.saimawzc.shipper.ui.my.settlement;
 
+import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
+import static com.saimawzc.shipper.constants.Constants.reshAccount_unconfirm;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.SectionedRecyclerViewAdapter;
 import com.saimawzc.shipper.adapter.mysetment.MySetmentAdapter;
-import com.saimawzc.shipper.adapter.order.SendCarAdapter;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.SearchValueDto;
 import com.saimawzc.shipper.dto.myselment.MySetmentDto;
@@ -29,9 +32,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-
-import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
-import static com.saimawzc.shipper.constants.Constants.reshAccount_unconfirm;
 
 /***
  * 未确认结算单

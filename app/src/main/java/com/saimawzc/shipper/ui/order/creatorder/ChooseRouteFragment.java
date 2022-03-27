@@ -1,11 +1,9 @@
 package com.saimawzc.shipper.ui.order.creatorder;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -13,7 +11,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.baidu.location.LLSInterface;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.order.creatorder.ChooseRouteAdapter;
@@ -21,25 +23,22 @@ import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.order.creatorder.ChooseRouteDto;
 import com.saimawzc.shipper.presenter.order.RoutePresenter;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
-import com.saimawzc.shipper.view.BaseView;
 import com.saimawzc.shipper.view.order.route.RouteView;
 import com.saimawzc.shipper.weight.ClearTextEditText;
-import com.saimawzc.shipper.weight.utils.http.CallBack;
-import org.json.JSONException;
-import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import static android.app.Activity.RESULT_OK;
 
 /****
  * 选择路径规划
  * ***/
 public class ChooseRouteFragment extends BaseFragment implements RouteView, TextWatcher {
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.cy) RecyclerView rv;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.cy)
+    RecyclerView rv;
     @BindView(R.id.SwipeRefreshLayout)
     SwipeRefreshLayout refreshLayout;
     private ChooseRouteAdapter adapter;

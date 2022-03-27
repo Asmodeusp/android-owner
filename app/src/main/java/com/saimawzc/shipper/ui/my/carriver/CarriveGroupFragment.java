@@ -1,14 +1,15 @@
 package com.saimawzc.shipper.ui.my.carriver;
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.carrier.CarrierGroupAdapter;
@@ -23,10 +24,13 @@ import com.saimawzc.shipper.weight.utils.dialog.BottomDialog;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -38,11 +42,13 @@ import okhttp3.RequestBody;
 
 public class CarriveGroupFragment extends BaseFragment implements CarriveGroupView {
 
-    @BindView(R.id.toolbar)Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.rv) SlideRecyclerView rv;
     private CarrierGroupAdapter adapter;
     private List<MyCarrierGroupDto> mDatas=new ArrayList<>();
-    @BindView(R.id.SwipeRefreshLayout) SwipeRefreshLayout refreshLayout;
+    @BindView(R.id.SwipeRefreshLayout)
+    SwipeRefreshLayout refreshLayout;
     @BindView(R.id.right_btn)TextView btnRight;
 
     private CarriveGroupPresenter presenter;

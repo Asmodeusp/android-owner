@@ -1,10 +1,8 @@
 package com.saimawzc.shipper.ui.order.advancewaybill;
 
+import static com.saimawzc.shipper.constants.AppConfig.reshWaybIllOrder;
+
 import android.content.Intent;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -12,6 +10,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -30,16 +33,16 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.saimawzc.shipper.constants.AppConfig.reshWaybIllOrder;
-
 /***
  * 预运单指派
  * **/
 public class WayBillAssignmentFragment extends BaseFragment
         implements WayBillAssignView {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.recycle) RecyclerView rv;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.recycle)
+    RecyclerView rv;
     @BindView(R.id.edsearch) ClearTextEditText edSearch;
     @BindView(R.id.llSearch) LinearLayout llSearch;
     @BindView(R.id.tvSearch) TextView tvSearch;

@@ -1,13 +1,14 @@
 package com.saimawzc.shipper.dto.myselment;
 
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.SectionedRecyclerViewAdapter;
@@ -29,8 +30,10 @@ import butterknife.BindView;
 public class WaitDispatchBillFragment extends BaseFragment implements
         WaitSetmentSmallOrderView {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.rv) RecyclerView rv;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.rv)
+    RecyclerView rv;
     private WaitDispatchAdpater adpater;
     private List<WaitDispatchDto>mDatas=new ArrayList<>();
     private WaitSetmentSmallOrderPresenter presenter;

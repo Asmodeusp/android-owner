@@ -1,13 +1,17 @@
 package com.saimawzc.shipper.ui.my.settlement.acount;
 
+import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -26,9 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-
-import static android.app.Activity.RESULT_OK;
-import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
 
 /****
  * 对账管理

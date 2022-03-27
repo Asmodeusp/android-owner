@@ -13,4 +13,6 @@ public interface SendCarListView extends BaseView {
     void stopResh();
     void isLastPage(boolean isLastPage);
     void getSignWeight(SignWeightDto dto);
+    void getDoubtSignIn(String dto);
+
 }

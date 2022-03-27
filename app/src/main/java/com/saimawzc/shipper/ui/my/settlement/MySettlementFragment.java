@@ -1,29 +1,27 @@
 package com.saimawzc.shipper.ui.my.settlement;
 
+import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.constants.Constants.reshAccount_confirm;
+import static com.saimawzc.shipper.constants.Constants.reshAccount_unconfirm;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.SearchValueDto;
 import com.saimawzc.shipper.dto.myselment.MySetmentPageQueryDto;
-import com.saimawzc.shipper.ui.my.car.PassCarFragment;
-import com.saimawzc.shipper.ui.my.car.UnPassCarFragment;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
-import com.saimawzc.shipper.weight.CaterpillarIndicator;
 import com.saimawzc.shipper.weight.CaterpillarIndicator2;
 import com.saimawzc.shipper.weight.utils.api.bms.BmsApi;
-import com.saimawzc.shipper.weight.utils.dialog.PopupWindowUtil;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.http.Http;
 
@@ -36,10 +34,6 @@ import java.util.List;
 import butterknife.BindView;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-
-import static android.app.Activity.RESULT_OK;
-import static com.saimawzc.shipper.constants.Constants.reshAccount_confirm;
-import static com.saimawzc.shipper.constants.Constants.reshAccount_unconfirm;
 
 /****
  * 我的结算

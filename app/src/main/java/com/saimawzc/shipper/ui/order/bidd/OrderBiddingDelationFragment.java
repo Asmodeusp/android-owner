@@ -1,11 +1,16 @@
 package com.saimawzc.shipper.ui.order.bidd;
 
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
+import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
+
 import android.text.TextUtils;
 import android.view.View;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.SectionedRecyclerViewAdapter;
@@ -23,16 +28,17 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
-
 /***
  * 竞价 详情
  * **/
 public class OrderBiddingDelationFragment extends BaseFragment implements OrderBiddDelationView {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.SwipeRefreshLayout) SwipeRefreshLayout refreshLayout;
-    @BindView(R.id.rv) RecyclerView rv;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.SwipeRefreshLayout)
+    SwipeRefreshLayout refreshLayout;
+    @BindView(R.id.rv)
+    RecyclerView rv;
     private String id;
     private List<BiddingDelationDto> mDatas=new ArrayList<>();
     private OrderBiddDelationPresenter presenter;

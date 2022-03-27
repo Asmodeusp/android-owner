@@ -1,9 +1,11 @@
 package com.saimawzc.shipper.ui.order.advancewaybill;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.order.advancewaybill.OrderInventoryAdapter;
@@ -23,8 +25,10 @@ import butterknife.BindView;
 
 public class OrderWayBillInventoryFragment extends BaseFragment implements WayBillInventoryView {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.cy) RecyclerView rv;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.cy)
+    RecyclerView rv;
     private OrderInventoryAdapter adapter;
     private List<OrderInventoryDto.qdData> mDatas=new ArrayList<>();
     private OrderWayBillDto.waybillData data;

@@ -2,8 +2,6 @@ package com.saimawzc.shipper.ui.my.identification;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -12,6 +10,10 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.gyf.immersionbar.ImmersionBar;
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.identification.CompanyAdapter;
@@ -19,7 +21,6 @@ import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.identification.CompanyDto;
 import com.saimawzc.shipper.presenter.mine.identification.ChooseCompanyPresenter;
 import com.saimawzc.shipper.view.mine.identificaion.ChooseCompanyView;
-import com.gyf.immersionbar.ImmersionBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,8 @@ public class ChooseCompanyActivity  extends BaseActivity implements ChooseCompan
 
     @BindView(R.id.edsearch)EditText editSearch;
     @BindView(R.id.tvCannel)TextView tvCannel;
-    @BindView(R.id.rv)RecyclerView rv;
+    @BindView(R.id.rv)
+    RecyclerView rv;
     @BindView(R.id.tvSearch)TextView tvSearch;
     @BindView(R.id.llSearch)LinearLayout llSearch;
     private CompanyAdapter adapter;

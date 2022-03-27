@@ -1,11 +1,11 @@
 package com.saimawzc.shipper.ui.order.bidd;
 
+import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.constants.AppConfig.reshPlanOrder;
+import static com.saimawzc.shipper.constants.AppConfig.reshWaybIllOrder;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
@@ -15,6 +15,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.IdRes;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.order.bidd.OrderBiddCarriveAdapter;
 import com.saimawzc.shipper.base.BaseFragment;
@@ -32,25 +38,27 @@ import com.saimawzc.shipper.weight.TimeChooseDialogUtil;
 import com.saimawzc.shipper.weight.utils.dialog.WheelDialog;
 import com.saimawzc.shipper.weight.utils.listen.TimeChooseListener;
 import com.saimawzc.shipper.weight.utils.listen.WheelListener;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
-import static android.app.Activity.RESULT_OK;
-import static com.saimawzc.shipper.constants.AppConfig.reshPlanOrder;
-import static com.saimawzc.shipper.constants.AppConfig.reshWaybIllOrder;
+
 /***
  * 竞价*/
 
 public class OrderBiddingFragment extends BaseFragment
         implements OrderBiddView {
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     private String id;
     @BindView(R.id.tvtimeStart) TextView tvtimeStart;
     @BindView(R.id.tvtimeEnd)TextView tvtimeEnd;
     @BindView(R.id.edNum) EditText editNum;
     @BindView(R.id.tvcarriveGroupName)TextView tvcarriveGroupName;
-    @BindView(R.id.cy) RecyclerView rv;
+    @BindView(R.id.cy)
+    RecyclerView rv;
     private TimeChooseDialogUtil timeChooseDialogUtil;
     private int CHOOSE_CARRIVE=100;
     private OrderBiddCarriveAdapter adapter;

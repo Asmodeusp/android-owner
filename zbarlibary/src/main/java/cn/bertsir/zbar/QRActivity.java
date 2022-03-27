@@ -8,7 +8,6 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
 
 import cn.bertsir.zbar.Qr.Symbol;
 import cn.bertsir.zbar.utils.GetPathFromUri;

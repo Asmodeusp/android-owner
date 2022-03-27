@@ -1,16 +1,15 @@
 package com.saimawzc.shipper.weight.utils.statusbar;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import com.saimawzc.shipper.R;
+
+import androidx.annotation.RequiresApi;
+
 import com.saimawzc.shipper.constants.Constants;
 import com.saimawzc.shipper.weight.utils.app.SystemBarTintManager;
 

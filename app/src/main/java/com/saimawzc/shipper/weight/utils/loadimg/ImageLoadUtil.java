@@ -10,6 +10,8 @@ import android.graphics.RectF;
 import android.net.Uri;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
@@ -19,6 +21,7 @@ import com.saimawzc.shipper.R;
 
 
 import java.io.File;
+import java.security.MessageDigest;
 
 
 /**
@@ -54,9 +57,9 @@ public class ImageLoadUtil {
                             .load(imgeUrl)
                             .placeholder(R.drawable.ic_gf_default_photo)
                             .error(R.drawable.ic_gf_default_photo)
-                            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                            // .a()
-                            .transform(new CenterCrop(context),new GlideRoundTransform(context,8))
+                            .transform(new CenterCrop(),new GlideRoundTransform(context,8))
                             .thumbnail(0.5f)
                             //.override(200, 200)
                             .into(imageView);
@@ -167,7 +170,7 @@ public class ImageLoadUtil {
          * @param dp 圆角半径
          */
         public GlideRoundTransform(Context context, int dp) {
-            super(context);
+
             radius = Resources.getSystem().getDisplayMetrics().density * dp;
         }
 
@@ -193,9 +196,11 @@ public class ImageLoadUtil {
             return result;
         }
 
+
+
         @Override
-        public String getId() {
-            return getClass().getName() + Math.round(radius);
+        public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+
         }
     }
 }

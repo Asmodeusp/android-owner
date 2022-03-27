@@ -1,15 +1,11 @@
 package com.saimawzc.shipper.ui.order.creatorder.richtext;
 
 
-
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
@@ -25,21 +21,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.base.CameraListener;
 import com.saimawzc.shipper.dto.pic.PicDto;
-import com.saimawzc.shipper.dto.richtext.ImageItem;
 import com.saimawzc.shipper.weight.utils.CameraDialogUtil;
 import com.saimawzc.shipper.weight.utils.GalleryUtils;
-import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
-import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 import com.saimawzc.shipper.weight.utils.richtext.RichEditor;
 import com.saimawzc.shipper.weight.utils.richtext.utils.KeyBoardUtils;
 import com.saimawzc.shipper.weight.utils.richtext.utils.RichUtils;
 import com.saimawzc.shipper.weight.utils.richtext.utils.popup.CommonPopupWindow;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

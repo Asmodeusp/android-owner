@@ -1,7 +1,6 @@
 package com.saimawzc.shipper.adapter.order;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -88,6 +89,12 @@ public class OrderTrantsportListAdapter extends BaseAdapter{
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if(holder instanceof ViewHolder){
             OrderListDto dto=mDatas.get(position);
+            if (TextUtils.isEmpty(dto.getResTxt2())) {
+                ((ViewHolder) holder).resTxt2Linear.setVisibility(View.GONE);
+            }else {
+                ((ViewHolder) holder).resTxt2Linear.setVisibility(View.VISIBLE);
+                ((ViewHolder) holder).resTxt2Text.setText(dto.getResTxt2());
+            }
             ImageLoadUtil.displayImage(mContext,dto.getCompanyLogo(),((ViewHolder) holder).imageView);
             ((ViewHolder) holder).llKedh.setVisibility(View.VISIBLE);
             ((ViewHolder) holder).tvName.setText(""+dto.getMaterialsName());
@@ -201,6 +208,8 @@ public class OrderTrantsportListAdapter extends BaseAdapter{
         @BindView(R.id.tvoverWeight)TextView tvoverWeight;
         @BindView(R.id.tvztNum)TextView tvZtNum;
         @BindView(R.id.tvconsultNum)TextView tvConsultNum;
+        @BindView(R.id.resTxt2Text)TextView resTxt2Text;
+        @BindView(R.id.resTxt2Linear)LinearLayout resTxt2Linear;
     }
     @Override
     public void changeMoreStatus(int status) {

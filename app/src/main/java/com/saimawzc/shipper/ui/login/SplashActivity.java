@@ -137,7 +137,7 @@ public class SplashActivity extends BaseActivity {
                     return;
                 }
                 tempVersonDto=response;
-                if(!response.getVersionNum().equals(BaseActivity.getVersionName(SplashActivity.this))){
+                if(checkNeedUpgrade(BaseActivity.getVersionName(SplashActivity.this),response.getVersionNum())){
                     if(permissionChecker.isLackPermissions(PERMISSIONS)){
                         final BottomDialogUtil bottomDialogUtil = new BottomDialogUtil.Builder()
                                 .setContext(context) //设置 context
@@ -297,5 +297,36 @@ public class SplashActivity extends BaseActivity {
 
             }
         }
+    }
+    public static boolean checkNeedUpgrade(String app_version, String latest_android_version) {// 检测是否需要更新。
+        if (app_version == null || app_version.length() == 0 || latest_android_version == null || latest_android_version.length() == 0) {
+            return false;
+        }
+
+        String[] oldAppVer = app_version.split("\\.");
+        String[] latestAppVer = latest_android_version.split("\\.");
+        int minSize = Math.min(oldAppVer.length, latestAppVer.length);
+        for (int j = 0; j < minSize; j++) {
+            if ((oldAppVer[j] != null && oldAppVer[j].length() > 0) && (latestAppVer[j] != null && latestAppVer[j].length() > 0)) {
+                int oldVal;
+                int latestVal;
+                try {
+                    oldVal = Integer.valueOf(oldAppVer[j]);
+                    latestVal = Integer.valueOf(latestAppVer[j]);
+                } catch (Exception e) {
+                    oldVal = -1;
+                    latestVal = -1;
+                }
+                if (latestVal > oldVal) {
+                    return true;
+                } else if (latestVal < oldVal) {
+                    return false;
+                }
+            }
+        }
+        if (latestAppVer.length > minSize) {
+            return true;
+        }
+        return false;
     }
 }

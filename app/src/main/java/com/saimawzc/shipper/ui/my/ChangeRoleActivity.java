@@ -4,11 +4,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.presenter.mine.change.ChangeRolePresenter;
@@ -28,7 +29,8 @@ import butterknife.OnClick;
 
 public class ChangeRoleActivity extends BaseActivity implements ChangeRoleView {
     private int currentRole;
-    @BindView(R.id.toolbar)Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.btnChangRole)TextView btnChangRole;
     private ChangeRolePresenter presenter;
 

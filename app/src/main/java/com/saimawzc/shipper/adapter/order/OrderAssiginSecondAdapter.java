@@ -2,7 +2,6 @@ package com.saimawzc.shipper.adapter.order;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -14,30 +13,22 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.FooterHolder;
 import com.saimawzc.shipper.base.BaseActivity;
-import com.saimawzc.shipper.dto.EmptyDto;
-import com.saimawzc.shipper.dto.carrier.MyCarrierGroupDto;
 import com.saimawzc.shipper.dto.order.OrderAssignmentSecondDto;
 import com.saimawzc.shipper.weight.RepeatClickUtil;
 import com.saimawzc.shipper.weight.TimeChooseDialogUtil;
-import com.saimawzc.shipper.weight.utils.api.mine.MineApi;
-import com.saimawzc.shipper.weight.utils.http.CallBack;
-import com.saimawzc.shipper.weight.utils.http.Http;
 import com.saimawzc.shipper.weight.utils.listen.TimeChooseListener;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 /**
  * Created by Administrator on 2020/8/6.
  * 指派二级页面

@@ -1,10 +1,12 @@
 package com.saimawzc.shipper.ui.order;
 
+import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.CHOOSE_COMPANY;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,36 +16,38 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.saimawzc.shipper.dto.SearchValueDto;
-import com.saimawzc.shipper.dto.order.consute.ConsuteDelationDto;
-import com.saimawzc.shipper.dto.order.creatorder.ChooseRouteDto;
-import com.saimawzc.shipper.dto.order.creatorder.UntilDto;
-import com.saimawzc.shipper.weight.utils.LengthFilter;
+import androidx.annotation.IdRes;
+
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
+import com.saimawzc.shipper.dto.order.ConsignmentCompanyDto;
+import com.saimawzc.shipper.dto.order.consute.ConsuteDelationDto;
 import com.saimawzc.shipper.dto.order.creatorder.AdressDto;
 import com.saimawzc.shipper.dto.order.creatorder.AuthorityDtoSerializ;
-import com.saimawzc.shipper.dto.order.ConsignmentCompanyDto;
+import com.saimawzc.shipper.dto.order.creatorder.ChooseRouteDto;
 import com.saimawzc.shipper.dto.order.creatorder.GoodsCompanyDto;
 import com.saimawzc.shipper.dto.order.creatorder.OrderDelationDto;
+import com.saimawzc.shipper.dto.order.creatorder.UntilDto;
 import com.saimawzc.shipper.presenter.order.OrderBasicinfoEditPresenter;
 import com.saimawzc.shipper.ui.order.creatorder.ChooseAuthortityActivity;
 import com.saimawzc.shipper.ui.order.creatorder.ChooseConsignCompanyActivity;
 import com.saimawzc.shipper.view.order.OrderBasicInfoView;
 import com.saimawzc.shipper.weight.TimeChooseDialogUtil;
+import com.saimawzc.shipper.weight.utils.LengthFilter;
 import com.saimawzc.shipper.weight.utils.dialog.WheelDialog;
 import com.saimawzc.shipper.weight.utils.doubletimechoose.DoubleDateSelectDialog;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.listen.TimeChooseListener;
 import com.saimawzc.shipper.weight.utils.listen.WheelListener;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
-import static android.app.Activity.RESULT_OK;
-import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.CHOOSE_COMPANY;
+
 /****
  * 基础信息
  * **/

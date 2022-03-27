@@ -1,13 +1,16 @@
 package com.saimawzc.shipper.ui.order.creatorder;
 
+import static com.saimawzc.shipper.constants.AppConfig.reshPlanOrder;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
@@ -18,12 +21,8 @@ import com.saimawzc.shipper.view.order.OrderApprovalView;
 import com.saimawzc.shipper.weight.RepeatClickUtil;
 import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.OnClick;
-
-import static com.saimawzc.shipper.constants.AppConfig.reshPlanOrder;
 
 /***
  * 审核
@@ -86,6 +85,8 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
     @BindView(R.id.tvcarmodel)TextView tvcarmodel;
     @BindView(R.id.tvdriverage)TextView tvDriverAge;
     @BindView(R.id.tvcarage)TextView tvCarAge;
+    @BindView(R.id.resTxt2Text)TextView resTxt2Text;
+    @BindView(R.id.resTxt2Lin)LinearLayout resTxt2Lin;
     @BindView(R.id.tvaqgz)TextView tvAqgz;
     @BindView(R.id.tvrelacom)TextView tvRelaCom;
     @BindView(R.id.imgwl)ImageView imgsignWl;
@@ -186,6 +187,13 @@ public class OrderApprovalFragment extends BaseFragment implements OrderApproval
             }
             tvSendCompany.setText(dto.getFromName());
             tvTrantWay.setText(dto.getTranTypeName());
+
+            if (dto.getChoose().getResTxt2()!=null&&!TextUtils.isEmpty(dto.getChoose().getResTxt2())) {
+                resTxt2Text.setText(dto.getChoose().getResTxt2());
+            }else {
+                resTxt2Lin.setVisibility(View.GONE);
+            }
+
             tvSendAdress.setText(dto.getFromUserAddress());
             tvSendBussiTime.setText(dto.getFromOperateTime());
             tvReceiveCompany.setText(dto.getToName());

@@ -1,6 +1,7 @@
 package com.saimawzc.shipper.weight.utils.doubletimechoose;
 
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

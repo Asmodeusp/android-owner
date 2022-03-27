@@ -1,12 +1,17 @@
 package com.saimawzc.shipper.ui.tab.consignee;
 
+import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.constants.Constants.resSHr;
+
 import android.content.Intent;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
+
+import androidx.appcompat.widget.Toolbar;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.GridViewAdapter;
 import com.saimawzc.shipper.base.BaseActivity;
@@ -18,9 +23,11 @@ import com.saimawzc.shipper.weight.RepeatClickUtil;
 import com.saimawzc.shipper.weight.utils.GalleryUtils;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.loadimg.PlusImageActivity;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.finalteam.galleryfinal.FunctionConfig;
@@ -30,15 +37,13 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-import static android.app.Activity.RESULT_OK;
-import static com.saimawzc.shipper.constants.Constants.resSHr;
-
 /****
  * 验货
  * **/
 public class ExamineGoodsFragment extends BaseFragment implements ExamGoodsView {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.editYh) EditText editExamGoods;
     @BindView(R.id.gridView) GridView gridView;
     private String id;

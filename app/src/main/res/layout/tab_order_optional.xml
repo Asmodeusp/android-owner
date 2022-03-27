@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -17,9 +18,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -30,8 +31,6 @@
                     android:textSize="@dimen/px30dp" />
 
                 <EditText
-                    android:paddingRight="@dimen/px20dp"
-                    android:inputType="number"
                     android:id="@+id/edksNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -39,31 +38,81 @@
                     android:background="@null"
                     android:gravity="right"
                     android:hint="请输入"
+                    android:inputType="number"
+                    android:paddingRight="@dimen/px20dp"
                     android:textSize="@dimen/px30dp" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <RelativeLayout
-                android:paddingRight="@dimen/px10dp"
+                android:id="@+id/datacenterRelative"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:paddingBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
-                android:paddingTop="@dimen/px20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/px20dp"
+                android:paddingRight="@dimen/px10dp"
+                android:paddingBottom="@dimen/px10dp">
 
                 <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginRight="@dimen/px20dp"
                     android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="矿点信息:"
+                        android:textSize="@dimen/px30dp" />
+
+                    <TextView
+                        android:id="@+id/datacenterText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px20dp"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:paddingRight="@dimen/px20dp"
+                        android:textSize="@dimen/px30dp" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <include layout="@layout/common_line"></include>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px80dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/px20dp"
+                android:paddingRight="@dimen/px10dp"
+                android:paddingBottom="@dimen/px10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/px20dp"
                     android:layout_toLeftOf="@+id/ico"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="制单日期:"
                         android:textSize="@dimen/px30dp" />
+
                     <TextView
                         android:id="@+id/tvmakeTime"
                         android:layout_width="match_parent"
@@ -76,37 +125,41 @@
 
 
                 </LinearLayout>
+
                 <ImageView
-                   android:layout_centerVertical="true"
                     android:id="@+id/ico"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ico_right"
                     android:layout_width="@dimen/px20dp"
-                    android:layout_height="@dimen/px20dp" />
+                    android:layout_height="@dimen/px20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ico_right" />
 
             </RelativeLayout>
+
             <include layout="@layout/common_line"></include>
 
             <RelativeLayout
-                android:paddingRight="@dimen/px10dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/px10dp">
 
                 <LinearLayout
-                    android:layout_marginRight="@dimen/px20dp"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/px20dp"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="制单人:"
                         android:textSize="@dimen/px30dp" />
+
                     <EditText
                         android:id="@+id/tvMakePeople"
                         android:layout_width="match_parent"
@@ -121,7 +174,9 @@
                 </LinearLayout>
 
             </RelativeLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
@@ -152,42 +207,43 @@
 
             <include layout="@layout/common_line"></include>
 
-          <LinearLayout
-              android:visibility="gone"
-              android:id="@+id/llautoarrive"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="@dimen/px80dp"
-                  android:layout_marginLeft="@dimen/px20dp"
-                  android:layout_marginTop="@dimen/px20dp"
-                  android:layout_marginBottom="@dimen/px10dp"
-                  android:gravity="center_vertical"
-                  android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/llautoarrive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-                  <TextView
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_weight="1"
-                      android:text="自动到货确认:"
-                      android:textSize="@dimen/px30dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_marginTop="@dimen/px20dp"
+                    android:layout_marginBottom="@dimen/px10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                  <com.saimawzc.shipper.weight.SwitchButton
-                      android:id="@+id/toggleautiarrive"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_centerInParent="true"
-                      android:layout_marginRight="@dimen/px20dp"
-                      android:background="@null"
-                      app:sb_checked="false"
-                      app:sb_checked_color="@color/blue"
-                      app:sb_show_indicator="false" />
-              </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="自动到货确认:"
+                        android:textSize="@dimen/px30dp" />
 
-              <include layout="@layout/common_line"></include>
-          </LinearLayout>
+                    <com.saimawzc.shipper.weight.SwitchButton
+                        android:id="@+id/toggleautiarrive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:background="@null"
+                        app:sb_checked="false"
+                        app:sb_checked_color="@color/blue"
+                        app:sb_show_indicator="false" />
+                </LinearLayout>
+
+                <include layout="@layout/common_line"></include>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -222,9 +278,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -236,15 +292,15 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked="true"
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggleopenArrival"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked="true"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
@@ -253,9 +309,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -267,22 +323,180 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/togglepl"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:id="@+id/toggleplLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="站内接受人:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/toggleplZNObj"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/common_line"></include>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="短信接收人:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+
+                            android:id="@+id/toggleplDXObj"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+                <include layout="@layout/common_line"></include>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico3"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="货主列表:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/toggleplTvhzlist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:ellipsize="end"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico3"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -294,22 +508,174 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggleoffline"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
             <include layout="@layout/common_line"></include>
             <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:id="@+id/toggleofflineLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="站内接受人:"
+                            android:textSize="@dimen/px30dp" />
+                        <TextView
+                            android:id="@+id/toggleoffZNObj"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/common_line"></include>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="短信接收人:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/toggleoffDXObj"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+                <include layout="@layout/common_line"></include>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico3"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="货主列表:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/toggleoffTvhzlist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:ellipsize="end"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico3"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <include layout="@layout/common_line"></include>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -321,22 +687,178 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/togglebangdan"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:id="@+id/togglebangdanLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="站内接受人:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/togglebangdanZNObj"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/common_line"></include>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="短信接收人:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/togglebangdanDXObj"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+                <include layout="@layout/common_line"></include>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico3"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="货主列表:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/togglebangdanTvhzlist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:ellipsize="end"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico3"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <include layout="@layout/common_line"></include>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -348,22 +870,177 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/togglestay"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:id="@+id/togglestayLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="站内接受人:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/togglestayZNObj"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/common_line"></include>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="短信接收人:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/togglestayDXObj"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+                <include layout="@layout/common_line"></include>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico3"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="货主列表:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/togglestayTvhzlist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:ellipsize="end"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico3"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -374,33 +1051,35 @@
                     android:textSize="@dimen/px30dp" />
 
                 <EditText
-                    android:layout_weight="1"
-                    android:paddingRight="@dimen/px20dp"
-                    android:inputType="number"
                     android:id="@+id/edstayTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:gravity="right"
                     android:hint="请输入"
+                    android:inputType="number"
+                    android:paddingRight="@dimen/px20dp"
                     android:textSize="@dimen/px30dp" />
+
                 <TextView
-                    android:layout_marginRight="@dimen/px40dp"
-                    android:text="分"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/px40dp"
+                    android:text="分">
 
                 </TextView>
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -411,48 +1090,54 @@
                     android:textSize="@dimen/px30dp" />
 
                 <EditText
-                    android:layout_weight="1"
-                    android:paddingRight="@dimen/px20dp"
-                    android:inputType="number"
                     android:id="@+id/edspaceTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:gravity="right"
                     android:hint="请输入"
+                    android:inputType="number"
+                    android:paddingRight="@dimen/px20dp"
                     android:textSize="@dimen/px30dp" />
+
                 <TextView
-                    android:layout_marginRight="@dimen/px40dp"
-                    android:text="分"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/px40dp"
+                    android:text="分">
 
                 </TextView>
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <RelativeLayout
-                android:paddingRight="@dimen/px10dp"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:paddingBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
-                android:paddingTop="@dimen/px20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/px20dp"
+                android:paddingRight="@dimen/px10dp"
+                android:paddingBottom="@dimen/px10dp">
 
                 <LinearLayout
-                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/px20dp"
                     android:layout_toLeftOf="@+id/ico2"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="接收对象:"
                         android:textSize="@dimen/px30dp" />
+
                     <TextView
                         android:id="@+id/tvreceiveObj"
                         android:layout_width="match_parent"
@@ -464,116 +1149,80 @@
                         android:textSize="@dimen/px30dp" />
 
                 </LinearLayout>
+
                 <ImageView
                     android:id="@+id/ico2"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ico_right"
                     android:layout_width="@dimen/px20dp"
-                    android:layout_height="@dimen/px20dp" />
+                    android:layout_height="@dimen/px20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ico_right" />
 
             </RelativeLayout>
+
             <include layout="@layout/common_line"></include>
+
+
+
             <RelativeLayout
-                android:paddingRight="@dimen/px10dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/px80dp"
-                android:paddingBottom="@dimen/px10dp"
-                android:layout_marginLeft="@dimen/px20dp"
-                android:paddingTop="@dimen/px20dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:gravity="center_vertical"
-                    android:layout_marginRight="@dimen/px20dp"
-                    android:layout_toLeftOf="@+id/ico3"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="货主列表:"
-                        android:textSize="@dimen/px30dp" />
-                    <TextView
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:id="@+id/tvhzlist"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/px20dp"
-                        android:background="@null"
-                        android:gravity="right"
-                        android:hint="请选择"
-                        android:textSize="@dimen/px30dp" />
-
-                </LinearLayout>
-                <ImageView
-                    android:id="@+id/ico3"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ico_right"
-                    android:layout_width="@dimen/px20dp"
-                    android:layout_height="@dimen/px20dp" />
-
-            </RelativeLayout>
-            <include layout="@layout/common_line"></include>
-            <RelativeLayout
-                android:visibility="gone"
                 android:id="@+id/rlyh"
-                android:paddingRight="@dimen/px10dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:paddingBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
-                android:paddingTop="@dimen/px20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/px20dp"
+                android:paddingRight="@dimen/px10dp"
+                android:paddingBottom="@dimen/px10dp"
+                android:visibility="gone">
 
                 <LinearLayout
-                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/px20dp"
                     android:layout_toLeftOf="@+id/ico4"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="验  货  人:"
                         android:textSize="@dimen/px30dp" />
+
                     <TextView
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:singleLine="true"
                         android:id="@+id/tvexaminelist"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/px20dp"
                         android:background="@null"
+                        android:ellipsize="end"
                         android:gravity="right"
                         android:hint="请选择"
+                        android:maxLines="1"
+                        android:singleLine="true"
                         android:textSize="@dimen/px30dp" />
 
                 </LinearLayout>
+
                 <ImageView
                     android:id="@+id/ico4"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ico_right"
                     android:layout_width="@dimen/px20dp"
-                    android:layout_height="@dimen/px20dp" />
+                    android:layout_height="@dimen/px20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ico_right" />
 
             </RelativeLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -585,22 +1234,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/togglelock"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -612,14 +1263,14 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
-                    app:sb_show_indicator="false"
                     android:id="@+id/toggleIszc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null" />
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
@@ -627,9 +1278,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -641,14 +1292,14 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
-                   app:sb_show_indicator="false"
                     android:id="@+id/togglexh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
@@ -656,9 +1307,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -670,14 +1321,14 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/togglefp"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
@@ -685,9 +1336,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -699,23 +1350,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggleYh"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -727,24 +1379,25 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked="true"
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggleopenFactorySignIn"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked="true"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -756,22 +1409,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggleInFactoryAlbum"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -783,23 +1438,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/togglepz"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -811,22 +1467,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggleLoadAlbum"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -838,23 +1496,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/togglexhpz"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
 
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -866,22 +1525,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggleUnloadAlbum"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -893,24 +1554,25 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/togglebz"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -922,22 +1584,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggleOutFactoryAlbum"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -949,22 +1613,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    android:visibility="invisible"
-                    app:sb_checked_color="@color/blue"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    android:visibility="invisible"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -976,22 +1642,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggleArrivalAlbum"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -1003,22 +1671,24 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/togglestartcarmodel"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -1030,88 +1700,93 @@
                     android:textSize="@dimen/px30dp" />
 
                 <com.saimawzc.shipper.weight.SwitchButton
-                    app:sb_checked_color="@color/blue"
                     android:id="@+id/toggleIsWeilansign"
-                    app:sb_show_indicator="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginRight="@dimen/px20dp"
-                    android:background="@null"/>
+                    android:background="@null"
+                    app:sb_checked_color="@color/blue"
+                    app:sb_show_indicator="false" />
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
 
 
-
-
-
             <RelativeLayout
-                android:paddingRight="@dimen/px10dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:paddingBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
-                android:paddingTop="@dimen/px20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/px20dp"
+                android:paddingRight="@dimen/px10dp"
+                android:paddingBottom="@dimen/px10dp">
 
                 <LinearLayout
-                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/px20dp"
                     android:layout_toLeftOf="@+id/ico5"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="车型列表:"
                         android:textSize="@dimen/px30dp" />
+
                     <TextView
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:singleLine="true"
                         android:id="@+id/tvcarmodel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/px20dp"
                         android:background="@null"
+                        android:ellipsize="end"
                         android:gravity="right"
                         android:hint="请选择"
+                        android:maxLines="1"
+                        android:singleLine="true"
                         android:textSize="@dimen/px30dp" />
 
                 </LinearLayout>
+
                 <ImageView
                     android:id="@+id/ico5"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ico_right"
                     android:layout_width="@dimen/px20dp"
-                    android:layout_height="@dimen/px20dp" />
+                    android:layout_height="@dimen/px20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ico_right" />
 
             </RelativeLayout>
+
             <include layout="@layout/common_line"></include>
+
             <RelativeLayout
-                android:paddingRight="@dimen/px10dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
-                android:layout_marginTop="@dimen/px20dp"
                 android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/px10dp">
 
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/px20dp"
                     android:layout_toLeftOf="@+id/ico1"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="付款协议:"
                         android:textSize="@dimen/px30dp" />
+
                     <TextView
                         android:id="@+id/tvxy"
                         android:layout_width="match_parent"
@@ -1124,13 +1799,14 @@
 
 
                 </LinearLayout>
+
                 <ImageView
-                    android:visibility="gone"
                     android:id="@+id/ico1"
+                    android:layout_width="@dimen/px20dp"
+                    android:layout_height="@dimen/px20dp"
                     android:layout_alignParentRight="true"
                     android:src="@drawable/ico_right"
-                    android:layout_width="@dimen/px20dp"
-                    android:layout_height="@dimen/px20dp" />
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
@@ -1139,9 +1815,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -1152,25 +1828,27 @@
                     android:textSize="@dimen/px30dp" />
 
                 <EditText
-                    android:layout_marginRight="@dimen/px30dp"
-
                     android:id="@+id/edmark"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_marginRight="@dimen/px30dp"
                     android:background="@null"
                     android:gravity="right"
                     android:hint="请输入"
                     android:textSize="@dimen/px30dp" />
 
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -1192,13 +1870,15 @@
                     android:textSize="@dimen/px30dp" />
 
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -1209,32 +1889,35 @@
                     android:textSize="@dimen/px30dp" />
 
                 <EditText
-                    android:layout_weight="1"
-                    android:paddingRight="@dimen/px20dp"
-                    android:inputType="number"
                     android:id="@+id/eddriverage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:gravity="right"
                     android:hint="请输入"
+                    android:inputType="number"
+                    android:paddingRight="@dimen/px20dp"
                     android:textSize="@dimen/px30dp" />
+
                 <TextView
-                    android:layout_marginRight="@dimen/px40dp"
-                    android:text="年"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/px40dp"
+                    android:text="年">
 
                 </TextView>
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -1245,32 +1928,35 @@
                     android:textSize="@dimen/px30dp" />
 
                 <EditText
-                    android:layout_weight="1"
-                    android:paddingRight="@dimen/px20dp"
-                    android:inputType="number"
                     android:id="@+id/edcarage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:gravity="right"
                     android:hint="请输入"
+                    android:inputType="number"
+                    android:paddingRight="@dimen/px20dp"
                     android:textSize="@dimen/px30dp" />
+
                 <TextView
-                    android:layout_marginRight="@dimen/px40dp"
-                    android:text="年"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/px40dp"
+                    android:text="年">
 
                 </TextView>
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -1281,36 +1967,39 @@
                     android:textSize="@dimen/px30dp" />
 
                 <TextView
-                    android:maxEms="10"
-                    android:singleLine="true"
-                    android:ellipsize="marquee"
-                    android:layout_weight="1"
-                    android:paddingRight="@dimen/px20dp"
-                    android:inputType="number"
                     android:id="@+id/tvrelationCom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_weight="1"
                     android:background="@null"
+                    android:ellipsize="marquee"
                     android:gravity="right"
                     android:hint="请选择关联公司"
+                    android:inputType="number"
+                    android:maxEms="10"
+                    android:paddingRight="@dimen/px20dp"
+                    android:singleLine="true"
                     android:textSize="@dimen/px30dp" />
+
                 <ImageView
                     android:id="@+id/deleterelacom"
-                    android:layout_marginRight="@dimen/px40dp"
-                    android:src="@drawable/ico_delete"
                     android:layout_width="@dimen/px40dp"
-                    android:layout_height="@dimen/px40dp">
+                    android:layout_height="@dimen/px40dp"
+                    android:layout_marginRight="@dimen/px40dp"
+                    android:src="@drawable/ico_delete">
 
                 </ImageView>
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -1321,32 +2010,35 @@
                     android:textSize="@dimen/px30dp" />
 
                 <EditText
-                    android:layout_weight="1"
-                    android:paddingRight="@dimen/px20dp"
-                    android:inputType="numberDecimal"
                     android:id="@+id/edroadLoss"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:gravity="right"
                     android:hint="请输入"
+                    android:inputType="numberDecimal"
+                    android:paddingRight="@dimen/px20dp"
                     android:textSize="@dimen/px30dp" />
+
                 <TextView
-                    android:layout_marginRight="@dimen/px40dp"
-                    android:text="%"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/px40dp"
+                    android:text="%">
 
                 </TextView>
             </LinearLayout>
+
             <include layout="@layout/common_line"></include>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -1357,18 +2049,174 @@
                     android:textSize="@dimen/px30dp" />
 
                 <TextView
-                    android:layout_marginRight="@dimen/px30dp"
-                    android:paddingRight="@dimen/px20dp"
                     android:id="@+id/tvdangerousfence"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/px20dp"
+                    android:layout_marginRight="@dimen/px30dp"
                     android:background="@null"
                     android:gravity="right"
                     android:hint="选择高危围栏"
+                    android:paddingRight="@dimen/px20dp"
                     android:textSize="@dimen/px30dp" />
             </LinearLayout>
             <include layout="@layout/common_line"></include>
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:id="@+id/dangerousFenceLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="站内接受人:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/dangerousFenceZNObj"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/common_line"></include>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="短信接收人:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+
+                            android:id="@+id/dangerousFenceDXObj"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+                <include layout="@layout/common_line"></include>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginLeft="@dimen/px20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/px20dp"
+                    android:paddingRight="@dimen/px10dp"
+                    android:paddingBottom="@dimen/px10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px20dp"
+                        android:layout_toLeftOf="@+id/ico3"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="货主列表:"
+                            android:textSize="@dimen/px30dp" />
+
+                        <TextView
+                            android:id="@+id/dangerousFenceTvhzlist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px20dp"
+                            android:background="@null"
+                            android:ellipsize="end"
+                            android:gravity="right"
+                            android:hint="请选择"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textSize="@dimen/px30dp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ico3"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_right" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <include layout="@layout/common_line"></include>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px100dp"
@@ -1393,69 +2241,72 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:orientation="horizontal">
+
                     <RadioButton
-                        android:textSize="@dimen/px30dp"
-                        android:paddingLeft="@dimen/px20dp"
-                        android:paddingRight="@dimen/px20dp"
-                        android:button="@drawable/bg_radiobutton"
                         android:id="@+id/radiomust"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:button="@drawable/bg_radiobutton"
                         android:checked="true"
-                        android:text="强制" />
-                    <RadioButton
-                        android:textSize="@dimen/px30dp"
                         android:paddingLeft="@dimen/px20dp"
                         android:paddingRight="@dimen/px20dp"
-                        android:button="@drawable/bg_radiobutton"
+                        android:text="强制"
+                        android:textSize="@dimen/px30dp" />
+
+                    <RadioButton
                         android:id="@+id/radiotips"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:button="@drawable/bg_radiobutton"
                         android:checked="false"
-                        android:text="提醒" />
-
-                    <RadioButton
-                        android:checked="true"
-                        android:textSize="@dimen/px30dp"
                         android:paddingLeft="@dimen/px20dp"
                         android:paddingRight="@dimen/px20dp"
-                        android:button="@drawable/bg_radiobutton"
+                        android:text="提醒"
+                        android:textSize="@dimen/px30dp" />
+
+                    <RadioButton
                         android:id="@+id/radiono"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/px20dp"
                         android:layout_marginRight="@dimen/px30dp"
-                        android:text="无" />
+                        android:button="@drawable/bg_radiobutton"
+                        android:checked="true"
+                        android:paddingLeft="@dimen/px20dp"
+                        android:paddingRight="@dimen/px20dp"
+                        android:text="无"
+                        android:textSize="@dimen/px30dp" />
 
                 </RadioGroup>
             </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px80dp"
-                android:layout_marginBottom="@dimen/px10dp"
                 android:layout_marginLeft="@dimen/px20dp"
                 android:layout_marginTop="@dimen/px20dp"
+                android:layout_marginBottom="@dimen/px10dp"
                 android:gravity="right|center_vertical"
                 android:orientation="horizontal">
 
                 <EditText
-                    android:inputType="numberDecimal"
                     android:id="@+id/edbeiDouOffTime"
-                    android:gravity="center"
-                    android:background="@drawable/shape_bidd_btn_edit"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/shape_bidd_btn_edit"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
                     android:text="24"
                     android:textSize="@dimen/px30dp" />
 
 
                 <TextView
-                    android:layout_marginRight="@dimen/px40dp"
-                    android:text="小时默认为北斗离线"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/px40dp"
+                    android:text="小时默认为北斗离线">
 
                 </TextView>
             </LinearLayout>

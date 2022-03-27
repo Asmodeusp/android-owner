@@ -1,14 +1,13 @@
 package com.saimawzc.shipper.ui.order.advancewaybill;
 
+import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
+import static com.saimawzc.shipper.constants.AppConfig.reshWaybIllOrder;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -19,6 +18,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.SectionedRecyclerViewAdapter;
@@ -27,7 +31,6 @@ import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.order.wallbill.OrderWayBillDto;
 import com.saimawzc.shipper.presenter.order.waybill.WayBillListPresenter;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
-import com.saimawzc.shipper.view.order.PlanOrderView;
 import com.saimawzc.shipper.view.order.waybill.WayBillListView;
 import com.saimawzc.shipper.weight.ClearTextEditText;
 import com.saimawzc.shipper.weight.utils.LoadMoreListener;
@@ -39,24 +42,24 @@ import com.saimawzc.shipper.weight.utils.dialog.SlideBottomExit;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
-
-import static com.saimawzc.shipper.adapter.BaseAdapter.IS_RESH;
-import static com.saimawzc.shipper.constants.AppConfig.reshPlanOrder;
-import static com.saimawzc.shipper.constants.AppConfig.reshWaybIllOrder;
 
 /***
  *预运单
  * **/
 public class AdvanceWayBillListFragment extends BaseFragment
         implements WayBillListView {
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.cycle) RecyclerView rv;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.cycle)
+    RecyclerView rv;
     @BindView(R.id.right_btn) TextView rightBtn;
     private WayBillListAdapter adapter;
     private List<OrderWayBillDto.waybillData> mDatas=new ArrayList<>();
-    @BindView(R.id.SwipeRefreshLayout) SwipeRefreshLayout refreshLayout;
+    @BindView(R.id.SwipeRefreshLayout)
+    SwipeRefreshLayout refreshLayout;
     private WayBillListPresenter presenter;
     private int page=1;
     private LoadMoreListener loadMoreListener;

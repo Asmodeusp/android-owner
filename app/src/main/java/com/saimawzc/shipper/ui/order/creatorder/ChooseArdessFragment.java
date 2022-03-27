@@ -1,24 +1,25 @@
 package com.saimawzc.shipper.ui.order.creatorder;
 
+import static com.saimawzc.shipper.constants.AppConfig.reshWayBillAdd;
+
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import com.baidu.mapapi.map.MapView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.order.creatorder.AdressAdapter;
 import com.saimawzc.shipper.base.BaseFragment;
-import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.order.creatorder.AdressDto;
 import com.saimawzc.shipper.dto.order.creatorder.GoodsCompanyDto;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
@@ -31,12 +32,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-
-import static com.saimawzc.shipper.constants.AppConfig.reshWayBillAdd;
-
 /***
  * 选择地址
  * **/

@@ -1,7 +1,8 @@
 package com.saimawzc.shipper.ui.homeindex.examine;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.main.PlanOrderExampleAdapter;

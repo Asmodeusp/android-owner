@@ -1,10 +1,13 @@
 package com.saimawzc.shipper.ui.my;
 
+import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS_CAMERA;
+
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.saimawzc.shipper.R;
@@ -20,8 +23,10 @@ import com.saimawzc.shipper.weight.utils.GalleryUtils;
 import com.saimawzc.shipper.weight.utils.hawk.Hawk;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
+
 import java.io.File;
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.finalteam.galleryfinal.FunctionConfig;
@@ -31,10 +36,6 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-import static android.app.Activity.RESULT_OK;
-import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS;
-import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS_CAMERA;
-
 /**
  * Created by Administrator on 2020/8/7.
  * 中心
@@ -42,7 +43,8 @@ import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS_CAMERA;
 
 public class PersonCenerFragment extends BaseFragment implements PersonCenterView {
 
-    @BindView(R.id.toolbar)Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.imgHead)
     CircleImageView headIamge;
     @BindView(R.id.tvSex)TextView tvSex;

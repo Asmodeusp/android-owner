@@ -1,19 +1,23 @@
 package com.saimawzc.shipper.ui.order;
 
+import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.CHOOSE_COMPANY;
+import static com.saimawzc.shipper.ui.order.OrderBasicInfoFragment.CHOOSE_Route;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.IdRes;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.saimawzc.shipper.R;
@@ -29,11 +33,9 @@ import com.saimawzc.shipper.dto.order.creatorder.GoodsCompanyDto;
 import com.saimawzc.shipper.dto.order.creatorder.OrderDelationDto;
 import com.saimawzc.shipper.dto.order.creatorder.UntilDto;
 import com.saimawzc.shipper.dto.order.creatorder.waybill.AddWayBillGoodsDto;
-import com.saimawzc.shipper.presenter.order.OrderBasicinfoEditPresenter;
 import com.saimawzc.shipper.presenter.order.waybill.OrderBasicinfoWayBillEditPresenter;
 import com.saimawzc.shipper.ui.order.creatorder.ChooseAuthortityActivity;
 import com.saimawzc.shipper.ui.order.creatorder.ChooseConsignCompanyActivity;
-import com.saimawzc.shipper.view.order.OrderBasicInfoView;
 import com.saimawzc.shipper.view.order.OrderBasicWayBillInfoView;
 import com.saimawzc.shipper.weight.TimeChooseDialogUtil;
 import com.saimawzc.shipper.weight.utils.dialog.BounceTopEnter;
@@ -47,17 +49,11 @@ import com.saimawzc.shipper.weight.utils.listen.TimeChooseListener;
 import com.saimawzc.shipper.weight.utils.listen.WheelListener;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-
-import static android.app.Activity.RESULT_OK;
-import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.CHOOSE_COMPANY;
-import static com.saimawzc.shipper.ui.order.OrderBasicInfoFragment.CHOOSE_Route;
 
 /****
  *  基  础  信  息
@@ -92,7 +88,8 @@ public class OrderBasicInfoWayBillFragment extends BaseFragment
     private NormalDialog dialog;
     private WayBillGoodAdpater adpater;
     private List<AddWayBillGoodsDto>mDatas=new ArrayList<>();
-    @BindView(R.id.cycle) RecyclerView rv;
+    @BindView(R.id.cycle)
+    RecyclerView rv;
 
     @BindView(R.id.rl_yewu) RelativeLayout rlYw_Type;//业务类型
     @BindView(R.id.tvywtype)TextView tvYeType;

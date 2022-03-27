@@ -2,7 +2,6 @@ package com.saimawzc.shipper.weight.utils.api;
 
 import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.consign.ConsignDto;
-import com.saimawzc.shipper.dto.order.BiddingDelationDto;
 import com.saimawzc.shipper.dto.order.BiddingpageDto;
 import com.saimawzc.shipper.dto.order.ConsignmentCompanyDto;
 import com.saimawzc.shipper.dto.order.ConsultDto;
@@ -14,7 +13,6 @@ import com.saimawzc.shipper.dto.order.SignWeightDto;
 import com.saimawzc.shipper.dto.order.bidd.BiddFirstDto;
 import com.saimawzc.shipper.dto.order.bidd.PlanBiddDto;
 import com.saimawzc.shipper.dto.order.bidd.RankPageDto;
-import com.saimawzc.shipper.dto.order.bidd.WayBillBiddDto;
 import com.saimawzc.shipper.dto.order.consute.ConsuteDelationDto;
 import com.saimawzc.shipper.dto.order.creatorder.AdressDto;
 import com.saimawzc.shipper.dto.order.creatorder.AssignDelationDto;
@@ -351,7 +349,10 @@ public interface OrderApi {
     @Headers("Content-Type: application/json")
     @POST("oms/hz/wayBill/agreeCysApply")
     Call<JsonResult<EmptyDto>>agreeCysapply(@Body RequestBody array);
-
+    //榜单存疑
+    @Headers("Content-Type: application/json")
+    @POST("oms/hz/wayBill/doubtSignIn")
+    Call<String>doubtSignIn(@Body RequestBody array);
     /**
      *获取北斗轨迹
      */

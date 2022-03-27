@@ -1,10 +1,11 @@
 package com.saimawzc.shipper.ui.my.set.suggest;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
@@ -25,9 +26,11 @@ import butterknife.BindView;
  * 我的意见反馈列表
  * **/
 public class SuggestListFragment extends BaseFragment implements MySuggestListView {
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     private MySuggestPresenter presenter;
-    @BindView(R.id.cv) RecyclerView rv;
+    @BindView(R.id.cv)
+    RecyclerView rv;
     private List<SuggestDto>mDatas=new ArrayList<>();
     private MySuggestAdpater adpater;
 

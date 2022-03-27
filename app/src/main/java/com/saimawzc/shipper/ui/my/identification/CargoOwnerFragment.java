@@ -1,14 +1,17 @@
 package com.saimawzc.shipper.ui.my.identification;
 
+import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS_CAMERA;
+
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+
 import com.baidu.ocr.sdk.OCR;
 import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
@@ -35,24 +38,22 @@ import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.listen.AreaListener;
 import com.saimawzc.shipper.weight.utils.loadimg.ImageLoadUtil;
 import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
+
 import java.io.File;
-import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-import static android.app.Activity.RESULT_OK;
-import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS;
-import static com.saimawzc.shipper.base.BaseActivity.PERMISSIONS_CAMERA;
-
 /**
  * Created by Administrator on 2020/8/1.
  * 货主认证
  */
 public class CargoOwnerFragment extends BaseFragment implements CargoOwnerCarrierView {
-    @BindView(R.id.toolbar)Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.imgidpositive)ImageView imageIdPositive;
     @BindView(R.id.imgidotherside)ImageView imageOtherSide;
     @BindView(R.id.tvuser)EditText tvUser;

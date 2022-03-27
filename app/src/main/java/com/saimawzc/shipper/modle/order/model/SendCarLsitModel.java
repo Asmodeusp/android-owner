@@ -12,4 +12,5 @@ public interface SendCarLsitModel {
     void sign(SendCarListView view, String id , String num);
 
     void getsignWeight(SendCarListView view, String id );
+   void getDoubtSignIn(SendCarListView view,SendCarListListener listener,String id,String doubtPicture,String doubtPoundReMark,String hzSignInWeight);
 }

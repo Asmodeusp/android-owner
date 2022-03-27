@@ -12,7 +12,6 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.IntDef;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -22,13 +21,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.IntDef;
+
 import com.baidu.idcardquality.IDcardQualityProcess;
 import com.baidu.ocr.ui.camera.Camera1Control;
 import com.baidu.ocr.ui.camera.CameraThreadPool;
 import com.baidu.ocr.ui.camera.ICameraControl;
 import com.baidu.ocr.ui.util.DimensionUtil;
 import com.baidu.ocr.ui.util.ImageUtil;
-import com.saimawzc.shipper.weight.utils.ocr.MaskView;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.constants.Constants;
@@ -30,7 +32,8 @@ import butterknife.OnClick;
  */
 public class RegisterActivity extends BaseActivity implements ResisterView {
 
-    @BindView(R.id.toolbar) android.support.v7.widget.Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.edit_phone)EditText editPhone;
     @BindView(R.id.edit_yzm)EditText editCode;
     @BindView(R.id.pass)EditText editPass;

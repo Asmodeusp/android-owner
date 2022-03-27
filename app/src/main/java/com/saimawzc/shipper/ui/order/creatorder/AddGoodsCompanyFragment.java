@@ -1,10 +1,13 @@
 package com.saimawzc.shipper.ui.order.creatorder;
 
+import static com.saimawzc.shipper.constants.AppConfig.reshWayBillAdd;
+
 import android.content.Intent;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
@@ -19,10 +22,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-
-import static com.saimawzc.shipper.constants.AppConfig.reshWayBillAdd;
-
-
 /**
  * 新增发货商和收货商
  * **/

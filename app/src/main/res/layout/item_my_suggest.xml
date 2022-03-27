@@ -85,14 +85,14 @@
 
     <include layout="@layout/common_line"></include>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_marginLeft="@dimen/px20dp"
         android:layout_marginRight="@dimen/px20dp"
         android:id="@+id/cvimg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 

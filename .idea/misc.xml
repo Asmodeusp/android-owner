@@ -1,4 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/wangs/Desktop/android-owner/app/src/main/res/layout/common_pagetitle.xml" value="0.1125" />
+        <entry key="..\:/Users/wangs/Desktop/android-owner/app/src/main/res/layout/fragment_consignee_mine.xml" value="0.1125" />
+        <entry key="..\:/Users/wangs/Desktop/android-owner/app/src/main/res/layout/fragment_mine.xml" value="0.1125" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/bg_dotted_line.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/bg_radiobutton.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/bg_round_time_out.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/dot_selected.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/dot_selected_red.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/dot_unselected.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/ed_shape.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/ic_camera_enhance_black_24dp.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/loading_btn_login.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/loading_btn_white.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/search_btn.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/select_check.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/selector_bg.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_bidd_btn.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_bidd_btn_edit.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_bidd_btn_no_bord.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_circle.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_ic_camera_enhance_black_24dp.xml" value="0.148" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_list_btn.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_list_btn_8dp.xml" value="0.148" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_list_btn_gray.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_list_btn_no_bord.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_list_btn_org.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_list_btn_update.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_loading.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_loading_btn_resister.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_order_btn_blue.xml" value="0.148" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_search_btn.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/shape_white_top.xml" value="0.149" />
+        <entry key="..\:/android-owner/app/src/main/res/drawable/text_shape.xml" value="0.148" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/activity_chooseconsign.xml" value="0.1125" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/activity_dangerous_fence.xml" value="0.1125" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/activity_richtext.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/activity_tracing.xml" value="0.22644927536231885" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/common_toolbar.xml" value="0.1125" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/dialog_sign.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_assigndelation.xml" value="0.22644927536231885" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_choosegoodscompany.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_creatorder.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_nomaltaxi.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_order_sh.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_orderassignemt_second.xml" value="0.22644927536231885" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_orderlist.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_sendcar_mainindex.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_sendcarindex.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_waitconfirmaccount.xml" value="0.1125" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_waybill_sh.xml" value="0.22644927536231885" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/item_assgin_delation.xml" value="0.22644927536231885" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/item_constute.xml" value="0.1" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/item_logistica_viewpage.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/item_logticas.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/item_my_suggest.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/item_orderlist.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/item_planbidd.xml" value="0.22644927536231885" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/item_sendcar.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/item_yanhuo.xml" value="0.22644927536231885" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/layout_footer.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/tab_order_optional.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/tab_order_waybill_basic.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/weigh_doubt.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/weigh_doubt_popup.xml" value="0.12335359675785208" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

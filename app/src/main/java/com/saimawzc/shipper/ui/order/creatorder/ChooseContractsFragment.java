@@ -1,22 +1,25 @@
 package com.saimawzc.shipper.ui.order.creatorder;
 
+import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.constants.AppConfig.reshContact;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.order.creatorder.ContractsAdapter;
 import com.saimawzc.shipper.base.BaseFragment;
-import com.saimawzc.shipper.dto.EmptyDto;
 import com.saimawzc.shipper.dto.order.creatorder.ContarctsDto;
 import com.saimawzc.shipper.ui.order.OrderMainActivity;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
@@ -31,21 +34,20 @@ import butterknife.BindView;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
-import static android.app.Activity.RESULT_OK;
-import static com.saimawzc.shipper.constants.AppConfig.reshContact;
-import static com.saimawzc.shipper.constants.AppConfig.reshWayBillAdd;
-
 /**
  * 选择联系人
  * **/
 public class ChooseContractsFragment extends BaseFragment {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.rv) RecyclerView rv;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.rv)
+    RecyclerView rv;
     private ContractsAdapter adapter;
     List<ContarctsDto>mDatas=new ArrayList<>();
     @BindView(R.id.right_btn) TextView rightBtn;
-    @BindView(R.id.SwipeRefreshLayout) SwipeRefreshLayout refreshLayout;
+    @BindView(R.id.SwipeRefreshLayout)
+    SwipeRefreshLayout refreshLayout;
     @Override
     public int initContentView() {
         return R.layout.fragment_choosecontarcts;

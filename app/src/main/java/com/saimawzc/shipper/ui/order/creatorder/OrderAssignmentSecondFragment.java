@@ -2,24 +2,20 @@ package com.saimawzc.shipper.ui.order.creatorder;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.saimawzc.shipper.R;
-import com.saimawzc.shipper.adapter.carrier.CarrierGroupAdapter;
 import com.saimawzc.shipper.adapter.order.OrderAssiginSecondAdapter;
-import com.saimawzc.shipper.dto.order.OrderAssignmentSecondDto;
 import com.saimawzc.shipper.base.BaseFragment;
+import com.saimawzc.shipper.dto.order.OrderAssignmentSecondDto;
 import com.saimawzc.shipper.presenter.order.OrderCarriveSecondPresenter;
 import com.saimawzc.shipper.view.order.OrderCarriveSecondView;
 import com.saimawzc.shipper.weight.RepeatClickUtil;
-import com.saimawzc.shipper.weight.utils.hawk.Hawk;
-import com.saimawzc.shipper.weight.utils.preference.PreferenceKey;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,21 +23,22 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.saimawzc.shipper.constants.AppConfig.reshPlanOrder;
-
 /**
  * 订单指派二级页面
  **/
 public class OrderAssignmentSecondFragment extends BaseFragment implements OrderCarriveSecondView {
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.rv) RecyclerView rv;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.rv)
+    RecyclerView rv;
     private OrderAssiginSecondAdapter adapter;
     private List<OrderAssignmentSecondDto> mDatas=new ArrayList<>();
     private OrderCarriveSecondPresenter presenter;
     private String id;
     private String orderId;
     private int isAppointTime=2;
-    @BindView(R.id.SwipeRefreshLayout) SwipeRefreshLayout refreshLayout;
+    @BindView(R.id.SwipeRefreshLayout)
+    SwipeRefreshLayout refreshLayout;
 
     @Override
     public int initContentView() {

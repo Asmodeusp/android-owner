@@ -2,26 +2,26 @@ package com.saimawzc.shipper.ui.order.creatorder;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.gyf.immersionbar.ImmersionBar;
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.adapter.BaseAdapter;
 import com.saimawzc.shipper.adapter.order.creatorder.AuthorityAdapter;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.order.creatorder.AuthorityDto;
 import com.saimawzc.shipper.dto.order.creatorder.AuthorityDtoSerializ;
-import com.gyf.immersionbar.ImmersionBar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -36,7 +36,8 @@ import retrofit2.Response;
 
 public class ChooseAuthortityActivity extends BaseActivity {
 
-    @BindView(R.id.rv) RecyclerView rv;
+    @BindView(R.id.rv)
+    RecyclerView rv;
     @BindView(R.id.toolbar) Toolbar toolbar;
     private AuthorityAdapter authorityAdapter;
     private List<AuthorityDto>mDatas=new ArrayList<>();

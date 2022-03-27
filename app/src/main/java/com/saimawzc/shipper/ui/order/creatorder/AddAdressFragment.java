@@ -1,15 +1,17 @@
 package com.saimawzc.shipper.ui.order.creatorder;
 
+import static android.app.Activity.RESULT_OK;
+import static com.saimawzc.shipper.constants.AppConfig.reshWayBillAdd;
+import static com.saimawzc.shipper.ui.order.OrderBasicInfoFragment.CHOOSE_GOODSCOMPANY;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.baidu.location.BDAbstractLocationListener;
-import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClient;
+
+import androidx.appcompat.widget.Toolbar;
+
 import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseFragment;
 import com.saimawzc.shipper.dto.EmptyDto;
@@ -19,17 +21,15 @@ import com.saimawzc.shipper.ui.order.OrderMainActivity;
 import com.saimawzc.shipper.weight.utils.AreaChooseDialog;
 import com.saimawzc.shipper.weight.utils.http.CallBack;
 import com.saimawzc.shipper.weight.utils.listen.AreaListener;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-import static android.app.Activity.RESULT_OK;
-import static com.saimawzc.shipper.constants.AppConfig.reshWayBillAdd;
-import static com.saimawzc.shipper.ui.my.identification.CargoOwnerFragment.CHOOSE_COMPANY;
-import static com.saimawzc.shipper.ui.order.OrderBasicInfoFragment.CHOOSE_GOODSCOMPANY;
+
 /**
  * 新增地址
  * **/
@@ -41,7 +41,8 @@ public class AddAdressFragment extends BaseFragment {
     @BindView(R.id.eddelationadress)
     TextView edDelationAdress;
     @BindView(R.id.edemail)EditText edEmail;//邮箱
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.right_btn)TextView tvRightBtn;
     @BindView(R.id.tvUntil)TextView tvUntil;
     private AreaChooseDialog areaChooseDialog;
