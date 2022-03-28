@@ -11,11 +11,11 @@ import com.saimawzc.shipper.base.BaseActivity;
 public class Constants {
 
 //    public static final String Baseurl = "http://106.12.165.54:8005/";
-//    public static final String Baseurl = "http://180.76.240.138:8005/";
+    public static final String Baseurl = "http://180.76.240.138:8005/";
 //    public static final String Baseurl = "http://120.48.17.182:8005/";
 //    public static final String Baseurl = "http://192.168.102.15:8005/";
-//    public static final String Baseurl = "http://192.168.101.30:8005/";
-    public static final String Baseurl = "https://app.api.wzcwlw.com/";
+//    public static final String Baseurl = "http://192.168.75.127:8005/";
+//    public static final String Baseurl = "https://app.api.wzcwlw.com/";
     public static int DEVICE_FIRM = -1;
     public static final String PW_PATTERN = "^(?![A-Za-z0-9]+$)(?![a-z0-9\\W]+$)(?![A-Za-z\\W]+$)(?![A-Z0-9\\W]+$)[a-zA-Z0-9\\W]{8,}$";
     public static final String reshAccount_confirm = "reshAccount";//更新结算单

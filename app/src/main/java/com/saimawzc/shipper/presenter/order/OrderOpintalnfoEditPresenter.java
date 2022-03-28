@@ -3,11 +3,8 @@ package com.saimawzc.shipper.presenter.order;
 import android.content.Context;
 
 import com.saimawzc.shipper.dto.order.creatorder.OrderDelationDto;
-import com.saimawzc.shipper.modle.order.Imple.OrderBasicInfoModelImple;
 import com.saimawzc.shipper.modle.order.Imple.OrderOptionalnfoModelImple;
-import com.saimawzc.shipper.modle.order.model.OrderBasicInfoModel;
 import com.saimawzc.shipper.modle.order.model.OrderOpintalInfoModel;
-import com.saimawzc.shipper.view.order.OrderBasicInfoView;
 import com.saimawzc.shipper.view.order.OrderOptionalInfoView;
 import com.saimawzc.shipper.weight.utils.listen.order.OrderDelationListener;
 
@@ -19,6 +16,7 @@ public class OrderOpintalnfoEditPresenter implements OrderDelationListener {
     private Context mContext;
     OrderOpintalInfoModel model;
     OrderOptionalInfoView view;
+
 
 
     public OrderOpintalnfoEditPresenter(OrderOptionalInfoView view, Context context) {

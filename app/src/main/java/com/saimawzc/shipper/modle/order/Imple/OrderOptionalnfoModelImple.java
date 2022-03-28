@@ -1,5 +1,7 @@
 package com.saimawzc.shipper.modle.order.Imple;
 
+import android.util.Log;
+
 import com.saimawzc.shipper.dto.order.consute.ConsuteDelationDto;
 import com.saimawzc.shipper.dto.order.creatorder.OrderDelationDto;
 import com.saimawzc.shipper.modle.BasEModeImple;
@@ -42,6 +44,7 @@ public class OrderOptionalnfoModelImple extends BasEModeImple implements OrderOp
                 @Override
                 public void success(OrderDelationDto response) {
                     view.dissLoading();
+                    Log.d("OrderOptionalnfoModelIm", response.getChoose().toString());
                     listener.back(response);
 
                 }
@@ -56,6 +59,7 @@ public class OrderOptionalnfoModelImple extends BasEModeImple implements OrderOp
                 @Override
                 public void success(OrderDelationDto response) {
                     view.dissLoading();
+                    Log.d("OrderOptionalnfoModelIm", response.getChoose().toString());
                     listener.back(response);
 
                 }

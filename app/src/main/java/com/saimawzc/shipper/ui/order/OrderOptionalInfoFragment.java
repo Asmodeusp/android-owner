@@ -529,8 +529,9 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 tvMakePeople.setText(userInfoDto.getName());
             }
         }
+        presenter = new OrderOpintalnfoEditPresenter(this, mContext);
         try {
-            presenter = new OrderOpintalnfoEditPresenter(this, mContext);
+
             id = getArguments().getString("id");
             if (!TextUtils.isEmpty(id)) {
                 from = getArguments().getString("from");
@@ -728,6 +729,48 @@ public class OrderOptionalInfoFragment extends BaseFragment
         if (dto != null) {
             OrderDelationDto.choosedata choosedata = dto.getChoose();
             if (choosedata != null) {
+                /**
+                 * 偏离预警站内接收人
+                 **/
+                 toggleplZNObj.setText(choosedata.getDeviateStation());
+                /**
+                 * 偏离预警短信接收人
+                 **/
+                 toggleplDXObj.setText(choosedata.getDeviateShortMessage());
+                /**
+                 * 离线预警站内接收人
+                 **/
+                 toggleoffZNObj.setText(choosedata.getOfflineStation());
+                /**
+                 * 离线预警短信接收人
+                 **/
+                 toggleoffDXObj.setText(choosedata.getOfflineShortMessage());
+                /**
+                 * 高危围栏站内接收人
+                 **/
+                 dangerousFenceZNObj.setText(choosedata.getHighRiskStation());
+                /**
+                 * 高危围栏短信接收人
+                 **/
+                 dangerousFenceDXObj.setText(choosedata.getHighRiskSms());
+                /**
+                 * 停留预警短信接收人
+                 **/
+                 togglestayDXObj.setText(choosedata.getStopShortMessage());
+                /***
+                 * 停留预警货主列表
+                 */
+                 togglestayZNObj.setText(choosedata.getStopStation());
+                /**
+                 * 磅单预警站内接收人
+                 **/
+                 togglebangdanZNObj.setText(choosedata.getPoundListStation());
+                /**
+                 * 磅单预警短信接收人
+                 **/
+                 togglebangdanDXObj.setText(choosedata.getPoundListShortMessage());
+                tvReceiveObj.setText(dto.getChoose().getPushAlarmRoleName());
+                receivObjId = dto.getChoose().getPushAlarmRole();
                 edksNum.setText(choosedata.getThirdPartyNo());
                 tvmakeTime.setText(choosedata.getMakerName());
                 tvmakeTime.setText(choosedata.getMakerTime());
@@ -813,11 +856,10 @@ public class OrderOptionalInfoFragment extends BaseFragment
                 if (dto.getChoose().getArrivalAlbum() == 1) {
                     toggleArrivalAlbum.setChecked(true);
                 }
-                toggleplZNObj.setText(choosedata.getDeviateStation());
+
                 deviateStation=choosedata.getDeviateStation();
                
-                tvReceiveObj.setText(dto.getChoose().getPushAlarmRoleName());
-                receivObjId = dto.getChoose().getPushAlarmRole();
+
                 if (dto.getChoose().getOpenCarType() == 1) {
                     swCarModel.setChecked(true);
                 } else {
