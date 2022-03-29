@@ -717,7 +717,6 @@ public class OrderOptionalInfoFragment extends BaseFragment
             @Override
             public void onCheckedChanged(SwitchButton view, boolean isChecked) {
                 isChoose = isChecked;
-
             }
         });
 

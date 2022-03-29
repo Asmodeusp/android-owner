@@ -32,11 +32,20 @@ public class AssignDelationDto {
         private String pointPrice;
         private String pointWeight;
         private String endOption;
+        private String overWeight;
 
         private String id;
         private int endStatus;
 
         int status;
+
+        public String getOverWeight() {
+            return overWeight;
+        }
+
+        public void setOverWeight(String overWeight) {
+            this.overWeight = overWeight;
+        }
 
         public String getEndOption() {
             if (!TextUtils.isEmpty(endOption)) {

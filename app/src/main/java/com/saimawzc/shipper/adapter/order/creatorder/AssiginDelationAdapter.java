@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,22 +41,23 @@ import okhttp3.RequestBody;
  * Created by Administrator on 2020/8/6.
  * 指派二级页面
  */
-public class AssiginDelationAdapter extends BaseAdapter{
-    public OrderApi orderApi= Http.http.createApi(OrderApi.class);
-    private List<AssignDelationDto.listdata> mDatas=new ArrayList<>();
+public class AssiginDelationAdapter extends BaseAdapter {
+    public OrderApi orderApi = Http.http.createApi(OrderApi.class);
+    private List<AssignDelationDto.listdata> mDatas = new ArrayList<>();
     private Context mContext;
     private LayoutInflater mInflater;
     private String type;
+
     public AssiginDelationAdapter(List<AssignDelationDto.listdata> mDatas,
-                                  Context mContext,String type) {
+                                  Context mContext, String type) {
         this.mDatas = mDatas;
         this.mContext = mContext;
         mInflater = LayoutInflater.from(mContext);
-        activity=(BaseActivity) mContext;
-        this.type=type;
+        activity = (BaseActivity) mContext;
+        this.type = type;
     }
 
-    public void setData(List<AssignDelationDto.listdata> mDatas ) {
+    public void setData(List<AssignDelationDto.listdata> mDatas) {
         this.mDatas = mDatas;
         notifyDataSetChanged();
     }
@@ -63,19 +65,21 @@ public class AssiginDelationAdapter extends BaseAdapter{
     public List<AssignDelationDto.listdata> getData() {
         return mDatas;
     }
+
     public void addMoreData(List<AssignDelationDto.listdata> newDatas) {
         mDatas.addAll(newDatas);
         notifyDataSetChanged();
     }
+
     @Override
     public int getItemViewType(int position) {
         if (position + 1 == getItemCount()) {
             return TYPE_FOOTER;
-        }
-        else {
+        } else {
             return TYPE_ITEM;
         }
     }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
@@ -87,35 +91,43 @@ public class AssiginDelationAdapter extends BaseAdapter{
         }
         return null;
     }
+
     private NormalDialog dialog;
+
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder,
                                  final int position) {
-        if(holder instanceof ViewHolder){
-            final AssignDelationDto.listdata dto=mDatas.get(position);
+        if (holder instanceof ViewHolder) {
+            final AssignDelationDto.listdata dto = mDatas.get(position);
             ((ViewHolder) holder).tvName.setText(dto.getCysName());
             ((ViewHolder) holder).tvPhone.setText(dto.getCysPhone());
             ((ViewHolder) holder).edTrangprice.setText(dto.getPointPrice());
             ((ViewHolder) holder).edtrantNum.setText(dto.getPointWeight());
+            if (!TextUtils.isEmpty(dto.getOverWeight())) {
+                ((ViewHolder) holder).surplusRelative.setVisibility(View.VISIBLE);
+                ((ViewHolder) holder).surplusNum.setText(dto.getOverWeight());
+            } else {
+                ((ViewHolder) holder).surplusRelative.setVisibility(View.GONE);
+            }
             if (!TextUtils.isEmpty(dto.getEndOption())) {
                 ((ViewHolder) holder).suggestLinear.setVisibility(View.VISIBLE);
                 ((ViewHolder) holder).suggestText.setText(dto.getEndOption());
-            }else {
+            } else {
                 ((ViewHolder) holder).suggestLinear.setVisibility(View.GONE);
             }
 
 
-            if(dto.getEndStatus()==3){
+            if (dto.getEndStatus() == 3) {
                 ((ViewHolder) holder).lineAgreen.setVisibility(View.VISIBLE);
-            }else {
+            } else {
                 ((ViewHolder) holder).lineAgreen.setVisibility(View.GONE);
             }
 
-            if(dto.getStatus()==1){
+            if (dto.getStatus() == 1) {
                 ((ViewHolder) holder).tvStatus.setText("待确认");
-            }else if(dto.getStatus()==2){
+            } else if (dto.getStatus() == 2) {
                 ((ViewHolder) holder).tvStatus.setText("已确认");
-            }else if(dto.getStatus()==3){
+            } else if (dto.getStatus() == 3) {
                 ((ViewHolder) holder).tvStatus.setText("已拒绝");
             }
             ((ViewHolder) holder).tvArgeen.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +141,7 @@ public class AssiginDelationAdapter extends BaseAdapter{
                             new OnBtnClickL() {
                                 @Override
                                 public void onBtnClick() {
-                                    if(!activity.isFinishing()){
+                                    if (!activity.isFinishing()) {
                                         dialog.dismiss();
                                     }
                                 }
@@ -137,8 +149,8 @@ public class AssiginDelationAdapter extends BaseAdapter{
                             new OnBtnClickL() {
                                 @Override
                                 public void onBtnClick() {
-                                    sh(1,mDatas.get(position).getId(),type);
-                                    if(!activity.isFinishing()){
+                                    sh(1, mDatas.get(position).getId(), type);
+                                    if (!activity.isFinishing()) {
                                         dialog.dismiss();
                                     }
                                 }
@@ -159,7 +171,7 @@ public class AssiginDelationAdapter extends BaseAdapter{
                             new OnBtnClickL() {
                                 @Override
                                 public void onBtnClick() {
-                                    if(!activity.isFinishing()){
+                                    if (!activity.isFinishing()) {
                                         dialog.dismiss();
                                     }
                                 }
@@ -167,8 +179,8 @@ public class AssiginDelationAdapter extends BaseAdapter{
                             new OnBtnClickL() {
                                 @Override
                                 public void onBtnClick() {
-                                    sh(2,mDatas.get(position).getId(),type);
-                                    if(!activity.isFinishing()){
+                                    sh(2, mDatas.get(position).getId(), type);
+                                    if (!activity.isFinishing()) {
                                         dialog.dismiss();
                                     }
                                 }
@@ -196,7 +208,8 @@ public class AssiginDelationAdapter extends BaseAdapter{
                     }
                 });
             }
-        }if (holder instanceof FooterHolder) {
+        }
+        if (holder instanceof FooterHolder) {
             switch (load_more_status) {
                 case PULLUP_LOAD_MORE:
                     ((FooterHolder) holder).tvFooter.setVisibility(View.VISIBLE);
@@ -218,25 +231,41 @@ public class AssiginDelationAdapter extends BaseAdapter{
 
     @Override
     public int getItemCount() {
-        return mDatas.size() == 0 ? 0 : mDatas.size()+1;
+        return mDatas.size() == 0 ? 0 : mDatas.size() + 1;
     }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
-        @BindView(R.id.tvName)TextView tvName;
-        @BindView(R.id.tvphone)TextView tvPhone;
-        @BindView(R.id.tvstatus)TextView tvStatus;
-        @BindView(R.id.edtrantPrice) TextView edTrangprice;
-        @BindView(R.id.edtrantNum)TextView edtrantNum;
+
+        @BindView(R.id.tvName)
+        TextView tvName;
+        @BindView(R.id.tvphone)
+        TextView tvPhone;
+        @BindView(R.id.tvstatus)
+        TextView tvStatus;
+        @BindView(R.id.edtrantPrice)
+        TextView edTrangprice;
+        @BindView(R.id.edtrantNum)
+        TextView edtrantNum;
         @BindView(R.id.llBtn)
         LinearLayout lineAgreen;
-        @BindView(R.id.tvAgreen)TextView tvArgeen;
-        @BindView(R.id.tvRefuse)TextView tvRefuse;
-        @BindView(R.id.suggest_text)TextView suggestText;
-        @BindView(R.id.suggestLinear)LinearLayout suggestLinear;
+        @BindView(R.id.tvAgreen)
+        TextView tvArgeen;
+        @BindView(R.id.tvRefuse)
+        TextView tvRefuse;
+        @BindView(R.id.suggest_text)
+        TextView suggestText;
+        @BindView(R.id.surplusNum)
+        TextView surplusNum;
+        @BindView(R.id.suggestLinear)
+        LinearLayout suggestLinear;
+        @BindView(R.id.surplusRelative)
+        RelativeLayout surplusRelative;
     }
+
     @Override
     public void changeMoreStatus(int status) {
         load_more_status = status;
@@ -244,18 +273,18 @@ public class AssiginDelationAdapter extends BaseAdapter{
     }
 
 
-    private void sh(int status,String id,String type){
-        JSONObject jsonObject=new JSONObject();
+    private void sh(int status, String id, String type) {
+        JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("status",status);
-            jsonObject.put("id",id);
-            jsonObject.put("type",type);//1是计划单 2是小单 3 合单
+            jsonObject.put("status", status);
+            jsonObject.put("id", id);
+            jsonObject.put("type", type);//1是计划单 2是小单 3 合单
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("msg",jsonObject.toString());
-        final MediaType JSON= MediaType.parse("application/json; charset=utf-8");
-        RequestBody body = RequestBody.create(JSON,jsonObject.toString());
+        Log.e("msg", jsonObject.toString());
+        final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(JSON, jsonObject.toString());
 
         orderApi.agreeCysapply(body).enqueue(new CallBack<EmptyDto>() {
             @Override
