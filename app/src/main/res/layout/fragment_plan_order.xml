@@ -1,16 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg">
-    <include layout="@layout/common_toolbar"></include>
+    android:background="@color/bg"
+   >
 
-  <include layout="@layout/common_pagetitle"></include>
+    <include android:id="@+id/one" layout="@layout/common_toolbar"></include>
 
+    <include android:layout_below="@id/one" android:id="@+id/two" layout="@layout/common_pagetitle"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"></include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_below="@id/one"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/redMessageOne"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/dot_selected_red"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="26px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/redMessageTwo"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/dot_selected_red"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="26px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/redMessageThree"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/dot_selected_red"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="26px" />
+        </RelativeLayout>
+    </LinearLayout>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </androidx.viewpager.widget.ViewPager>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/two"></androidx.viewpager.widget.ViewPager>
+</RelativeLayout>

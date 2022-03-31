@@ -13,7 +13,7 @@ public class Constants {
 //    public static final String Baseurl = "http://106.12.165.54:8005/";
     public static final String Baseurl = "http://180.76.240.138:8005/";
 //    public static final String Baseurl = "http://120.48.17.182:8005/";
-//    public static final String Baseurl = "http://192.168.102.15:8005/";
+//    public static final String Baseurl = "http://192.168.102.8:8005/";
 //    public static final String Baseurl = "http://192.168.75.127:8005/";
 //    public static final String Baseurl = "https://app.api.wzcwlw.com/";
     public static int DEVICE_FIRM = -1;

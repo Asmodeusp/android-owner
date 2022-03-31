@@ -22,7 +22,7 @@ import java.util.List;
 /***
  * 仿微博导航栏
  * **/
-public class CaterpillarIndicator extends LinearLayout implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class  CaterpillarIndicator extends LinearLayout implements View.OnClickListener, ViewPager.OnPageChangeListener {
     private static final String TAG = "CaterpillarIndicator";
 
     private static final int BASE_ID = 0xffff00;

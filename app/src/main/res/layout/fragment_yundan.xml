@@ -16,6 +16,19 @@
         android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px200dp">
+
+        <TextView
+            android:id="@+id/redMessage"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/dot_selected_red"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="26px" />
         <ImageView
             android:layout_marginLeft="@dimen/px64dp"
             android:id="@+id/big"

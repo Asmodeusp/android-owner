@@ -26,6 +26,7 @@ import com.saimawzc.shipper.R;
 import com.saimawzc.shipper.base.BaseActivity;
 import com.saimawzc.shipper.dto.FrameDto;
 import com.saimawzc.shipper.dto.identification.PersonCenterDto;
+import com.saimawzc.shipper.dto.order.selectEndStatuesDto;
 import com.saimawzc.shipper.ui.login.LoginActivity;
 import com.saimawzc.shipper.ui.my.PersonCenterActivity;
 import com.saimawzc.shipper.ui.tab.BiddingListFragment;
@@ -81,6 +82,7 @@ public class MainActivity extends BaseActivity
         if(!isLogin()){
             readyGo(LoginActivity.class);
         }
+
         initpermissionChecker();
         try{
             if(getIntent()!=null){
@@ -117,6 +119,7 @@ public class MainActivity extends BaseActivity
         }
         initWithApiKey();
         getDialog();
+        getSelectEndStatues();
         try{
             String path="";
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
@@ -128,6 +131,32 @@ public class MainActivity extends BaseActivity
             deleteFile(file);
         }catch (Exception e){
         }
+        Integer endStatues = Hawk.get("endStatues");
+
+    }
+
+    private void getSelectEndStatues() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                orderApi.selectEndStatues().enqueue(new CallBack<selectEndStatuesDto>() {
+                    @Override
+                    public void success(final selectEndStatuesDto response) {
+                        if (response!=null) {
+                            if (response.getEndStatus()!=1) {
+                                mTabbar.HideBadge(1);
+                            } else {
+                                mTabbar.ShowBadge(1, response.getNum()+"");
+                            }
+                        }
+                    }
+                    @Override
+                    public void fail(String code, String message) {
+                        context.showMessage(message);
+                    }
+                });
+            }
+        });
     }
 
     @Override

@@ -39,8 +39,10 @@
         <entry key="..\:/android-owner/app/src/main/res/layout/activity_chooseconsign.xml" value="0.1125" />
         <entry key="..\:/android-owner/app/src/main/res/layout/activity_dangerous_fence.xml" value="0.1125" />
         <entry key="..\:/android-owner/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/activity_main.xml" value="0.22644927536231885" />
         <entry key="..\:/android-owner/app/src/main/res/layout/activity_richtext.xml" value="0.22826086956521738" />
         <entry key="..\:/android-owner/app/src/main/res/layout/activity_tracing.xml" value="0.22644927536231885" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/common_pagetitle.xml" value="0.22644927536231885" />
         <entry key="..\:/android-owner/app/src/main/res/layout/common_toolbar.xml" value="0.1125" />
         <entry key="..\:/android-owner/app/src/main/res/layout/dialog_sign.xml" value="0.22826086956521738" />
         <entry key="..\:/android-owner/app/src/main/res/layout/fragment_assigndelation.xml" value="0.22644927536231885" />
@@ -50,10 +52,12 @@
         <entry key="..\:/android-owner/app/src/main/res/layout/fragment_order_sh.xml" value="0.22826086956521738" />
         <entry key="..\:/android-owner/app/src/main/res/layout/fragment_orderassignemt_second.xml" value="0.22644927536231885" />
         <entry key="..\:/android-owner/app/src/main/res/layout/fragment_orderlist.xml" value="0.22826086956521738" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_plan_order.xml" value="0.22644927536231885" />
         <entry key="..\:/android-owner/app/src/main/res/layout/fragment_sendcar_mainindex.xml" value="0.22826086956521738" />
         <entry key="..\:/android-owner/app/src/main/res/layout/fragment_sendcarindex.xml" value="0.22826086956521738" />
         <entry key="..\:/android-owner/app/src/main/res/layout/fragment_waitconfirmaccount.xml" value="0.1125" />
         <entry key="..\:/android-owner/app/src/main/res/layout/fragment_waybill_sh.xml" value="0.22644927536231885" />
+        <entry key="..\:/android-owner/app/src/main/res/layout/fragment_yundan.xml" value="0.22644927536231885" />
         <entry key="..\:/android-owner/app/src/main/res/layout/item_assgin_delation.xml" value="0.22644927536231885" />
         <entry key="..\:/android-owner/app/src/main/res/layout/item_constute.xml" value="0.1" />
         <entry key="..\:/android-owner/app/src/main/res/layout/item_logistica_viewpage.xml" value="0.22826086956521738" />

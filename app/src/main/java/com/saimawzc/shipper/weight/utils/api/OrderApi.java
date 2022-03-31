@@ -26,6 +26,7 @@ import com.saimawzc.shipper.dto.order.creatorder.OrderDelationDto;
 import com.saimawzc.shipper.dto.order.creatorder.UntilDto;
 import com.saimawzc.shipper.dto.order.manage.OrderManageDto;
 import com.saimawzc.shipper.dto.order.manage.OrderManageRoleDto;
+import com.saimawzc.shipper.dto.order.selectEndStatuesDto;
 import com.saimawzc.shipper.dto.order.send.ChangeCarDto;
 import com.saimawzc.shipper.dto.order.send.LogistcsDto;
 import com.saimawzc.shipper.dto.order.send.RouteDto;
@@ -47,6 +48,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface OrderApi {
+
 
 
     //获取组织机构
@@ -399,4 +401,10 @@ public interface OrderApi {
     @Headers("Content-Type: application/json")
     @POST("oms/common/disPatchCar/selectWaybillWarnInfo")
     Call<JsonResult<List<WarnInfoDto>>> getWarnInfo(@Body RequestBody array);
+    /***
+     * 是否含有待处理大单
+     */
+    @Headers("Content-Type: application/json")
+    @POST("oms/hz/wayBill/selectEndStatues")
+    Call<JsonResult<selectEndStatuesDto>> selectEndStatues();
 }
